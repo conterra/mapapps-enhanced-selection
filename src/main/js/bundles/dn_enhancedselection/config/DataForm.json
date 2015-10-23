@@ -1,0 +1,139 @@
+{
+    "dataform-version": "1.0.0",
+    "size": {
+        "h": 300,
+        "w": 400
+    },
+    "type": "gridpanel",
+    "showLabels": true,
+    "cols": 1,
+    "children": [
+        {
+            "type": "textarea",
+            "field": "storeIds",
+            "title": "AGS-Store-IDs:",
+            "tooltip": "Please provide an array for the stores you want to use",
+            "required": true,
+            "size":{
+                "l" : 5,
+                "t" : 5,
+                "w" : 200,
+                "h" : 100
+            }
+        },
+        {
+        "type": "selectbox",
+        "field": "distance.unit",
+        "label": "Unit for travel distance",
+        "tooltip": "Please choose an unit",
+        "searchAttribute": "name",
+        "labelAttribute": "name",
+        "values": [
+        {
+            "name": "Meter",
+            "value": "METERS"
+        },
+        {
+            "name": "Kilometer",
+            "value": "KILOMETERS"
+        }
+        ],
+        "required" : true
+    },
+        {
+            "type": "numbertextbox",
+            "field": "distance.minimum",
+            "title": "Minimum travel distance:",
+            "tooltip": "Please provide a minimum travel distance",
+            "required": true,
+            "size":{
+                "l" : 5,
+                "t" : 5,
+                "w" : 100
+            }
+        },
+        {
+            "type": "numbertextbox",
+            "field": "distance.maximum",
+            "title": "Maximum travel distance:",
+            "tooltip": "Please provide a maximum travel distance",
+            "required": true,
+            "size":{
+                "l" : 5,
+                "t" : 5,
+                "w" : 100
+            }
+        },
+        {
+            "type": "numbertextbox",
+            "field": "distance.interval",
+            "title": "Interval between fix slider values:",
+            "tooltip": "Same unit as defined above; You can still enter other values via the textboxes",
+            "required": true,
+            "size":{
+                "l" : 5,
+                "t" : 5,
+                "w" : 100
+            }
+        },
+        {
+            "type": "checkbox",
+            "field": "time.enabled",
+            "title": "Display option for travel time",
+            "tooltip": "Select whether the travel time option should be displayed",
+            "required": true,
+            "size":{
+                "l" : 5,
+                "t" : 5
+            }
+        },
+        {
+            "type": "numbertextbox",
+            "field": "time.minimum",
+            "title": "Minimum travel time (minutes):",
+            "tooltip": "Please provide a minimum travel time (minutes)",
+            "required": true,
+            "size":{
+                "l" : 5,
+                "t" : 5,
+                "w" : 100
+            }
+        },
+        {
+            "type": "numbertextbox",
+            "field": "time.maximum",
+            "title": "Maximum travel time (minutes):",
+            "tooltip": "Please provide a maximum travel time (minutes)",
+            "required": true,
+            "size":{
+                "l" : 5,
+                "t" : 5,
+                "w" : 100
+            }
+        },
+         {
+            "type": "numbertextbox",
+            "field": "time.interval",
+            "title": "Interval between slider fix slider values:",
+            "tooltip": "You can still enter other values via the textboxes",
+            "required": true,
+            "size":{
+                "l" : 5,
+                "t" : 5,
+                "w" : 100
+            }
+        },
+        {
+            "type": "textbox",
+            "field": "geoprocessorUrl",
+            "title": "Geoprocessor URL:",
+            "tooltip": "URL of Geoprocessor for computing drivetime-polygons",
+            "required": true,
+            "size":{
+                "l" : 5,
+                "t" : 5,
+                "w" : 500
+            }
+        }
+    ]
+}

@@ -1,0 +1,593 @@
+{
+    "load": {
+        "bundleLocations": [
+            "localbundles",
+            "bundles"
+        ],
+        "allowedBundles": [
+            "notifier",
+            "contentviewer",
+            "featureinfo",
+            "agssearch",
+            "mapflow",
+            "system",
+            "splashscreen",
+            "map",
+            "themes",
+            "templates",
+            "templatelayout",
+            "windowmanager",
+            "toolset",
+            "toolrules",
+            "basemaptoggler",
+            "selection",
+            "resultcenter",
+            "agssearch",
+            "dn_enhancedselection"
+        ],
+        "skipBundles": [],
+        "require": [
+            "${app}.app"
+        ],
+        "i18n": [
+            "bundle"
+        ]
+    },
+    "bundles": {
+        "agssearch": {
+            "AutoStoreRegistration": {
+                "componentEnabled": true
+            },
+            "AGSStore": [
+                {
+                    "title": "Länder in Europa (Suche auf ArcGIS for Server Map Service)",
+                    "description": "Suche nach Ländern in Europa",
+                    "omniSearchLabelAttr": "cc",
+                    "omniSearchSearchAttr": "cc",
+                    "idProperty": "OBJECTID",
+                    "url": "http://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM/MapServer/0",
+                    "useIn": [
+                        "selection"
+                    ],
+                    "filterOptions": {
+                        "suggestContains": true
+                    },
+                    "omniSearchTypingDelay": 500,
+                    "omniSearchPageSize": 20,
+                    "omniSearchDefaultLabel": "Land...",
+                    "fetchIdProperty": true,
+                    "enablePagination": false,
+                    "id": "bathingwater_1",
+                    "pid": "agssearch-AGSStore-0",
+                    "type": "Dynamisch"
+                },
+                {
+                    "title": "Regions (EU27 Bio Geographical Regions 2011)",
+                    "description": "",
+                    "omniSearchLabelAttr": "name",
+                    "omniSearchSearchAttr": "name",
+                    "idProperty": "OBJECTID",
+                    "url": "http://bio.discomap.eea.europa.eu/arcgis/rest/services/BioRegions/Biogeographicalregions_Dyna_WM/MapServer/0",
+                    "useIn": [
+                        "omnisearch",
+                        "selection"
+                    ],
+                    "filterOptions": {
+                        "suggestContains": true
+                    },
+                    "omniSearchTypingDelay": 500,
+                    "omniSearchPageSize": 20,
+                    "omniSearchDefaultLabel": "Suchbegriff eingeben...",
+                    "fetchIdProperty": true,
+                    "enablePagination": false,
+                    "id": "_AGS_STORE_1441880289977",
+                    "pid": "agssearch-AGSStore-1",
+                    "type": "Dynamisch"
+                },
+                {
+                    "title": "Natura2000 (Query Sites)",
+                    "description": "",
+                    "omniSearchLabelAttr": "SITENAME",
+                    "omniSearchSearchAttr": "SITENAME",
+                    "idProperty": "OBJECTID",
+                    "url": "http://discomap.eea.europa.eu/arcgis/rest/services/Bio/Natura2000_Dyna_WM/MapServer/0",
+                    "useIn": [
+                        "omnisearch",
+                        "surroundings",
+                        "selection"
+                    ],
+                    "filterOptions": {
+                        "suggestContains": true
+                    },
+                    "omniSearchTypingDelay": 500,
+                    "omniSearchPageSize": 20,
+                    "omniSearchDefaultLabel": "Suchbegriff eingeben...",
+                    "fetchIdProperty": true,
+                    "enablePagination": false,
+                    "id": "_AGS_STORE_1441880304099",
+                    "pid": "agssearch-AGSStore-2",
+                    "type": "Dynamisch"
+                },
+                {
+                    "title": "State of bathing waters (Bathing water quality)",
+                    "description": "",
+                    "omniSearchLabelAttr": "cc",
+                    "omniSearchSearchAttr": "cc",
+                    "idProperty": "OBJECTID",
+                    "url": "http://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM/MapServer/0",
+                    "useIn": [
+                        "omnisearch",
+                        "selection"
+                    ],
+                    "filterOptions": {
+                        "suggestContains": true
+                    },
+                    "omniSearchTypingDelay": 500,
+                    "omniSearchPageSize": 20,
+                    "omniSearchDefaultLabel": "Suchbegriff eingeben...",
+                    "fetchIdProperty": true,
+                    "enablePagination": false,
+                    "id": "_AGS_STORE_1441880312351",
+                    "pid": "agssearch-AGSStore-3",
+                    "type": "Dynamisch"
+                },
+                {
+                    "title": "Badegwaesser Zoom",
+                    "description": "Pointlayer is based on Bathing water directive (BWD) database(bathing water locations data as reported for 2014 bathing season). All data in the layer are aggregated by bathing water monitoring locations and bathing waters quality categories for inland and coastal bathing waters together. Layer in the map is visible on scales range from 1:5,000,000 and more detalied. In such cases, individual bathing water monitoring sites are visualized and colored according achived quality class. Symbol size depends on the map scale.",
+                    "omniSearchLabelAttr": "Name",
+                    "omniSearchSearchAttr": "Name",
+                    "idProperty": "OBJECTID",
+                    "url": "http://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM/MapServer/6",
+                    "useIn": [
+                        "selection"
+                    ],
+                    "filterOptions": {
+                        "suggestContains": true
+                    },
+                    "omniSearchTypingDelay": 500,
+                    "omniSearchPageSize": 20,
+                    "omniSearchDefaultLabel": "Suchbegriff eingeben...",
+                    "fetchIdProperty": true,
+                    "enablePagination": false,
+                    "id": "_AGS_STORE_1441959782954"
+                },
+                {
+                    "title": "${agssearch.countries.title}",
+                    "description": "${agssearch.countries.description}",
+                    "omniSearchLabelAttr": "cc",
+                    "omniSearchSearchAttr": "cc",
+                    "idProperty": "OBJECTID",
+                    "url": "http://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM/MapServer/0",
+                    "useIn": [
+                        "omnisearch"
+                    ],
+                    "filterOptions": {
+                        "suggestContains": true
+                    },
+                    "omniSearchTypingDelay": 500,
+                    "omniSearchPageSize": 20,
+                    "omniSearchDefaultLabel": "${agssearch.countries.placeHolder}",
+                    "fetchIdProperty": true,
+                    "id": "bathingwater_1"
+                },
+                {
+                    "title": "Bathingwater",
+                    "description": "",
+                    "omniSearchLabelAttr": "cc",
+                    "omniSearchSearchAttr": "cc",
+                    "idProperty": "OBJECTID",
+                    "url": "http://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM/MapServer/5",
+                    "useIn": [
+                        "selection"
+                    ],
+                    "filterOptions": {
+                        "suggestContains": false
+                    },
+                    "omniSearchTypingDelay": 500,
+                    "omniSearchPageSize": 20,
+                    "omniSearchDefaultLabel": "Enter search string...",
+                    "fetchIdProperty": true,
+                    "id": "bathingwater"
+                },
+                {
+                    "title": "Kreise (Deutschland Kreisgrenzen 2015)",
+                    "description": "",
+                    "omniSearchLabelAttr": "RS",
+                    "omniSearchSearchAttr": "RS",
+                    "idProperty": "OBJECTID",
+                    "url": "https://services.arcgis.com/OLiydejKCZTGhvWg/arcgis/rest/services/Kreisegrenzen_2015_Statistik/FeatureServer//0",
+                    "useIn": [
+                        "omnisearch",
+                        "selection"
+                    ],
+                    "filterOptions": {
+                        "suggestContains": true
+                    }
+                },
+                {
+                    "title": "Cities",
+                    "description": "Cities in Germany (OSM)",
+                    "omniSearchLabelAttr": "name",
+                    "omniSearchSearchAttr": "name",
+                    "idProperty": "OBJECTID",
+                    "url": "http://services.conterra.de/arcgis/rest/services/common/osm_population/MapServer/0",
+                    "useIn": [
+                        "selection",
+                        "omnisearch"
+                    ],
+                    "filterOptions": {
+                        "suggestContains": false
+                    },
+                    "omniSearchTypingDelay": 500,
+                    "omniSearchPageSize": 20,
+                    "omniSearchDefaultLabel": "Enter search string...",
+                    "fetchIdProperty": true,
+                    "id": "germany_populated"
+                },
+                {
+                    "title": "Kreise",
+                    "description": "Cities in Germany (OSM)",
+                    "url": "http://services.conterra.de/arcgis/rest/services/common/kreise/MapServer/0",
+                    "filterOptions": {
+                        "suggestContains": false
+                    },
+                    "omniSearchTypingDelay": 500,
+                    "omniSearchPageSize": 20,
+                    "omniSearchDefaultLabel": "Enter search string...",
+                    "useIn": "surroundings",
+                    "fetchIdProperty": true,
+                    "id": "laender"
+                },
+                {
+                    "title": "Campingsites",
+                    "description": "Campingsites in Germany (OSM)",
+                    "omniSearchLabelAttr": "name",
+                    "omniSearchSearchAttr": "name",
+                    "idProperty": "OBJECTID",
+                    "url": "http://services.conterra.de/arcgis/rest/services/common/osm_camping/MapServer/0",
+                    "useIn": [
+                        "selection",
+                        "omnisearch"
+                    ],
+                    "filterOptions": {
+                        "suggestContains": false
+                    },
+                    "omniSearchTypingDelay": 500,
+                    "omniSearchPageSize": 20,
+                    "omniSearchDefaultLabel": "Enter search string...",
+                    "fetchIdProperty": true,
+                    "id": "germany_camping"
+                }
+            ]
+        },
+        "coordinatetransformer": {
+            "CoordinateTransformer": {
+                "enabled": true,
+                "srsDefinitions": {
+                    "EPSG:31464": "+title=DHDN / 3-degree Gauss-Kruger zone 4 +proj=tmerc +lat_0=0 +lon_0=12 +k=1 +x_0=4500000 +y_0=0 +ellps=bessel +datum=potsdam +units=m +no_defs"
+                },
+                "supportedSrs": [
+                    "EPSG:3857",
+                    "EPSG:25833",
+                    "EPSG:31468"
+                ]
+            },
+            "enabled": true
+        },
+        "dn_enhancedselection": {
+            "DistanceCircleController": {
+                "widgetEnabled": true,
+                "distance": {
+                    "minimum": 0,
+                    "maximum": 1000,
+                    "interval": 50,
+                    "unit": "KILOMETERS"
+                }
+            },
+            "DriveTimeController": {
+                "widgetEnabled": true,
+                "geoprocessorUrl": "http://logistics.arcgis.com/arcgis/rest/services/World/ServiceAreas/GPServer/GenerateServiceAreas",
+                "distance": {
+                    "minimum": 0,
+                    "maximum": 500,
+                    "interval": 50,
+                    "unit": "KILOMETERS"
+                }
+            },
+            "SelectFeatureFromLayerController": {
+                "storeIds": [
+                    "bathingwater_1",
+                    "_AGS_STORE_1441880289977",
+                    "_AGS_STORE_1441880304099"
+                ]
+            },
+            "SrWidgetFactory": {
+                "storeIds": [
+                    "bathingwater_1",
+                    "bathingwater/1",
+                    "regions/0",
+                    "natura2000/1/3",
+                    "_AGS_STORE_1441880289977",
+                    "_AGS_STORE_1441880304099",
+                    "_AGS_STORE_1441880312351",
+                    "_AGS_STORE_1441959782954"
+                ]
+            },
+            "enabled": true
+        },
+        "map": {
+            "MapState": {
+                "initialExtent": {
+                    "xmin": -1100000,
+                    "ymin": 4000000,
+                    "xmax": 3500000,
+                    "ymax": 8800000,
+                    "spatialReference": {
+                        "wkid": 3857
+                    }
+                }
+            },
+            "MapModelFactory": {
+                "_configData": {
+                    "maps": [
+                        {
+                            "id": "default",
+                            "glass_pane": [
+                                {
+                                    "id": "graphics",
+                                    "enabled": "true",
+                                    "graphics": [],
+                                    "renderPriority": -10
+                                }
+                            ],
+                            "operationalLayer": [
+                                {
+                                    "id": "bathingwater",
+                                    "title": "${map.operational.bathingwater.title}",
+                                    "enabled": false,
+                                    "service": "bathingwater",
+                                    "category": {
+                                        "title": "${map.operational.bathingwater.title}",
+                                        "description": "Map is showing bathing monitoring locations and associated attributive data from 2002 till 2012 in more detailed scales and aggregated data by countries. For the scales 1:5.000.001 and less detailed, data are aggregated by country. In such case, stacked bars show percentage of bathing water quality for coastal and inland waters together. Number of bathing waters within certain category is seen in pop up window which can be turned on with a click on single country. For the scale range 1:5 000.000 till1:700,001, individual bathing water sites (points) are visible instead of classified stacked charts and are coloured according the classification of bathing water quality. Symbol size depends on the map scale (in more detailed map scales symbols are bigger). For the scale 1:700,000 and more detailed, symbol of bather in a square appears instead of points. Symbol size depends on the map scale.",
+                                        "imgUrl": "${app}:images/mapCover2.png"
+                                    },
+                                    "opacity": 1,
+                                    "children": [
+                                        {
+                                            "id": "0",
+                                            "title": "${map.operational.bathingwater.title2}",
+                                            "enabled": true,
+                                            "layers": [
+                                                "*"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "germany_populated",
+                                    "title": "Populated Places in Germany(OSM)",
+                                    "enabled": false,
+                                    "service": "germany_populated",
+                                    "category": {
+                                        "imgUrl": "${app}:images/defaultCover.png"
+                                    },
+                                    "children": [
+                                        {
+                                            "layer": "0",
+                                            "enabled": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "germany_camping",
+                                    "title": "Campingsites Places in Germany(OSM)",
+                                    "enabled": false,
+                                    "service": "germany_camping",
+                                    "category": {
+                                        "imgUrl": "${app}:images/defaultCover.png"
+                                    },
+                                    "children": [
+                                        {
+                                            "layer": "0",
+                                            "enabled": true
+                                        }
+                                    ]
+                                }
+                            ],
+                            "baseLayer": [
+                                {
+                                    "id": "background1",
+                                    "title": "${map.base.aerial.title}",
+                                    "enabled": false,
+                                    "service": "worldimage"
+                                },
+                                {
+                                    "id": "background2",
+                                    "title": "${map.base.topo.title}",
+                                    "enabled": true,
+                                    "service": "worldtopo"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "MappingResourceRegistryFactory": {
+                "_knownServices": {
+                    "services": [
+                        {
+                            "id": "worldimage",
+                            "url": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer",
+                            "type": "AGS_TILED",
+                            "title": "${map.base.aerial.title}",
+                            "description": "${map.base.aerial.description}"
+                        },
+                        {
+                            "id": "worldtopo",
+                            "url": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
+                            "type": "AGS_TILED",
+                            "title": "${map.base.topo.title}",
+                            "description": "${map.base.topo.description}"
+                        },
+                        {
+                            "id": "streets",
+                            "description": "${map.base.streets.description}",
+                            "url": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer",
+                            "type": "AGS_TILED",
+                            "title": "${map.base.streets.title}"
+                        },
+                        {
+                            "id": "bathingwater",
+                            "url": "http://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM/MapServer",
+                            "type": "AGS_DYNAMIC",
+                            "title": "State of bathing waters",
+                            "description": "<DIV STYLE=\"text-align:Left;\"><DIV><P><SPAN>Map shows monitoring water locations and quality of bathing water from 2004 till 2014. For the scale 1:5.000.001 and less detailed, data are aggregated by country. In such case, stacked bars show percentage of bathing water quality for coastal and inland waters together. Number of bathing waters within certain category is seen in pop up window which can be turned on with a click on one of the countries. For the scale range 1:5 000.000 to 1:700,001, individual bathing water sites (points) are visible instead of classified stacked charts and are coloured according to the classification of bathing water quality. Symbol size depends on the map scale (in more detailed map scales symbols are bigger). For the scales 1:700,000 and more detailed, symbol of bather in a square appears instead of points. All symbols (charts, circles and squares with bather) are coloured according to achieved quality status. Historical data is seen in pop-up windows which can be opened with a click on individual bathing water monitoring site. Assessment is done according to assessment rules of the Directive 2006/7/EC (classification into categories Excellent, Good, Sufficient...) and of the Directive76/160/EEC (classification into categories CG, CI, NC...). Monitoring requirements such as the taking of a pre-season sample, a minimum of four samples per season and a minimum of one sample per month must be met for all bathing waters. If these rules are satisfied, the bathing water is categorised as 'sampling frequency satisfied'. If at least one monitoring requirement is not fulfilled the bathing water is categorised as 'sampling frequency not satisfied'. In such cases, bathing water can still be quality assessed if at least four samples per season (three samples if the season does not exceed eight weeks or the region is subject to special geographical constraints) are available and are more or less equally distributed throughout the season. Assessment of bathing water quality is possible when the bathing-water sample dataset is available for four consecutive seasons. Bathing waters are accordingly classified to one of the bathing-water quality classes (excellent, good, sufficient, or poor). If intestinal enterococci and Escherichia coli sample datasets for four consecutive seasons are not yet available, the assessment of bathing water quality is made by using the data from the latest year only. In this case, the assessment of bathing water quality is conducted under a set of transitional rules.</SPAN><SPAN> </SPAN><SPAN>Bathing waters are accordingly classified</SPAN><SPAN> into quality categories: </SPAN><SPAN>CG, CI, NC</SPAN><SPAN>.</SPAN></P></DIV></DIV>",
+                            "layers": [
+                                {
+                                    "id": "0",
+                                    "title": "Bathing water quality",
+                                    "maxScale": 30000001,
+                                    "enabled": true
+                                },
+                                {
+                                    "id": "1",
+                                    "title": "Bathing water quality",
+                                    "maxScale": 5000001,
+                                    "minScale": 30000000,
+                                    "enabled": true
+                                },
+                                {
+                                    "id": "2",
+                                    "title": "Bathing water quality",
+                                    "maxScale": 3000001,
+                                    "minScale": 5000000,
+                                    "enabled": true
+                                },
+                                {
+                                    "id": "3",
+                                    "title": "Bathing water quality",
+                                    "maxScale": 700001,
+                                    "minScale": 3000000,
+                                    "enabled": true
+                                },
+                                {
+                                    "id": "4",
+                                    "title": "Bathing water quality",
+                                    "maxScale": 500001,
+                                    "minScale": 700000,
+                                    "enabled": true
+                                },
+                                {
+                                    "id": "5",
+                                    "title": "Bathing water quality",
+                                    "maxScale": 200001,
+                                    "minScale": 500000,
+                                    "enabled": true
+                                },
+                                {
+                                    "id": "6",
+                                    "title": "Bathing water quality",
+                                    "minScale": 200000,
+                                    "enabled": true
+                                }
+                            ]
+                        },
+                        {
+                            "id": "germany_populated",
+                            "url": "http://services.conterra.de/arcgis/rest/services/common/osm_population/MapServer",
+                            "type": "AGS_DYNAMIC",
+                            "title": "Populated Places in Germany(OSM)",
+                            "description": "Populated Places in Germany",
+                            "layers": [
+                                {
+                                    "id": "0",
+                                    "title": "population"
+                                }
+                            ],
+                            "options": {
+                                "outFields": [
+                                    "geometry"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "germany_camping",
+                            "url": "http://services.conterra.de/arcgis/rest/services/common/osm_camping/MapServer",
+                            "type": "AGS_DYNAMIC",
+                            "title": "Campingsites in Germany(OSM)",
+                            "description": "Campingsites in Germany",
+                            "layers": [
+                                {
+                                    "id": "0",
+                                    "title": ""
+                                }
+                            ],
+                            "options": {
+                                "outFields": [
+                                    "*"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "templates": {
+            "TemplateSelector": {
+                "componentEnabled": false
+            },
+            "TemplateModel": {
+                "_selectedTemplate": "seasons",
+                "_templates": [
+                    {
+                        "name": "seasons",
+                        "widgets": [
+                            {
+                                "role": "surroundings",
+                                "window": {
+                                    "marginBox": {
+                                        "w": 290,
+                                        "h": 450,
+                                        "t": 110,
+                                        "l": 20
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "toolrules": {
+            "ToolActiveStateManager": {
+                "activateOnStartToolIds": [
+                    "surroundingsToggleTool"
+                ]
+            }
+        },
+        "toolset": {
+            "ToolsetManager": {
+                "toolsets": [
+                    {
+                        "id": "position_tools",
+                        "title": "",
+                        "tools": [
+                            "surroundingsToggleTool"
+                        ],
+                        "container": "map",
+                        "cssClass": "noTitleBarAndWindowTools",
+                        "windowType": "fixed",
+                        "templates": {
+                            "*": {
+                                "position": {
+                                    "rel_t": 20,
+                                    "rel_l": 20
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

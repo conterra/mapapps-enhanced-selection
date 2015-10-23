@@ -1,0 +1,74 @@
+{
+  "dataform-version": "1.0.0",
+  "size": {
+    "h": 300,
+    "w": 400
+  },
+  "type": "gridpanel",
+  "showLabels": true,
+  "cols": 1,
+  "children": [
+    {
+      "type": "checkbox",
+      "field": "widgetEnabled",
+      "title": "${ui.enable}",
+      "tooltip": "${ui.enableTooltip}",
+      "required": true
+    },
+    {
+      "type": "selectbox",
+      "field": "distance.unit",
+      "label": "${ui.distance.unit.title}",
+      "tooltip": "${ui.distance.unit.tooltip}",
+      "searchAttribute": "name",
+      "labelAttribute": "name",
+      "values": [
+        {
+          "name": "${ui.distance.meter}",
+          "value": "METERS"
+        },
+        {
+          "name": "${ui.distance.kilometer}",
+          "value": "KILOMETERS"
+        }
+      ],
+      "required" : true
+    },
+    {
+      "type": "numbertextbox",
+      "field": "distance.minimum",
+      "title": "${ui.distance.minimum.title}",
+      "tooltip": "${ui.distance.minimum.tooltip}",
+      "required": true,
+      "size":{
+        "l" : 5,
+        "t" : 5,
+        "w" : 100
+      }
+    },
+    {
+      "type": "numbertextbox",
+      "field": "distance.maximum",
+      "title": "${ui.distance.maximum.title}",
+      "tooltip": "${ui.distance.maximum.tooltip}",
+      "required": true,
+      "size":{
+        "l" : 5,
+        "t" : 5,
+        "w" : 100
+      }
+    },
+    {
+      "type": "numbertextbox",
+      "field": "distance.interval",
+      "title": "${ui.distance.interval.title}",
+      "tooltip": "${ui.distance.interval.tooltip}",
+      "required": true,
+      "size":{
+        "l" : 5,
+        "t" : 5,
+        "w" : 100
+      }
+    }
+  ]
+}

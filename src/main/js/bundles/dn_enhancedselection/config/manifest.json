@@ -1,0 +1,233 @@
+{
+  "Bundle-SymbolicName": "surroundings-config",
+  "Bundle-Version": "1.0",
+  "Bundle-Name": "Surroundings config",
+  "Bundle-Description": "Configuration bundle for Surroundings",
+  "Bundle-Vendor": "con terra GmbH",
+  "Require-Bundle": [
+    {
+      "name": "dataform",
+      "version": "[3.0.0,)",
+      "policy": "optional"
+    },
+    {
+      "name": "wizard",
+      "version": "[3.0.0,)"
+    }
+  ],
+  "Components": [
+    {
+      "name": "BuilderEntry",
+      "impl": "ct/Stateful",
+      "provides": [
+        "wizard.MenuEntry"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+        "parentNodeId": "appBuilderSearchNode",
+        "menuNode": {
+          "title": "${title}",
+          "description": "${description}",
+          "iconUrl": "resource('icons/complexselection.png')",
+          "children": [
+            {
+              "title": "${ui.base.menuTitle}",
+              "iconUrl": "resource('icons/baseconfig.png')",
+              "widget": "surroundingsBaseWidget"
+            },
+            {
+              "title": "${ui.distance.menuTitle}",
+              "iconUrl": "resource('icons/distanz.png')",
+              "widget": "surroundingsDistanceWidget"
+            },
+            {
+              "title": "${ui.drivetime.menuTitle}",
+              "iconUrl": "resource('icons/fahrzeit.png')",
+              "widget": "driveTimeWidget"
+            },
+            {
+              "title": "${ui.freehandpolygon.menuTitle}",
+              "iconUrl": "resource('icons/freihand.png')",
+              "widget": "freehandPolygonWidget"
+            },
+            {
+              "title": "${ui.selectfeaturefromlayer.menuTitle}",
+              "iconUrl": "resource('icons/gebietsauswahl.png')",
+              "widget": "selectFeatureFromWidget"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "StoreSelection",
+      "provides": [
+        "dijit.wizard.Widget"
+      ],
+      "immediate": true,
+      "instanceFactory": true,
+      "properties": {
+        "widgetProperties": {
+          "bid": "surroundings",
+          "pid": "surroundings-SrWidgetFactory",
+          "id": "surroundingsBaseWidget"
+        },
+        "defaultProperties": {
+          "storeIds": []
+        },
+        "description": "${ui.base.description}"
+      },
+      "references": [
+        {
+          "name": "_configAdminService",
+          "providing": "ct.framework.api.ConfigurationAdmin"
+        },
+        {
+          "name": "_dataformService",
+          "providing": "dataform.DataFormService"
+        },
+        {
+          "name": "surroundingStore",
+          "providing": "ct.api.Store",
+          "cardinality": "1..n",
+          "filter": "(useIn=selection)"
+        }
+      ]
+    },
+    {
+      "name": "SelectFeatureFromLayerStoreSelection",
+      "provides": [
+        "dijit.wizard.Widget"
+      ],
+      "immediate": true,
+      "instanceFactory": true,
+      "properties": {
+        "widgetProperties": {
+          "bid": "surroundings",
+          "pid": "surroundings-SelectFeatureFromLayerController",
+          "id": "selectFeatureFromWidget"
+        },
+        "defaultProperties": {
+          "storeIds": []
+        },
+        "description": "${ui.selectfeaturefromlayer.description}"
+      },
+      "references": [
+        {
+          "name": "_configAdminService",
+          "providing": "ct.framework.api.ConfigurationAdmin"
+        },
+        {
+          "name": "_dataformService",
+          "providing": "dataform.DataFormService"
+        },
+        {
+          "name": "surroundingStore",
+          "providing": "ct.api.Store",
+          "cardinality": "1..n",
+          "filter": "(useIn=selection)"
+        }
+      ]
+    },
+    {
+      "name": "DistanceWidget",
+      "impl": "wizard/DataFormBuilderWidgetFactory",
+      "provides": [
+        "dijit.wizard.Widget"
+      ],
+      "immediate": true,
+      "instanceFactory": true,
+      "properties": {
+        "dataformFile": "resource('./DistanceWidget.json')",
+        "bid": "surroundings",
+        "pid": "surroundings-DistanceCircleController",
+        "id": "surroundingsDistanceWidget",
+        "defaultProperties": {
+          "widgetEnabled": true,
+          "distance": {
+            "minimum": 0,
+            "maximum": 5000,
+            "interval": 50,
+            "unit": "KILOMETERS"
+          }
+        },
+        "description": "${ui.distance.description}"
+      },
+      "references": [
+        {
+          "name": "_configAdminService",
+          "providing": "ct.framework.api.ConfigurationAdmin"
+        },
+        {
+          "name": "_dataformService",
+          "providing": "dataform.DataFormService"
+        }
+      ]
+    },
+    {
+      "name": "DriveTimeWidget",
+      "impl": "wizard/DataFormBuilderWidgetFactory",
+      "provides": [
+        "dijit.wizard.Widget"
+      ],
+      "immediate": true,
+      "instanceFactory": true,
+      "properties": {
+        "dataformFile": "resource('./DriveTimeWidget.json')",
+        "bid": "surroundings",
+        "pid": "surroundings-DriveTimeController",
+        "id": "driveTimeWidget",
+        "defaultProperties": {
+          "widgetEnabled": true,
+          "geoprocessorUrl": "http://logistics.arcgis.com/arcgis/rest/services/World/ServiceAreas/GPServer/GenerateServiceAreas",
+          "distance": {
+            "minimum": 0,
+            "maximum": 5000,
+            "interval": 50,
+            "unit": "KILOMETERS"
+          }
+        },
+        "description": "${ui.drivetime.description}"
+      },
+      "references": [
+        {
+          "name": "_configAdminService",
+          "providing": "ct.framework.api.ConfigurationAdmin"
+        },
+        {
+          "name": "_dataformService",
+          "providing": "dataform.DataFormService"
+        }
+      ]
+    },
+    {
+      "name": "FreehandPolygonWidget",
+      "impl": "wizard/DataFormBuilderWidgetFactory",
+      "provides": [
+        "dijit.wizard.Widget"
+      ],
+      "immediate": true,
+      "instanceFactory": true,
+      "properties": {
+        "dataformFile": "resource('./FreehandPolygonWidget.json')",
+        "bid": "surroundings",
+        "pid": "surroundings-FreehandPolygonController",
+        "id": "freehandPolygonWidget",
+        "defaultProperties": {
+          "widgetEnabled": true
+        },
+        "description": "${ui.drivetime.description}"
+      },
+      "references": [
+        {
+          "name": "_configAdminService",
+          "providing": "ct.framework.api.ConfigurationAdmin"
+        },
+        {
+          "name": "_dataformService",
+          "providing": "dataform.DataFormService"
+        }
+      ]
+    }
+  ]
+}
