@@ -18,49 +18,49 @@ define({
         bundleName: "Enhanced Selection",
         bundleDescription: "This bunlde provides tools for enhanced selection.",
         error: {
-            failedQuery: "Anfrage fehlgeschlagen"
+            failedQuery: "Query failed"
         },
         warning: {
-            resultErrorWarning: "Ergebnisse konnten nicht geladen werden: ",
-            polygonErrorWarning: "Polygon konnte nicht berechnet werden: ",
-            noToolSelectedWarning: "Bitte w\u00E4hlen sie zuerst mithilfe der Werkzeuge eine Startposition aus",
-            noQueryParams: "Store gefunden aber keine Anfrage spezifiziert",
-            noResultsAdressSearch: "Keine Ergebnisse gefunden: "
+            resultErrorWarning: "Results could not be loaded: ",
+            polygonErrorWarning: "Polygon could not be calculated: ",
+            noToolSelectedWarning: "Please select a start point with help of a tool first.",
+            noQueryParams: "Store found, but no query parameters specified.",
+            noResultsAdressSearch: "No results found: "
         },
         info: {
-            noResultsAreaInfo: "Keine Ergebnisse in deisem Gebiet"
+            noResultsAreaInfo: "No results in this area."
         },
         ui: {
-            relWithin: "Enthalten In",
-            relTouches: "Ber\u00FChrt",
+            relWithin: "Within",
+            relTouches: "Touches",
             title: "Enhanced Selection",
-            storeSelector: "Bitte w\u00E4hlen sie ein Suchthema",
-            selectSpatialRel: "Geometrische Beziehung",
+            storeSelector: "Please pick a selection topic",
+            selectSpatialRel: "Spatial relation",
             selectionTools: {
                 distance: {
-                    title: "\u00FCber Umkreisdefinition"
+                    title: "By Distance"
                 },
                 travelTime: {
-                    title: "\u00FCber Erreichbarkeitsberechnung",
-                    desc: "Entfernung nach Fahrzeit (ArcGIS-Online Account ben\u00F6tigt)"
+                    title: "By Travel Time",
+                    desc: "Distance by travel time (ArcGIS-Online Account required)"
                 },
                 selectFeatureFromStore: {
-                    title: "\u00FCber Gebietsauswahl",
-                    desc: "Suchbereich einschr\u00E4nken auf Basis von",
-                    selectStore: "Suchthema"
+                    title: "By Area Selection",
+                    desc: "Restrict search area based on",
+                    selectStore: "Search Topic"
                 },
                 freehandPolygon: {
-                    title: "\u00FCber Freihandpolygon",
-                    desc: "Suchbereich einschr\u00E4nken auf Basis von Freihandpolygon"
+                    title: "By Freehand Polygon",
+                    desc: "Restrict search area based on a freehand polygon."
 
                 }
             },
-            between: "Zwischen",
-            and: "und",
-            minutes: "Minuten",
-            chooseStart: "Start w\u00E4hlen",
-            searchButton: "Suche",
-            resetButton: "Zur\u00FCcksetzen"
+            between: "Between",
+            and: "and",
+            minutes: "Minutes",
+            chooseStart: "Choose Start",
+            searchButton: "Search",
+            resetButton: "Reset"
         },
         toggleTool: {
             title: "Enhanced Selection",
