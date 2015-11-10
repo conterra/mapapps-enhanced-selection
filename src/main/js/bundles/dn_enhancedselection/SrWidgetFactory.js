@@ -54,7 +54,7 @@ define([
         createInstance: function () {
             var srBaseWidget = this.baseWidget;
             if (!srBaseWidget.storeSelect) {
-                return
+                return;
             }
             d_array.forEach(this.selectionOptions, function (item) {
                 srBaseWidget.storeSelect.addOption({

@@ -27,14 +27,13 @@ define([
             var properties = this._properties;
             if (!properties.widgetEnabled) {
                 var componentName = this.componentName;
-                ct_async(function(){
+                ct_async(function () {
                     componentContext.disableComponent(componentName)
-                },0);
+                }, 0);
                 return;
             }
             this._initWidget();
         },
-
         _initWidget: function () {
             var freehandPolygonWidget = this.freehandPolygonWidget;
             this.disconnect();
@@ -44,11 +43,9 @@ define([
             var i18n = this._i18n.get().ui.selectionTools.freehandPolygon;
             freehandPolygonWidget.set("tooltip", i18n.tooltip);
         },
-
         geometryDrawn: function (evt) {
             this._inputGeometry = evt.getProperty("geometry");
         },
-
         draw: function (geometryType) {
             this.drawGeometryHandler.allowUserToDrawGeometry(geometryType || this.geometryType);
         },
@@ -62,16 +59,13 @@ define([
                 componentContext.disableComponent(componentName);
             }
         },
-
         setFreehandPolygonWidget: function (widget) {
             this.freehandPolygonWidget = widget;
             this._initWidget();
         },
-
         unsetFreehandPolygonWidget: function () {
             this.disconnect();
         },
-
         onSelected: function () {
             var geometryType = this.geometryType;
             this.draw(geometryType);
@@ -79,7 +73,6 @@ define([
                 geometryType: geometryType
             });
         },
-
         search: function (store, spatialRel) {
             var geometry = this._inputGeometry;
             if (!geometry) {

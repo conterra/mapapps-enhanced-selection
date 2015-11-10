@@ -29,7 +29,7 @@ define([
         },
 
         queryStore: function (geometry, store, geomRel) {
-            var geometryQuery;
+            //var geometryQuery;
             var selectionAction = this.selectionAction;
             selectionAction.selectionParameter = {};
             selectionAction.selectionParameter.operator = "$"+geomRel;

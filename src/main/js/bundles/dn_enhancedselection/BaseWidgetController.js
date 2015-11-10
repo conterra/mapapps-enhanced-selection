@@ -23,7 +23,6 @@ define([
     "ct/ui/desktop/util"
 ], function (declare, d_array, i18n, _Connect, dijit_registry, ServiceResolver, windowUtil) {
     return declare([_Connect], {
-
         activate: function (cpCtx) {
             this.serviceResolver = new ServiceResolver();
             var bundleCtx = cpCtx.getBundleContext();
@@ -31,7 +30,6 @@ define([
             this._init();
 
         },
-
         _init: function () {
             var srBaseWidget = this.baseWidget;
             srBaseWidget.searchButton.set("iconClass", "icon-magnifier");
@@ -52,32 +50,26 @@ define([
                 fillSymbol: controller.get("fillSymbol")
             };
         },
-
         userDrawInputGeometry: function () {
             this._eventService.postEvent("ct/surroundings/DRAW_GEOMETRY");
         },
-
         getStore: function () {
             var id = this.baseWidget.storeSelect.get("value");
             return this.serviceResolver.getService("ct.api.Store", "(id=" + id + ")");
         },
-
         searchFinished: function () {
             var srBaseWidget = this.baseWidget;
             srBaseWidget.searchButton.set("iconClass", "icon-magnifier");
         },
-
         geometryDrawn: function () {
             var srBaseWidget = this.baseWidget;
             srBaseWidget.searchButton.set("disabled", false);
         },
-
         widgetSelected: function () {
             var srBaseWidget = this.baseWidget;
             srBaseWidget.searchButton.set("disabled", true);
             this.drawGeometryHandler.clearGraphics();
         },
-
         search: function () {
             var srBaseWidget = this.baseWidget;
             srBaseWidget.searchButton.set("iconClass", "icon-spinner");
@@ -87,7 +79,6 @@ define([
             var selectedChild = contentNode.get("selectedChildWidget");
             selectedChild.search(this.getStore(), spatialRel);
         },
-
         reset: function () {
             this.drawGeometryHandler.clearGraphics();
             var baseWidget = this.baseWidget;
@@ -97,7 +88,6 @@ define([
             baseWidget.searchButton.set("disabled", true);
             this._dataModel.setDatasource();
         },
-
         deactivateWidget: function () {
             this.drawGeometryHandler.deactivateDraw();
             this.drawGeometryHandler.clearGraphics();

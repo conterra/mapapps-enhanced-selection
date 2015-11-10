@@ -33,7 +33,6 @@ define([
 
     return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
         templateString: "",
-
         constructor: function (properties) {
             var templateStringContent;
             this.ui = i18n.ui;
@@ -58,7 +57,6 @@ define([
             }
             this.set("templateString", templateStringContent);
         },
-
         reenable: function () {
         },
         search: function (evt) {
@@ -73,7 +71,6 @@ define([
             //    domNode.parentNode.addChild(domNode);
             //}
         },
-
         hide: function () {
             //css.switchHidden(this.domNode.parentNode, true);
             //var domNode = this.domNode;

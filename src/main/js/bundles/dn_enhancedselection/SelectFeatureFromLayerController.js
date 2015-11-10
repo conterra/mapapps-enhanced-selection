@@ -32,7 +32,6 @@ define([
         componentName: "SelectFeatureFromLayerWidget",
         constructor: function () {
         },
-
         activate: function (componentContext) {
             var serviceResolver = this.serviceResolver = new ServiceResolver();
             var bundleCtx = componentContext.getBundleContext();
@@ -47,7 +46,6 @@ define([
             }
             this._initWidget();
         },
-
         getStoreProperties: function (idOrStore) {
             var resolver = this.serviceResolver;
             if (typeof (idOrStore) === "string") {
@@ -55,7 +53,6 @@ define([
             }
             return resolver.getServiceProperties(idOrStore);
         },
-
         _initWidget: function () {
             var selectFeatureFromLayerWidget = this.selectFeatureFromLayerWidget;
             var storeSelectionSelect = selectFeatureFromLayerWidget.storeSelectionSelect;
@@ -73,25 +70,21 @@ define([
                 var storeProperties = this.getStoreProperties(storeId);
                 if (storeProperties) {
                     storeSelectionSelect.addOption(
-                        {
-                            label: storeProperties.title,
-                            value: storeId
-                        }
+                            {
+                                label: storeProperties.title,
+                                value: storeId
+                            }
                     );
                 }
             }, this);
         },
-
         setSelectFeatureFromLayerWidget: function (widget) {
             this.selectFeatureFromLayerWidget = widget;
             this._initWidget();
         },
-
         unsetSelectFeatureFromLayerWidget: function () {
             this.disconnect();
         },
-
-
         geometryDrawn: function (evt) {
             var geom = evt.getProperty("geometry");
             var selectFeatureFromLayerWidget = this.selectFeatureFromLayerWidget;
@@ -118,15 +111,12 @@ define([
                 }
             }, this)
         },
-
         getStore: function (id) {
             return this.serviceResolver.getService("ct.api.Store", "(id=" + id + ")");
         },
-
         draw: function (geometryType) {
             this.drawGeometryHandler.allowUserToDrawGeometry(geometryType || this.geometryType);
         },
-
         //addTopicStore: function (store, serviceproperties) {
         //    var selectFeatureFromLayerWidget = this.selectFeatureFromLayerWidget;
         //    var index = d_array.indexOf(this._properties.storeIds, serviceproperties.id);
@@ -152,7 +142,6 @@ define([
                 geometryType: geometryType
             });
         },
-
         modified: function (componentContext) {
             var properties = this._properties;
             var componentName = this.componentName;
@@ -164,7 +153,6 @@ define([
                 componentContext.disableComponent(componentName);
             }
         },
-
         search: function (store, spatialRel) {
             var geometry = this._inputGeometry;
             if (!geometry) {

@@ -31,20 +31,18 @@ define([
         componentName: "DriveTimeWidget",
         constructor: function (properties) {
         },
-
         activate: function (componentContext) {
             var properties = this._properties;
             var properties = this._properties;
             if (!properties.widgetEnabled) {
                 var componentName = this.componentName;
-                ct_async(function(){
+                ct_async(function () {
                     componentContext.disableComponent(componentName)
-                },0);
+                }, 0);
                 return;
             }
             this._initWidget();
         },
-
         _initWidget: function () {
             var i18n = this._i18n.get().ui.selectionTools.travelTime;
             var timeSliderProps = this._properties.time;
@@ -93,7 +91,6 @@ define([
             };
             this._createGeoprocessor()
         },
-
         modified: function (componentContext) {
             var properties = this._properties;
             var componentName = this.componentName;
@@ -105,25 +102,19 @@ define([
                 componentContext.disableComponent(componentName);
             }
         },
-
         geometryDrawn: function (evt) {
             this._inputGeometry = evt.getProperty("geometry");
         },
-
         draw: function (geometryType) {
             this.drawGeometryHandler.allowUserToDrawGeometry(geometryType || this.geometryType);
         },
-
-
         setDriveTimeWidget: function (widget) {
             this.driveTimeWidget = widget;
             this._initWidget();
         },
-
         unsetDriveTimeWidget: function () {
             this.disconnect();
         },
-
         _createGeoprocessor: function () {
             this.gp = new Geoprocessor(this._properties.geoprocessorUrl);
 
@@ -150,7 +141,6 @@ define([
         onTimeSliderChange: function (event) {
             this.driveTimeWidget.timeText.setAttribute("value", event);
         },
-
         onTimeInputChange: function () {
             var driveTimeWidget = this.driveTimeWidget;
             var timeValidationTb = driveTimeWidget.timeText;
@@ -165,7 +155,6 @@ define([
                 geometry: geometryType
             });
         },
-
         search: function (store, spatialRel) {
             var driveTimeWidget = this.driveTimeWidget;
             this.selectedStore = store;
@@ -190,7 +179,6 @@ define([
             this.gp.submitJob(params);
             this.drawGeometryHandler.drawDistanceText(geometry, minutes + "minutes");
         },
-
         deactivate: function () {
             this.disconnect();
         }

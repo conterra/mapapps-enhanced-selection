@@ -38,7 +38,6 @@ define([
             this.distanceCircleWidget && this._initWidget();
 
         },
-
         modified: function (componentContext) {
             var properties = this._properties;
             var componentName = this.componentName;
@@ -50,16 +49,13 @@ define([
                 componentContext.disableComponent(componentName);
             }
         },
-
         setDistanceCircleWidget: function (widget) {
             this.distanceCircleWidget = widget;
             this._initWidget();
         },
-
         unsetDistanceCircleWidget: function () {
             this.disconnect();
         },
-
         _initWidget: function () {
             var distanceWidget = this.distanceCircleWidget;
             var distanceSliderProps = this._properties.distance;
@@ -126,13 +122,11 @@ define([
             };
             distanceWidget.show();
         },
-
         onDistanceSliderChange: function (event) {
             var distanceWidget = this.distanceCircleWidget;
             distanceWidget.distFromText.setAttribute("value", event[0]);
             distanceWidget.distToText.setAttribute("value", event[1]);
         },
-
         onDistInputChange: function () {
             var distanceWidget = this.distanceCircleWidget;
             var fromValid = distanceWidget.distFromText.isValid();
@@ -151,15 +145,12 @@ define([
                 distanceWidget.distanceSlider.set("value", [oldFromValue, newToValue]);
             }
         },
-
         draw: function (geometryType) {
             this.drawGeometryHandler.allowUserToDrawGeometry(geometryType || this.geometryType);
         },
-
         geometryDrawn: function (evt) {
             this._inputGeometry = evt.getProperty("geometry");
         },
-
         onSelected: function () {
             var geometryType = this.geometryType;
             this.draw(geometryType);
@@ -167,7 +158,6 @@ define([
                 geometryType: geometryType
             });
         },
-
         search: function (store, spatialRel) {
             var distanceWidget = this.distanceCircleWidget;
             var geometry = this._inputGeometry;
@@ -185,21 +175,20 @@ define([
             this._mapState.setExtent(extent);
             if (minDistance === 0) {
                 this.drawGeometryHandler.drawDistanceText(geometry,
-                    maxDistance + radiusUnitShort
-                );
+                        maxDistance + radiusUnitShort
+                        );
             } else {
                 this.drawGeometryHandler.drawDistanceText(geometry,
-                    minDistance + radiusUnitShort +
-                    " - " +
-                    maxDistance + radiusUnitShort
-                );
+                        minDistance + radiusUnitShort +
+                        " - " +
+                        maxDistance + radiusUnitShort
+                        );
 
             }
             this.queryController.queryStore(featureGeometry, store, spatialRel);
         },
-
         deactivate: function (componentContext) {
-         //   componentContext.disableComponent(this.componentName);
+            //   componentContext.disableComponent(this.componentName);
             this.disconnect();
             this.geometryType = null;
             this.radiusUnitShort = null;

@@ -28,25 +28,24 @@ define([
 ], function (declare, _Connect, GraphicsRenderer, Color, Circle, Font, TextSymbol, SimpleFillSymbol, SimpleLineSymbol, d_Color) {
 
     return declare([_Connect], {
-
         activate: function () {
             this.graphicsRenderer = GraphicsRenderer.createForGraphicsNode("srInputGeometry", this._mapModel);
+            this.graphicsRenderer.get("graphicsNode").set("renderPriority", -100);
             if (this.graphicsRenderer.get("hasNodeCreated")) {
                 this._mapModel.fireModelStructureChanged({
                     source: this
                 });
             }
             var drawController = this._drawController;
+
             drawController.set("fillSymbol", this._getSymbolForPolygon());
         },
-
         allowUserToDrawGeometry: function (geoType) {
             this.deactivateDraw();
             var drawController = this._drawController;
             this.connect("draw", drawController, "onGeometryDrawn", this._handleGeometryDrawn);
             drawController["activateDraw" + geoType]();
         },
-
         drawGeometry: function (geometry) {
             var graphicsRenderer = this.graphicsRenderer;
             var feature = {
@@ -58,7 +57,6 @@ define([
             graphicsRenderer.draw(feature);
             return feature;
         },
-
         clearGraphics: function () {
             var graphicsRenderer = this.graphicsRenderer;
             graphicsRenderer.clear();
@@ -73,11 +71,10 @@ define([
             graphicsRenderer.clear();
             this.drawGeometry(geometry);
             this._eventService.postEvent("ct/surroundings/GEOMETRY_DRAWN",
-                {
-                    geometry: geometry
-                });
+                    {
+                        geometry: geometry
+                    });
         },
-
         drawCircle: function (center, minDistance, maxDistance, radiusUnit) {
             var outerCircle = new Circle(center, {
                 "radius": maxDistance,
@@ -92,7 +89,6 @@ define([
                 var ring = innerCircle.rings[0];
                 outerCircle.addRing(ring.reverse());
             }
-
             var symbol = this._getSymbolForPolygon();
             var feature = {
                 "geometry": outerCircle,
@@ -105,17 +101,16 @@ define([
             this.surroundingsPolygon = this.graphicsRenderer.draw(feature);
             return feature;
         },
-
         _getSymbolForPolygon: function () {
             return new SimpleFillSymbol(
-                SimpleFillSymbol.STYLE_SOLID,
-                new SimpleLineSymbol(
-                    SimpleLineSymbol.STYLE_DASHDOT,
-                    new Color([0, 0, 0]),
-                    2
-                ),
-                new Color([0, 150, 255, 0.1])
-            );
+                    SimpleFillSymbol.STYLE_SOLID,
+                    new SimpleLineSymbol(
+                            SimpleLineSymbol.STYLE_DASHDOT,
+                            new Color([0, 0, 0]),
+                            2
+                            ),
+                    new Color([0, 150, 255, 0.1])
+                    );
         },
         drawDistanceText: function (geometry, text) {
             var font = new Font();
@@ -132,10 +127,10 @@ define([
                 this.graphicsRenderer.erase(this.descriptionText);
             }
             this.descriptionText = this.graphicsRenderer.draw(
-                {
-                    geometry: geometry,
-                    symbol: textSymbol
-                }
+                    {
+                        geometry: geometry,
+                        symbol: textSymbol
+                    }
             );
         }
     });

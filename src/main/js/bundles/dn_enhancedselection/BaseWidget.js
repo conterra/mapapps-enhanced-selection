@@ -33,11 +33,9 @@ define([
     return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
         childWidgets: [],
         templateString: templateStringContentShort,
-
         constructor: function () {
             this.ui = i18n.ui;
         },
-
         startup: function () {
             this.inherited(arguments);
             //ct_async(this.setSize, this, 0);
@@ -51,10 +49,8 @@ define([
         // onReset event        
         onReset: function (event) {
         },
-
         deactivateWidget: function (event) {
         },
-
         _getContentBox: function (dom) {
             return d_domGeometry.getMarginBox(dom);
         },
