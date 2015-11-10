@@ -77,7 +77,8 @@ define([
             var spatialRel = srBaseWidget.spatialRelation.get("value");
             var contentNode = srBaseWidget.contentNode;
             var selectedChild = contentNode.get("selectedChildWidget");
-            selectedChild.search(this.getStore(), spatialRel);
+            var store = this.getStore();
+            selectedChild.search(store, spatialRel);
         },
         reset: function () {
             this.drawGeometryHandler.clearGraphics();

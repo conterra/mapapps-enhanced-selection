@@ -33,11 +33,10 @@ define([
         },
         activate: function (componentContext) {
             var properties = this._properties;
-            var properties = this._properties;
             if (!properties.widgetEnabled) {
                 var componentName = this.componentName;
                 ct_async(function () {
-                    componentContext.disableComponent(componentName)
+                    componentContext.disableComponent(componentName);
                 }, 0);
                 return;
             }
@@ -74,6 +73,7 @@ define([
             this.disconnect();
             this.connect(driveTimeWidget, "onSelected", this.onSelected);
             this.connect(driveTimeWidget, "reenable", this.draw);
+            this.connect(driveTimeWidget, "search", this.search);
             this.connect(driveTimeWidget.timeSlider, "onChange", this.onTimeSliderChange);
             this.connect(driveTimeWidget.timeText, "onBlur", this.onTimeInputChange);
 
@@ -89,7 +89,7 @@ define([
                     return true;
                 }
             };
-            this._createGeoprocessor()
+            this._createGeoprocessor();
         },
         modified: function (componentContext) {
             var properties = this._properties;

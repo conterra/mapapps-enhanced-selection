@@ -31,7 +31,7 @@ define([
             if (!properties.widgetEnabled) {
                 var componentName = this.componentName;
                 ct_async(function () {
-                    componentContext.disableComponent(componentName)
+                    componentContext.disableComponent(componentName);
                 }, 0);
                 return;
             }

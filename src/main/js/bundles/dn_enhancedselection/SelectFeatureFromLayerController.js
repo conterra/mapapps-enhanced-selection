@@ -40,7 +40,7 @@ define([
             if (!properties.widgetEnabled) {
                 var componentName = this.componentName;
                 ct_async(function () {
-                    componentContext.disableComponent(componentName)
+                    componentContext.disableComponent(componentName);
                 }, 0);
                 return;
             }
@@ -109,7 +109,7 @@ define([
                     var inputGeom = this._inputGeometry = geometry;
                     this.drawGeometryHandler.drawGeometry(inputGeom);
                 }
-            }, this)
+            }, this);
         },
         getStore: function (id) {
             return this.serviceResolver.getService("ct.api.Store", "(id=" + id + ")");

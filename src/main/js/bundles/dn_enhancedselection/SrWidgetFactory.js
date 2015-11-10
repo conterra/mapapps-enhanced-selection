@@ -148,7 +148,7 @@ define([
                         }
                     );
                 }
-            }, this)
+            }, this);
         },
 
         destroyInstance: function (container) {
