@@ -16,12 +16,12 @@ Installation Guide
 #####DistanceCircleController:
 ```
 "DistanceCircleController": {
-"distance": {
-          "minimum": 0,
-          "maximum": 1000,
-          "interval": 50,
-          "unit": "KILOMETERS"
-}
+  "distance": {
+    "minimum": 0,
+    "maximum": 1000,
+    "interval": 50,
+    "unit": "KILOMETERS"
+  }
 }
 ```
 #####DriveTimeController
