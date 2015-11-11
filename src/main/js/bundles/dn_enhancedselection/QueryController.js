@@ -19,41 +19,83 @@ define([
     "dojo/i18n!./nls/bundle",
     "ct/_when",
     "ct/store/Filter",
-    "ct/_Connect"
+    "ct/_Connect",
+    "esri/geometry/Polygon",
+    "esri/geometry/Circle"
 
-], function (declare, d_array, i18n, ct_when, Filter, _Connect) {
+], function (declare, d_array, i18n, ct_when, Filter, _Connect, Circle) {
     return declare([_Connect], {
-
         activate: function () {
             this.i18n = this._i18n.get();
         },
-
         queryStore: function (geometry, store, geomRel) {
-            //var geometryQuery;
             var selectionAction = this.selectionAction;
-            selectionAction.selectionParameter = {};
-            selectionAction.selectionParameter.operator = "$"+geomRel;
-            selectionAction.selectionParameter.store = store;
-            this.connect(selectionAction, "onSelectionEnd", function () {
-                this.disconnect();
-                this._eventService.postEvent("ct/surroundings/SEARCH_FINISHED");
-            });
-            selectionAction.selectionParameter.storeId = store.id;
-            selectionAction.performSelection(geometry);
+             selectionAction.selectionParameter = {};
+             selectionAction.selectionParameter.operator = "$"+geomRel;
+             selectionAction.selectionParameter.store = store;
+             this.connect(selectionAction, "onSelectionEnd", function () {
+             this.disconnect();
+             this._eventService.postEvent("ct/surroundings/SEARCH_FINISHED");
+             });
+             selectionAction.selectionParameter.storeId = store.id;
+             selectionAction.performSelection(geometry);
 
-            //    if (!result || result.length === 0) {
-            //        this._dataModel.setDatasource();
-            //        this._logService.warn(this.i18n.info.noResultsAreaInfo);
-            //        return;
-            //    }
-            //    // required to exclude polygon geometry, otherwise it is handled to resultcenter
-            //    var idList = d_array.map(result, function (item) {
-            //        return item[idProperty];
-            //    });
-            //    var query = {};
-            //    query[idProperty] = {$in: idList};
-            //    this._dataModel.setDatasource(Filter(store, query));
-            //}, this);
+            /*if (geometry.type === "polygon" && geomRel === "contains") {
+                if (geometry.rings.length > 1) {
+                    var outerRing = geometry.rings[0];
+                    var innerRing = geometry.rings[1];
+                    var spatialReference = geometry.spatialReference;
+
+                    var outerRingJson = {
+                        "rings": [outerRing],
+                        "spatialReference": spatialReference
+                    };
+                    var outerRingGeometry = new Polygon(outerRingJson);
+
+                    var innerRingJson = {
+                        "rings": [innerRing],
+                        "spatialReference": spatialReference
+                    };
+                    var innerRingGeometry = new Polygon(innerRingJson);
+
+                    this.defaultQuery(innerRingGeometry, store, geomRel);
+                } else {
+                    var geom = new Circle({
+                        center: geometry.center,
+                        geodesic: geometry.geodesic,
+                        radius: geometry.radius,
+                        radiusUnit: geometry.radiusUnit
+                    });
+                    this.defaultQuery(geom, store, geomRel);
+                }
+            } else {
+                this.defaultQuery(geometry, store, geomRel);
+            }*/
+        },
+        defaultQuery: function (geometry, store, geomRel) {
+            var complexQuery = {};
+            var operator = "$" + geomRel;
+            complexQuery.geometry = {};
+            complexQuery.geometry[operator] = geometry;
+            var filter = new Filter(store, complexQuery);
+
+            ct_when(filter.query({}, {count: 0}).total, function (total) {
+                if (total) {
+                    this._dataModel.setDatasource(filter);
+                } else {
+                    this._logService.warn({
+                        id: 0,
+                        message: this.i18n.info.noResultsAreaInfo
+                    });
+                }
+                this._eventService.postEvent("ct/surroundings/SEARCH_FINISHED");
+            }, function (e) {
+                this._logService.warn({
+                    id: e.code,
+                    message: e
+                });
+                this._eventService.postEvent("ct/surroundings/SEARCH_FINISHED");
+            }, this);
         }
     });
 });
