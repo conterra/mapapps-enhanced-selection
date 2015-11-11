@@ -7,7 +7,7 @@ The Enhanced Selection Bundle allows you to select features in enhanced ways. Th
 - Distance
 
 ### Sample App ###
-...
+http://www.mapapps.de/mapapps/resources/apps/downloads_enhancedselection/index.html
 
 Installation Guide
 ------------------
