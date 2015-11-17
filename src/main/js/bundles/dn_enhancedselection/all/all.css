@@ -13,64 +13,64 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-.surroundings .surroundingsHeader .dijitSelect {
+.dn_enhancedselection .dn_enhancedselectionHeader .dijitSelect {
     float: right;
 }
 
-.surroundings hr {
+.dn_enhancedselection hr {
     clear: right;
 }
 
-.surroundings .dijitRuleLabelsContainer {
+.dn_enhancedselection .dijitRuleLabelsContainer {
     height: 20px;
 }
 
-.surroundings .textInputArea {
+.dn_enhancedselection .textInputArea {
     margin-top: 12px;
 }
 
-.surroundings .dijitValidationTextBox {
+.dn_enhancedselection .dijitValidationTextBox {
     width: 50px;
 }
 
-.surroundings .controlButtonGroup {
+.dn_enhancedselection .controlButtonGroup {
     margin-top: 10px;
 }
 
-.surroundings .geometryProvider {
+.dn_enhancedselection .geometryProvider {
     margin-top: 10px;
 }
 
-.surroundings .spatialRelationSelect {
+.dn_enhancedselection .spatialRelationSelect {
     width: 100px;
 }
 
-.surroundings .freeHandPolygonToolDesc {
+.dn_enhancedselection .freeHandPolygonToolDesc {
     margin-top: 5px;
 }
 
-.surroundings .spatialRelDesc {
+.dn_enhancedselection .spatialRelDesc {
     margin-right: 5px;
 }
 
-.surroundings .spatialRow {
+.dn_enhancedselection .spatialRow {
     margin-top: 5px;
 }
 
-.surroundings .spatialRow > span {
+.dn_enhancedselection .spatialRow > span {
     line-height: 25px;
 }
 
-.surroundings .geometryProvider > span {
+.dn_enhancedselection .geometryProvider > span {
     line-height: 33px;
 }
 
-.surroundings .geometryProvider .dijitSelect,
-.surroundings .controlButtonGroup {
+.dn_enhancedselection .geometryProvider .dijitSelect,
+.dn_enhancedselection .controlButtonGroup {
     float: right;
 }
 
-.surroundings .storeSelectionSelect {
+.dn_enhancedselection .storeSelectionSelect {
     margin-top: 5px;
     max-width: 70px;
     overflow: hidden;

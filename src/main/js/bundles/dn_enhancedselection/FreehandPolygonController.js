@@ -69,7 +69,7 @@ define([
         onSelected: function () {
             var geometryType = this.geometryType;
             this.draw(geometryType);
-            this._eventService.sendEvent("ct/surroundings/WIDGET_SELECTED", {
+            this._eventService.sendEvent("ct/dn_enhancedselection/WIDGET_SELECTED", {
                 geometryType: geometryType
             });
         },

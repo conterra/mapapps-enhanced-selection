@@ -44,7 +44,7 @@ define([
         },
         _initWidget: function () {
             var i18n = this._i18n.get().ui.selectionTools.travelTime;
-            var timeSliderProps = this._properties.time;
+            var timeSliderProps = this._properties.drivetime;
             var timeMinimum = Math.round(timeSliderProps.minimum);
             var timeMaximum = Math.round(timeSliderProps.maximum);
             var timeDifference = timeMaximum - timeMinimum;
@@ -151,7 +151,7 @@ define([
         onSelected: function (selected) {
             var geometryType = this.geometryType;
             this.draw(geometryType);
-            this._eventService.sendEvent("ct/surroundings/WIDGET_SELECTED", {
+            this._eventService.sendEvent("ct/dn_enhancedselection/WIDGET_SELECTED", {
                 geometry: geometryType
             });
         },

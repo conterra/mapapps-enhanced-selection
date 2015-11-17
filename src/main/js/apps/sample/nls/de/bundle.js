@@ -18,7 +18,7 @@ define(
          * COPYRIGHT 2010-2011 con terra GmbH Germany
          */
                 ({
-                    apptitle: "Query Resolver Demo",
+                    apptitle: "Enhanced Selection Demo",
                     custominfo: {
                         imprint: {
                             title: "Impressum",

@@ -23,7 +23,9 @@
             "selection",
             "resultcenter",
             "agssearch",
-            "dn_enhancedselection"
+            "dn_enhancedselection",
+            "agsprinting",
+            "wizard"
         ],
         "skipBundles": [],
         "require": [
@@ -93,7 +95,7 @@
                     "url": "http://discomap.eea.europa.eu/arcgis/rest/services/Bio/Natura2000_Dyna_WM/MapServer/0",
                     "useIn": [
                         "omnisearch",
-                        "surroundings",
+                        "dn_enhancedselection",
                         "selection"
                     ],
                     "filterOptions": {
@@ -234,7 +236,7 @@
                     "omniSearchTypingDelay": 500,
                     "omniSearchPageSize": 20,
                     "omniSearchDefaultLabel": "Enter search string...",
-                    "useIn": "surroundings",
+                    "useIn": "dn_enhancedselection",
                     "fetchIdProperty": true,
                     "id": "laender"
                 },
@@ -543,7 +545,7 @@
                         "name": "seasons",
                         "widgets": [
                             {
-                                "role": "surroundings",
+                                "role": "dn_enhancedselection",
                                 "window": {
                                     "marginBox": {
                                         "w": 290,
@@ -561,7 +563,7 @@
         "toolrules": {
             "ToolActiveStateManager": {
                 "activateOnStartToolIds": [
-                    "surroundingsToggleTool"
+                    "dn_enhancedselectionToggleTool"
                 ]
             }
         },
@@ -572,7 +574,7 @@
                         "id": "position_tools",
                         "title": "",
                         "tools": [
-                            "surroundingsToggleTool"
+                            "dn_enhancedselectionToggleTool"
                         ],
                         "container": "map",
                         "cssClass": "noTitleBarAndWindowTools",

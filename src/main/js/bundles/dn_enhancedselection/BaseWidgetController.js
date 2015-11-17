@@ -51,7 +51,7 @@ define([
             };
         },
         userDrawInputGeometry: function () {
-            this._eventService.postEvent("ct/surroundings/DRAW_GEOMETRY");
+            this._eventService.postEvent("ct/dn_enhancedselection/DRAW_GEOMETRY");
         },
         getStore: function () {
             var id = this.baseWidget.storeSelect.get("value");
@@ -91,8 +91,10 @@ define([
         },
         deactivateWidget: function () {
             this.drawGeometryHandler.deactivateDraw();
-            this.drawGeometryHandler.clearGraphics();
-            this._dataModel.setDatasource();
+            if (this._properties.clearGraphics) {
+                this.drawGeometryHandler.clearGraphics();
+                this._dataModel.setDatasource();
+            }
             this.resetLookupSymbol();
         },
         resetLookupSymbol: function () {

@@ -28,14 +28,12 @@ define(["dojo/_base/declare",
     "dijit/layout/ContentPane",
     "dijit/layout/BorderContainer"
 ], function (declare, _Connect, _TemplatedMixin, _WidgetsInTemplateMixin, _CssStateMixin, template, DataViewModel, DataView, Exception, _Connect, StoreSelectionWidget, BuilderWidget) {
-
-
     return declare([BuilderWidget, _TemplatedMixin, _WidgetsInTemplateMixin, _CssStateMixin, _Connect], {
         templateString: template,
         data: null,
         ui: {
-            enable: "Komponente aktivieren",
-            scale: "Zoom-Ma\u00dfstab"
+            enable: "Enable component",
+            scale: "Zoom-Scale"
         },
         i18n: {
             grid: {
@@ -91,7 +89,6 @@ define(["dojo/_base/declare",
                 });
             }
         },
-
         _createDataView: function () {
             var i18n = {}; //|| this.i18n.grid.dataView;
             var dataView = this._dataView = new DataView({

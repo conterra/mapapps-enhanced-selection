@@ -15,91 +15,99 @@
  */
 define({
     root: {
-        bundleName: "Umkreissuche Konfiguration",
-        bundleDescription: "Konfigurationsbundle f\u00FCr das Surroundings Bundle.",
-        title: "Komplexe Selektion",
-        description: "Komplexe Selektion konfigurieren",
+        bundleName: "Enhanced selection configuration",
+        bundleDescription: "configuration bundle for the enhanced selection bundle.",
+        title: "Enhanced Selection",
+        description: "Configure the enhanced selection",
         ui: {
             base: {
-                description: "Selektionsthemen definieren",
-                skipStores: "Ignorierte Selektionsthemen",
-                skipStoresTooltip: "Kommasepariert Liste mit Suchthemen, die nicht zur Verfügung gestellt werden. Werden keine angegeben, wird diese Einstellung ignoriert",
-                allowedStores: " Nutzbare Selektionsthemen",
-                allowedStoresTooltip: "Kommasepariert Liste mit Suchthemen, die zur Verfügung gestellt werden. Werden keine angegeben, wird diese Einstellung ignoriert",
-                menuTitle: "Grundeinstellungen"
+                description: "Basic settings for the enhanced selection bundle",
+                menuTitle: "Basic Settings",
+                clearGraphics: "Clear Graphic"
+            },
+            storeselection: {
+                description: "Configure selection topics",
+                menuTitle: "Selection Topics"
             },
             distance: {
-                description: "Distanzselektion konfigurieren",
+                description: "Configure Selection by distance",
                 meter: "Meter",
                 kilometer: "Kilometer",
-                menuTitle: "Distanzselektion",
+                menuTitle: "Selection By Distance",
                 unit: {
-                    title: "Einheit",
-                    tooltip: "Einheit zur Distanzberechnung"
+                    title: "Unit",
+                    tooltip: "Unit for distance calculation"
                 },
                 minimum: {
                     title: "Minimum",
-                    tooltip: "Minimale Entfernung in definierter Einheit"
+                    tooltip: "Minimal distance in defined unit"
                 },
                 maximum: {
                     title: "Maximum",
-                    tooltip: "Maximale Entfernung in definierter Einheit"
+                    tooltip: "Maximum distance in defined unit"
                 },
                 interval: {
-                    title: "Intervall zwischen festen Werten",
-                    tooltip: "Intervall zwischen festen Werten"
+                    title: "Interval between fixed values",
+                    tooltip: "Interval between fixed values"
                 }
             },
             drivetime: {
-                description: "Fahrzeiten definieren",
-                skipStores: "Ignorierte Selektionsthemen",
-                skipStoresToolip: "Kommasepariert Liste mit Suchthemen, die nicht zur Verfügung gestellt werden. Werden keine angegeben, wird diese Einstellung ignoriert",
-                allowedStores: " Nutzbare Selektionsthemen",
-                allowedStoresTooltip: "Kommasepariert Liste mit Suchthemen, die zur Verfügung gestellt werden. Werden keine angegeben, wird diese Einstellung ignoriert",
-                menuTitle: "Fahrzeiten"
+                description: "Define driving time",
+                menuTitle: "Selection By Driving Time",
+                minimum: {
+                    title: "Minimum",
+                    tooltip: "Minimal time in minutes"
+                },
+                maximum: {
+                    title: "Maximum",
+                    tooltip: "Maximum time in minutes"
+                },
+                interval: {
+                    title: "Interval between fixed values",
+                    tooltip: "Interval between fixed values"
+                }
             },
             freehandpolygon: {
-                menuTitle: "Freihandpolygon",
-                description: "Freihandpolygon konfigurieren"
+                menuTitle: "Selection By Freehandpolygon",
+                description: "Configure freehandpolygon"
             },
             selectfeaturefromlayer: {
-                menuTitle: "Gebietsauswahl",
-                description: "Gebietsauswahl konfigurieren"
+                menuTitle: "Selection By Area",
+                description: "Configure area selection"
             },
-            enable: "Komponente aktivieren",
-            enableTooltip: "Komponente aktivieren",
-            searchStore: "Suchstores",
-            relWithin: "Enthalten In",
-            relTouches: "Ber\u00FChrt",
-            title: "Selektion",
-            storeSelector: "Bitte w\u00E4hlen sie ein Suchthema",
-            selectSpatialRel: "Geometrische Beziehung",
+            enable: "Enable component",
+            enableTooltip: "Enable component",
+            searchStore: "Searchstores",
+            relWithin: "Within",
+            relTouches: "Touches",
+            title: "Selection",
+            storeSelector: "Please specify a searchstore",
+            selectSpatialRel: "Spatial relationship",
             selectionTools: {
                 distance: {
-                    title: "\u00FCber Umkreisdefinition"
+                    title: "By Distance"
                 },
                 travelTime: {
-                    title: "\u00FCber Erreichbarkeitsberechnung",
-                    desc: "Entfernung nach Fahrzeit (ArcGIS-Online Account ben\u00F6tigt)"
+                    title: "By Travel Time",
+                    desc: "Distance by travel time (ArcGIS-Online Account required)"
                 },
                 selectFeatureFromStore: {
-                    title: "\u00FCber Gebietsauswahl",
-                    desc: "Suchbereich einschr\u00E4nken auf Basis von",
-                    selectStore: "Suchthema"
+                    title: "By Area Selection",
+                    desc: "Restrict search area based on",
+                    selectStore: "Search Topic"
                 },
                 freehandPolygon: {
-                    title: "\u00FCber Freihandpolygon",
-                    desc: "Suchbereich einschr\u00E4nken auf Basis von Freihandpolygon"
+                    title: "By Freehand Polygon",
+                    desc: "Restrict search area based on a freehand polygon."
 
                 }
             },
             grid: {
-                "title": "Titel",
-                "description": "Beschreibung"
+                "title": "Title",
+                "description": "Description"
             },
-            hint: "Bitte w\u00E4hlen Sie die Stores aus, die zur Selektion zur Verf\u00FCgung stehen sollen"
+            hint: "Please specify selection searchstores"
         }
     },
     "de": true
-})
-;
+});

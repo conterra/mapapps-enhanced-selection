@@ -1,34 +1,17 @@
 {
-  "dataform-version": "1.0.0",
-  "size": {
-    "h": 300,
-    "w": 400
-  },
-  "type": "gridpanel",
-  "showLabels": true,
-  "cols": 1,
-  "children": [
-    {
-      "type": "textarea",
-      "field": "allowedStores",
-      "title": "${ui.base.allowedStores}",
-      "tooltip": "${ui.base.allowedStoresTooltip}",
-      "required": false,
-      "size": {
-        "w": 400,
-        "h": 50
-      }
+    "dataform-version": "1.0.0",
+    "size": {
+        "h": 300,
+        "w": 400
     },
-    {
-      "type": "textarea",
-      "field": "skipStores",
-      "title": "${ui.base.skipStores}",
-      "tooltip": "${ui.base.skipStoresTooltip}",
-      "required": false,
-      "size": {
-        "w": 400,
-        "h": 50
-      }
-    }
-  ]
+    "type": "gridpanel",
+    "showLabels": true,
+    "cols": 1,
+    "children": [
+        {
+            "type": "checkbox",
+            "label": "${ui.base.clearGraphics}",
+            "field": "clearGraphics"
+        }
+    ]
 }

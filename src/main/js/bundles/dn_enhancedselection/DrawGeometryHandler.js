@@ -70,7 +70,7 @@ define([
             var graphicsRenderer = this.graphicsRenderer;
             graphicsRenderer.clear();
             this.drawGeometry(geometry);
-            this._eventService.postEvent("ct/surroundings/GEOMETRY_DRAWN",
+            this._eventService.postEvent("ct/dn_enhancedselection/GEOMETRY_DRAWN",
                     {
                         geometry: geometry
                     });
@@ -95,10 +95,10 @@ define([
                 "symbol": symbol
             };
 
-            if (this.surroundingsPolygon) {
-                this.graphicsRenderer.erase(this.surroundingsPolygon);
+            if (this.dn_enhancedselectionPolygon) {
+                this.graphicsRenderer.erase(this.dn_enhancedselectionPolygon);
             }
-            this.surroundingsPolygon = this.graphicsRenderer.draw(feature);
+            this.dn_enhancedselectionPolygon = this.graphicsRenderer.draw(feature);
             return feature;
         },
         _getSymbolForPolygon: function () {

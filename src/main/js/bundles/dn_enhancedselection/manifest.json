@@ -30,7 +30,7 @@
     ],
     "layout-widgets": [
         {
-            "widgetRole": "surroundings",
+            "widgetRole": "dn_enhancedselection",
             "window": {
                 "name": "mainWindow",
                 "title": "${ui.title}",
@@ -48,7 +48,7 @@
                 "resizable": true,
                 "draggable": true,
                 "windowClass": "ctWindowEffect",
-                "dockTool": "surroundingsToggleTool"
+                "dockTool": "dn_enhancedselectionToggleTool"
             }
         }
     ],
@@ -62,9 +62,8 @@
             "propertiesConstructor": true,
             "instanceFactory": true,
             "properties": {
-                "widgetRole": "surroundings",
-                "storeIds": [],
-                "geoprocessorUrl": "http://logistics.arcgis.com/arcgis/rest/services/World/ServiceAreas/GPServer/GenerateServiceAreas"
+                "widgetRole": "dn_enhancedselection",
+                "storeIds": []
             },
             "references": [
                 {
@@ -94,24 +93,25 @@
             "properties": {
                 "Event-Topics": [
                     {
-                        "topic": "ct/surroundings/SEARCH_FINISHED",
+                        "topic": "ct/dn_enhancedselection/SEARCH_FINISHED",
                         "method": "searchFinished"
                     },
                     {
-                        "topic": "ct/surroundings/WIDGET_SELECTED",
+                        "topic": "ct/dn_enhancedselection/WIDGET_SELECTED",
                         "method": "widgetSelected"
                     },
                     {
-                        "topic": "ct/surroundings/GEOMETRY_DRAWN",
+                        "topic": "ct/dn_enhancedselection/GEOMETRY_DRAWN",
                         "method": "geometryDrawn"
                     }
-                ]
+                ],
+                "clearGraphics": true
             },
             "references": [
                 {
                     "name": "tool",
                     "providing": "ct.tools.Tool",
-                    "filter": "(id=surroundingsToggleTool)"
+                    "filter": "(id=dn_enhancedselectionToggleTool)"
                 },
                 {
                     "name": "_eventService",
@@ -191,16 +191,15 @@
             "properties": {
                 "Event-Topics": [
                     {
-                        "topic": "ct/surroundings/DRAW_GEOMETRY",
+                        "topic": "ct/dn_enhancedselection/DRAW_GEOMETRY",
                         "method": "draw"
                     },
                     {
-                        "topic": "ct/surroundings/GEOMETRY_DRAWN",
+                        "topic": "ct/dn_enhancedselection/GEOMETRY_DRAWN",
                         "method": "geometryDrawn"
                     }
                 ],
-                "time": {
-                    "enabled": false,
+                "drivetime": {
                     "minimum": 0,
                     "maximum": 30,
                     "interval": 1
@@ -270,11 +269,11 @@
             "properties": {
                 "Event-Topics": [
                     {
-                        "topic": "ct/surroundings/DRAW_GEOMETRY",
+                        "topic": "ct/dn_enhancedselection/DRAW_GEOMETRY",
                         "method": "draw"
                     },
                     {
-                        "topic": "ct/surroundings/GEOMETRY_DRAWN",
+                        "topic": "ct/dn_enhancedselection/GEOMETRY_DRAWN",
                         "method": "geometryDrawn"
                     }
                 ],
@@ -312,17 +311,17 @@
             "properties": {
                 "Event-Topics": [
                     {
-                        "topic": "ct/surroundings/DRAW_GEOMETRY",
+                        "topic": "ct/dn_enhancedselection/DRAW_GEOMETRY",
                         "method": "draw"
                     },
                     {
-                        "topic": "ct/surroundings/GEOMETRY_DRAWN",
+                        "topic": "ct/dn_enhancedselection/GEOMETRY_DRAWN",
                         "method": "geometryDrawn"
                     }
                 ],
                 "distance": {
                     "minimum": 0,
-                    "maximum": 5000,
+                    "maximum": 1000,
                     "interval": 50,
                     "unit": "KILOMETERS"
                 },
@@ -364,11 +363,11 @@
             "properties": {
                 "Event-Topics": [
                     {
-                        "topic": "ct/surroundings/DRAW_GEOMETRY",
+                        "topic": "ct/dn_enhancedselection/DRAW_GEOMETRY",
                         "method": "draw"
                     },
                     {
-                        "topic": "ct/surroundings/GEOMETRY_DRAWN",
+                        "topic": "ct/dn_enhancedselection/GEOMETRY_DRAWN",
                         "method": "geometryDrawn"
                     }
                 ],
@@ -447,7 +446,7 @@
             ],
             "propertiesConstructor": true,
             "properties": {
-                "id": "surroundingsToggleTool",
+                "id": "dn_enhancedselectionToggleTool",
                 "toolRole": "toolset",
                 "title": "${toggleTool.title}",
                 "tooltip": "${toggleTool.tooltip}",

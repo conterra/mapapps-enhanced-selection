@@ -16,29 +16,10 @@
       "required": true
     },
     {
-      "type": "selectbox",
-      "field": "distance.unit",
-      "label": "${ui.distance.unit.title}",
-      "tooltip": "${ui.distance.unit.tooltip}",
-      "searchAttribute": "name",
-      "labelAttribute": "name",
-      "values": [
-        {
-          "name": "${ui.distance.meter}",
-          "value": "METERS"
-        },
-        {
-          "name": "${ui.distance.kilometer}",
-          "value": "KILOMETERS"
-        }
-      ],
-      "required" : true
-    },
-    {
       "type": "numbertextbox",
-      "field": "distance.minimum",
-      "title": "${ui.distance.minimum.title}",
-      "tooltip": "${ui.distance.minimum.tooltip}",
+      "field": "drivetime.minimum",
+      "title": "${ui.drivetime.minimum.title}",
+      "tooltip": "${ui.drivetime.minimum.tooltip}",
       "required": true,
       "size":{
         "l" : 5,
@@ -48,9 +29,9 @@
     },
     {
       "type": "numbertextbox",
-      "field": "distance.maximum",
-      "title": "${ui.distance.maximum.title}",
-      "tooltip": "${ui.distance.maximum.tooltip}",
+      "field": "drivetime.maximum",
+      "title": "${ui.drivetime.maximum.title}",
+      "tooltip": "${ui.drivetime.maximum.tooltip}",
       "required": true,
       "size":{
         "l" : 5,
@@ -60,9 +41,9 @@
     },
     {
       "type": "numbertextbox",
-      "field": "distance.interval",
-      "title": "${ui.distance.interval.title}",
-      "tooltip": "${ui.distance.interval.tooltip}",
+      "field": "drivetime.interval",
+      "title": "${ui.drivetime.interval.title}",
+      "tooltip": "${ui.drivetime.interval.tooltip}",
       "required": true,
       "size":{
         "l" : 5,

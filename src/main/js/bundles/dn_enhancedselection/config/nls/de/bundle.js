@@ -14,18 +14,19 @@
  * limitations under the License.
  */
 define({
-    bundleName: "Umkreissuche Konfiguration",
-    bundleDescription: "Konfigurationsbundle f\u00FCr das Surroundings Bundle.",
-    title: "Komplexe Selektion",
-    description: "Komplexe Selektion konfigurieren",
+    bundleName: "Erweiterte Selektion Konfiguration",
+    bundleDescription: "Konfigurationsbundle f\u00FCr das Enhanced Selection Bundle.",
+    title: "Erweiterte Selektion",
+    description: "Erweiterte Selektion konfigurieren",
     ui: {
         base: {
+            description: "Grundeinstellungen f\u00FCr die erweiterte Selektion",
+            menuTitle: "Grundeinstellungen",
+            clearGraphics: "Grafik löschen"
+        },
+        storeselection: {
             description: "Selektionsthemen definieren",
-            skipStores: "Ignorierte Selektionsthemen",
-            skipStoresTooltip: "Kommasepariert Liste mit Suchthemen, die nicht zur Verfügung gestellt werden. Werden keine angegeben, wird diese Einstellung ignoriert",
-            allowedStores: " Nutzbare Selektionsthemen",
-            allowedStoresTooltip: "Kommasepariert Liste mit Suchthemen, die zur Verfügung gestellt werden. Werden keine angegeben, wird diese Einstellung ignoriert",
-            menuTitle: "Grundeinstellungen"
+            menuTitle: "Selektionsthemen"
         },
         distance: {
             description: "Distanzselektion konfigurieren",
@@ -51,11 +52,19 @@ define({
         },
         drivetime: {
             description: "Fahrzeiten definieren",
-            skipStores: "Ignorierte Selektionsthemen",
-            skipStoresToolip: "Kommasepariert Liste mit Suchthemen, die nicht zur Verfügung gestellt werden. Werden keine angegeben, wird diese Einstellung ignoriert",
-            allowedStores: " Nutzbare Selektionsthemen",
-            allowedStoresTooltip: "Kommasepariert Liste mit Suchthemen, die zur Verfügung gestellt werden. Werden keine angegeben, wird diese Einstellung ignoriert",
-            menuTitle: "Fahrzeiten"
+            menuTitle: "Fahrzeiten",
+            minimum: {
+                title: "Minimum",
+                tooltip: "Minimale Zeit in Minuten"
+            },
+            maximum: {
+                title: "Maximum",
+                tooltip: "Maximale Zeit in Minuten"
+            },
+            interval: {
+                title: "Intervall zwischen festen Werten",
+                tooltip: "Intervall zwischen festen Werten"
+            }
         },
         freehandpolygon: {
             menuTitle: "Freihandpolygon",
