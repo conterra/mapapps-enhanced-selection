@@ -65,19 +65,19 @@ define(["dojo/_base/declare",
             dataView.set("model", model);
             model.set("selectedIds", this.config.properties && this.config.properties.storeIds ? this.config.properties.storeIds : []);
             this.storeSelection.set("content", dataView);
-            this.connectP("model", model, "selectedIds", function (type, oldVal, newVal) {
+            this.connect("model", model, "selectedIds", function (type, oldVal, newVal) {
                 this.fireConfigChangeEvent({
                     storeIds: newVal
                 });
             });
             this.connect(this.scale, "onChange", function (value) {
                 this.fireConfigChangeEvent({
-                    storeIds: newVal
+                    scale: value
                 });
             });
             this.connect(this.enableState, "onChange", function (value) {
                 this.fireConfigChangeEvent({
-                    enableWidget: newVal
+                    enableWidget: value
                 });
             });
         },
