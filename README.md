@@ -28,11 +28,10 @@ Installation Guide
 ```
 "DriveTimeController": {
   "geoprocessorUrl": "http://logistics.arcgis.com/arcgis/rest/services/World/ServiceAreas/GPServer/GenerateServiceAreas",
-  "distance": {
+  "drivetime": {
     "minimum": 0,
-    "maximum": 500,
-    "interval": 50,
-    "unit": "KILOMETERS"
+    "maximum": 30,
+    "interval": 1
   }
 }
 ```
