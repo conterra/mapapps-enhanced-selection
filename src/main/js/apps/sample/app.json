@@ -289,19 +289,24 @@
             "DriveTimeController": {
                 "widgetEnabled": true,
                 "geoprocessorUrl": "http://logistics.arcgis.com/arcgis/rest/services/World/ServiceAreas/GPServer/GenerateServiceAreas",
-                "distance": {
+                "drivetime": {
                     "minimum": 0,
-                    "maximum": 500,
-                    "interval": 50,
+                    "maximum": 30,
+                    "interval": 1,
                     "unit": "KILOMETERS"
                 }
             },
             "SelectFeatureFromLayerController": {
+                "widgetEnabled": true,
+                "scale": 500000,
                 "storeIds": [
                     "bathingwater_1",
                     "_AGS_STORE_1441880289977",
                     "_AGS_STORE_1441880304099"
                 ]
+            },
+            "FreehandPolygonController": {
+                "widgetEnabled": true
             },
             "SrWidgetFactory": {
                 "storeIds": [
@@ -315,7 +320,9 @@
                     "_AGS_STORE_1441959782954"
                 ]
             },
-            "enabled": true
+            "BaseWidgetController": {
+                "clearGraphics": true
+            }
         },
         "map": {
             "MapState": {

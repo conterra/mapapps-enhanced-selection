@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 define(["dojo/_base/declare",
-    "ct/_Connect",
     "dijit/_TemplatedMixin",
     "dijit/_WidgetsInTemplateMixin",
     "dijit/_CssStateMixin",
@@ -27,7 +26,7 @@ define(["dojo/_base/declare",
     "wizard/_BuilderWidget",
     "dijit/layout/ContentPane",
     "dijit/layout/BorderContainer"
-], function (declare, _Connect, _TemplatedMixin, _WidgetsInTemplateMixin, _CssStateMixin, template, DataViewModel, DataView, Exception, _Connect, StoreSelectionWidget, BuilderWidget) {
+], function (declare, _TemplatedMixin, _WidgetsInTemplateMixin, _CssStateMixin, template, DataViewModel, DataView, Exception, _Connect, StoreSelectionWidget, BuilderWidget) {
     return declare([BuilderWidget, _TemplatedMixin, _WidgetsInTemplateMixin, _CssStateMixin, _Connect], {
         templateString: template,
         data: null,
@@ -49,12 +48,6 @@ define(["dojo/_base/declare",
                 message: "Select stores that should be available for selection"
             }
         },
-        /**
-         * @constructs
-         */
-        constructor: function (args) {
-            this._listeners = new _Connect();
-        },
         postCreate: function (opts) {
             this.inherited(arguments);
             var model = this._viewModel = new DataViewModel({
@@ -65,6 +58,7 @@ define(["dojo/_base/declare",
             dataView.set("model", model);
             model.set("selectedIds", this.config.properties && this.config.properties.storeIds ? this.config.properties.storeIds : []);
             this.storeSelection.set("content", dataView);
+            this.scale.set("value", this.config.properties.scale);
             this.connect("model", model, "selectedIds", function (type, oldVal, newVal) {
                 this.fireConfigChangeEvent({
                     storeIds: newVal
@@ -77,7 +71,7 @@ define(["dojo/_base/declare",
             });
             this.connect(this.enableState, "onChange", function (value) {
                 this.fireConfigChangeEvent({
-                    enableWidget: value
+                    widgetEnabled: value
                 });
             });
         },
@@ -129,7 +123,7 @@ define(["dojo/_base/declare",
             return !!config;
         },
         uninitialize: function () {
-            this._listeners.disconnect();
+            this.disconnect();
             this._dataView.destroyRecursive();
             this._dataView = null;
             this._dataModel = null;

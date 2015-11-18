@@ -16,6 +16,7 @@ Installation Guide
 #####DistanceCircleController:
 ```
 "DistanceCircleController": {
+  "widgetEnabled": true,
   "distance": {
     "minimum": 0,
     "maximum": 1000,
@@ -27,6 +28,7 @@ Installation Guide
 #####DriveTimeController
 ```
 "DriveTimeController": {
+  "widgetEnabled": true,
   "geoprocessorUrl": "http://logistics.arcgis.com/arcgis/rest/services/World/ServiceAreas/GPServer/GenerateServiceAreas",
   "drivetime": {
     "minimum": 0,
@@ -39,11 +41,19 @@ Installation Guide
 Define selectable stores
 ```
 "SelectFeatureFromLayerController": {
+  "widgetEnabled": true,
+  "scale": 500000,
   "storeIds": [
     "%STORE_ID1%",
     "%STORE_ID2%",
     ...
   ]
+}
+```
+#####FreehandPolygonController
+```
+"FreehandPolygonController": {
+  "widgetEnabled": true
 }
 ```
 #####SrWidgetFactory:
@@ -55,6 +65,13 @@ Define selectable stores
     "%STORE_ID2%",
     ...
   ]
+}
+```
+#####BaseWidgetController:
+Basic Settings
+```
+"BaseWidgetController": {
+  "clearGraphics": true
 }
 ```
 

@@ -1,6 +1,6 @@
 {
     "Bundle-SymbolicName": "dn_enhancedselection",
-    "Bundle-Version": "1.0.0",
+    "Bundle-Version": "1.0.1",
     "Bundle-Name": "${bundleName}",
     "Bundle-Description": "Search stores for surrounding features",
     "Bundle-Vendor": "con terra GmbH",

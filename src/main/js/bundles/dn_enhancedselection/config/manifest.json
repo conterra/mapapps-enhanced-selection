@@ -142,7 +142,9 @@
                     "id": "selectFeatureFromWidget"
                 },
                 "defaultProperties": {
-                    "storeIds": []
+                    "widgetEnabled": true,
+                    "storeIds": [],
+                    "scale": 500000
                 },
                 "description": "${ui.selectfeaturefromlayer.description}"
             },
