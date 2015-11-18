@@ -65,7 +65,7 @@ define([
             this._drawController.deactivateDraw();
         },
         _handleGeometryDrawn: function (evt) {
-            this.disconnect();
+            //this.disconnect();
             var geometry = evt.geometry;
             var graphicsRenderer = this.graphicsRenderer;
             graphicsRenderer.clear();

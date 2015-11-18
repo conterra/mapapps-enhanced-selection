@@ -117,24 +117,6 @@ define([
         draw: function (geometryType) {
             this.drawGeometryHandler.allowUserToDrawGeometry(geometryType || this.geometryType);
         },
-        //addTopicStore: function (store, serviceproperties) {
-        //    var selectFeatureFromLayerWidget = this.selectFeatureFromLayerWidget;
-        //    var index = d_array.indexOf(this._properties.storeIds, serviceproperties.id);
-        //    if (index > -1) {
-        //        // merge store and its own properties
-        //        store.serviceproperties = serviceproperties;
-        //        if (selectFeatureFromLayerWidget) {
-        //            selectFeatureFromLayerWidget.storeSelectionSelect.addOption({
-        //                label: store.serviceproperties.title,
-        //                value: store.serviceproperties.id
-        //            });
-        //        } else {
-        //            // if widget has not been initialized yet we store all options
-        //            this.storeIds.push(store.serviceproperties.id);
-        //        }
-        //    }
-        //},
-
         onSelected: function (selected) {
             var geometryType = this.geometryType;
             this.draw(geometryType);

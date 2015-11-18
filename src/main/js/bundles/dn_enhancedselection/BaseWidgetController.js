@@ -68,7 +68,7 @@ define([
         widgetSelected: function () {
             var srBaseWidget = this.baseWidget;
             srBaseWidget.searchButton.set("disabled", true);
-            this.drawGeometryHandler.clearGraphics();
+            //this.drawGeometryHandler.clearGraphics();
         },
         search: function () {
             var srBaseWidget = this.baseWidget;

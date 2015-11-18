@@ -78,7 +78,7 @@
                 "pid": "dn_enhancedselection-BaseWidgetController",
                 "id": "baseWidget",
                 "defaultProperties": {
-                    "clearGraphics": true
+                    "clearGraphics": false
                 },
                 "description": "${ui.base.description}"
             },

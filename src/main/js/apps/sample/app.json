@@ -269,7 +269,7 @@
                 ]
             },
             "BaseWidgetController": {
-                "clearGraphics": true
+                "clearGraphics": false
             }
         },
         "map": {
