@@ -42,28 +42,6 @@
             },
             "AGSStore": [
                 {
-                    "title": "Länder in Europa (Suche auf ArcGIS for Server Map Service)",
-                    "description": "Suche nach Ländern in Europa",
-                    "omniSearchLabelAttr": "cc",
-                    "omniSearchSearchAttr": "cc",
-                    "idProperty": "OBJECTID",
-                    "url": "http://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM/MapServer/0",
-                    "useIn": [
-                        "selection"
-                    ],
-                    "filterOptions": {
-                        "suggestContains": true
-                    },
-                    "omniSearchTypingDelay": 500,
-                    "omniSearchPageSize": 20,
-                    "omniSearchDefaultLabel": "Land...",
-                    "fetchIdProperty": true,
-                    "enablePagination": false,
-                    "id": "bathingwater_1",
-                    "pid": "agssearch-AGSStore-0",
-                    "type": "Dynamisch"
-                },
-                {
                     "title": "Regions (EU27 Bio Geographical Regions 2011)",
                     "description": "",
                     "omniSearchLabelAttr": "name",
@@ -82,7 +60,7 @@
                     "omniSearchDefaultLabel": "Suchbegriff eingeben...",
                     "fetchIdProperty": true,
                     "enablePagination": false,
-                    "id": "_AGS_STORE_1441880289977",
+                    "id": "bio_regions",
                     "pid": "agssearch-AGSStore-1",
                     "type": "Dynamisch"
                 },
@@ -95,7 +73,7 @@
                     "url": "http://discomap.eea.europa.eu/arcgis/rest/services/Bio/Natura2000_Dyna_WM/MapServer/0",
                     "useIn": [
                         "omnisearch",
-                        "dn_enhancedselection",
+                        "surroundings",
                         "selection"
                     ],
                     "filterOptions": {
@@ -106,7 +84,7 @@
                     "omniSearchDefaultLabel": "Suchbegriff eingeben...",
                     "fetchIdProperty": true,
                     "enablePagination": false,
-                    "id": "_AGS_STORE_1441880304099",
+                    "id": "natura2000",
                     "pid": "agssearch-AGSStore-2",
                     "type": "Dynamisch"
                 },
@@ -129,7 +107,7 @@
                     "omniSearchDefaultLabel": "Suchbegriff eingeben...",
                     "fetchIdProperty": true,
                     "enablePagination": false,
-                    "id": "_AGS_STORE_1441880312351",
+                    "id": "bathing_water_0",
                     "pid": "agssearch-AGSStore-3",
                     "type": "Dynamisch"
                 },
@@ -151,51 +129,33 @@
                     "omniSearchDefaultLabel": "Suchbegriff eingeben...",
                     "fetchIdProperty": true,
                     "enablePagination": false,
-                    "id": "_AGS_STORE_1441959782954"
+                    "id": "bathing_water_6"
                 },
                 {
-                    "title": "${agssearch.countries.title}",
-                    "description": "${agssearch.countries.description}",
-                    "omniSearchLabelAttr": "cc",
-                    "omniSearchSearchAttr": "cc",
+                    "title": "PLZ Gebiete (PLZ_5_Gebiete_2012_Webmerc)",
+                    "description": "",
+                    "omniSearchLabelAttr": "PLZ_NAME",
+                    "omniSearchSearchAttr": "PLZ_NAME",
                     "idProperty": "OBJECTID",
-                    "url": "http://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM/MapServer/0",
+                    "url": "https://services.arcgis.com/OLiydejKCZTGhvWg/arcgis/rest/services/Infas_PLZ_Gebiete_D_2012/FeatureServer/1",
                     "useIn": [
-                        "omnisearch"
+                        "selection"
                     ],
                     "filterOptions": {
                         "suggestContains": true
                     },
                     "omniSearchTypingDelay": 500,
                     "omniSearchPageSize": 20,
-                    "omniSearchDefaultLabel": "${agssearch.countries.placeHolder}",
+                    "omniSearchDefaultLabel": "Suchbegriff eingeben...",
                     "fetchIdProperty": true,
-                    "id": "bathingwater_1"
+                    "enablePagination": false,
+                    "id": "plz_gebiete"
                 },
                 {
-                    "title": "Bathingwater",
+                    "title": "Kreisgrenzen (Deutschland Kreisgrenzen 2015)",
                     "description": "",
-                    "omniSearchLabelAttr": "cc",
-                    "omniSearchSearchAttr": "cc",
-                    "idProperty": "OBJECTID",
-                    "url": "http://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM/MapServer/5",
-                    "useIn": [
-                        "selection"
-                    ],
-                    "filterOptions": {
-                        "suggestContains": false
-                    },
-                    "omniSearchTypingDelay": 500,
-                    "omniSearchPageSize": 20,
-                    "omniSearchDefaultLabel": "Enter search string...",
-                    "fetchIdProperty": true,
-                    "id": "bathingwater"
-                },
-                {
-                    "title": "Kreise (Deutschland Kreisgrenzen 2015)",
-                    "description": "",
-                    "omniSearchLabelAttr": "RS",
-                    "omniSearchSearchAttr": "RS",
+                    "omniSearchLabelAttr": "GEN",
+                    "omniSearchSearchAttr": "GEN",
                     "idProperty": "OBJECTID",
                     "url": "https://services.arcgis.com/OLiydejKCZTGhvWg/arcgis/rest/services/Kreisegrenzen_2015_Statistik/FeatureServer//0",
                     "useIn": [
@@ -204,61 +164,54 @@
                     ],
                     "filterOptions": {
                         "suggestContains": true
-                    }
+                    },
+                    "omniSearchTypingDelay": 500,
+                    "omniSearchPageSize": 20,
+                    "omniSearchDefaultLabel": "Kreisname...",
+                    "fetchIdProperty": true,
+                    "enablePagination": false,
+                    "id": "kreis_grenzen"
                 },
                 {
-                    "title": "Cities",
-                    "description": "Cities in Germany (OSM)",
-                    "omniSearchLabelAttr": "name",
-                    "omniSearchSearchAttr": "name",
+                    "title": "Statististische Gebiete Berlin (RBS Statistische Gebiete)",
+                    "description": "",
+                    "omniSearchLabelAttr": "STGName",
+                    "omniSearchSearchAttr": "STGName",
                     "idProperty": "OBJECTID",
-                    "url": "http://services.conterra.de/arcgis/rest/services/common/osm_population/MapServer/0",
+                    "url": "https://services.arcgis.com/OLiydejKCZTGhvWg/arcgis/rest/services/Berlin_RBS_Statistische_Gebiete/FeatureServer/0",
                     "useIn": [
-                        "selection",
-                        "omnisearch"
+                        "selection"
                     ],
                     "filterOptions": {
-                        "suggestContains": false
+                        "suggestContains": true
                     },
                     "omniSearchTypingDelay": 500,
                     "omniSearchPageSize": 20,
-                    "omniSearchDefaultLabel": "Enter search string...",
+                    "omniSearchDefaultLabel": "Suchbegriff eingeben...",
                     "fetchIdProperty": true,
-                    "id": "germany_populated"
+                    "enablePagination": false,
+                    "id": "statistische_gebiete_berlin"
                 },
                 {
-                    "title": "Kreise",
-                    "description": "Cities in Germany (OSM)",
-                    "url": "http://services.conterra.de/arcgis/rest/services/common/kreise/MapServer/0",
-                    "filterOptions": {
-                        "suggestContains": false
-                    },
-                    "omniSearchTypingDelay": 500,
-                    "omniSearchPageSize": 20,
-                    "omniSearchDefaultLabel": "Enter search string...",
-                    "useIn": "dn_enhancedselection",
-                    "fetchIdProperty": true,
-                    "id": "laender"
-                },
-                {
-                    "title": "Campingsites",
-                    "description": "Campingsites in Germany (OSM)",
-                    "omniSearchLabelAttr": "name",
-                    "omniSearchSearchAttr": "name",
+                    "title": "Gesundheits Einrichtungen (Health Resources)",
+                    "description": "The Department of City Development and Environment openly provided the data used to create the Urban Observatory Health Resources layer. The data was queried for all medical buildings, then those polygon features were geoprocessed into points, which are represented here. \nKrankenhaus = Hospital\nHeilanstalt = Rehabilitation Center or Long-term Care Centers\nGesundheitseinrichtung = Healthcare Facility",
+                    "omniSearchLabelAttr": "Bezeichnung",
+                    "omniSearchSearchAttr": "Bezeichnung",
                     "idProperty": "OBJECTID",
-                    "url": "http://services.conterra.de/arcgis/rest/services/common/osm_camping/MapServer/0",
+                    "url": "https://services1.arcgis.com/4yjifSiIG17X0gW4/arcgis/rest/services/Health_Resources_Berlin/FeatureServer/0",
                     "useIn": [
-                        "selection",
-                        "omnisearch"
+                        "omnisearch",
+                        "selection"
                     ],
                     "filterOptions": {
-                        "suggestContains": false
+                        "suggestContains": true
                     },
                     "omniSearchTypingDelay": 500,
                     "omniSearchPageSize": 20,
-                    "omniSearchDefaultLabel": "Enter search string...",
+                    "omniSearchDefaultLabel": "Suchbegriff eingeben...",
                     "fetchIdProperty": true,
-                    "id": "germany_camping"
+                    "enablePagination": false,
+                    "id": "health_res_berlin"
                 }
             ]
         },
@@ -300,9 +253,9 @@
                 "widgetEnabled": true,
                 "scale": 500000,
                 "storeIds": [
-                    "bathingwater_1",
-                    "_AGS_STORE_1441880289977",
-                    "_AGS_STORE_1441880304099"
+                    "plz_gebiete",
+                    "kreis_grenzen",
+                    "statistische_gebiete_berlin"
                 ]
             },
             "FreehandPolygonController": {
@@ -310,14 +263,9 @@
             },
             "SrWidgetFactory": {
                 "storeIds": [
-                    "bathingwater_1",
-                    "bathingwater/1",
-                    "regions/0",
-                    "natura2000/1/3",
-                    "_AGS_STORE_1441880289977",
-                    "_AGS_STORE_1441880304099",
-                    "_AGS_STORE_1441880312351",
-                    "_AGS_STORE_1441959782954"
+                    "natura2000",
+                    "bathing_water_6",
+                    "health_res_berlin"
                 ]
             },
             "BaseWidgetController": {
@@ -327,10 +275,10 @@
         "map": {
             "MapState": {
                 "initialExtent": {
-                    "xmin": -1100000,
-                    "ymin": 4000000,
-                    "xmax": 3500000,
-                    "ymax": 8800000,
+                    "xmax": 1564928.2306908383,
+                    "xmin": 1418169.1363834972,
+                    "ymax": 6932972.247678364,
+                    "ymin": 6852636.9309507515,
                     "spatialReference": {
                         "wkid": 3857
                     }
@@ -341,45 +289,142 @@
                     "maps": [
                         {
                             "id": "default",
-                            "glass_pane": [
-                                {
-                                    "id": "graphics",
-                                    "enabled": "true",
-                                    "renderPriority": -10,
-                                    "graphics": []
-                                }
-                            ],
                             "operationalLayer": [
                                 {
                                     "id": "bathingwater",
-                                    "title": "${map.operational.bathingwater.title}",
+                                    "title": "Badegewässer",
                                     "enabled": false,
                                     "service": "bathingwater",
                                     "category": {
-                                        "title": "${map.operational.bathingwater.title}",
+                                        "title": "Badegewässer",
                                         "description": "Map is showing bathing monitoring locations and associated attributive data from 2002 till 2012 in more detailed scales and aggregated data by countries. For the scales 1:5.000.001 and less detailed, data are aggregated by country. In such case, stacked bars show percentage of bathing water quality for coastal and inland waters together. Number of bathing waters within certain category is seen in pop up window which can be turned on with a click on single country. For the scale range 1:5 000.000 till1:700,001, individual bathing water sites (points) are visible instead of classified stacked charts and are coloured according the classification of bathing water quality. Symbol size depends on the map scale (in more detailed map scales symbols are bigger). For the scale 1:700,000 and more detailed, symbol of bather in a square appears instead of points. Symbol size depends on the map scale.",
                                         "imgUrl": "${app}:images/mapCover2.png"
                                     },
                                     "opacity": 1,
                                     "children": [
                                         {
-                                            "id": "0",
-                                            "title": "${map.operational.bathingwater.title2}",
-                                            "enabled": true,
-                                            "layers": [
-                                                "*"
-                                            ]
+                                            "layer": "0",
+                                            "enabled": true
+                                        },
+                                        {
+                                            "layer": "1",
+                                            "enabled": true
+                                        },
+                                        {
+                                            "layer": "2",
+                                            "enabled": true
+                                        },
+                                        {
+                                            "layer": "3",
+                                            "enabled": true
+                                        },
+                                        {
+                                            "layer": "4",
+                                            "enabled": true
+                                        },
+                                        {
+                                            "layer": "5",
+                                            "enabled": true
+                                        },
+                                        {
+                                            "layer": "6",
+                                            "enabled": true
                                         }
                                     ]
                                 },
                                 {
-                                    "id": "germany_populated",
-                                    "title": "Populated Places in Germany(OSM)",
+                                    "id": "natura2000",
+                                    "title": "Natura 2000 Schutzgebiete",
                                     "enabled": false,
-                                    "service": "germany_populated",
+                                    "service": "natura000",
                                     "category": {
-                                        "imgUrl": "${app}:images/defaultCover.png"
+                                        "title": "Natura 2000 Schutzgebiete",
+                                        "description": "Natura 2000 is the key instrument to protect biodiversity in the European Union. It is an ecological network of protected areas, set up to ensure the survival of Europe's most valuable species and habitats. Natura 2000 is based on the 1979 Birds Directive and the 1992 Habitats Directive. The green infrastructure it provides safeguards numerous ecosystem services and ensures that Europe's natural systems remain healthy and resilient.",
+                                        "imgUrl": "${app}:images/mapCover3.png"
                                     },
+                                    "opacity": 1,
+                                    "children": [
+                                        {
+                                            "layer": "0",
+                                            "enabled": false
+                                        },
+                                        {
+                                            "layer": "2",
+                                            "enabled": true
+                                        },
+                                        {
+                                            "layer": "3",
+                                            "enabled": true
+                                        },
+                                        {
+                                            "layer": "4",
+                                            "enabled": true
+                                        },
+                                        {
+                                            "layer": "6",
+                                            "enabled": true
+                                        },
+                                        {
+                                            "layer": "7",
+                                            "enabled": true
+                                        },
+                                        {
+                                            "layer": "8",
+                                            "enabled": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "PLZ Gebiete",
+                                    "enabled": false,
+                                    "service": "service_78042",
+                                    "category": {
+                                        "title": "PLZ Gebiete",
+                                        "description": "Feature Service mit 2 Layern: \nPLZ2: 2-stellige, zusammengefasste PLZ-Gebiete\nPLZ5: 5-stellige PLZ-Gebiete",
+                                        "imgUrl": ""
+                                    },
+                                    "id": "service_78042_1441978844876",
+                                    "options": {},
+                                    "children": [
+                                        {
+                                            "layer": "0",
+                                            "enabled": true
+                                        },
+                                        {
+                                            "layer": "1",
+                                            "enabled": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Gesundheits Einrichtungen",
+                                    "enabled": true,
+                                    "service": "service_93452",
+                                    "category": {
+                                        "title": "Gesundheits Einrichtungen",
+                                        "description": "This layer shows health resources available in this city.",
+                                        "imgUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS5vjNTiB54S6Sb613CF8-8Cu9PBP1YTC6C7vZeuK3ty7fdd5tFxqeByQ"
+                                    },
+                                    "children": [
+                                        {
+                                            "layer": "0",
+                                            "enabled": true
+                                        }
+                                    ],
+                                    "id": "service_93452_1442215709399",
+                                    "options": {}
+                                },
+                                {
+                                    "title": "Statististische Gebiete Berlin",
+                                    "enabled": false,
+                                    "service": "service_64033",
+                                    "category": {
+                                        "title": "Statististische Gebiete Berlin",
+                                        "description": "Die Grenzen der Statistischen Gebiete des Regionalen Bezugssystems wurden onscreen auf der „Karte 1:5000\nvon Berlin“ (Quelle: Geoportal Berlin / [Karte von Berlin 1:5.000 (K5)]) digitalisiert unter Berücksichtigung\nder Grenzen und Blöcke aus dem RBS.\nhttp://www.stadtentwicklung.berlin.de/geoinf",
+                                        "imgUrl": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUSExQVFRUVGB4ZFxUXFxwcHRwcHBUXGB0dGBwYHSggGBomHxcVIjEiJSkrLi4uFx8zODMsNygtLiwBCgoKDg0OGxAQGzQmHyYvLCw0LCwsLC8sLCwsLCwsLCwsLywsLCwsLCwsLC8sLCwsLCwsLCwsLCwsLCwsLCwsLP/AABEIAMsA+AMBIgACEQEDEQH/"
+                                    },
+                                    "id": "service_64033_1442216248683",
+                                    "options": {},
                                     "children": [
                                         {
                                             "layer": "0",
@@ -388,33 +433,75 @@
                                     ]
                                 },
                                 {
-                                    "id": "germany_camping",
-                                    "title": "Campingsites Places in Germany(OSM)",
+                                    "title": "Kreisgrenzen",
                                     "enabled": false,
-                                    "service": "germany_camping",
+                                    "service": "service_86364",
                                     "category": {
-                                        "imgUrl": "${app}:images/defaultCover.png"
+                                        "title": "Kreisgrenzen",
+                                        "description": "Der Service stellt die generalisierten Georeferenzdaten für Deutschland zur Verfügung.\nGeoreferenzdaten stehen auf Kreisebene zur Verfügung. Die Grenzen wurden generalisiert.",
+                                        "imgUrl": ""
                                     },
                                     "children": [
                                         {
                                             "layer": "0",
                                             "enabled": true
                                         }
-                                    ]
+                                    ],
+                                    "id": "service_86364_1442216613397"
                                 }
                             ],
                             "baseLayer": [
                                 {
-                                    "id": "background1",
-                                    "title": "${map.base.aerial.title}",
                                     "enabled": false,
-                                    "service": "worldimage"
+                                    "service": "worldimage",
+                                    "category": {
+                                        "title": "Luftbild",
+                                        "description": "Luftbildaufnahmen der gesamten Welt",
+                                        "imgUrl": ""
+                                    },
+                                    "children": [],
+                                    "id": "worldimage_1441977062099"
                                 },
                                 {
-                                    "id": "background2",
-                                    "title": "${map.base.topo.title}",
                                     "enabled": true,
-                                    "service": "worldtopo"
+                                    "service": "worldtopo",
+                                    "category": {
+                                        "title": "Topographische Karte",
+                                        "description": "Eine topographische Weltkarte",
+                                        "imgUrl": ""
+                                    },
+                                    "children": [],
+                                    "id": "worldtopo_1441977062099",
+                                    "opacity": 1
+                                },
+                                {
+                                    "enabled": false,
+                                    "service": "streets",
+                                    "category": {
+                                        "title": "Straßen",
+                                        "description": "Eine detaillierte Straßenkarte",
+                                        "imgUrl": ""
+                                    },
+                                    "children": [],
+                                    "id": "streets_1441977062099",
+                                    "opacity": 1
+                                },
+                                {
+                                    "title": "Kreisgrenzen",
+                                    "enabled": false,
+                                    "service": "service_86364",
+                                    "category": {
+                                        "title": "Kreisgrenzen",
+                                        "description": "Der Service stellt die generalisierten Georeferenzdaten für Deutschland zur Verfügung.\nGeoreferenzdaten stehen auf Kreisebene zur Verfügung. Die Grenzen wurden generalisiert.",
+                                        "imgUrl": ""
+                                    },
+                                    "children": [
+                                        {
+                                            "layer": "0",
+                                            "enabled": true
+                                        }
+                                    ],
+                                    "id": "service_86364_1442331539362"
                                 }
                             ]
                         }
@@ -428,29 +515,29 @@
                             "id": "worldimage",
                             "url": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer",
                             "type": "AGS_TILED",
-                            "title": "${map.base.aerial.title}",
-                            "description": "${map.base.aerial.description}"
+                            "title": "Luftbild",
+                            "description": "Luftbildaufnahmen der gesamten Welt"
                         },
                         {
                             "id": "worldtopo",
                             "url": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
                             "type": "AGS_TILED",
-                            "title": "${map.base.topo.title}",
-                            "description": "${map.base.topo.description}"
+                            "title": "Topographische Karte",
+                            "description": "Eine topographische Weltkarte"
                         },
                         {
                             "id": "streets",
-                            "description": "${map.base.streets.description}",
+                            "description": "Eine detaillierte Straßenkarte",
                             "url": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer",
                             "type": "AGS_TILED",
-                            "title": "${map.base.streets.title}"
+                            "title": "Straßen"
                         },
                         {
                             "id": "bathingwater",
                             "url": "http://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM/MapServer",
                             "type": "AGS_DYNAMIC",
                             "title": "State of bathing waters",
-                            "description": "<DIV STYLE=\"text-align:Left;\"><DIV><P><SPAN>Map shows monitoring water locations and quality of bathing water from 2004 till 2014. For the scale 1:5.000.001 and less detailed, data are aggregated by country. In such case, stacked bars show percentage of bathing water quality for coastal and inland waters together. Number of bathing waters within certain category is seen in pop up window which can be turned on with a click on one of the countries. For the scale range 1:5 000.000 to 1:700,001, individual bathing water sites (points) are visible instead of classified stacked charts and are coloured according to the classification of bathing water quality. Symbol size depends on the map scale (in more detailed map scales symbols are bigger). For the scales 1:700,000 and more detailed, symbol of bather in a square appears instead of points. All symbols (charts, circles and squares with bather) are coloured according to achieved quality status. Historical data is seen in pop-up windows which can be opened with a click on individual bathing water monitoring site. Assessment is done according to assessment rules of the Directive 2006/7/EC (classification into categories Excellent, Good, Sufficient...) and of the Directive76/160/EEC (classification into categories CG, CI, NC...). Monitoring requirements such as the taking of a pre-season sample, a minimum of four samples per season and a minimum of one sample per month must be met for all bathing waters. If these rules are satisfied, the bathing water is categorised as 'sampling frequency satisfied'. If at least one monitoring requirement is not fulfilled the bathing water is categorised as 'sampling frequency not satisfied'. In such cases, bathing water can still be quality assessed if at least four samples per season (three samples if the season does not exceed eight weeks or the region is subject to special geographical constraints) are available and are more or less equally distributed throughout the season. Assessment of bathing water quality is possible when the bathing-water sample dataset is available for four consecutive seasons. Bathing waters are accordingly classified to one of the bathing-water quality classes (excellent, good, sufficient, or poor). If intestinal enterococci and Escherichia coli sample datasets for four consecutive seasons are not yet available, the assessment of bathing water quality is made by using the data from the latest year only. In this case, the assessment of bathing water quality is conducted under a set of transitional rules.</SPAN><SPAN> </SPAN><SPAN>Bathing waters are accordingly classified</SPAN><SPAN> into quality categories: </SPAN><SPAN>CG, CI, NC</SPAN><SPAN>.</SPAN></P></DIV></DIV>",
+                            "description": "<div style=''><div><p><span>Map shows monitoring water locations and quality of bathing water from 2004 till 2014. For the scale 1:5.000.001 and less detailed, data are aggregated by country. In such case, stacked bars show percentage of bathing water quality for coastal and inland waters together. Number of bathing waters within certain category is seen in pop up window which can be turned on with a click on one of the countries. For the scale range 1:5 000.000 to 1:700,001, individual bathing water sites (points) are visible instead of classified stacked charts and are coloured according to the classification of bathing water quality. Symbol size depends on the map scale (in more detailed map scales symbols are bigger). For the scales 1:700,000 and more detailed, symbol of bather in a square appears instead of points. All symbols (charts, circles and squares with bather) are coloured according to achieved quality status. Historical data is seen in pop-up windows which can be opened with a click on individual bathing water monitoring site. Assessment is done according to assessment rules of the Directive 2006/7/EC (classification into categories Excellent, Good, Sufficient...) and of the Directive76/160/EEC (classification into categories CG, CI, NC...). Monitoring requirements such as the taking of a pre-season sample, a minimum of four samples per season and a minimum of one sample per month must be met for all bathing waters. If these rules are satisfied, the bathing water is categorised as 'sampling frequency satisfied'. If at least one monitoring requirement is not fulfilled the bathing water is categorised as 'sampling frequency not satisfied'. In such cases, bathing water can still be quality assessed if at least four samples per season (three samples if the season does not exceed eight weeks or the region is subject to special geographical constraints) are available and are more or less equally distributed throughout the season. Assessment of bathing water quality is possible when the bathing-water sample dataset is available for four consecutive seasons. Bathing waters are accordingly classified to one of the bathing-water quality classes (excellent, good, sufficient, or poor). If intestinal enterococci and Escherichia coli sample datasets for four consecutive seasons are not yet available, the assessment of bathing water quality is made by using the data from the latest year only. In this case, the assessment of bathing water quality is conducted under a set of transitional rules.</span><span> </span><span>Bathing waters are accordingly classified</span><span> into quality categories: </span><span>CG, CI, NC</span><span>.</span></p></div></div>",
                             "layers": [
                                 {
                                     "id": "0",
@@ -502,44 +589,189 @@
                             ]
                         },
                         {
-                            "id": "germany_populated",
-                            "url": "http://services.conterra.de/arcgis/rest/services/common/osm_population/MapServer",
+                            "id": "regions",
+                            "url": "http://bio.discomap.eea.europa.eu/arcgis/rest/services/BioRegions/Biogeographicalregions_Dyna_WM/MapServer",
                             "type": "AGS_DYNAMIC",
-                            "title": "Populated Places in Germany(OSM)",
-                            "description": "Populated Places in Germany",
+                            "title": "Regions",
+                            "description": "The bio-geographic regions dataset contains the official delineations used in the Habitats Directive (92/43/EEC) and for the EMERALD Network set up under the Convention on the Conservation of European Wildlife and Natural Habitats (Bern Convention)",
                             "layers": [
                                 {
                                     "id": "0",
-                                    "title": "population"
+                                    "title": "EU27 Bio Geographical Regions 2011",
+                                    "enabled": true
+                                },
+                                {
+                                    "id": "1",
+                                    "title": "EU27 Biogeographical Regions 2008",
+                                    "enabled": true
+                                },
+                                {
+                                    "id": "2",
+                                    "title": "EU27 Biogeographical Regions 2005",
+                                    "enabled": false
+                                },
+                                {
+                                    "id": "3",
+                                    "title": "EU27 Bio Geographical Regions 2011 outline",
+                                    "enabled": false
                                 }
-                            ],
-                            "options": {
-                                "outFields": [
-                                    "geometry"
-                                ]
-                            }
+                            ]
                         },
                         {
-                            "id": "germany_camping",
-                            "url": "http://services.conterra.de/arcgis/rest/services/common/osm_camping/MapServer",
+                            "id": "natura000",
+                            "url": "http://discomap.eea.europa.eu/arcgis/rest/services/Bio/Natura2000_Dyna_WM/MapServer",
                             "type": "AGS_DYNAMIC",
-                            "title": "Campingsites in Germany(OSM)",
-                            "description": "Campingsites in Germany",
+                            "title": "Natura2000",
+                            "description": "Natura 2000 is the key instrument to protect biodiversity in the European Union. It is an ecological network of protected areas, set up to ensure the survival of Europe's most valuable species and habitats. Natura 2000 is based on the 1979 Birds Directive and the 1992 Habitats Directive. The green infrastructure it provides safeguards numerous ecosystem services and ensures that Europe's natural systems remain healthy and resilient.",
                             "layers": [
                                 {
                                     "id": "0",
-                                    "title": ""
+                                    "title": "Query Sites",
+                                    "enabled": false
+                                },
+                                {
+                                    "id": "1",
+                                    "title": "Habitats Directive Sites (SCI)",
+                                    "enabled": true
+                                },
+                                {
+                                    "id": "2",
+                                    "title": "Scale under 1:10,000,000",
+                                    "parentId": "1",
+                                    "maxScale": 10000000,
+                                    "enabled": true
+                                },
+                                {
+                                    "id": "3",
+                                    "title": "Scale between 1:100.000 and 1:10,000,000",
+                                    "parentId": "1",
+                                    "maxScale": 300000,
+                                    "minScale": 9999999,
+                                    "enabled": true
+                                },
+                                {
+                                    "id": "4",
+                                    "title": "Scale above 1:100,000",
+                                    "parentId": "1",
+                                    "minScale": 299999,
+                                    "enabled": true
+                                },
+                                {
+                                    "id": "5",
+                                    "title": "Bird Directive Sites (SPA)",
+                                    "enabled": true
+                                },
+                                {
+                                    "id": "6",
+                                    "title": "Scale under 1:10,000,000",
+                                    "parentId": "5",
+                                    "maxScale": 10000000,
+                                    "enabled": true
+                                },
+                                {
+                                    "id": "7",
+                                    "title": "Scale between 1:100,000 and 1:10,000,000",
+                                    "parentId": "5",
+                                    "maxScale": 300000,
+                                    "minScale": 9999999,
+                                    "enabled": true
+                                },
+                                {
+                                    "id": "8",
+                                    "title": "Scale above 1:100,000",
+                                    "parentId": "5",
+                                    "minScale": 299999,
+                                    "enabled": true
+                                }
+                            ]
+                        },
+                        {
+                            "id": "service_78042",
+                            "url": "https://services.arcgis.com/OLiydejKCZTGhvWg/arcgis/rest/services/Infas_PLZ_Gebiete_D_2012/FeatureServer",
+                            "type": "AGS_FEATURE",
+                            "title": "PLZ Gebiete",
+                            "description": "Feature Service mit 2 Layern: \nPLZ2: 2-stellige, zusammengefasste PLZ-Gebiete\nPLZ5: 5-stellige PLZ-Gebiete",
+                            "layers": [
+                                {
+                                    "id": "0",
+                                    "title": "PLZ_2_Gebiete_2012_Webmerc",
+                                    "enabled": true
+                                },
+                                {
+                                    "id": "1",
+                                    "title": "PLZ_5_Gebiete_2012_Webmerc",
+                                    "enabled": true
                                 }
                             ],
-                            "options": {
-                                "outFields": [
-                                    "*"
-                                ]
-                            }
+                            "options": {}
+                        },
+                        {
+                            "id": "service_64033",
+                            "url": "https://services.arcgis.com/OLiydejKCZTGhvWg/arcgis/rest/services/Berlin_RBS_Statistische_Gebiete/FeatureServer",
+                            "type": "AGS_FEATURE",
+                            "title": "Statististische Gebiete Berlin",
+                            "description": "Die Grenzen der Statistischen Gebiete des Regionalen Bezugssystems wurden onscreen auf der „Karte 1:5000\nvon Berlin“ (Quelle: Geoportal Berlin / [Karte von Berlin 1:5.000 (K5)]) digitalisiert unter Berücksichtigung\nder Grenzen und Blöcke aus dem RBS.\nhttp://www.stadtentwicklung.berlin.de/geoinf",
+                            "layers": [
+                                {
+                                    "id": "0",
+                                    "title": "RBS Statistische Gebiete",
+                                    "enabled": true
+                                }
+                            ],
+                            "options": {}
+                        },
+                        {
+                            "id": "service_93452",
+                            "url": "https://services1.arcgis.com/4yjifSiIG17X0gW4/arcgis/rest/services/Health_Resources_Berlin/FeatureServer",
+                            "type": "AGS_FEATURE",
+                            "title": "Gesundheits Einrichtungen",
+                            "description": "This layer shows health resources available in this city.",
+                            "layers": [
+                                {
+                                    "id": "0",
+                                    "title": "Health Resources",
+                                    "enabled": true
+                                }
+                            ],
+                            "options": {}
+                        },
+                        {
+                            "id": "service_86364",
+                            "url": "http://services.arcgis.com/OLiydejKCZTGhvWg/arcgis/rest/services/KreiseGeoreferenzdatenGeneralisiert/FeatureServer",
+                            "type": "AGS_FEATURE",
+                            "title": "Kreisgrenzen",
+                            "description": "Der Service stellt die generalisierten Georeferenzdaten für Deutschland zur Verfügung.\nGeoreferenzdaten stehen auf Kreisebene zur Verfügung. Die Grenzen wurden generalisiert.",
+                            "layers": [
+                                {
+                                    "id": "0",
+                                    "title": "Kreisgrenzen 2011 (generalisiert)",
+                                    "enabled": true
+                                }
+                            ],
+                            "options": {}
                         }
                     ]
                 }
             }
+        },
+        "mapflow": {
+            "MapFlow": {
+                "nodeDepth": 5,
+                "showScrollBar": true,
+                "singleSelectionMode": false,
+                "autoZoomTo": false,
+                "autoFlipActiveCover": true,
+                "autoActivate": false,
+                "contentFlowProperties": {
+                    "useAddOns": false,
+                    "circularFlow": true,
+                    "reflectionHeight": 0,
+                    "maxItemHeight": 200,
+                    "relativeItemPosition": "top center",
+                    "visibleItems": 4
+                }
+            },
+            "enabled": true
         },
         "templates": {
             "TemplateSelector": {
