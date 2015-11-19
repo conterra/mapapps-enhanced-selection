@@ -234,8 +234,8 @@
                 "widgetEnabled": true,
                 "distance": {
                     "minimum": 0,
-                    "maximum": 1000,
-                    "interval": 50,
+                    "maximum": 100,
+                    "interval": 5,
                     "unit": "KILOMETERS"
                 }
             },
