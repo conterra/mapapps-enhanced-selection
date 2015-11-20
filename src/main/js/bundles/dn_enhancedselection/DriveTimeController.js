@@ -117,26 +117,6 @@ define([
         },
         _createGeoprocessor: function () {
             this.gp = new Geoprocessor(this._properties.geoprocessorUrl);
-
-            /*var that = this;
-             this.gp.on("job-complete", function (evt) {
-             var jobId = evt.jobInfo.jobId;
-             
-             that.gp.getResultData(jobId, "service_areas", function (results) {
-             var driveTimePolygon = results.value.features[0];
-             var geometry = that._coordinateTransformer.transform(driveTimePolygon.geometry, that._mapState.getSpatialReference().wkid);
-             that.drawGeometryHandler.drawGeometry(geometry);
-             that._mapState.setExtent(geometry.getExtent());
-             
-             that.queryController.queryStore(driveTimePolygon.geometry, that.selectedStore, this.spatialRel);
-             }, function (error) {
-             that._logService.warn(that._i18n.get().warning.resultErrorWarning + evt.error.message);
-             });
-             });
-             
-             this.gp.on("error", function (evt) {
-             that._logService.warn(that._i18n.get().warning.polygonErrorWarning + evt.error.message);
-             });*/
         },
         onTimeSliderChange: function (event) {
             this.driveTimeWidget.timeText.setAttribute("value", event);
@@ -175,22 +155,39 @@ define([
             var featureSet = new FeatureSet();
             featureSet.features = features;
             var params = {"facilities": featureSet, "break_values": minutes, "f": "json"};
-            //this.gp.outSpatialReference = this._mapState.spatialReference;
-            //this.gp.submitJob(params);
             this.gp.setOutputSpatialReference(this._mapState.getSpatialReference());
-            this.gp.execute(params, d_lang.hitch(this, this._onResults), d_lang.hitch(this, this._onError));
+            this.gp.submitJob(params, d_lang.hitch(this, this._completeCallback), d_lang.hitch(this, this._statusCallback), d_lang.hitch(this, this._onError));
             this.drawGeometryHandler.drawDistanceText(geometry, minutes + "minutes");
         },
-        _onResults: function (results, messages) {
-            var driveTimePolygon = results.value.features[0];
-            var geometry = this._coordinateTransformer.transform(driveTimePolygon.geometry, this._mapState.getSpatialReference().wkid);
-            this.drawGeometryHandler.drawGeometry(geometry);
-            this._mapState.setExtent(geometry.getExtent());
-
-            this.queryController.queryStore(driveTimePolygon.geometry, this.selectedStore, this.spatialRel);
-        },
         _onError: function (error) {
-            this._logService.warn(this._i18n.get().warning.polygonErrorWarning + error.message);
+            debugger
+            this._logService.warn({
+                id: error.code,
+                message: this._i18n.get().warning.polygonErrorWarning + error.message
+            });
+        },
+        _statusCallback: function (jobInfo) {
+            /*this._logService.info({
+             id: 0,
+             message: jobInfo.jobStatus
+             });*/
+        },
+        _completeCallback: function (jobInfo) {
+            var that = this;
+
+            that.gp.getResultData(jobInfo.jobId, "service_areas", function (results) {
+                var driveTimePolygon = results.value.features[0];
+                var geometry = that._coordinateTransformer.transform(driveTimePolygon.geometry, that._mapState.getSpatialReference().wkid);
+                that.drawGeometryHandler.drawGeometry(geometry);
+                that._mapState.setExtent(geometry.getExtent());
+
+                that.queryController.queryStore(driveTimePolygon.geometry, that.selectedStore, that.spatialRel);
+            }, function (error) {
+                that._logService.warn({
+                    id: error.code,
+                    message: that._i18n.get().warning.polygonErrorWarning + error.message
+                });
+            });
         },
         deactivate: function () {
             this.disconnect();
