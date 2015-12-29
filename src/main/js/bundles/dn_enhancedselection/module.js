@@ -24,6 +24,10 @@ define([
     "./FreehandPolygonController",
     "./QueryController",
     "./SelectFeatureFromLayerController",
-    "./CommonWidget",
+    "./DistanceCircleWidget",
+    "./DriveTimeWidget",
+    "./FreehandPolygonWidget",
+    "./SelectFeatureFromLayerWidget",
+    "dijit/layout/ContentPane",
     "ct/tools/Tool"
 ], {});

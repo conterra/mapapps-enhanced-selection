@@ -19,8 +19,9 @@ define([
     "ct/array",
     "dojo/dom-construct",
     "ct/_Connect",
-    "apprt/ServiceResolver"
-], function (declare, d_array, ct_array, d_domConstruct, _Connect, ServiceResolver) {
+    "apprt/ServiceResolver",
+    "dijit/layout/ContentPane"
+], function (declare, d_array, ct_array, d_domConstruct, _Connect, ServiceResolver, ContentPane) {
     /*
      * COPYRIGHT 2013 con terra GmbH Germany
      */
@@ -130,7 +131,11 @@ define([
         addGeometryInputProvider: function (component) {
             var srBaseWidget = this.baseWidget;
             var contentNode = srBaseWidget.contentNode;
-            contentNode && contentNode.addChild(component);
+            var contentPane = new ContentPane({content: component, title: component.get("title")});
+            this.connect(contentPane, "onShow", function() {
+                component.onShow();
+            });
+            contentNode && contentNode.addChild(contentPane);
         },
 
         modified: function () {
@@ -150,7 +155,6 @@ define([
                 }
             }, this);
         },
-
         destroyInstance: function (container) {
             // tabs are no ComponentFactories, so we have to preserve the widgets from destruction
             d_array.forEach(container.getChildren(), function (tab) {

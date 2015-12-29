@@ -59,7 +59,7 @@ define([
             var i18n = this._i18n.get().ui.selectionTools.selectFeatureFromStore;
             selectFeatureFromLayerWidget.set("tooltip", i18n.tooltip);
             this.disconnect();
-            this.connect(selectFeatureFromLayerWidget, "onSelected", this.onSelected);
+            this.connect(selectFeatureFromLayerWidget, "onShow", this.onSelected);
             this.connect(selectFeatureFromLayerWidget, "reenable", this.draw);
             this.connect(selectFeatureFromLayerWidget, "search", this.search);
             storeSelectionSelect.set("options", []);
@@ -88,7 +88,7 @@ define([
         geometryDrawn: function (evt) {
             var geom = evt.getProperty("geometry");
             var selectFeatureFromLayerWidget = this.selectFeatureFromLayerWidget;
-            if (!selectFeatureFromLayerWidget.get("selected")) {
+            if (!selectFeatureFromLayerWidget.getParent().get("selected")) {
                 return;
             }
             var storeSelectionSelect = selectFeatureFromLayerWidget.storeSelectionSelect;

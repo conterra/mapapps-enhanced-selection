@@ -1,466 +1,459 @@
 {
-    "Bundle-SymbolicName": "dn_enhancedselection",
-    "Bundle-Version": "1.0.4-SNAPSHOT",
-    "Bundle-Name": "${bundleName}",
-    "Bundle-Description": "Search stores for surrounding features",
-    "Bundle-Vendor": "con terra GmbH",
-    "Product-Name": "map.apps Developer Network",
-    "Bundle-Localization": [
-        "bundle"
-    ],
-    "Config-Bundle-Location": "/config",
-    "Require-Bundle": [
+  "Bundle-SymbolicName": "dn_enhancedselection",
+  "Bundle-Version": "1.0.4-SNAPSHOT",
+  "Bundle-Name": "${bundleName}",
+  "Bundle-Description": "Search stores for surrounding features",
+  "Bundle-Vendor": "con terra GmbH",
+  "Product-Name": "map.apps Developer Network",
+  "Bundle-Localization": [
+    "bundle"
+  ],
+  "Config-Bundle-Location": "/config",
+  "Require-Bundle": [
+    {
+      "name": "agssearch"
+    },
+    {
+      "name": "map"
+    },
+    {
+      "name": "resultcenter"
+    },
+    {
+      "name": "selection"
+    }
+  ],
+  "CSS-Themes-Extension": [
+    {
+      "name": "*"
+    }
+  ],
+  "layout-widgets": [
+    {
+      "widgetRole": "dn_enhancedselection",
+      "window": {
+        "name": "mainWindow",
+        "title": "${ui.title}",
+        "marginBox": {
+          "w": 400,
+          "h": 450,
+          "t": 380,
+          "l": 20
+        },
+        "minSize": {
+          "w": 400
+        },
+        "closable": true,
+        "minimizeOnClose": true,
+        "resizable": true,
+        "draggable": true,
+        "windowClass": "ctWindowEffect",
+        "dockTool": "dn_enhancedselectionToggleTool"
+      }
+    }
+  ],
+  "Components": [
+    {
+      "name": "SrWidgetFactory",
+      "provides": [
+        "dn_enhancedselection.SrController",
+        "dijit.Widget"
+      ],
+      "propertiesConstructor": true,
+      "instanceFactory": true,
+      "properties": {
+        "widgetRole": "dn_enhancedselection",
+        "storeIds": []
+      },
+      "references": [
         {
-            "name": "agssearch"
+          "name": "baseWidget",
+          "providing": "dn_enhancedselection.baseWidget"
         },
         {
-            "name": "map"
+          "name": "geometryInputProvider",
+          "providing": "dn_enhancedselection.GeometryInputProvider",
+          "cardinality": "0..n"
         },
         {
-            "name": "resultcenter"
-        },
-        {
-            "name": "selection"
+          "name": "surroundingStore",
+          "providing": "ct.api.Store",
+          "cardinality": "1..n",
+          "filter": "(useIn=selection)"
         }
-    ],
-    "CSS-Themes-Extension": [
+      ]
+    },
+    {
+      "name": "BaseWidgetController",
+      "propertiesConstructor": true,
+      "provides": [
+        "dn_enhancedselection.BaseWidgetController",
+        "ct.framework.api.EventHandler"
+      ],
+      "properties": {
+        "Event-Topics": [
+          {
+            "topic": "ct/dn_enhancedselection/SEARCH_FINISHED",
+            "method": "searchFinished"
+          },
+          {
+            "topic": "ct/dn_enhancedselection/WIDGET_SELECTED",
+            "method": "widgetSelected"
+          },
+          {
+            "topic": "ct/dn_enhancedselection/GEOMETRY_DRAWN",
+            "method": "geometryDrawn"
+          }
+        ],
+        "clearGraphics": false
+      },
+      "references": [
         {
-            "name": "*"
+          "name": "tool",
+          "providing": "ct.tools.Tool",
+          "filter": "(id=dn_enhancedselectionToggleTool)"
+        },
+        {
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
+        },
+        {
+          "name": "baseWidget",
+          "providing": "dn_enhancedselection.baseWidget"
+        },
+        {
+          "name": "geometryInputProvider",
+          "providing": "dn_enhancedselection.GeometryInputProvider",
+          "cardinality": "1..n"
+        },
+        {
+          "name": "drawGeometryHandler",
+          "providing": "dn_enhancedselection.DrawGeometryHandler"
+        },
+        {
+          "name": "_dataModel",
+          "providing": "ct.resultcenter.DataModel"
+        },
+        {
+          "name": "_drawController",
+          "providing": "ct.mapping.edit.DrawStateController"
         }
-    ],
-    "layout-widgets": [
+      ]
+    },
+    {
+      "name": "DistanceCircleWidget",
+      "propertiesConstructor": true,
+      "provides": [
+        "dijit.Widget",
+        "dn_enhancedselection.GeometryInputProvider",
+        "dn_enhancedselection.DistanceCircleWidget"
+      ]
+    },
+    {
+      "name": "DriveTimeWidget",
+      "propertiesConstructor": true,
+      "provides": [
+        "dijit.Widget",
+        "dn_enhancedselection.GeometryInputProvider",
+        "dn_enhancedselection.DriveTimeWidget"
+      ]
+    },
+    {
+      "name": "FreehandPolygonWidget",
+      "propertiesConstructor": true,
+      "provides": [
+        "dijit.Widget",
+        "dn_enhancedselection.GeometryInputProvider",
+        "dn_enhancedselection.FreehandPolygonWidget"
+      ]
+    },
+    {
+      "name": "SelectFeatureFromLayerWidget",
+      "propertiesConstructor": true,
+      "provides": [
+        "dijit.Widget",
+        "dn_enhancedselection.GeometryInputProvider",
+        "dn_enhancedselection.SelectFeatureFromLayerWidget"
+      ]
+    },
+    {
+      "name": "DriveTimeController",
+      "provides": [
+        "ct.framework.api.EventHandler"
+      ],
+      "properties": {
+        "Event-Topics": [
+          {
+            "topic": "ct/dn_enhancedselection/DRAW_GEOMETRY",
+            "method": "draw"
+          },
+          {
+            "topic": "ct/dn_enhancedselection/GEOMETRY_DRAWN",
+            "method": "geometryDrawn"
+          }
+        ],
+        "drivetime": {
+          "minimum": 0,
+          "maximum": 30,
+          "interval": 1
+        },
+        "widgetEnabled": true,
+        "geoprocessorUrl": "http://logistics.arcgis.com/arcgis/rest/services/World/ServiceAreas/GPServer/GenerateServiceAreas"
+      },
+      "references": [
         {
-            "widgetRole": "dn_enhancedselection",
-            "window": {
-                "name": "mainWindow",
-                "title": "${ui.title}",
-                "marginBox": {
-                    "w": 400,
-                    "h": 450,
-                    "t": 380,
-                    "l": 20
-                },
-                "minSize": {
-                    "w": 400
-                },
-                "closable": true,
-                "minimizeOnClose": true,
-                "resizable": true,
-                "draggable": true,
-                "windowClass": "ctWindowEffect",
-                "dockTool": "dn_enhancedselectionToggleTool"
-            }
+          "name": "_logService",
+          "providing": "ct.framework.api.LogService"
+        },
+        {
+          "name": "drawGeometryHandler",
+          "providing": "dn_enhancedselection.DrawGeometryHandler"
+        },
+        {
+          "name": "_coordinateTransformer",
+          "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
+        },
+        {
+          "name": "driveTimeWidget",
+          "providing": "dn_enhancedselection.DriveTimeWidget",
+          "cardinality": "0..1"
+        },
+        {
+          "name": "_mapState",
+          "providing": "ct.mapping.map.MapState"
+        },
+        {
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
+        },
+        {
+          "name": "queryController",
+          "providing": "dn_enhancedselection.QueryController"
         }
-    ],
-    "Components": [
+      ]
+    },
+    {
+      "name": "QueryController",
+      "provides": "dn_enhancedselection.QueryController",
+      "references": [
         {
-            "name": "SrWidgetFactory",
-            "provides": [
-                "dn_enhancedselection.SrController",
-                "dijit.Widget"
-            ],
-            "propertiesConstructor": true,
-            "instanceFactory": true,
-            "properties": {
-                "widgetRole": "dn_enhancedselection",
-                "storeIds": []
-            },
-            "references": [
-                {
-                    "name": "baseWidget",
-                    "providing": "dn_enhancedselection.baseWidget"
-                },
-                {
-                    "name": "geometryInputProvider",
-                    "providing": "dn_enhancedselection.GeometryInputProvider",
-                    "cardinality": "0..n"
-                },
-                {
-                    "name": "surroundingStore",
-                    "providing": "ct.api.Store",
-                    "cardinality": "1..n",
-                    "filter": "(useIn=selection)"
-                }
-            ]
+          "name": "_logService",
+          "providing": "ct.framework.api.LogService"
         },
         {
-            "name": "BaseWidgetController",
-            "propertiesConstructor": true,
-            "provides": [
-                "dn_enhancedselection.BaseWidgetController",
-                "ct.framework.api.EventHandler"
-            ],
-            "properties": {
-                "Event-Topics": [
-                    {
-                        "topic": "ct/dn_enhancedselection/SEARCH_FINISHED",
-                        "method": "searchFinished"
-                    },
-                    {
-                        "topic": "ct/dn_enhancedselection/WIDGET_SELECTED",
-                        "method": "widgetSelected"
-                    },
-                    {
-                        "topic": "ct/dn_enhancedselection/GEOMETRY_DRAWN",
-                        "method": "geometryDrawn"
-                    }
-                ],
-                "clearGraphics": false
-            },
-            "references": [
-                {
-                    "name": "tool",
-                    "providing": "ct.tools.Tool",
-                    "filter": "(id=dn_enhancedselectionToggleTool)"
-                },
-                {
-                    "name": "_eventService",
-                    "providing": "ct.framework.api.EventService"
-                },
-                {
-                    "name": "baseWidget",
-                    "providing": "dn_enhancedselection.baseWidget"
-                },
-                {
-                    "name": "geometryInputProvider",
-                    "providing": "dn_enhancedselection.GeometryInputProvider",
-                    "cardinality": "1..n"
-                },
-                {
-                    "name": "drawGeometryHandler",
-                    "providing": "dn_enhancedselection.DrawGeometryHandler"
-                },
-                {
-                    "name": "_dataModel",
-                    "providing": "ct.resultcenter.DataModel"
-                },
-                {
-                    "name": "_drawController",
-                    "providing": "ct.mapping.edit.DrawStateController"
-                }
-            ]
+          "name": "_dataModel",
+          "providing": "ct.resultcenter.DataModel"
         },
         {
-            "name": "DistanceCircleWidget",
-            "propertiesConstructor": true,
-            "impl": "./CommonWidget",
-            "properties": {
-            //    "Service-Ranking": 100
-            },
-            "provides": [
-                "dijit.Widget",
-                "dn_enhancedselection.GeometryInputProvider",
-                "dn_enhancedselection.DistanceCircleWidget"
-            ]
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
         },
         {
-            "name": "DriveTimeWidget",
-            "impl": "./CommonWidget",
-            "propertiesConstructor": true,
-            "provides": [
-                "dijit.Widget",
-                "dn_enhancedselection.GeometryInputProvider",
-                "dn_enhancedselection.DriveTimeWidget"
-            ]
-        },
-        {
-            "name": "FreehandPolygonWidget",
-            "impl": "./CommonWidget",
-            "propertiesConstructor": true,
-            "provides": [
-                "dijit.Widget",
-                "dn_enhancedselection.GeometryInputProvider",
-                "dn_enhancedselection.FreehandPolygonWidget"
-            ]
-        },
-        {
-            "name": "SelectFeatureFromLayerWidget",
-            "impl": "./CommonWidget",
-            "propertiesConstructor": true,
-            "provides": [
-                "dijit.Widget",
-                "dn_enhancedselection.GeometryInputProvider",
-                "dn_enhancedselection.SelectFeatureFromLayerWidget"
-            ]
-        },
-        {
-            "name": "DriveTimeController",
-            "provides": [
-                "ct.framework.api.EventHandler"
-            ],
-            "properties": {
-                "Event-Topics": [
-                    {
-                        "topic": "ct/dn_enhancedselection/DRAW_GEOMETRY",
-                        "method": "draw"
-                    },
-                    {
-                        "topic": "ct/dn_enhancedselection/GEOMETRY_DRAWN",
-                        "method": "geometryDrawn"
-                    }
-                ],
-                "drivetime": {
-                    "minimum": 0,
-                    "maximum": 30,
-                    "interval": 1
-                },
-                "widgetEnabled": true,
-                "geoprocessorUrl": "http://logistics.arcgis.com/arcgis/rest/services/World/ServiceAreas/GPServer/GenerateServiceAreas"
-            },
-            "references": [
-                {
-                    "name": "_logService",
-                    "providing": "ct.framework.api.LogService"
-                },
-                {
-                    "name": "drawGeometryHandler",
-                    "providing": "dn_enhancedselection.DrawGeometryHandler"
-                },
-                {
-                    "name": "_coordinateTransformer",
-                    "providing": "ct.api.coordinatetransformer.CoordinateTransformer"
-                },
-                {
-                    "name": "driveTimeWidget",
-                    "providing": "dn_enhancedselection.DriveTimeWidget",
-                    "cardinality": "0..1"
-                },
-                {
-                    "name": "_mapState",
-                    "providing": "ct.mapping.map.MapState"
-                },
-                {
-                    "name": "_eventService",
-                    "providing": "ct.framework.api.EventService"
-                },
-                {
-                    "name": "queryController",
-                    "providing": "dn_enhancedselection.QueryController"
-                }
-            ]
-        },
-        {
-            "name": "QueryController",
-            "provides": "dn_enhancedselection.QueryController",
-            "references": [
-                {
-                    "name": "_logService",
-                    "providing": "ct.framework.api.LogService"
-                },
-                {
-                    "name": "_dataModel",
-                    "providing": "ct.resultcenter.DataModel"
-                },
-                {
-                    "name": "_eventService",
-                    "providing": "ct.framework.api.EventService"
-                },
-                {
-                    "name": "selectionAction",
-                    "providing": "selection.SelectionAction"
-                }
-            ]
-        },
-        {
-            "name": "FreehandPolygonController",
-            "provides": [
-                "ct.framework.api.EventHandler"
-            ],
-            "properties": {
-                "Event-Topics": [
-                    {
-                        "topic": "ct/dn_enhancedselection/DRAW_GEOMETRY",
-                        "method": "draw"
-                    },
-                    {
-                        "topic": "ct/dn_enhancedselection/GEOMETRY_DRAWN",
-                        "method": "geometryDrawn"
-                    }
-                ],
-                "widgetEnabled": true
-            },
-            "references": [
-                {
-                    "name": "_logService",
-                    "providing": "ct.framework.api.LogService"
-                },
-                {
-                    "name": "drawGeometryHandler",
-                    "providing": "dn_enhancedselection.DrawGeometryHandler"
-                },
-                {
-                    "name": "freehandPolygonWidget",
-                    "providing": "dn_enhancedselection.FreehandPolygonWidget",
-                    "cardinality": "0..1"
-                },
-                {
-                    "name": "_eventService",
-                    "providing": "ct.framework.api.EventService"
-                },
-                {
-                    "name": "queryController",
-                    "providing": "dn_enhancedselection.QueryController"
-                }
-            ]
-        },
-        {
-            "name": "DistanceCircleController",
-            "provides": [
-                "ct.framework.api.EventHandler"
-            ],
-            "properties": {
-                "Event-Topics": [
-                    {
-                        "topic": "ct/dn_enhancedselection/DRAW_GEOMETRY",
-                        "method": "draw"
-                    },
-                    {
-                        "topic": "ct/dn_enhancedselection/GEOMETRY_DRAWN",
-                        "method": "geometryDrawn"
-                    }
-                ],
-                "distance": {
-                    "minimum": 0,
-                    "maximum": 1000,
-                    "interval": 50,
-                    "unit": "KILOMETERS"
-                },
-                "widgetEnabled": true
-            },
-            "references": [
-                {
-                    "name": "_eventService",
-                    "providing": "ct.framework.api.EventService"
-                },
-                {
-                    "name": "_logService",
-                    "providing": "ct.framework.api.LogService"
-                },
-                {
-                    "name": "drawGeometryHandler",
-                    "providing": "dn_enhancedselection.DrawGeometryHandler"
-                },
-                {
-                    "name": "distanceCircleWidget",
-                    "providing": "dn_enhancedselection.DistanceCircleWidget",
-                    "cardinality": "0..1"
-                },
-                {
-                    "name": "_mapState",
-                    "providing": "ct.mapping.map.MapState"
-                },
-                {
-                    "name": "queryController",
-                    "providing": "dn_enhancedselection.QueryController"
-                }
-            ]
-        },
-        {
-            "name": "SelectFeatureFromLayerController",
-            "provides": [
-                "ct.framework.api.EventHandler"
-            ],
-            "properties": {
-                "Event-Topics": [
-                    {
-                        "topic": "ct/dn_enhancedselection/DRAW_GEOMETRY",
-                        "method": "draw"
-                    },
-                    {
-                        "topic": "ct/dn_enhancedselection/GEOMETRY_DRAWN",
-                        "method": "geometryDrawn"
-                    }
-                ],
-                "storeIds": [],
-                "scale": 500000,
-                "widgetEnabled": true
-            },
-            "references": [
-                {
-                    "name": "topicStore",
-                    "providing": "ct.api.Store",
-                    "cardinality": "0..n",
-                    "filter": "(useIn=selection)"
-                },
-                {
-                    "name": "_eventService",
-                    "providing": "ct.framework.api.EventService"
-                },
-                {
-                    "name": "_logService",
-                    "providing": "ct.framework.api.LogService"
-                },
-                {
-                    "name": "drawGeometryHandler",
-                    "providing": "dn_enhancedselection.DrawGeometryHandler"
-                },
-                {
-                    "name": "selectFeatureFromLayerWidget",
-                    "providing": "dn_enhancedselection.SelectFeatureFromLayerWidget",
-                    "cardinality": "0..1"
-                },
-                {
-                    "name": "_mapState",
-                    "providing": "ct.mapping.map.MapState"
-                },
-                {
-                    "name": "queryController",
-                    "providing": "dn_enhancedselection.QueryController"
-                }
-            ]
-        },
-        {
-            "name": "DrawGeometryHandler",
-            "provides": "dn_enhancedselection.DrawGeometryHandler",
-            "references": [
-                {
-                    "name": "_eventService",
-                    "providing": "ct.framework.api.EventService"
-                },
-                {
-                    "name": "_drawController",
-                    "providing": "ct.mapping.edit.DrawStateController"
-                },
-                {
-                    "name": "_mapModel",
-                    "providing": "ct.mapping.map.MapModel"
-                },
-                {
-                    "name": "_logService",
-                    "providing": "ct.framework.api.LogService"
-                }
-            ]
-        },
-        {
-            "name": "BaseWidget",
-            "provides": [
-                "dn_enhancedselection.baseWidget"
-            ]
-        },
-        {
-            "name": "SurroundingsToggleTool",
-            "impl": "ct/tools/Tool",
-            "provides": [
-                "ct.tools.Tool",
-                "dn_enhancedselection.SurroundingsToggleTool"
-            ],
-            "propertiesConstructor": true,
-            "properties": {
-                "id": "dn_enhancedselectionToggleTool",
-                "toolRole": "toolset",
-                "title": "${toggleTool.title}",
-                "tooltip": "${toggleTool.tooltip}",
-                "togglable": true,
-                "iconClass": "icon-radio-selected"
-            //    "activateHandler": "activateWidget",
-            //    "deactivateHandler": "deactivateWidget"
-            },
-            "references": [
-            //    {
-            //        "name": "handlerScope",
-            //        "providing": "dn_enhancedselection.BaseWidgetController"
-            //    }
-            ]
+          "name": "selectionAction",
+          "providing": "selection.SelectionAction"
         }
-    ]
+      ]
+    },
+    {
+      "name": "FreehandPolygonController",
+      "provides": [
+        "ct.framework.api.EventHandler"
+      ],
+      "properties": {
+        "Event-Topics": [
+          {
+            "topic": "ct/dn_enhancedselection/DRAW_GEOMETRY",
+            "method": "draw"
+          },
+          {
+            "topic": "ct/dn_enhancedselection/GEOMETRY_DRAWN",
+            "method": "geometryDrawn"
+          }
+        ],
+        "widgetEnabled": true
+      },
+      "references": [
+        {
+          "name": "_logService",
+          "providing": "ct.framework.api.LogService"
+        },
+        {
+          "name": "drawGeometryHandler",
+          "providing": "dn_enhancedselection.DrawGeometryHandler"
+        },
+        {
+          "name": "freehandPolygonWidget",
+          "providing": "dn_enhancedselection.FreehandPolygonWidget",
+          "cardinality": "0..1"
+        },
+        {
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
+        },
+        {
+          "name": "queryController",
+          "providing": "dn_enhancedselection.QueryController"
+        }
+      ]
+    },
+    {
+      "name": "DistanceCircleController",
+      "provides": [
+        "ct.framework.api.EventHandler"
+      ],
+      "properties": {
+        "Event-Topics": [
+          {
+            "topic": "ct/dn_enhancedselection/DRAW_GEOMETRY",
+            "method": "draw"
+          },
+          {
+            "topic": "ct/dn_enhancedselection/GEOMETRY_DRAWN",
+            "method": "geometryDrawn"
+          }
+        ],
+        "distance": {
+          "minimum": 0,
+          "maximum": 1000,
+          "interval": 50,
+          "unit": "KILOMETERS"
+        },
+        "widgetEnabled": true
+      },
+      "references": [
+        {
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
+        },
+        {
+          "name": "_logService",
+          "providing": "ct.framework.api.LogService"
+        },
+        {
+          "name": "drawGeometryHandler",
+          "providing": "dn_enhancedselection.DrawGeometryHandler"
+        },
+        {
+          "name": "distanceCircleWidget",
+          "providing": "dn_enhancedselection.DistanceCircleWidget",
+          "cardinality": "0..1"
+        },
+        {
+          "name": "_mapState",
+          "providing": "ct.mapping.map.MapState"
+        },
+        {
+          "name": "queryController",
+          "providing": "dn_enhancedselection.QueryController"
+        }
+      ]
+    },
+    {
+      "name": "SelectFeatureFromLayerController",
+      "provides": [
+        "ct.framework.api.EventHandler"
+      ],
+      "properties": {
+        "Event-Topics": [
+          {
+            "topic": "ct/dn_enhancedselection/DRAW_GEOMETRY",
+            "method": "draw"
+          },
+          {
+            "topic": "ct/dn_enhancedselection/GEOMETRY_DRAWN",
+            "method": "geometryDrawn"
+          }
+        ],
+        "storeIds": [],
+        "scale": 500000,
+        "widgetEnabled": true
+      },
+      "references": [
+        {
+          "name": "topicStore",
+          "providing": "ct.api.Store",
+          "cardinality": "0..n",
+          "filter": "(useIn=selection)"
+        },
+        {
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
+        },
+        {
+          "name": "_logService",
+          "providing": "ct.framework.api.LogService"
+        },
+        {
+          "name": "drawGeometryHandler",
+          "providing": "dn_enhancedselection.DrawGeometryHandler"
+        },
+        {
+          "name": "selectFeatureFromLayerWidget",
+          "providing": "dn_enhancedselection.SelectFeatureFromLayerWidget",
+          "cardinality": "0..1"
+        },
+        {
+          "name": "_mapState",
+          "providing": "ct.mapping.map.MapState"
+        },
+        {
+          "name": "queryController",
+          "providing": "dn_enhancedselection.QueryController"
+        }
+      ]
+    },
+    {
+      "name": "DrawGeometryHandler",
+      "provides": "dn_enhancedselection.DrawGeometryHandler",
+      "references": [
+        {
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
+        },
+        {
+          "name": "_drawController",
+          "providing": "ct.mapping.edit.DrawStateController"
+        },
+        {
+          "name": "_mapModel",
+          "providing": "ct.mapping.map.MapModel"
+        },
+        {
+          "name": "_logService",
+          "providing": "ct.framework.api.LogService"
+        }
+      ]
+    },
+    {
+      "name": "BaseWidget",
+      "provides": [
+        "dn_enhancedselection.baseWidget"
+      ]
+    },
+    {
+      "name": "SurroundingsToggleTool",
+      "impl": "ct/tools/Tool",
+      "provides": [
+        "ct.tools.Tool",
+        "dn_enhancedselection.SurroundingsToggleTool"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+        "id": "dn_enhancedselectionToggleTool",
+        "toolRole": "toolset",
+        "title": "${toggleTool.title}",
+        "tooltip": "${toggleTool.tooltip}",
+        "togglable": true,
+        "iconClass": "icon-radio-selected"
+        //    "activateHandler": "activateWidget",
+        //    "deactivateHandler": "deactivateWidget"
+      },
+      "references": [
+        //    {
+        //        "name": "handlerScope",
+        //        "providing": "dn_enhancedselection.BaseWidgetController"
+        //    }
+      ]
+    }
+  ]
 }

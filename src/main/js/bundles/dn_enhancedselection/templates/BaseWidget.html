@@ -4,11 +4,11 @@
         <div data-dojo-attach-point="header" data-dojo-type="dijit/layout/ContentPane"
              data-dojo-props="region: 'top'" class="dn_enhancedselectionHeader">
             <div class="spatialRow">
-                <span>${ui.storeSelector}</span>
-                <select data-dojo-attach-point="storeSelect" data-dojo-type="dijit/form/Select"></select>
+                <div>${ui.storeSelector}</div>
+                <select data-dojo-attach-point="storeSelect" data-dojo-type="dijit/form/Select" ></select>
             </div>
             <div class="spatialRow">
-                <span class="spatialRelDesc">${ui.selectSpatialRel}</span>
+                <div class="spatialRelDesc">${ui.selectSpatialRel}</div>
                 <select class="spatialRelationSelect" data-dojo-props="disabled:false"
                         data-dojo-attach-point="spatialRelation"
                         data-dojo-type="dijit/form/Select">
@@ -19,7 +19,7 @@
         </div>
         <div data-dojo-type="dijit/layout/ContentPane"
              data-dojo-props="region: 'center'">
-            <div data-dojo-type="dijit/layout/AccordionContainer" data-dojo-attach-point="contentNode"></div>
+            <div data-dojo-type="dijit/layout/TabContainer" data-dojo-attach-point="contentNode"></div>
         </div>
         <div data-dojo-attach-point="header" data-dojo-type="dijit/layout/ContentPane"
              data-dojo-props="region: 'bottom'">

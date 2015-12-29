@@ -62,33 +62,36 @@ define([
             //configure time rule labels
             new HorizontalRuleLabels({
                 container: "topDecoration",
-                labels: ["",
-                    timeMinimum + (timeDifference / 3) + "min",
-                    timeMinimum + (timeDifference * (2 / 3)) + "min",
-                    ""],
-                labelStyle: "height: 1.2em; font-weight: bold"
+                labels: [
+                    timeMinimum + (timeDifference * (0 / 5)),
+                    timeMinimum + (timeDifference * (1 / 5)),
+                    timeMinimum + (timeDifference * (2 / 5)),
+                    timeMinimum + (timeDifference * (3 / 5)),
+                    timeMinimum + (timeDifference * (4 / 5)),
+                    timeMinimum + (timeDifference * (5 / 5)) + "min"],
+                labelStyle: "height:1.5em;"
             }, driveTimeWidget.timeRuleLabels);
 
             // connect events
             this.disconnect();
-            this.connect(driveTimeWidget, "onSelected", this.onSelected);
+            this.connect(driveTimeWidget, "onShow", this.onSelected);
             this.connect(driveTimeWidget, "reenable", this.draw);
             this.connect(driveTimeWidget, "search", this.search);
-            this.connect(driveTimeWidget.timeSlider, "onChange", this.onTimeSliderChange);
-            this.connect(driveTimeWidget.timeText, "onBlur", this.onTimeInputChange);
+            //this.connect(driveTimeWidget.timeSlider, "onChange", this.onTimeSliderChange);
+            //this.connect(driveTimeWidget.timeText, "onBlur", this.onTimeInputChange);
 
             // configure slider validator
             var that = this;
-            driveTimeWidget.timeText.validator = function (value, constraints) {
-                var min = driveTimeWidget.timeSlider.get("minimum");
-                var max = driveTimeWidget.timeSlider.get("maximum");
-                value = Number(value);
-                if (value < min || value > max || isNaN(value)) {
-                    return false;
-                } else {
-                    return true;
-                }
-            };
+            /*driveTimeWidget.timeText.validator = function (value, constraints) {
+             var min = driveTimeWidget.timeSlider.get("minimum");
+             var max = driveTimeWidget.timeSlider.get("maximum");
+             value = Number(value);
+             if (value < min || value > max || isNaN(value)) {
+             return false;
+             } else {
+             return true;
+             }
+             };*/
             this._createGeoprocessor();
         },
         modified: function (componentContext) {
@@ -160,7 +163,6 @@ define([
             this.drawGeometryHandler.drawDistanceText(geometry, minutes + "minutes");
         },
         _onError: function (error) {
-            debugger
             this._logService.warn({
                 id: error.code,
                 message: this._i18n.get().warning.polygonErrorWarning + error.message

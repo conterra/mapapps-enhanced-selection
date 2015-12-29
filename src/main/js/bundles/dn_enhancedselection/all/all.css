@@ -13,14 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-.dn_enhancedselection .dn_enhancedselectionHeader .dijitSelect {
-    float: right;
-}
 
 .dn_enhancedselection hr {
     clear: right;
 }
-
 .dn_enhancedselection .dijitRuleLabelsContainer {
     height: 20px;
 }
@@ -29,8 +25,26 @@
     margin-top: 12px;
 }
 
-.dn_enhancedselection .dijitValidationTextBox {
-    width: 50px;
+.dn_enhancedselection .dijitSelect{
+    width: 100%;
+}
+.dn_enhancedselection .dijitSelect .dijitArrowButton{
+    width: 21px;
+}
+
+.dn_enhancedselection .alternatingTicks{
+    height: 10px;
+}
+.dn_enhancedselection .alternatingTicks .dijitRuleMark{
+    border-color: #fff;
+}
+.dn_enhancedselection .alternatingTicks .dijitRuleMark:nth-child(2n){
+    height: 5px;
+    margin-top: 5px;
+}
+
+.dn_enhancedselection .alternatingTicks:nth-child(2n){
+    height: 10px;
 }
 
 .dn_enhancedselection .controlButtonGroup {
@@ -39,10 +53,6 @@
 
 .dn_enhancedselection .geometryProvider {
     margin-top: 10px;
-}
-
-.dn_enhancedselection .spatialRelationSelect {
-    width: 100px;
 }
 
 .dn_enhancedselection .freeHandPolygonToolDesc {
@@ -57,22 +67,20 @@
     margin-top: 5px;
 }
 
-.dn_enhancedselection .spatialRow > span {
+.dn_enhancedselection .spatialRow > div {
     line-height: 25px;
 }
 
-.dn_enhancedselection .geometryProvider > span {
+.dn_enhancedselection .geometryProvider > div {
     line-height: 33px;
 }
 
-.dn_enhancedselection .geometryProvider .dijitSelect,
 .dn_enhancedselection .controlButtonGroup {
     float: right;
 }
 
 .dn_enhancedselection .storeSelectionSelect {
     margin-top: 5px;
-    max-width: 70px;
     overflow: hidden;
     text-overflow: ellipsis;
 }

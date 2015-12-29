@@ -69,9 +69,9 @@ define([
             distanceWidget.set("tooltip", i18n.tooltip);
             this.disconnect();
             this.connect(distanceWidget.distanceSlider, "onChange", this.onDistanceSliderChange);
-            this.connect(distanceWidget.distFromText, "onBlur", this.onDistInputChange);
-            this.connect(distanceWidget.distToText, "onBlur", this.onDistInputChange);
-            this.connect(distanceWidget, "onSelected", this.onSelected);
+            //this.connect(distanceWidget.distFromText, "onBlur", this.onDistInputChange);
+            //this.connect(distanceWidget.distToText, "onBlur", this.onDistInputChange);
+            this.connect(distanceWidget, "onShow", this.onSelected);
             this.connect(distanceWidget, "search", this.search);
             this.connect(distanceWidget, "reenable", this.draw);
             var distanceSlider = distanceWidget.distanceSlider;
@@ -88,63 +88,64 @@ define([
             //configure distance rule labels
             var labels = new HorizontalRuleLabels({
                 container: "topDecoration",
-                labels: ["",
-                    distanceMinimum + (distanceDifference * 0.2) + radiusUnitShort,
-                    distanceMinimum + (distanceDifference * 0.4) + radiusUnitShort,
-                    distanceMinimum + (distanceDifference * 0.6) + radiusUnitShort,
-                    distanceMinimum + (distanceDifference * 0.8) + radiusUnitShort,
-                    ""]
+                labels: [
+                    distanceMinimum + (distanceDifference * 0.0),
+                    distanceMinimum + (distanceDifference * 0.2),
+                    distanceMinimum + (distanceDifference * 0.4),
+                    distanceMinimum + (distanceDifference * 0.6),
+                    distanceMinimum + (distanceDifference * 0.8),
+                    distanceMinimum + (distanceDifference * 1.0) + radiusUnitShort]
             });
             d_domConstruct.place(labels.domNode, distanceWidget.distanceRuleLabels, "only");
 
             // configure validator for slider changes
-            distanceWidget.distFromUnit.innerHTML = radiusUnitShort;
-            distanceWidget.distToUnit.innerHTML = radiusUnitShort;
-            distanceWidget.distFromText.validator = function (value, constraints) {
-                var min = distanceWidget.distanceSlider.get("minimum");
-                var max = distanceWidget.distanceSlider.get("value")[1];
-                value = Number(value);
-                if (value < min || value > max || isNaN(value)) {
-                    return false;
-                } else {
-                    return true;
-                }
-            };
-            distanceWidget.distToText.validator = function (value, constraints) {
-                var min = distanceWidget.distanceSlider.get("value")[0];
-                var max = distanceWidget.distanceSlider.get("maximum");
-                value = Number(value);
-                if (value < min || value > max || isNaN(value)) {
-                    return false;
-                } else {
-                    return true;
-                }
-            };
+            /*distanceWidget.distFromUnit.innerHTML = radiusUnitShort;
+             distanceWidget.distToUnit.innerHTML = radiusUnitShort;
+             distanceWidget.distFromText.validator = function (value, constraints) {
+             var min = distanceWidget.distanceSlider.get("minimum");
+             var max = distanceWidget.distanceSlider.get("value")[1];
+             value = Number(value);
+             if (value < min || value > max || isNaN(value)) {
+             return false;
+             } else {
+             return true;
+             }
+             };
+             distanceWidget.distToText.validator = function (value, constraints) {
+             var min = distanceWidget.distanceSlider.get("value")[0];
+             var max = distanceWidget.distanceSlider.get("maximum");
+             value = Number(value);
+             if (value < min || value > max || isNaN(value)) {
+             return false;
+             } else {
+             return true;
+             }
+             };*/
             distanceWidget.show();
         },
         onDistanceSliderChange: function (event) {
             var distanceWidget = this.distanceCircleWidget;
-            distanceWidget.distFromText.setAttribute("value", event[0]);
-            distanceWidget.distToText.setAttribute("value", event[1]);
+            //distanceWidget.distFromText.setAttribute("value", event[0]);
+            //distanceWidget.distToText.setAttribute("value", event[1]);
         },
-        onDistInputChange: function () {
-            var distanceWidget = this.distanceCircleWidget;
-            var fromValid = distanceWidget.distFromText.isValid();
-            var toValid = distanceWidget.distToText.isValid();
-            var oldFromValue = distanceWidget.distanceSlider.get("value")[0];
-            var oldToValue = distanceWidget.distanceSlider.get("value")[1];
-            var newFromValue = distanceWidget.distFromText.get("value");
-            var newToValue = distanceWidget.distToText.get("value");
-            if (!fromValid && !toValid) {
-                return;
-            } else if (fromValid && toValid) {
-                distanceWidget.distanceSlider.set("value", [newFromValue, newToValue]);
-            } else if (fromValid) {
-                distanceWidget.distanceSlider.set("value", [newFromValue, oldToValue]);
-            } else if (toValid) {
-                distanceWidget.distanceSlider.set("value", [oldFromValue, newToValue]);
-            }
-        },
+        /*onDistInputChange: function () {
+         var distanceWidget = this.distanceCircleWidget;
+         var fromValid = distanceWidget.distFromText.isValid();
+         var toValid = distanceWidget.distToText.isValid();
+         var oldFromValue = distanceWidget.distanceSlider.get("value")[0];
+         var oldToValue = distanceWidget.distanceSlider.get("value")[1];
+         var newFromValue = distanceWidget.distFromText.get("value");
+         var newToValue = distanceWidget.distToText.get("value");
+         if (!fromValid && !toValid) {
+         return;
+         } else if (fromValid && toValid) {
+         distanceWidget.distanceSlider.set("value", [newFromValue, newToValue]);
+         } else if (fromValid) {
+         distanceWidget.distanceSlider.set("value", [newFromValue, oldToValue]);
+         } else if (toValid) {
+         distanceWidget.distanceSlider.set("value", [oldFromValue, newToValue]);
+         }
+         },*/
         draw: function (geometryType) {
             this.drawGeometryHandler.allowUserToDrawGeometry(geometryType || this.geometryType);
         },
@@ -175,14 +176,14 @@ define([
             this._mapState.setExtent(extent);
             if (minDistance === 0) {
                 this.drawGeometryHandler.drawDistanceText(geometry,
-                        maxDistance + radiusUnitShort
-                        );
+                    maxDistance + radiusUnitShort
+                );
             } else {
                 this.drawGeometryHandler.drawDistanceText(geometry,
-                        minDistance + radiusUnitShort +
-                        " - " +
-                        maxDistance + radiusUnitShort
-                        );
+                    minDistance + radiusUnitShort +
+                    " - " +
+                    maxDistance + radiusUnitShort
+                );
 
             }
             this.queryController.queryStore(featureGeometry, store, spatialRel);

@@ -78,14 +78,14 @@ define([
             var contentNode = srBaseWidget.contentNode;
             var selectedChild = contentNode.get("selectedChildWidget");
             var store = this.getStore();
-            selectedChild.search(store, spatialRel);
+            selectedChild.content.search(store, spatialRel);
         },
         reset: function () {
             this.drawGeometryHandler.clearGraphics();
             var baseWidget = this.baseWidget;
             var childWidgets = baseWidget.contentNode;
             var selectedChild = childWidgets.get("selectedChildWidget");
-            selectedChild.reenable();
+            selectedChild.content.reenable();
             baseWidget.searchButton.set("disabled", true);
             this._dataModel.setDatasource();
         },

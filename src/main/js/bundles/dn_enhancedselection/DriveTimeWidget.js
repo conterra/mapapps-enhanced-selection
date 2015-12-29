@@ -24,38 +24,18 @@ define([
     "dijit/form/RadioButton",
     "dojox/form/RangeSlider",
     "ct/util/css",
-    "dojo/text!./templates/DriveTimeWidget.html",
-    "dojo/text!./templates/FreehandPolygonWidget.html",
-    "dojo/text!./templates/SelectFeatureFromLayerWidget.html",
-    "dojo/text!./templates/CircleWidget.html"
+    "dojo/text!./templates/DriveTimeWidget.html"
 
-], function (declare, i18n, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, Buttton, Select, RadioButton, RangeSlider, css, DriveTimeWidget, FreehandPolygonWidget, SelectFeatureFromLayerWidget, CircleWidget) {
+], function (declare, i18n, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, Button, Select, RadioButton, RangeSlider, css, template) {
 
     return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
-        templateString: "",
+        templateString: template,
         constructor: function (properties) {
-            var templateStringContent;
-            this.ui = i18n.ui;
-            var cpName = properties["Component-Name"];
-            switch (cpName) {
-                case "DistanceCircleWidget":
-                    templateStringContent = CircleWidget;
-                    this.set("title", i18n.ui.selectionTools.distance.title);
-                    break;
-                case "DriveTimeWidget":
-                    templateStringContent = DriveTimeWidget;
-                    this.set("title", i18n.ui.selectionTools.travelTime.title);
-                    break;
-                case "FreehandPolygonWidget":
-                    templateStringContent = FreehandPolygonWidget;
-                    this.set("title", i18n.ui.selectionTools.freehandPolygon.title);
-                    break;
-                case "SelectFeatureFromLayerWidget":
-                    templateStringContent = SelectFeatureFromLayerWidget;
-                    this.set("title", i18n.ui.selectionTools.selectFeatureFromStore.title);
-                    break
-            }
-            this.set("templateString", templateStringContent);
+            this.i18n = i18n;
+        },
+        postCreate: function () {
+            this.set("title", i18n.ui.selectionTools.travelTime.title);
+            this.inherited(arguments);
         },
         reenable: function () {
         },
@@ -77,6 +57,8 @@ define([
             //if (domNode.parentNode) {
             //    domNode.parentNode.removeChild(domNode);
             //}
+        },
+        onShow: function () {
         }
     });
 });

@@ -37,7 +37,7 @@ define([
         _initWidget: function () {
             var freehandPolygonWidget = this.freehandPolygonWidget;
             this.disconnect();
-            this.connect(freehandPolygonWidget, "onSelected", this.onSelected);
+            this.connect(freehandPolygonWidget, "onShow", this.onSelected);
             this.connect(freehandPolygonWidget, "reenable", this.draw);
             this.connect(freehandPolygonWidget, "search", this.search);
             var i18n = this._i18n.get().ui.selectionTools.freehandPolygon;
