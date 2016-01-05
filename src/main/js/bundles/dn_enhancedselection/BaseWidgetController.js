@@ -32,10 +32,7 @@ define([
         },
         _init: function () {
             var srBaseWidget = this.baseWidget;
-            srBaseWidget.searchButton.set("iconClass", "icon-magnifier");
-            //srBaseWidget.chooseStartButton.set("iconClass", "icon-map-locate");
             this.disconnect();
-            this.connect(srBaseWidget, "onSearch", this.search);
             this.connect(srBaseWidget, "onReset", this.reset);
             this.connect(srBaseWidget, "onDrawPolygon", this.draw);
             this.connect(srBaseWidget, "deactivateWidget", this.deactivateWidget);
@@ -57,22 +54,16 @@ define([
             var id = this.baseWidget.storeSelect.get("value");
             return this.serviceResolver.getService("ct.api.Store", "(id=" + id + ")");
         },
-        searchFinished: function () {
-            var srBaseWidget = this.baseWidget;
-            srBaseWidget.searchButton.set("iconClass", "icon-magnifier");
-        },
         geometryDrawn: function () {
             var srBaseWidget = this.baseWidget;
-            srBaseWidget.searchButton.set("disabled", false);
-        },
-        widgetSelected: function () {
-            var srBaseWidget = this.baseWidget;
-            srBaseWidget.searchButton.set("disabled", true);
-            //this.drawGeometryHandler.clearGraphics();
+            var that = this;
+            clearTimeout(this._timeout);
+            this._timeout = setTimeout(function () {
+                that.search();
+            }, 1000);
         },
         search: function () {
             var srBaseWidget = this.baseWidget;
-            srBaseWidget.searchButton.set("iconClass", "icon-spinner");
             this.drawGeometryHandler.deactivateDraw();
             var spatialRel = srBaseWidget.spatialRelation.get("value");
             var contentNode = srBaseWidget.contentNode;
@@ -86,12 +77,11 @@ define([
             var childWidgets = baseWidget.contentNode;
             var selectedChild = childWidgets.get("selectedChildWidget");
             selectedChild.content.reenable();
-            baseWidget.searchButton.set("disabled", true);
             this._dataModel.setDatasource();
         },
         deactivateWidget: function () {
             this.drawGeometryHandler.disconnect(),
-            this.drawGeometryHandler.deactivateDraw();
+                this.drawGeometryHandler.deactivateDraw();
             if (this._properties.clearGraphics) {
                 this.drawGeometryHandler.clearGraphics();
                 this._dataModel.setDatasource();
@@ -116,7 +106,7 @@ define([
             this._init();
             var srBaseWidget = this.baseWidget;
             //reenable widget
-            srBaseWidget.contentNode && srBaseWidget.contentNode.selectedChildWidget && srBaseWidget.contentNode.selectedChildWidget.onSelected();
+            srBaseWidget.contentNode && srBaseWidget.contentNode.selectedChildWidget && srBaseWidget.contentNode.selectedChildWidget.onShow();
         }
     });
 });

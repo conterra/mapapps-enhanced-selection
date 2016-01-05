@@ -39,38 +39,6 @@ define([
              });
              selectionAction.selectionParameter.storeId = store.id;
              selectionAction.performSelection(geometry);
-
-            /*if (geometry.type === "polygon" && geomRel === "contains") {
-                if (geometry.rings.length > 1) {
-                    var outerRing = geometry.rings[0];
-                    var innerRing = geometry.rings[1];
-                    var spatialReference = geometry.spatialReference;
-
-                    var outerRingJson = {
-                        "rings": [outerRing],
-                        "spatialReference": spatialReference
-                    };
-                    var outerRingGeometry = new Polygon(outerRingJson);
-
-                    var innerRingJson = {
-                        "rings": [innerRing],
-                        "spatialReference": spatialReference
-                    };
-                    var innerRingGeometry = new Polygon(innerRingJson);
-
-                    this.defaultQuery(innerRingGeometry, store, geomRel);
-                } else {
-                    var geom = new Circle({
-                        center: geometry.center,
-                        geodesic: geometry.geodesic,
-                        radius: geometry.radius,
-                        radiusUnit: geometry.radiusUnit
-                    });
-                    this.defaultQuery(geom, store, geomRel);
-                }
-            } else {
-                this.defaultQuery(geometry, store, geomRel);
-            }*/
         },
         defaultQuery: function (geometry, store, geomRel) {
             var complexQuery = {};

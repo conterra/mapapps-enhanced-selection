@@ -33,27 +33,31 @@ define({
         relWithin: "Enthalten In",
         relTouches: "Ber\u00FChrt",
         title: "Erweiterte Selektion",
-        storeSelector: "Bitte w\u00E4hlen sie ein Suchthema",
+        storeSelector: "Suchthema",
         selectSpatialRel: "Geometrische Beziehung",
         selectionTools: {
             distance: {
-                title: "\u00FCber Umkreisdefinition",
+                title: "Entfernung",
+                button: "Ort ausw\u00E4hlen",
                 tooltip: "Mit diesem Tool kann eine Umkreissuche durchgeführt werden"
             },
             travelTime: {
-                title: "\u00FCber Erreichbarkeitsberechnung",
+                title: "Fahrtzeit",
                 desc: "Entfernung nach Fahrzeit (ArcGIS-Online Account ben\u00F6tigt)",
+                button: "Ort ausw\u00E4hlen",
                 tooltip: "Mit diesem Tool kann eine Erreichbarkeitsberechnung durchgeführt werden"
             },
             selectFeatureFromStore: {
-                title: "\u00FCber Gebietsauswahl",
+                title: "Gebiet",
                 desc: "Suchbereich einschr\u00E4nken auf Basis von",
                 selectStore: "Suchthema",
+                button: "Gebiet ausw\u00E4hlen",
                 tooltip: "Mit diesem Tool kann eine Suche über Gebietsauswahl durchgeführt werden"
             },
             freehandPolygon: {
-                title: "\u00FCber Freihandpolygon",
+                title: "Freihandpolygon",
                 desc: "Suchbereich einschr\u00E4nken auf Basis von Freihandpolygon",
+                button: "Polygon zeichnen",
                 tooltip: "Mit diesem Tool kann eine Suche auf Basis eines Freihandpolygons durchgeführt werden"
 
             }

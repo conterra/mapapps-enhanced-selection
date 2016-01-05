@@ -49,9 +49,19 @@
 
 .dn_enhancedselection .controlButtonGroup {
     margin-top: 10px;
+    float: left;
 }
 
 .dn_enhancedselection .geometryProvider {
+    margin-top: 10px;
+}
+
+.dn_enhancedselection .startButton {
+    width: 100%;
+}
+
+.dn_enhancedselection .startButton .dijitButtonNode {
+    width: 90%;
     margin-top: 10px;
 }
 
@@ -73,10 +83,6 @@
 
 .dn_enhancedselection .geometryProvider > div {
     line-height: 33px;
-}
-
-.dn_enhancedselection .controlButtonGroup {
-    float: right;
 }
 
 .dn_enhancedselection .storeSelectionSelect {

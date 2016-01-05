@@ -93,12 +93,8 @@
       "properties": {
         "Event-Topics": [
           {
-            "topic": "ct/dn_enhancedselection/SEARCH_FINISHED",
-            "method": "searchFinished"
-          },
-          {
-            "topic": "ct/dn_enhancedselection/WIDGET_SELECTED",
-            "method": "widgetSelected"
+            "topic": "ct/dn_enhancedselection/RESET",
+            "method": "reset"
           },
           {
             "topic": "ct/dn_enhancedselection/GEOMETRY_DRAWN",
@@ -147,6 +143,12 @@
         "dijit.Widget",
         "dn_enhancedselection.GeometryInputProvider",
         "dn_enhancedselection.DistanceCircleWidget"
+      ],
+      "references": [
+        {
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
+        }
       ]
     },
     {
@@ -156,6 +158,12 @@
         "dijit.Widget",
         "dn_enhancedselection.GeometryInputProvider",
         "dn_enhancedselection.DriveTimeWidget"
+      ],
+      "references": [
+        {
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
+        }
       ]
     },
     {
@@ -165,6 +173,12 @@
         "dijit.Widget",
         "dn_enhancedselection.GeometryInputProvider",
         "dn_enhancedselection.FreehandPolygonWidget"
+      ],
+      "references": [
+        {
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
+        }
       ]
     },
     {
@@ -174,6 +188,12 @@
         "dijit.Widget",
         "dn_enhancedselection.GeometryInputProvider",
         "dn_enhancedselection.SelectFeatureFromLayerWidget"
+      ],
+      "references": [
+        {
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
+        }
       ]
     },
     {
@@ -445,14 +465,8 @@
         "tooltip": "${toggleTool.tooltip}",
         "togglable": true,
         "iconClass": "icon-radio-selected"
-        //    "activateHandler": "activateWidget",
-        //    "deactivateHandler": "deactivateWidget"
       },
       "references": [
-        //    {
-        //        "name": "handlerScope",
-        //        "providing": "dn_enhancedselection.BaseWidgetController"
-        //    }
       ]
     }
   ]

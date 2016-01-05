@@ -1,22 +1,27 @@
 <div>
-<div data-dojo-attach-point="pane" data-dojo-type="dijit/layout/ContentPane" class="geometryProvider">
+    <div data-dojo-attach-point="pane" data-dojo-type="dijit/layout/ContentPane" class="geometryProvider">
 
-    <div data-dojo-attach-point="distanceSlider" data-dojo-type="dojox.form.HorizontalRangeSlider"
-         data-dojo-props="showButtons:false, disabled:false" style="width:90%; margin: 0 auto;">
-        <div data-dojo-attach-point="distanceRuleLabels"></div>
-        <div data-dojo-type="dijit/form/HorizontalRule" container="topDecoration" class="alternatingTicks" count=11>
+        <div data-dojo-attach-point="distanceSlider" data-dojo-type="dojox.form.HorizontalRangeSlider"
+             data-dojo-props="showButtons:false, disabled:false" style="width:90%; margin: 0 auto;">
+            <div data-dojo-attach-point="distanceRuleLabels"></div>
+            <div data-dojo-type="dijit/form/HorizontalRule" container="topDecoration" class="alternatingTicks"
+                 count=11></div>
         </div>
-    </div>
 
-    <!--<div class="textInputArea">
-        <span> ${i18n.ui.between}</span>
-        <input data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="distFromText"
-               data-dojo-props="disabled:false"/>
-        <span data-dojo-attach-point="distFromUnit" data-dojo-props="disabled:false"></span>
-        <span>${i18n.ui.and}</span>
-        <input data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="distToText"
-               data-dojo-props="disabled:false"/>
-        <span data-dojo-attach-point="distToUnit"></span>
-    </div>-->
-</div>
+        <!--<div class="textInputArea">
+            <span> ${i18n.ui.between}</span>
+            <input data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="distFromText"
+                   data-dojo-props="disabled:false"/>
+            <span data-dojo-attach-point="distFromUnit" data-dojo-props="disabled:false"></span>
+            <span>${i18n.ui.and}</span>
+            <input data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="distToText"
+                   data-dojo-props="disabled:false"/>
+            <span data-dojo-attach-point="distToUnit"></span>
+        </div>-->
+
+        <div data-dojo-type="dijit/form/Button" type="button" class="startButton" data-dojo-attach-event="onClick:onReset">
+            ${i18n.ui.selectionTools.distance.button}
+        </div>
+
+    </div>
 </div>

@@ -18,17 +18,10 @@ define([
     "dijit/_WidgetBase",
     "dijit/_TemplatedMixin",
     "dijit/_WidgetsInTemplateMixin",
-    "dijit/form/Button",
-    "dijit/form/Select",
-    "dijit/form/RadioButton",
-    "dojox/form/RangeSlider",
-    "ct/util/css",
-    "dojo/text!./templates/DistanceCircleWidget.html"
 
-], function (declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, Button, Select, RadioButton, RangeSlider, css, template) {
+], function (declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin) {
 
     return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
-        templateString: template,
         reenable: function () {
         },
         search: function (evt) {
@@ -36,19 +29,10 @@ define([
         resize: function () {
             this.inherited(arguments);
         },
-        show: function () {
-            //css.switchHidden(this.domNode.parentNode, false);
-            //var domNode = this.domNode;
-            //if (domNode.parentNode) {
-            //    domNode.parentNode.addChild(domNode);
-            //}
+        onReset: function() {
+            this._eventService.postEvent("ct/dn_enhancedselection/RESET");
         },
-        hide: function () {
-            //css.switchHidden(this.domNode.parentNode, true);
-            //var domNode = this.domNode;
-            //if (domNode.parentNode) {
-            //    domNode.parentNode.removeChild(domNode);
-            //}
+        show: function () {
         },
         onShow: function () {
         }

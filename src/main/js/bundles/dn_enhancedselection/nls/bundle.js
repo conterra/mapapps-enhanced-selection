@@ -34,24 +34,28 @@ define({
             relWithin: "Within",
             relTouches: "Touches",
             title: "Enhanced Selection",
-            storeSelector: "Please pick a selection topic",
+            storeSelector: "Topic",
             selectSpatialRel: "Spatial relation",
             selectionTools: {
                 distance: {
-                    title: "By Distance"
+                    title: "Distance",
+                    button: "Select location"
                 },
                 travelTime: {
-                    title: "By Travel Time",
-                    desc: "Distance by travel time (ArcGIS-Online Account required)"
+                    title: "Travel Time",
+                    desc: "Distance by travel time (ArcGIS-Online Account required)",
+                    button: "Select location"
                 },
                 selectFeatureFromStore: {
-                    title: "By Area Selection",
+                    title: "Area",
                     desc: "Restrict search area based on",
+                    button: "Select area",
                     selectStore: "Search Topic"
                 },
                 freehandPolygon: {
-                    title: "By Freehand Polygon",
-                    desc: "Restrict search area based on a freehand polygon."
+                    title: "Polygon",
+                    desc: "Restrict search area based on a freehand polygon.",
+                    button:"Draw polygon"
 
                 }
             },

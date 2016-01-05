@@ -1,5 +1,8 @@
 <div>
     <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="pane" class="geometryProvider">
-        <span class="freeHandPolygonToolDesc">${i18n.ui.selectionTools.freehandPolygon.desc}</span>
+
+        <div data-dojo-type="dijit/form/Button" type="button" class="startButton" data-dojo-attach-event="onClick:onReset">
+            ${i18n.ui.selectionTools.freehandPolygon.button}
+        </div>
     </div>
 </div>
