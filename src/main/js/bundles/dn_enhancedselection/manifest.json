@@ -35,13 +35,13 @@
         "name": "mainWindow",
         "title": "${ui.title}",
         "marginBox": {
-          "w": 400,
-          "h": 450,
+          "w": 465,
+          "h": 400,
           "t": 380,
           "l": 20
         },
         "minSize": {
-          "w": 400
+          "w": 465
         },
         "closable": true,
         "minimizeOnClose": true,
@@ -143,6 +143,9 @@
     {
       "name": "DistanceCircleWidget",
       "propertiesConstructor": true,
+      "properties": {
+        "Service-Ranking": -4
+      },
       "provides": [
         "dijit.Widget",
         "dn_enhancedselection.GeometryInputProvider",
@@ -158,6 +161,9 @@
     {
       "name": "DriveTimeWidget",
       "propertiesConstructor": true,
+      "properties": {
+        "Service-Ranking": -5
+      },
       "provides": [
         "dijit.Widget",
         "dn_enhancedselection.GeometryInputProvider",
@@ -173,6 +179,9 @@
     {
       "name": "FreehandPolygonWidget",
       "propertiesConstructor": true,
+      "properties": {
+        "Service-Ranking": -2
+      },
       "provides": [
         "dijit.Widget",
         "dn_enhancedselection.GeometryInputProvider",
@@ -188,6 +197,9 @@
     {
       "name": "SelectFeatureFromLayerWidget",
       "propertiesConstructor": true,
+      "properties": {
+        "Service-Ranking": -1
+      },
       "provides": [
         "dijit.Widget",
         "dn_enhancedselection.GeometryInputProvider",
@@ -203,6 +215,9 @@
     {
       "name": "GraphicWidget",
       "propertiesConstructor": true,
+      "properties": {
+        "Service-Ranking": -3
+      },
       "provides": [
         "dijit.Widget",
         "dn_enhancedselection.GeometryInputProvider",

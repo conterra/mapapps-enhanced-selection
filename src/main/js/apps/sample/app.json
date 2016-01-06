@@ -241,7 +241,7 @@
                 }
             },
             "DriveTimeController": {
-                "widgetEnabled": true,
+                "widgetEnabled": false,
                 "geoprocessorUrl": "http://logistics.arcgis.com/arcgis/rest/services/World/ServiceAreas/GPServer/GenerateServiceAreas",
                 "drivetime": {
                     "minimum": 0,

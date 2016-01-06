@@ -59,9 +59,6 @@ define([
         unsetFreehandPolygonWidget: function () {
             this.disconnect();
         },
-        draw: function (geometryType) {
-            //this.drawGeometryHandler.deactivateDraw()
-        },
         onSelected: function () {
             this.drawGeometryHandler.deactivateDraw()
             var that = this;

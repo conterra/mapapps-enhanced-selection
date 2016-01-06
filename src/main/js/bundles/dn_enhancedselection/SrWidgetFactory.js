@@ -125,7 +125,7 @@ define([
         removeGeometryInputProvider: function (component) {
             var srBaseWidget = this.baseWidget;
             var contentNode = srBaseWidget.contentNode;
-            contentNode && contentNode.removeChild(component);
+            contentNode && contentNode.removeChild(component.getParent());
         },
 
         addGeometryInputProvider: function (component) {

@@ -62,10 +62,11 @@ define({
                 tooltip: "Mit diesem Tool kann eine Suche auf Basis eines Freihandpolygons durchgeführt werden"
             },
             graphic: {
-                title: "Grafik",
+                title: "Vorhandene Grafik",
                 desc: "Suchbereich einschr\u00E4nken auf Basis einer Grafik",
-                button: "Grafik auswählen",
-                tooltip: "Mit diesem Tool kann eine Suche auf Basis einer Grafik durchgeführt werden"
+                button: "Vorhandene Grafik ausw\u00E4hlen",
+                tooltip: "Mit diesem Tool kann eine Suche auf Basis einer Grafik durchgeführt werden",
+                error: "Keine Grafik gefunden"
 
             }
         },

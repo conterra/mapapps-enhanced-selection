@@ -55,14 +55,14 @@ define({
                 freehandPolygon: {
                     title: "Polygon",
                     desc: "Restrict search area based on a freehand polygon.",
-                    button:"Draw polygon"
+                    button: "Draw polygon"
 
                 },
                 graphic: {
-                    title: "Graphic",
+                    title: "Existing Graphic",
                     desc: "Restrict search area based on a graphic.",
-                    button:"Get graphic"
-
+                    button: "Get graphic",
+                    error: "No graphic found"
                 }
             },
             between: "Between",
