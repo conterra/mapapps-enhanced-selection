@@ -133,9 +133,6 @@ define([
         onSelected: function (selected) {
             var geometryType = this.geometryType;
             this.draw(geometryType);
-            this._eventService.sendEvent("ct/dn_enhancedselection/WIDGET_SELECTED", {
-                geometry: geometryType
-            });
         },
         search: function (store, spatialRel) {
             var driveTimeWidget = this.driveTimeWidget;

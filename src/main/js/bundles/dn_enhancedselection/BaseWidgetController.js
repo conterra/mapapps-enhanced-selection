@@ -55,8 +55,8 @@ define([
             return this.serviceResolver.getService("ct.api.Store", "(id=" + id + ")");
         },
         geometryDrawn: function () {
-            var srBaseWidget = this.baseWidget;
             var that = this;
+
             clearTimeout(this._timeout);
             this._timeout = setTimeout(function () {
                 that.search();

@@ -14,22 +14,21 @@
  * limitations under the License.
  */
 define([
-    ".",
-    "./BaseWidget",
-    "./SrWidgetFactory",
-    "./BaseWidgetController",
-    "./DistanceCircleController",
-    "./DrawGeometryHandler",
-    "./DriveTimeController",
-    "./FreehandPolygonController",
-    "./QueryController",
-    "./SelectFeatureFromLayerController",
-    "./GraphicController",
-    "./DistanceCircleWidget",
-    "./DriveTimeWidget",
-    "./FreehandPolygonWidget",
-    "./SelectFeatureFromLayerWidget",
-    "./GraphicWidget",
-    "dijit/layout/ContentPane",
-    "ct/tools/Tool"
-], {});
+    "dojo/_base/declare",
+    "dojo/i18n!./nls/bundle",
+    "./GeometryInputWidget",
+    "dojo/text!./templates/GraphicWidget.html"
+
+], function (declare, i18n, _GeometryInputWidget, template) {
+
+    return declare([_GeometryInputWidget], {
+        templateString: template,
+        constructor: function (properties) {
+            this.i18n = i18n;
+        },
+        postCreate: function () {
+            this.set("title", i18n.ui.selectionTools.graphic.title);
+            this.inherited(arguments);
+        },
+    });
+});

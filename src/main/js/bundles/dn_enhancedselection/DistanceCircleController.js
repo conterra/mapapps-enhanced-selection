@@ -148,16 +148,18 @@ define([
         ,
         geometryDrawn: function (evt) {
             this._inputGeometry = evt.getProperty("geometry");
+
+            /*var that = this;
+            clearTimeout(this._timeout);
+            this._timeout = setTimeout(function () {
+                that._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
+            }, 1000);*/
         }
         ,
         onSelected: function () {
             var geometryType = this.geometryType;
             this.draw(geometryType);
-            this._eventService.sendEvent("ct/dn_enhancedselection/WIDGET_SELECTED", {
-                geometryType: geometryType
-            });
-        }
-        ,
+        },
         search: function (store, spatialRel) {
             var distanceWidget = this.distanceCircleWidget;
             var geometry = this._inputGeometry;

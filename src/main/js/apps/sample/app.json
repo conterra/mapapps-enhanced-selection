@@ -25,7 +25,8 @@
             "agssearch",
             "dn_enhancedselection",
             "agsprinting",
-            "wizard"
+            "wizard",
+            "redlining"
         ],
         "skipBundles": [],
         "require": [
@@ -813,7 +814,8 @@
                         "id": "position_tools",
                         "title": "",
                         "tools": [
-                            "dn_enhancedselectionToggleTool"
+                            "dn_enhancedselectionToggleTool",
+                            "drawrectangletool"
                         ],
                         "container": "map",
                         "cssClass": "noTitleBarAndWindowTools",

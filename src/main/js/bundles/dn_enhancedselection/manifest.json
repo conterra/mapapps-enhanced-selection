@@ -97,6 +97,10 @@
             "method": "reset"
           },
           {
+            "topic": "ct/dn_enhancedselection/SEARCH",
+            "method": "search"
+          },
+          {
             "topic": "ct/dn_enhancedselection/GEOMETRY_DRAWN",
             "method": "geometryDrawn"
           }
@@ -188,6 +192,21 @@
         "dijit.Widget",
         "dn_enhancedselection.GeometryInputProvider",
         "dn_enhancedselection.SelectFeatureFromLayerWidget"
+      ],
+      "references": [
+        {
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
+        }
+      ]
+    },
+    {
+      "name": "GraphicWidget",
+      "propertiesConstructor": true,
+      "provides": [
+        "dijit.Widget",
+        "dn_enhancedselection.GeometryInputProvider",
+        "dn_enhancedselection.GraphicWidget"
       ],
       "references": [
         {
@@ -410,6 +429,44 @@
         {
           "name": "selectFeatureFromLayerWidget",
           "providing": "dn_enhancedselection.SelectFeatureFromLayerWidget",
+          "cardinality": "0..1"
+        },
+        {
+          "name": "_mapState",
+          "providing": "ct.mapping.map.MapState"
+        },
+        {
+          "name": "queryController",
+          "providing": "dn_enhancedselection.QueryController"
+        }
+      ]
+    },
+    {
+      "name": "GraphicController",
+      "provides": [
+        "ct.framework.api.EventHandler"
+      ],
+      "properties": {
+        "Event-Topics": [
+        ],
+        "widgetEnabled": true
+      },
+      "references": [
+        {
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
+        },
+        {
+          "name": "_logService",
+          "providing": "ct.framework.api.LogService"
+        },
+        {
+          "name": "drawGeometryHandler",
+          "providing": "dn_enhancedselection.DrawGeometryHandler"
+        },
+        {
+          "name": "graphicWidget",
+          "providing": "dn_enhancedselection.GraphicWidget",
           "cardinality": "0..1"
         },
         {

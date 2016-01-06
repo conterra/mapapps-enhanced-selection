@@ -58,7 +58,14 @@ define({
                 title: "Freihandpolygon",
                 desc: "Suchbereich einschr\u00E4nken auf Basis von Freihandpolygon",
                 button: "Polygon zeichnen",
+                button2: "Grafik auswählen",
                 tooltip: "Mit diesem Tool kann eine Suche auf Basis eines Freihandpolygons durchgeführt werden"
+            },
+            graphic: {
+                title: "Grafik",
+                desc: "Suchbereich einschr\u00E4nken auf Basis einer Grafik",
+                button: "Grafik auswählen",
+                tooltip: "Mit diesem Tool kann eine Suche auf Basis einer Grafik durchgeführt werden"
 
             }
         },

@@ -57,6 +57,12 @@ define({
                     desc: "Restrict search area based on a freehand polygon.",
                     button:"Draw polygon"
 
+                },
+                graphic: {
+                    title: "Graphic",
+                    desc: "Restrict search area based on a graphic.",
+                    button:"Get graphic"
+
                 }
             },
             between: "Between",

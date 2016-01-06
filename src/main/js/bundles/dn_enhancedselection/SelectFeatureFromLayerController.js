@@ -70,10 +70,10 @@ define([
                 var storeProperties = this.getStoreProperties(storeId);
                 if (storeProperties) {
                     storeSelectionSelect.addOption(
-                            {
-                                label: storeProperties.title,
-                                value: storeId
-                            }
+                        {
+                            label: storeProperties.title,
+                            value: storeId
+                        }
                     );
                 }
             }, this);
@@ -110,6 +110,12 @@ define([
                     this.drawGeometryHandler.drawGeometry(inputGeom);
                 }
             }, this);
+
+            /*
+            clearTimeout(this._timeout);
+            this._timeout = setTimeout(function () {
+                that._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
+            }, 1000);*/
         },
         getStore: function (id) {
             return this.serviceResolver.getService("ct.api.Store", "(id=" + id + ")");
@@ -120,9 +126,6 @@ define([
         onSelected: function (selected) {
             var geometryType = this.geometryType;
             this.draw(geometryType);
-            this._eventService.sendEvent("ct/dn_enhancedselection/WIDGET_SELECTED", {
-                geometryType: geometryType
-            });
         },
         modified: function (componentContext) {
             var properties = this._properties;
