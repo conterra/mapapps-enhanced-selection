@@ -20,9 +20,10 @@ define([
     "esri/units",
     "ct/async",
     "dijit/form/HorizontalRuleLabels",
+    "dijit/Tooltip",
     "ct/_Connect",
     "dojo/dom-construct"
-], function (declare, d_array, d_lang, esri_units, ct_async, HorizontalRuleLabels, _Connect, d_domConstruct) {
+], function (declare, d_array, d_lang, esri_units, ct_async, HorizontalRuleLabels, Tooltip, _Connect, d_domConstruct) {
     return declare([_Connect], {
         geometryType: "Point",
         componentName: "DistanceCircleWidget",
@@ -125,40 +126,38 @@ define([
         },
         onDistanceSliderChange: function (event) {
             var distanceWidget = this.distanceCircleWidget;
-            //distanceWidget.distFromText.setAttribute("value", event[0]);
-            //distanceWidget.distToText.setAttribute("value", event[1]);
+
+            if (event[0] === 0) {
+                var text = event[1] + " km";
+            } else {
+                var text = event[0] + " - " + event[1] + " km";
+            }
+
+            var parent = distanceWidget.getParent();
+            if (parent.get("selected") === true) {
+                Tooltip.show(text, distanceWidget.distanceToolTip);
+
+                ct_async(function (arg1) {
+                    Tooltip.hide(distanceWidget.distanceToolTip);
+                }, 1500, "arg1");
+            }
         },
-        /*onDistInputChange: function () {
-         var distanceWidget = this.distanceCircleWidget;
-         var fromValid = distanceWidget.distFromText.isValid();
-         var toValid = distanceWidget.distToText.isValid();
-         var oldFromValue = distanceWidget.distanceSlider.get("value")[0];
-         var oldToValue = distanceWidget.distanceSlider.get("value")[1];
-         var newFromValue = distanceWidget.distFromText.get("value");
-         var newToValue = distanceWidget.distToText.get("value");
-         if (!fromValid && !toValid) {
-         return;
-         } else if (fromValid && toValid) {
-         distanceWidget.distanceSlider.set("value", [newFromValue, newToValue]);
-         } else if (fromValid) {
-         distanceWidget.distanceSlider.set("value", [newFromValue, oldToValue]);
-         } else if (toValid) {
-         distanceWidget.distanceSlider.set("value", [oldFromValue, newToValue]);
-         }
-         },*/
         draw: function (geometryType) {
             this.drawGeometryHandler.allowUserToDrawGeometry(geometryType || this.geometryType);
-        },
+        }
+        ,
         geometryDrawn: function (evt) {
             this._inputGeometry = evt.getProperty("geometry");
-        },
+        }
+        ,
         onSelected: function () {
             var geometryType = this.geometryType;
             this.draw(geometryType);
             this._eventService.sendEvent("ct/dn_enhancedselection/WIDGET_SELECTED", {
                 geometryType: geometryType
             });
-        },
+        }
+        ,
         search: function (store, spatialRel) {
             var distanceWidget = this.distanceCircleWidget;
             var geometry = this._inputGeometry;
@@ -187,7 +186,8 @@ define([
 
             }
             this.queryController.queryStore(featureGeometry, store, spatialRel);
-        },
+        }
+        ,
         deactivate: function (componentContext) {
             //   componentContext.disableComponent(this.componentName);
             this.disconnect();

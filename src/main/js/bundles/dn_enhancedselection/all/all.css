@@ -57,11 +57,13 @@
 }
 
 .dn_enhancedselection .startButton {
-    width: 100%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .dn_enhancedselection .startButton .dijitButtonNode {
-    width: 90%;
+    width: 100%;
     margin-top: 10px;
 }
 

@@ -3,22 +3,23 @@
         <!--<label>${i18n.ui.selectionTools.travelTime.desc}</label>-->
 
 
-        <div type="range" data-dojo-type="dijit.form.HorizontalSlider" data-dojo-attach-point="timeSlider"
-             data-dojo-props="showButtons: false, disabled:false" style="width:90%; margin: 0 auto;">
+        <div data-dojo-attach-point="timeToolTip">
+            <div type="range" data-dojo-type="dijit.form.HorizontalSlider" data-dojo-attach-point="timeSlider"
+                 data-dojo-props="showButtons: false, disabled:false" style="width:90%; margin: 0 auto;">
 
-            <div data-dojo-attach-point="timeRuleLabels"></div>
+                <div data-dojo-attach-point="timeRuleLabels"></div>
 
-            <div data-dojo-type="dijit/form/HorizontalRule" container="topDecoration" class="alternatingTicks" count=11>
+                <div data-dojo-type="dijit/form/HorizontalRule" container="topDecoration" class="alternatingTicks"
+                     count=11>
+                </div>
             </div>
-
         </div>
-        <!--<input data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="timeText"
-               data-dojo-props="disabled:false"/>
-        <span>${i18n.ui.minutes}</span>-->
 
-        <div data-dojo-type="dijit/form/Button" type="button" class="startButton" data-dojo-attach-event="onClick:onReset">
+        <div data-dojo-type="dijit/form/Button" type="button" class="startButton"
+             data-dojo-attach-event="onClick:onReset">
             ${i18n.ui.selectionTools.travelTime.button}
         </div>
+
 
     </div>
 </div>

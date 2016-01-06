@@ -23,6 +23,9 @@ define([
     return declare([_Connect], {
         geometryType: "Polygon",
         componentName: "FreehandPolygonWidget",
+
+        // TODO: Redlining Support
+
         activate: function (componentContext) {
             var properties = this._properties;
             if (!properties.widgetEnabled) {

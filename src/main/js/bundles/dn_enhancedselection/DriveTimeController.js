@@ -18,6 +18,7 @@ define([
     "dojo/_base/lang",
     "dojo/i18n!./nls/bundle",
     "dijit/form/HorizontalRuleLabels",
+    "dijit/Tooltip",
     "ct/_Connect",
     "ct/store/Filter",
     "ct/async",
@@ -25,7 +26,7 @@ define([
     "esri/tasks/FeatureSet",
     "esri/tasks/Geoprocessor",
     "esri/symbols/SimpleMarkerSymbol"
-], function (declare, d_lang, i18n, HorizontalRuleLabels, _Connect, Filter, ct_async, Graphic, FeatureSet, Geoprocessor, SimpleMarkerSymbol) {
+], function (declare, d_lang, i18n, HorizontalRuleLabels, Tooltip, _Connect, Filter, ct_async, Graphic, FeatureSet, Geoprocessor, SimpleMarkerSymbol) {
     return declare([_Connect], {
         geometryType: "Point",
         componentName: "DriveTimeWidget",
@@ -50,7 +51,7 @@ define([
             var timeDifference = timeMaximum - timeMinimum;
             var discreteValues = (timeMaximum - timeMinimum) / timeSliderProps.interval + 1;
             var driveTimeWidget = this.driveTimeWidget;
-            driveTimeWidget.set("tooltip", i18n.tooltip);
+            //driveTimeWidget.set("tooltip", i18n.tooltip);
             var timeSlider = driveTimeWidget.timeSlider;
             timeSlider.set("discreteValues", discreteValues);
             timeSlider.set("minimum", timeMinimum);
@@ -77,21 +78,8 @@ define([
             this.connect(driveTimeWidget, "onShow", this.onSelected);
             this.connect(driveTimeWidget, "reenable", this.draw);
             this.connect(driveTimeWidget, "search", this.search);
-            //this.connect(driveTimeWidget.timeSlider, "onChange", this.onTimeSliderChange);
-            //this.connect(driveTimeWidget.timeText, "onBlur", this.onTimeInputChange);
+            this.connect(driveTimeWidget.timeSlider, "onChange", this.onTimeSliderChange);
 
-            // configure slider validator
-            var that = this;
-            /*driveTimeWidget.timeText.validator = function (value, constraints) {
-             var min = driveTimeWidget.timeSlider.get("minimum");
-             var max = driveTimeWidget.timeSlider.get("maximum");
-             value = Number(value);
-             if (value < min || value > max || isNaN(value)) {
-             return false;
-             } else {
-             return true;
-             }
-             };*/
             this._createGeoprocessor();
         },
         modified: function (componentContext) {
@@ -122,7 +110,18 @@ define([
             this.gp = new Geoprocessor(this._properties.geoprocessorUrl);
         },
         onTimeSliderChange: function (event) {
-            this.driveTimeWidget.timeText.setAttribute("value", event);
+            var driveTimeWidget = this.driveTimeWidget;
+            var minutes = event;
+            var text = minutes + " min";
+
+            var parent = driveTimeWidget.getParent();
+            if (parent.get("selected") === true) {
+                Tooltip.show(text, driveTimeWidget.timeToolTip);
+
+                ct_async(function(arg1) {
+                    Tooltip.hide(driveTimeWidget.timeToolTip);
+                }, 1500, "arg1");
+            }
         },
         onTimeInputChange: function () {
             var driveTimeWidget = this.driveTimeWidget;
