@@ -21,7 +21,7 @@ define([
 
 ], function (declare, i18n, _Connect, ct_async) {
     return declare([_Connect], {
-        componentName: "GraphicWidget",
+        componentName: "ExistingGraphicWidget",
 
         activate: function (componentContext) {
             var properties = this._properties;
@@ -40,7 +40,7 @@ define([
             this.connect(graphicWidget, "onShow", this.onSelected);
             this.connect(graphicWidget, "reenable", this.onSelected);
             this.connect(graphicWidget, "search", this.search);
-            var i18n = this._i18n.get().ui.selectionTools.graphic;
+            var i18n = this._i18n.get().ui.selectionTools.existingGraphic;
         },
         modified: function (componentContext) {
             var properties = this._properties;

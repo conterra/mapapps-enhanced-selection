@@ -17,7 +17,7 @@ define([
     "dojo/_base/declare",
     "dojo/i18n!./nls/bundle",
     "./GeometryInputWidget",
-    "dojo/text!./templates/GraphicWidget.html"
+    "dojo/text!./templates/ExistingGraphicWidget.html"
 
 ], function (declare, i18n, _GeometryInputWidget, template) {
 
@@ -27,7 +27,7 @@ define([
             this.i18n = i18n;
         },
         postCreate: function () {
-            this.set("title", i18n.ui.selectionTools.graphic.title);
+            this.set("title", i18n.ui.selectionTools.existingGraphic.title);
             this.inherited(arguments);
         },
     });

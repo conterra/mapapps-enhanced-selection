@@ -58,7 +58,7 @@ define({
                     button: "Draw polygon"
 
                 },
-                graphic: {
+                existingGraphic: {
                     title: "Existing Graphic",
                     desc: "Restrict search area based on a graphic.",
                     button: "Get graphic",

@@ -74,6 +74,10 @@ define({
             menuTitle: "Gebietsauswahl",
             description: "Gebietsauswahl konfigurieren"
         },
+        existinggraphic: {
+            menuTitle: "Vorhandene Grafik",
+            description: "Auswahl anhand vorhandener Grafik konfigurieren"
+        },
         enable: "Komponente aktivieren",
         enableTooltip: "Komponente aktivieren",
         searchStore: "Suchstores",

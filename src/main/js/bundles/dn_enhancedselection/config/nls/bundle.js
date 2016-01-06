@@ -75,6 +75,10 @@ define({
                 menuTitle: "Selection By Area",
                 description: "Configure area selection"
             },
+            existinggraphic: {
+                menuTitle: "Selection By Existing Graphic",
+                description: "Configure existing graphic selection"
+            },
             enable: "Enable component",
             enableTooltip: "Enable component",
             searchStore: "Searchstores",

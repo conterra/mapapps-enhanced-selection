@@ -213,7 +213,7 @@
       ]
     },
     {
-      "name": "GraphicWidget",
+      "name": "ExistingGraphicWidget",
       "propertiesConstructor": true,
       "properties": {
         "Service-Ranking": -3
@@ -221,7 +221,7 @@
       "provides": [
         "dijit.Widget",
         "dn_enhancedselection.GeometryInputProvider",
-        "dn_enhancedselection.GraphicWidget"
+        "dn_enhancedselection.ExistingGraphicWidget"
       ],
       "references": [
         {
@@ -457,7 +457,7 @@
       ]
     },
     {
-      "name": "GraphicController",
+      "name": "ExistingGraphicController",
       "provides": [
         "ct.framework.api.EventHandler"
       ],
@@ -480,8 +480,8 @@
           "providing": "dn_enhancedselection.DrawGeometryHandler"
         },
         {
-          "name": "graphicWidget",
-          "providing": "dn_enhancedselection.GraphicWidget",
+          "name": "existingGraphicWidget",
+          "providing": "dn_enhancedselection.ExistingGraphicWidget",
           "cardinality": "0..1"
         },
         {
