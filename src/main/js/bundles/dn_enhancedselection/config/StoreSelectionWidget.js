@@ -48,9 +48,9 @@ define(["dojo/_base/declare",
         /**
          * @constructs
          */
-        constructor: function (args) {
+        /*constructor: function (args) {
             this._listeners = new _Connect();
-        },
+        },*/
         postCreate: function () {
             this.inherited(arguments);
             var model = this._viewModel = new DataViewModel({
@@ -111,7 +111,7 @@ define(["dojo/_base/declare",
             return !!config;
         },
         uninitialize: function () {
-            this._listeners.disconnect();
+            //this._listeners.disconnect();
             this._dataView.destroyRecursive();
             this._dataView = null;
             this._dataModel = null;

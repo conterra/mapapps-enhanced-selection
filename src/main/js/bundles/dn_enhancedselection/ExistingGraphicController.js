@@ -60,7 +60,6 @@ define([
             this.disconnect();
         },
         onSelected: function () {
-            debugger
             this.drawGeometryHandler.deactivateDraw()
             var that = this;
             var existingGraphicWidget = this.existingGraphicWidget;

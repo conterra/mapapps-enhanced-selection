@@ -43,7 +43,6 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/array", "ct/_lang",
                     var properties = this._properties.widgetProperties;
                     return this._configAdminService.getConfiguration(properties.pid, properties.bid);
                 },
-
                 _updateConfig: function (config) {
                     try {
                         this._getComponentConfig().update(config);
@@ -70,7 +69,6 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/array", "ct/_lang",
                 _getConfigStore: function () {
                     var i18n = this._i18n.get().ui;
                     if (!this._configStore) {
-                        //             var i18n = this._i18n.get().widget.grid;
                         var store = this._configStore = new ComplexMemoryStore({
                             data: [],
                             idProperty: "id"

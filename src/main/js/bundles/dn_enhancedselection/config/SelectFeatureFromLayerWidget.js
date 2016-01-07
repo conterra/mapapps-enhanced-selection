@@ -59,11 +59,11 @@ define(["dojo/_base/declare",
             model.set("selectedIds", this.config.properties && this.config.properties.storeIds ? this.config.properties.storeIds : []);
             this.storeSelection.set("content", dataView);
             this.scale.set("value", this.config.properties.scale);
-            this.connect("model", model, "selectedIds", function (type, oldVal, newVal) {
+            /*this.connect("model", model, "selectedIds", function (type, oldVal, newVal) {
                 this.fireConfigChangeEvent({
                     storeIds: newVal
                 });
-            });
+            });*/
             this.connect(this.scale, "onChange", function (value) {
                 this.fireConfigChangeEvent({
                     scale: value
