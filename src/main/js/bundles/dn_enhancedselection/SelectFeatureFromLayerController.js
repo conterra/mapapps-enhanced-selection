@@ -94,28 +94,28 @@ define([
             var storeSelectionSelect = selectFeatureFromLayerWidget.storeSelectionSelect;
             var selectedStoreId = storeSelectionSelect.get("value");
             var store = this.getStore(selectedStoreId);
-            ct_when(store.query({
-                geometry: {
-                    $intersects: geom
-                }
-            }, {
-                fields: {
-                    "geometry": true
-                }
-            }), function (result) {
-                if (result.length > 0) {
-                    var geometry = result[0].geometry;
-                    this._mapState.centerAndZoomToScale(geometry.getExtent().getCenter(), this._properties.scale);
-                    var inputGeom = this._inputGeometry = geometry;
-                    this.drawGeometryHandler.drawGeometry(inputGeom);
-                }
-            }, this);
 
-            /*
             clearTimeout(this._timeout);
+            var that = this;
             this._timeout = setTimeout(function () {
-                that._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
-            }, 1000);*/
+                ct_when(store.query({
+                    geometry: {
+                        $intersects: geom
+                    }
+                }, {
+                    fields: {
+                        "geometry": true
+                    }
+                }), function (result) {
+                    if (result.length > 0) {
+                        var geometry = result[0].geometry;
+                        that._mapState.centerAndZoomToScale(geometry.getExtent().getCenter(), that._properties.scale);
+                        var inputGeom = that._inputGeometry = geometry;
+                        that.drawGeometryHandler.drawGeometry(inputGeom);
+
+                    }
+                }, this);
+            }, 1000);
         },
         getStore: function (id) {
             return this.serviceResolver.getService("ct.api.Store", "(id=" + id + ")");

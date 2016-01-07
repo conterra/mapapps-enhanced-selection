@@ -46,12 +46,6 @@ define([
         },
         geometryDrawn: function (evt) {
             this._inputGeometry = evt.getProperty("geometry");
-
-            /*var that = this;
-            clearTimeout(this._timeout);
-            this._timeout = setTimeout(function () {
-                that._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
-            }, 1000);*/
         },
         draw: function (geometryType) {
             this.drawGeometryHandler.allowUserToDrawGeometry(geometryType || this.geometryType);
