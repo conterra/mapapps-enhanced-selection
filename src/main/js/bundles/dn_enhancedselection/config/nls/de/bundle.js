@@ -22,17 +22,17 @@ define({
         base: {
             description: "Grundeinstellungen f\u00FCr die erweiterte Selektion",
             menuTitle: "Grundeinstellungen",
-            clearGraphics: "Grafik löschen"
+            clearGraphics: "Grafik l\u00F6schen"
         },
         storeselection: {
-            description: "Selektionsthemen definieren",
-            menuTitle: "Selektionsthemen"
+            description: "Suchthemen definieren",
+            menuTitle: "Suchthemen"
         },
         distance: {
-            description: "Distanzselektion konfigurieren",
+            description: "Entfernungsselektion konfigurieren",
             meter: "Meter",
             kilometer: "Kilometer",
-            menuTitle: "Distanzselektion",
+            menuTitle: "Selektion durch Entfernung",
             unit: {
                 title: "Einheit",
                 tooltip: "Einheit zur Distanzberechnung"
@@ -52,7 +52,7 @@ define({
         },
         drivetime: {
             description: "Fahrzeiten definieren",
-            menuTitle: "Fahrzeiten",
+            menuTitle: "Selektion durch Fahrzeit",
             minimum: {
                 title: "Minimum",
                 tooltip: "Minimale Zeit in Minuten"
@@ -67,15 +67,15 @@ define({
             }
         },
         freehandpolygon: {
-            menuTitle: "Freihandpolygon",
+            menuTitle: "Selektion durch Freihandpolygon",
             description: "Freihandpolygon konfigurieren"
         },
         selectfeaturefromlayer: {
-            menuTitle: "Gebietsauswahl",
+            menuTitle: "Selektion durch Gebietsauswahl",
             description: "Gebietsauswahl konfigurieren"
         },
         existinggraphic: {
-            menuTitle: "Vorhandene Grafik",
+            menuTitle: "Selektion durch Vorhandene Grafik",
             description: "Auswahl anhand vorhandener Grafik konfigurieren"
         },
         enable: "Komponente aktivieren",

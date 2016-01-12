@@ -31,8 +31,8 @@ define(["dojo/_base/declare",
         templateString: template,
         data: null,
         ui: {
-            enable: "Enable component",
-            scale: "Zoom-Scale"
+            enable: "Enable component"/*,
+            scale: "Zoom-Scale"*/
         },
         i18n: {
             grid: {
@@ -58,17 +58,6 @@ define(["dojo/_base/declare",
             dataView.set("model", model);
             model.set("selectedIds", this.config.properties && this.config.properties.storeIds ? this.config.properties.storeIds : []);
             this.storeSelection.set("content", dataView);
-            this.scale.set("value", this.config.properties.scale);
-            /*this.connect("model", model, "selectedIds", function (type, oldVal, newVal) {
-                this.fireConfigChangeEvent({
-                    storeIds: newVal
-                });
-            });*/
-            this.connect(this.scale, "onChange", function (value) {
-                this.fireConfigChangeEvent({
-                    scale: value
-                });
-            });
             this.connect(this.enableState, "onChange", function (value) {
                 this.fireConfigChangeEvent({
                     widgetEnabled: value

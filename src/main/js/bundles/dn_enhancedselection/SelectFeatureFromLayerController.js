@@ -109,7 +109,7 @@ define([
                 }), function (result) {
                     if (result.length > 0) {
                         var geometry = result[0].geometry;
-                        that._mapState.centerAndZoomToScale(geometry.getExtent().getCenter(), that._properties.scale);
+                        that._mapState.setExtent(geometry.getExtent());
                         var inputGeom = that._inputGeometry = geometry;
                         that.drawGeometryHandler.drawGeometry(inputGeom);
 

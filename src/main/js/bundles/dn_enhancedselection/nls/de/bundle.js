@@ -39,33 +39,33 @@ define({
             distance: {
                 title: "Entfernung",
                 button: "Ort ausw\u00E4hlen",
-                tooltip: "Mit diesem Tool kann eine Umkreissuche durchgeführt werden"
+                tooltip: "Mit diesem Tool kann eine Umkreissuche durchgef\u00FChrt werden"
             },
             travelTime: {
                 title: "Fahrtzeit",
                 desc: "Entfernung nach Fahrzeit (ArcGIS-Online Account ben\u00F6tigt)",
                 button: "Ort ausw\u00E4hlen",
-                tooltip: "Mit diesem Tool kann eine Erreichbarkeitsberechnung durchgeführt werden"
+                tooltip: "Mit diesem Tool kann eine Erreichbarkeitsberechnung durchgef\u00FChrt werden"
             },
             selectFeatureFromStore: {
                 title: "Gebiet",
                 desc: "Suchbereich einschr\u00E4nken auf Basis von",
                 selectStore: "Suchthema",
                 button: "Gebiet ausw\u00E4hlen",
-                tooltip: "Mit diesem Tool kann eine Suche über Gebietsauswahl durchgeführt werden"
+                tooltip: "Mit diesem Tool kann eine Suche \u00FCber Gebietsauswahl durchgef\u00FChrt werden"
             },
             freehandPolygon: {
                 title: "Freihandpolygon",
                 desc: "Suchbereich einschr\u00E4nken auf Basis von Freihandpolygon",
                 button: "Polygon zeichnen",
                 button2: "Grafik auswählen",
-                tooltip: "Mit diesem Tool kann eine Suche auf Basis eines Freihandpolygons durchgeführt werden"
+                tooltip: "Mit diesem Tool kann eine Suche auf Basis eines Freihandpolygons durchgef\u00FChrt werden"
             },
             existingGraphic: {
                 title: "Vorhandene Grafik",
                 desc: "Suchbereich einschr\u00E4nken auf Basis einer Grafik",
                 button: "Vorhandene Grafik ausw\u00E4hlen",
-                tooltip: "Mit diesem Tool kann eine Suche auf Basis einer Grafik durchgeführt werden",
+                tooltip: "Mit diesem Tool kann eine Suche auf Basis einer vorhandenen Grafik durchgef\u00FChrt werden",
                 error: "Keine Grafik gefunden"
 
             }

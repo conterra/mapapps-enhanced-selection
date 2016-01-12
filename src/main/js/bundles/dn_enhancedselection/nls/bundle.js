@@ -53,7 +53,7 @@ define({
                     selectStore: "Search Topic"
                 },
                 freehandPolygon: {
-                    title: "Polygon",
+                    title: "Freehandpolygon",
                     desc: "Restrict search area based on a freehand polygon.",
                     button: "Draw polygon"
 

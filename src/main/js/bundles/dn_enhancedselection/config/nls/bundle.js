@@ -52,8 +52,8 @@ define({
                 }
             },
             drivetime: {
-                description: "Define driving time",
-                menuTitle: "Selection By Driving Time",
+                description: "Define travel time",
+                menuTitle: "Selection By Travel Time",
                 minimum: {
                     title: "Minimum",
                     tooltip: "Minimal time in minutes"
