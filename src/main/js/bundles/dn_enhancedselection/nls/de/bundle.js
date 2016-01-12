@@ -22,7 +22,6 @@ define({
     warning: {
         resultErrorWarning: "Ergebnisse konnten nicht geladen werden: ",
         polygonErrorWarning: "Polygon konnte nicht berechnet werden: ",
-        noToolSelectedWarning: "Bitte w\u00E4hlen sie zuerst mithilfe der Werkzeuge eine Startposition aus",
         noQueryParams: "Store gefunden aber keine Anfrage spezifiziert",
         noResultsAdressSearch: "Keine Ergebnisse gefunden: "
     },

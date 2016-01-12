@@ -112,7 +112,10 @@ define([
                         that._mapState.setExtent(geometry.getExtent());
                         var inputGeom = that._inputGeometry = geometry;
                         that.drawGeometryHandler.drawGeometry(inputGeom);
-
+                        that._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
+                    } else {
+                        //TODO
+                        //this._logService.warn(this._i18n.get().warning.noToolSelectedWarning);
                     }
                 }, this);
             }, 1000);
@@ -141,7 +144,6 @@ define([
         search: function (store, spatialRel) {
             var geometry = this._inputGeometry;
             if (!geometry) {
-                this._logService.warn(this._i18n.get().warning.noToolSelectedWarning);
                 return;
             }
             this.queryController.queryStore(geometry, store, spatialRel);

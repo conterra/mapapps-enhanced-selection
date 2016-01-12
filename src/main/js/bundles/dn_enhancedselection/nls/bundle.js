@@ -23,7 +23,6 @@ define({
         warning: {
             resultErrorWarning: "Results could not be loaded: ",
             polygonErrorWarning: "Polygon could not be calculated: ",
-            noToolSelectedWarning: "Please select a start point with help of a tool first.",
             noQueryParams: "Store found, but no query parameters specified.",
             noResultsAdressSearch: "No results found: "
         },

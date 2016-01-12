@@ -30,15 +30,11 @@ define([
         },
         queryStore: function (geometry, store, geomRel) {
             var selectionAction = this.selectionAction;
-             selectionAction.selectionParameter = {};
-             selectionAction.selectionParameter.operator = "$"+geomRel;
-             selectionAction.selectionParameter.store = store;
-             this.connect(selectionAction, "onSelectionEnd", function () {
-             this.disconnect();
-             this._eventService.postEvent("ct/dn_enhancedselection/SEARCH_FINISHED");
-             });
-             selectionAction.selectionParameter.storeId = store.id;
-             selectionAction.performSelection(geometry);
+            selectionAction.selectionParameter = {};
+            selectionAction.selectionParameter.operator = "$" + geomRel;
+            selectionAction.selectionParameter.store = store;
+            selectionAction.selectionParameter.storeId = store.id;
+            selectionAction.performSelection(geometry);
         },
         defaultQuery: function (geometry, store, geomRel) {
             var complexQuery = {};
@@ -56,13 +52,13 @@ define([
                         message: this.i18n.info.noResultsAreaInfo
                     });
                 }
-                this._eventService.postEvent("ct/dn_enhancedselection/SEARCH_FINISHED");
+                //this._eventService.postEvent("ct/dn_enhancedselection/SEARCH_FINISHED");
             }, function (e) {
                 this._logService.warn({
                     id: e.code,
                     message: e
                 });
-                this._eventService.postEvent("ct/dn_enhancedselection/SEARCH_FINISHED");
+                //this._eventService.postEvent("ct/dn_enhancedselection/SEARCH_FINISHED");
             }, this);
         }
     });

@@ -95,6 +95,11 @@ define([
         },
         geometryDrawn: function (evt) {
             this._inputGeometry = evt.getProperty("geometry");
+            var driveTimeWidget = this.driveTimeWidget;
+            if (!driveTimeWidget.getParent().get("selected")) {
+                return;
+            }
+            this._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
         },
         draw: function (geometryType) {
             this.drawGeometryHandler.allowUserToDrawGeometry(geometryType || this.geometryType);
@@ -118,7 +123,7 @@ define([
             if (parent.get("selected") === true) {
                 Tooltip.show(text, driveTimeWidget.timeToolTip);
 
-                ct_async(function(arg1) {
+                ct_async(function (arg1) {
                     Tooltip.hide(driveTimeWidget.timeToolTip);
                 }, 1500, "arg1");
             }
@@ -140,11 +145,9 @@ define([
             this.spatialRel = spatialRel;
             var geometry = this._inputGeometry;
             if (!geometry) {
-                this._logService.warn(this._i18n.get().warning.noToolSelectedWarning);
                 return;
             }
             // if range in drive-time is selected
-
             var minutes = Number(driveTimeWidget.timeSlider.value);
             var symbol = new SimpleMarkerSymbol();
             var graphic = new Graphic(geometry, symbol);

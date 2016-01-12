@@ -71,9 +71,10 @@ define([
             graphicsRenderer.clear();
             this.drawGeometry(geometry);
             this._eventService.postEvent("ct/dn_enhancedselection/GEOMETRY_DRAWN",
-                    {
-                        geometry: geometry
-                    });
+                {
+                    geometry: geometry
+                }
+            );
         },
         drawCircle: function (center, minDistance, maxDistance, radiusUnit) {
             var outerCircle = new Circle(center, {
@@ -103,14 +104,14 @@ define([
         },
         _getSymbolForPolygon: function () {
             return new SimpleFillSymbol(
-                    SimpleFillSymbol.STYLE_SOLID,
-                    new SimpleLineSymbol(
-                            SimpleLineSymbol.STYLE_DASHDOT,
-                            new Color([0, 0, 0]),
-                            2
-                            ),
-                    new Color([0, 150, 255, 0.1])
-                    );
+                SimpleFillSymbol.STYLE_SOLID,
+                new SimpleLineSymbol(
+                    SimpleLineSymbol.STYLE_DASHDOT,
+                    new Color([0, 0, 0]),
+                    2
+                ),
+                new Color([0, 150, 255, 0.1])
+            );
         },
         drawDistanceText: function (geometry, text) {
             var font = new Font();
@@ -127,10 +128,10 @@ define([
                 this.graphicsRenderer.erase(this.descriptionText);
             }
             this.descriptionText = this.graphicsRenderer.draw(
-                    {
-                        geometry: geometry,
-                        symbol: textSymbol
-                    }
+                {
+                    geometry: geometry,
+                    symbol: textSymbol
+                }
             );
         }
     });

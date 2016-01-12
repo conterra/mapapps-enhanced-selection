@@ -46,6 +46,12 @@ define([
         },
         geometryDrawn: function (evt) {
             this._inputGeometry = evt.getProperty("geometry");
+            var freehandPolygonWidget = this.freehandPolygonWidget;
+            if (!freehandPolygonWidget.getParent().get("selected")) {
+                return;
+            }
+            this._mapState.setExtent(this._inputGeometry.getExtent());
+            this._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
         },
         draw: function (geometryType) {
             this.drawGeometryHandler.allowUserToDrawGeometry(geometryType || this.geometryType);
@@ -74,7 +80,6 @@ define([
         search: function (store, spatialRel) {
             var geometry = this._inputGeometry;
             if (!geometry) {
-                this._logService.warn(this._i18n.get().warning.noToolSelectedWarning);
                 return;
             }
             this.queryController.queryStore(geometry, store, spatialRel);

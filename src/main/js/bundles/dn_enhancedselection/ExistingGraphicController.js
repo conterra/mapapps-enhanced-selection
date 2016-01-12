@@ -79,7 +79,6 @@ define([
         search: function (store, spatialRel) {
             var geometry = this._inputGeometry;
             if (!geometry) {
-                this._logService.warn(this._i18n.get().warning.noToolSelectedWarning);
                 return;
             }
             this.queryController.queryStore(geometry, store, spatialRel);

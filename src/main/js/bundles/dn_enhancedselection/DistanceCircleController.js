@@ -70,8 +70,6 @@ define([
             distanceWidget.set("tooltip", i18n.tooltip);
             this.disconnect();
             this.connect(distanceWidget.distanceSlider, "onChange", this.onDistanceSliderChange);
-            //this.connect(distanceWidget.distFromText, "onBlur", this.onDistInputChange);
-            //this.connect(distanceWidget.distToText, "onBlur", this.onDistInputChange);
             this.connect(distanceWidget, "onShow", this.onSelected);
             this.connect(distanceWidget, "search", this.search);
             this.connect(distanceWidget, "reenable", this.draw);
@@ -98,30 +96,6 @@ define([
                     distanceMinimum + (distanceDifference * 1.0) + radiusUnitShort]
             });
             d_domConstruct.place(labels.domNode, distanceWidget.distanceRuleLabels, "only");
-
-            // configure validator for slider changes
-            /*distanceWidget.distFromUnit.innerHTML = radiusUnitShort;
-             distanceWidget.distToUnit.innerHTML = radiusUnitShort;
-             distanceWidget.distFromText.validator = function (value, constraints) {
-             var min = distanceWidget.distanceSlider.get("minimum");
-             var max = distanceWidget.distanceSlider.get("value")[1];
-             value = Number(value);
-             if (value < min || value > max || isNaN(value)) {
-             return false;
-             } else {
-             return true;
-             }
-             };
-             distanceWidget.distToText.validator = function (value, constraints) {
-             var min = distanceWidget.distanceSlider.get("value")[0];
-             var max = distanceWidget.distanceSlider.get("maximum");
-             value = Number(value);
-             if (value < min || value > max || isNaN(value)) {
-             return false;
-             } else {
-             return true;
-             }
-             };*/
             distanceWidget.show();
         },
         onDistanceSliderChange: function (event) {
@@ -144,12 +118,15 @@ define([
         },
         draw: function (geometryType) {
             this.drawGeometryHandler.allowUserToDrawGeometry(geometryType || this.geometryType);
-        }
-        ,
+        },
         geometryDrawn: function (evt) {
             this._inputGeometry = evt.getProperty("geometry");
-        }
-        ,
+            var distanceCircleWidget = this.distanceCircleWidget;
+            if (!distanceCircleWidget.getParent().get("selected")) {
+                return;
+            }
+            this._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
+        },
         onSelected: function () {
             var geometryType = this.geometryType;
             this.draw(geometryType);
@@ -158,7 +135,6 @@ define([
             var distanceWidget = this.distanceCircleWidget;
             var geometry = this._inputGeometry;
             if (!geometry) {
-                this._logService.warn(this._i18n.get().warning.noToolSelectedWarning);
                 return;
             }
             var distanceSlider = distanceWidget.distanceSlider;

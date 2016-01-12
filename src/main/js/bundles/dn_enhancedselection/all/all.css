@@ -56,15 +56,13 @@
     margin-top: 10px;
 }
 
-.dn_enhancedselection .startButton {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+.dn_enhancedselection .startButton, .dn_enhancedselection .startButton .dijitButtonNode {
+    display: block
 }
-
-.dn_enhancedselection .startButton .dijitButtonNode {
-    width: 100%;
+.dn_enhancedselection .startButton {
     margin-top: 10px;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .dn_enhancedselection .freeHandPolygonToolDesc {

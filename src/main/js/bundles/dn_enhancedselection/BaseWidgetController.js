@@ -55,16 +55,15 @@ define([
             return this.serviceResolver.getService("ct.api.Store", "(id=" + id + ")");
         },
         geometryDrawn: function () {
-            var that = this;
-
+            this.drawGeometryHandler.deactivateDraw();
+            /*var that = this;
             clearTimeout(this._timeout);
             this._timeout = setTimeout(function () {
                 that.search();
-            }, 1000);
+            }, 2000);*/
         },
         search: function () {
             var srBaseWidget = this.baseWidget;
-            this.drawGeometryHandler.deactivateDraw();
             var spatialRel = srBaseWidget.spatialRelation.get("value");
             var contentNode = srBaseWidget.contentNode;
             var selectedChild = contentNode.get("selectedChildWidget");
