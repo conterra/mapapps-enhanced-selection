@@ -23,7 +23,8 @@ define({
         resultErrorWarning: "Ergebnisse konnten nicht geladen werden: ",
         polygonErrorWarning: "Polygon konnte nicht berechnet werden: ",
         noQueryParams: "Store gefunden aber keine Anfrage spezifiziert",
-        noResultsAdressSearch: "Keine Ergebnisse gefunden: "
+        noResultsAdressSearch: "Keine Ergebnisse gefunden: ",
+        noAreaFoundWarning: "Kein Gebiet gefunden"
     },
     info: {
         noResultsAreaInfo: "Keine Ergebnisse in deisem Gebiet"

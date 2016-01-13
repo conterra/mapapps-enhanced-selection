@@ -24,7 +24,8 @@ define({
             resultErrorWarning: "Results could not be loaded: ",
             polygonErrorWarning: "Polygon could not be calculated: ",
             noQueryParams: "Store found, but no query parameters specified.",
-            noResultsAdressSearch: "No results found: "
+            noResultsAdressSearch: "No results found: ",
+            noAreaFoundWarning: "No Area found"
         },
         info: {
             noResultsAreaInfo: "No results in this area."

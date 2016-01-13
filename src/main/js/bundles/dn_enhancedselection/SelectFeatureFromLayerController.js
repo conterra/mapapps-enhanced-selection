@@ -114,8 +114,7 @@ define([
                         that.drawGeometryHandler.drawGeometry(inputGeom);
                         that._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
                     } else {
-                        //TODO
-                        //this._logService.warn(this._i18n.get().warning.noToolSelectedWarning);
+                        that._logService.warn(that._i18n.get().warning.noAreaFoundWarning);
                     }
                 }, this);
             }, 1000);
