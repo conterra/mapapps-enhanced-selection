@@ -67,12 +67,12 @@ define({
             }
         },
         freehandpolygon: {
-            menuTitle: "Selektion durch Freihandpolygon",
-            description: "Freihandpolygon konfigurieren"
+            menuTitle: "Selektion durch Freihandgrafik",
+            description: "Auswahl anhand Freihandgrafik konfigurieren"
         },
         selectfeaturefromlayer: {
             menuTitle: "Selektion durch Gebietsauswahl",
-            description: "Gebietsauswahl konfigurieren"
+            description: "Auswahl anhand Gebietsauswahl konfigurieren"
         },
         existinggraphic: {
             menuTitle: "Selektion durch Vorhandene Grafik",

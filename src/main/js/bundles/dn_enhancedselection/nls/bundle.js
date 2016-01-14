@@ -53,10 +53,9 @@ define({
                     selectStore: "Search Topic"
                 },
                 freehandPolygon: {
-                    title: "Freehandpolygon",
+                    title: "Freehand Graphic",
                     desc: "Restrict search area based on a freehand polygon.",
-                    button: "Draw polygon"
-
+                    button: "Draw graphic"
                 },
                 existingGraphic: {
                     title: "Existing Graphic",

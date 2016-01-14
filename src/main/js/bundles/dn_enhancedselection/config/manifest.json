@@ -262,7 +262,7 @@
         "defaultProperties": {
           "widgetEnabled": true
         },
-        "description": "${ui.drivetime.description}"
+        "description": "${ui.freehandpolygon.description}"
       },
       "references": [
         {

@@ -68,8 +68,8 @@ define({
                 }
             },
             freehandpolygon: {
-                menuTitle: "Selection By Freehandpolygon",
-                description: "Configure freehandpolygon"
+                menuTitle: "Selection By Freehand Graphic",
+                description: "Configure freehand graphic"
             },
             selectfeaturefromlayer: {
                 menuTitle: "Selection By Area",

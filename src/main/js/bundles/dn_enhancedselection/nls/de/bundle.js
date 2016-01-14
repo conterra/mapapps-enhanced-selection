@@ -55,10 +55,9 @@ define({
                 tooltip: "Mit diesem Tool kann eine Suche \u00FCber Gebietsauswahl durchgef\u00FChrt werden"
             },
             freehandPolygon: {
-                title: "Freihandpolygon",
+                title: "Freihandgrafik",
                 desc: "Suchbereich einschr\u00E4nken auf Basis von Freihandpolygon",
-                button: "Polygon zeichnen",
-                button2: "Grafik auswählen",
+                button: "Grafik zeichnen",
                 tooltip: "Mit diesem Tool kann eine Suche auf Basis eines Freihandpolygons durchgef\u00FChrt werden"
             },
             existingGraphic: {
