@@ -4,7 +4,7 @@
   "Bundle-Name": "${bundleName}",
   "Bundle-Description": "Search stores for surrounding features",
   "Bundle-Vendor": "con terra GmbH",
-  "Product-Name": "map.apps Developer Network",
+  "Product-Name": "con terra Developer Network",
   "Bundle-Localization": [
     "bundle"
   ],
