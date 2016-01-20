@@ -29,7 +29,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/array", "ct/_lang",
                         configAdminService: this._configAdminService,
                         configStore: configStore,
                         config: this._getComponentConfig()/*,
-                        source: this*/
+                         source: this*/
                     }, properties.widgetProperties);
                     var widget = this._widget = new SelectFeatureFromLayerWidget(opts);
                     this.connectP("model", widget._viewModel, "selectedIds", function (type, oldVal, newVal) {
@@ -94,11 +94,13 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/array", "ct/_lang",
                 },
                 addSurroundingStore: function (service, properties) {
                     var configStore = this._getConfigStore();
-                    configStore.add({
-                        "id": properties.id,
-                        "title": properties.title,
-                        "description": properties.description
-                    });
+                    if (!configStore.get(properties.id)) {
+                        configStore.add({
+                            "id": properties.id,
+                            "title": properties.title,
+                            "description": properties.description
+                        });
+                    }
                 }
             });
     });

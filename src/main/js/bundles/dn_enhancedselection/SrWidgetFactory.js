@@ -31,10 +31,7 @@ define([
          * @constructs
          */
         constructor: function (properties) {
-            this.stores = [];
             this.selectionOptions = [];
-            this.allowedStores = properties.allowedStores || [];
-            this.skipStores = properties.skipStores || [];
             this.storeIds = properties.storeIds;
         },
 
@@ -142,7 +139,7 @@ define([
             var baseWidget = this.baseWidget;
             var storeSelect = baseWidget.storeSelect;
             storeSelect.set("options", []);
-            var storeIds = this._properties.storeIds;
+            var storeIds = this.storeIds = this._properties.storeIds;
             d_array.forEach(storeIds, function (storeId) {
                 var storeProperties = this.getStoreProperties(storeId);
                 if (storeProperties) {

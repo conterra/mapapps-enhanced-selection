@@ -25,8 +25,8 @@ define({
             clearGraphics: "Grafik l\u00F6schen"
         },
         storeselection: {
-            description: "Suchthemen definieren",
-            menuTitle: "Suchthemen"
+            description: "Seletkionsthemen definieren",
+            menuTitle: "Selektionsthemen"
         },
         distance: {
             description: "Entfernungsselektion konfigurieren",
@@ -80,11 +80,11 @@ define({
         },
         enable: "Komponente aktivieren",
         enableTooltip: "Komponente aktivieren",
-        searchStore: "Suchstores",
+        searchStore: "Selektionsstores",
         relWithin: "Enthalten In",
         relTouches: "Ber\u00FChrt",
         title: "Selektion",
-        storeSelector: "Bitte w\u00E4hlen sie ein Suchthema",
+        storeSelector: "Bitte w\u00E4hlen sie ein Selektionsthema",
         selectSpatialRel: "Geometrische Beziehung",
         selectionTools: {
             distance: {
@@ -96,12 +96,12 @@ define({
             },
             selectFeatureFromStore: {
                 title: "\u00FCber Gebietsauswahl",
-                desc: "Suchbereich einschr\u00E4nken auf Basis von",
-                selectStore: "Suchthema"
+                desc: "Selecktionsbereich einschr\u00E4nken auf Basis von",
+                selectStore: "Selektionsthema"
             },
             freehandPolygon: {
                 title: "\u00FCber Freihandpolygon",
-                desc: "Suchbereich einschr\u00E4nken auf Basis von Freihandpolygon"
+                desc: "Selektionsbereich einschr\u00E4nken auf Basis von Freihandpolygon"
 
             }
         },

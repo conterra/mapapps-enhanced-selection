@@ -33,13 +33,13 @@ define({
         relWithin: "Enthalten In",
         relTouches: "Ber\u00FChrt",
         title: "Erweiterte Selektion",
-        storeSelector: "Suchthema",
+        storeSelector: "Selektionsthema",
         selectSpatialRel: "Geometrische Beziehung",
         selectionTools: {
             distance: {
                 title: "Entfernung",
                 button: "Ort ausw\u00E4hlen",
-                tooltip: "Mit diesem Tool kann eine Umkreissuche durchgef\u00FChrt werden"
+                tooltip: "Mit diesem Tool kann eine Selektion auf Basis eines Umkreises durchgef\u00FChrt werden"
             },
             travelTime: {
                 title: "Fahrtzeit",
@@ -49,22 +49,22 @@ define({
             },
             selectFeatureFromStore: {
                 title: "Gebiet",
-                desc: "Suchbereich einschr\u00E4nken auf Basis von",
-                selectStore: "Suchthema",
+                desc: "Selektionsbereich einschr\u00E4nken auf Basis eines Gebietes",
+                selectStore: "Selektionsthema",
                 button: "Gebiet ausw\u00E4hlen",
-                tooltip: "Mit diesem Tool kann eine Suche \u00FCber Gebietsauswahl durchgef\u00FChrt werden"
+                tooltip: "Mit diesem Tool kann eine Selektion \u00FCber Gebietsauswahl durchgef\u00FChrt werden"
             },
             freehandPolygon: {
                 title: "Freihandgrafik",
-                desc: "Suchbereich einschr\u00E4nken auf Basis von Freihandpolygon",
+                desc: "Selektionsbereich einschr\u00E4nken auf Basis von Freihandpolygon",
                 button: "Grafik zeichnen",
-                tooltip: "Mit diesem Tool kann eine Suche auf Basis eines Freihandpolygons durchgef\u00FChrt werden"
+                tooltip: "Mit diesem Tool kann eine Selektion auf Basis eines Freihandpolygons durchgef\u00FChrt werden"
             },
             existingGraphic: {
                 title: "Vorhandene Grafik",
-                desc: "Suchbereich einschr\u00E4nken auf Basis einer Grafik",
+                desc: "Selektionsbereich einschr\u00E4nken auf Basis einer Grafik",
                 button: "Vorhandene Grafik ausw\u00E4hlen",
-                tooltip: "Mit diesem Tool kann eine Suche auf Basis einer vorhandenen Grafik durchgef\u00FChrt werden",
+                tooltip: "Mit diesem Tool kann eine Selektion auf Basis einer vorhandenen Grafik durchgef\u00FChrt werden",
                 error: "Keine Grafik gefunden"
 
             }
@@ -73,7 +73,6 @@ define({
         and: "und",
         minutes: "Minuten",
         chooseStart: "Start w\u00E4hlen",
-        searchButton: "Suche",
         resetButton: "Zur\u00FCcksetzen"
     },
     toggleTool: {

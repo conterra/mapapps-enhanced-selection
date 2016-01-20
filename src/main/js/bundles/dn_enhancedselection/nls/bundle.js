@@ -34,7 +34,7 @@ define({
             relWithin: "Within",
             relTouches: "Touches",
             title: "Enhanced Selection",
-            storeSelector: "Topic",
+            storeSelector: "Selection Topic",
             selectSpatialRel: "Spatial relation",
             selectionTools: {
                 distance: {
@@ -48,18 +48,18 @@ define({
                 },
                 selectFeatureFromStore: {
                     title: "Area",
-                    desc: "Restrict search area based on",
+                    desc: "Restrict selection area based on",
                     button: "Select area",
-                    selectStore: "Search Topic"
+                    selectStore: "Selection Topic"
                 },
                 freehandPolygon: {
                     title: "Freehand Graphic",
-                    desc: "Restrict search area based on a freehand polygon.",
+                    desc: "Restrict selecion area based on a freehand polygon.",
                     button: "Draw graphic"
                 },
                 existingGraphic: {
                     title: "Existing Graphic",
-                    desc: "Restrict search area based on a graphic.",
+                    desc: "Restrict selection area based on a graphic.",
                     button: "Get graphic",
                     error: "No graphic found"
                 }
@@ -68,7 +68,6 @@ define({
             and: "and",
             minutes: "Minutes",
             chooseStart: "Choose Start",
-            searchButton: "Search",
             resetButton: "Reset"
         },
         toggleTool: {

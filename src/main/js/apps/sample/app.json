@@ -39,7 +39,7 @@
   "bundles": {
     "agssearch": {
       "AutoStoreRegistration": {
-        "componentEnabled": true
+        "componentEnabled": false
       },
       "AGSStore": [
         {
@@ -302,9 +302,9 @@
                   "category": {
                     "title": "Badegewässer",
                     "description": "Map is showing bathing monitoring locations and associated attributive data from 2002 till 2012 in more detailed scales and aggregated data by countries. For the scales 1:5.000.001 and less detailed, data are aggregated by country. In such case, stacked bars show percentage of bathing water quality for coastal and inland waters together. Number of bathing waters within certain category is seen in pop up window which can be turned on with a click on single country. For the scale range 1:5 000.000 till1:700,001, individual bathing water sites (points) are visible instead of classified stacked charts and are coloured according the classification of bathing water quality. Symbol size depends on the map scale (in more detailed map scales symbols are bigger). For the scale 1:700,000 and more detailed, symbol of bather in a square appears instead of points. Symbol size depends on the map scale.",
-                    "imgUrl": "${app}:images/mapCover2.png"
+                    "imgUrl": "http://t1.gstatic.com/images?q=tbn:ANd9GcR6x_51zRhBiOYJwUQvNJL_-KqlSz1Twd1QsO1cT_Z6ljaolF2l_b-P"
                   },
-                  "opacity": 1,
+                  "opacity": 0.96,
                   "children": [
                     {
                       "layer": "0",
@@ -344,9 +344,9 @@
                   "category": {
                     "title": "Natura 2000 Schutzgebiete",
                     "description": "Natura 2000 is the key instrument to protect biodiversity in the European Union. It is an ecological network of protected areas, set up to ensure the survival of Europe's most valuable species and habitats. Natura 2000 is based on the 1979 Birds Directive and the 1992 Habitats Directive. The green infrastructure it provides safeguards numerous ecosystem services and ensures that Europe's natural systems remain healthy and resilient.",
-                    "imgUrl": "${app}:images/mapCover3.png"
+                    "imgUrl": "http://stadtentwicklung.berlin.de/natur_gruen/naturschutz/schutzgebiete/pix/nsg/nsg02_erlenbruch_390.jpg"
                   },
-                  "opacity": 1,
+                  "opacity": 0.8,
                   "children": [
                     {
                       "layer": "0",
@@ -385,7 +385,7 @@
                   "category": {
                     "title": "PLZ Gebiete",
                     "description": "Feature Service mit 2 Layern: \nPLZ2: 2-stellige, zusammengefasste PLZ-Gebiete\nPLZ5: 5-stellige PLZ-Gebiete",
-                    "imgUrl": ""
+                    "imgUrl": "http://www.postleitzahl-finden.de/mediapool/139/1396211/resources/34303723.png"
                   },
                   "id": "service_78042_1441978844876",
                   "options": {},
@@ -425,7 +425,7 @@
                   "category": {
                     "title": "Statististische Gebiete Berlin",
                     "description": "Die Grenzen der Statistischen Gebiete des Regionalen Bezugssystems wurden onscreen auf der „Karte 1:5000\nvon Berlin“ (Quelle: Geoportal Berlin / [Karte von Berlin 1:5.000 (K5)]) digitalisiert unter Berücksichtigung\nder Grenzen und Blöcke aus dem RBS.\nhttp://www.stadtentwicklung.berlin.de/geoinf",
-                    "imgUrl": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUSExQVFRUVGB4ZFxUXFxwcHRwcHBUXGB0dGBwYHSggGBomHxcVIjEiJSkrLi4uFx8zODMsNygtLiwBCgoKDg0OGxAQGzQmHyYvLCw0LCwsLC8sLCwsLCwsLCwsLywsLCwsLCwsLC8sLCwsLCwsLCwsLCwsLCwsLCwsLP/AABEIAMsA+AMBIgACEQEDEQH/"
+                    "imgUrl": "http://www.statistik-berlin-brandenburg.de/bilder/karte_wahlen_1.gif"
                   },
                   "id": "service_64033_1442216248683",
                   "options": {},
@@ -443,7 +443,7 @@
                   "category": {
                     "title": "Kreisgrenzen",
                     "description": "Der Service stellt die generalisierten Georeferenzdaten für Deutschland zur Verfügung.\nGeoreferenzdaten stehen auf Kreisebene zur Verfügung. Die Grenzen wurden generalisiert.",
-                    "imgUrl": ""
+                    "imgUrl": "http://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Germany%2C_administrative_divisions_%28%2Bdistricts%29_-_de_-_colored.svg/220px-Germany%2C_administrative_divisions_%28%2Bdistricts%29_-_de_-_colored.svg.png"
                   },
                   "children": [
                     {
@@ -451,7 +451,70 @@
                       "enabled": true
                     }
                   ],
-                  "id": "service_86364_1442216613397"
+                  "id": "service_86364_1442216613397",
+                  "options": {}
+                },
+                {
+                  "title": "Gewaesserachsen",
+                  "enabled": false,
+                  "service": "service_70862",
+                  "category": {
+                    "title": "Gewaesserachsen",
+                    "description": "Berlin Digitales Basis-Landschaftsmodell (AAA-Modellierung)\nhttp://www.geodatenzentrum.de/docpdf/basis-dlm-aaa.pdf\n",
+                    "imgUrl": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRNwxwPik1Jjd1fwYtwI7iql9TAvTDpG3FL6Nb-48yT7mKNlSUHlg"
+                  },
+                  "id": "service_70862_1452785814216",
+                  "options": {},
+                  "children": [
+                    {
+                      "layer": "0",
+                      "enabled": true
+                    }
+                  ]
+                },
+                {
+                  "title": "Strassen",
+                  "enabled": false,
+                  "service": "service_92167",
+                  "category": {
+                    "title": "Strassen",
+                    "description": "Detailliertes Straßennetz von Berlin zu verkehrlichen Zwecken, enthält über das klassifizierte Straßennetz hinaus weitere Straßen und Wege.\n\nDas Detailnetz wird in der gleichnamigen Fachanwendung laufend gepflegt. Die Geometrieobjekte werden im Maßstab 1:1000 digitalisiert. Straßenname und Straßennummer werden regelmäßig vom RBS (Regionales Bezugssystem) übernommen. Die Objekte des Detailnetz haben einen stabilen eindeutigen Identifikator, durch den ein Austausch mit Fachdaten möglich wird. Alle Änderungen im Detailnetz werden mit Gültigkeitsdatum historisiert, so dass Netzstände der Vergangenheit generiert werden können. In dieser Karte wird der aktuelle Bestand gezeigt.\n\nQuelle: Geoportal Berlin. Layers: Straßenabschnitte , Bauwerke , Verbindungdpunkte\n",
+                    "imgUrl": "http://www.stadtentwicklung.berlin.de/umwelt/stadtgruen/landschaftsbau/pix/strassenbegleitgruen/franzoesische_strasse/franzoesische_str_05_900.jpg"
+                  },
+                  "id": "service_92167_1452868804619",
+                  "options": {},
+                  "children": [
+                    {
+                      "layer": "0",
+                      "enabled": true
+                    },
+                    {
+                      "layer": "1",
+                      "enabled": true
+                    },
+                    {
+                      "layer": "2",
+                      "enabled": true
+                    }
+                  ]
+                },
+                {
+                  "title": "Kleingärten",
+                  "enabled": true,
+                  "service": "service_25029",
+                  "category": {
+                    "title": "Kleingärten",
+                    "description": "Darstellung der in Berlin bestehenden Kleingartenanlagen",
+                    "imgUrl": "http://www.berlin.de/binaries/asset/image_assets/3004117/source/1364462432/418x316/"
+                  },
+                  "id": "service_25029_1452860441665",
+                  "options": {},
+                  "children": [
+                    {
+                      "layer": "0",
+                      "enabled": true
+                    }
+                  ]
                 }
               ],
               "baseLayer": [
@@ -749,6 +812,61 @@
                 {
                   "id": "0",
                   "title": "Kreisgrenzen 2011 (generalisiert)",
+                  "enabled": true
+                }
+              ],
+              "options": {}
+            },
+            {
+              "id": "service_70862",
+              "url": "http://services.arcgis.com/OLiydejKCZTGhvWg/arcgis/rest/services/Berlin_Gew%C3%A4sserachse1/FeatureServer",
+              "type": "AGS_FEATURE",
+              "title": "Gewaesserachsen",
+              "description": "Berlin Digitales Basis-Landschaftsmodell (AAA-Modellierung)\nhttp://www.geodatenzentrum.de/docpdf/basis-dlm-aaa.pdf\n",
+              "layers": [
+                {
+                  "id": "0",
+                  "title": "GEW03 Gewässerstationierungsachse",
+                  "enabled": true
+                }
+              ],
+              "options": {}
+            },
+            {
+              "id": "service_25029",
+              "url": "http://services.arcgis.com/OLiydejKCZTGhvWg/arcgis/rest/services/Berlin_Kleingartenbestand/FeatureServer",
+              "type": "AGS_FEATURE",
+              "title": "Kleingärten",
+              "description": "Darstellung der in Berlin bestehenden Kleingartenanlagen",
+              "layers": [
+                {
+                  "id": "0",
+                  "title": "Kleingärten",
+                  "enabled": true
+                }
+              ],
+              "options": {}
+            },
+            {
+              "id": "service_92167",
+              "url": "http://services.arcgis.com/OLiydejKCZTGhvWg/arcgis/rest/services/Berlin_Detailnetz/FeatureServer/",
+              "type": "AGS_FEATURE",
+              "title": "Strassen",
+              "description": "Detailliertes Straßennetz von Berlin zu verkehrlichen Zwecken, enthält über das klassifizierte Straßennetz hinaus weitere Straßen und Wege.\n\nDas Detailnetz wird in der gleichnamigen Fachanwendung laufend gepflegt. Die Geometrieobjekte werden im Maßstab 1:1000 digitalisiert. Straßenname und Straßennummer werden regelmäßig vom RBS (Regionales Bezugssystem) übernommen. Die Objekte des Detailnetz haben einen stabilen eindeutigen Identifikator, durch den ein Austausch mit Fachdaten möglich wird. Alle Änderungen im Detailnetz werden mit Gültigkeitsdatum historisiert, so dass Netzstände der Vergangenheit generiert werden können. In dieser Karte wird der aktuelle Bestand gezeigt.\n\nQuelle: Geoportal Berlin. Layers: Straßenabschnitte , Bauwerke , Verbindungdpunkte\n",
+              "layers": [
+                {
+                  "id": "0",
+                  "title": "Verbindungspunkte",
+                  "enabled": true
+                },
+                {
+                  "id": "1",
+                  "title": "Straßenabschnitte",
+                  "enabled": true
+                },
+                {
+                  "id": "2",
+                  "title": "Bauwerke",
                   "enabled": true
                 }
               ],
