@@ -22,14 +22,13 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/array", "ct/_lang",
             {
                 createInstance: function () {
                     var configStore = this._getConfigStore();
-                    var i18n = this._i18n.get().ui;
+                    var i18n = this._i18n.get().ui.selectfeaturefromlayer;
                     var properties = this._properties || {};
                     var opts = d_lang.mixin({
                         i18n: i18n,
                         configAdminService: this._configAdminService,
                         configStore: configStore,
-                        config: this._getComponentConfig()/*,
-                         source: this*/
+                        config: this._getComponentConfig()
                     }, properties.widgetProperties);
                     var widget = this._widget = new SelectFeatureFromLayerWidget(opts);
                     this.connectP("model", widget._viewModel, "selectedIds", function (type, oldVal, newVal) {
@@ -65,7 +64,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/array", "ct/_lang",
                     instance.destroyRecursive();
                 },
                 _getConfigStore: function () {
-                    var i18n = this._i18n.get().ui;
+                    var i18n = this._i18n.get().ui.selectfeaturefromlayer;
                     if (!this._configStore) {
                         var store = this._configStore = new ComplexMemoryStore({
                             data: [],

@@ -26,7 +26,12 @@ define({
         },
         storeselection: {
             description: "Seletkionsthemen definieren",
-            menuTitle: "Selektionsthemen"
+            menuTitle: "Selektionsthemen",
+            grid: {
+                "title": "Titel",
+                "description": "Beschreibung"
+            },
+            hint: "Bitte w\u00E4hlen Sie die Stores aus, die zur Selektion zur Verf\u00FCgung stehen sollen"
         },
         distance: {
             description: "Entfernungsselektion konfigurieren",
@@ -72,7 +77,12 @@ define({
         },
         selectfeaturefromlayer: {
             menuTitle: "Selektion durch Gebietsauswahl",
-            description: "Auswahl anhand Gebietsauswahl konfigurieren"
+            description: "Auswahl anhand Gebietsauswahl konfigurieren",
+            grid: {
+                "title": "Titel",
+                "description": "Beschreibung"
+            },
+            hint: "Bitte w\u00E4hlen Sie die Stores aus, die f\u00FCr die Gebietsauswahl zur Verf\u00FCgung stehen sollen"
         },
         existinggraphic: {
             menuTitle: "Selektion durch Vorhandene Grafik",
@@ -81,34 +91,8 @@ define({
         enable: "Komponente aktivieren",
         enableTooltip: "Komponente aktivieren",
         searchStore: "Selektionsstores",
-        relWithin: "Enthalten In",
-        relTouches: "Ber\u00FChrt",
         title: "Selektion",
         storeSelector: "Bitte w\u00E4hlen sie ein Selektionsthema",
-        selectSpatialRel: "Geometrische Beziehung",
-        selectionTools: {
-            distance: {
-                title: "\u00FCber Umkreisdefinition"
-            },
-            travelTime: {
-                title: "\u00FCber Erreichbarkeitsberechnung",
-                desc: "Entfernung nach Fahrzeit (ArcGIS-Online Account ben\u00F6tigt)"
-            },
-            selectFeatureFromStore: {
-                title: "\u00FCber Gebietsauswahl",
-                desc: "Selecktionsbereich einschr\u00E4nken auf Basis von",
-                selectStore: "Selektionsthema"
-            },
-            freehandPolygon: {
-                title: "\u00FCber Freihandpolygon",
-                desc: "Selektionsbereich einschr\u00E4nken auf Basis von Freihandpolygon"
-
-            }
-        },
-        grid: {
-            "title": "Titel",
-            "description": "Beschreibung"
-        },
-        hint: "Bitte w\u00E4hlen Sie die Stores aus, die zur Selektion zur Verf\u00FCgung stehen sollen"
+        selectSpatialRel: "Geometrische Beziehung"
     }
 });

@@ -27,7 +27,12 @@ define({
             },
             storeselection: {
                 description: "Configure selection topics",
-                menuTitle: "Selection Topics"
+                menuTitle: "Selection Topics",
+                grid: {
+                    "title": "Title",
+                    "description": "Description"
+                },
+                hint: "Please specify selection searchstores"
             },
             distance: {
                 description: "Configure Selection by distance",
@@ -73,7 +78,12 @@ define({
             },
             selectfeaturefromlayer: {
                 menuTitle: "Selection By Area",
-                description: "Configure area selection"
+                description: "Configure area selection",
+                grid: {
+                    "title": "Title",
+                    "description": "Description"
+                },
+                hint: "Please specify selection searchstores"
             },
             existinggraphic: {
                 menuTitle: "Selection By Existing Graphic",
@@ -82,35 +92,9 @@ define({
             enable: "Enable component",
             enableTooltip: "Enable component",
             searchStore: "Searchstores",
-            relWithin: "Within",
-            relTouches: "Touches",
             title: "Selection",
             storeSelector: "Please specify a searchstore",
-            selectSpatialRel: "Spatial relationship",
-            selectionTools: {
-                distance: {
-                    title: "By Distance"
-                },
-                travelTime: {
-                    title: "By Travel Time",
-                    desc: "Distance by travel time (ArcGIS-Online Account required)"
-                },
-                selectFeatureFromStore: {
-                    title: "By Area Selection",
-                    desc: "Restrict search area based on",
-                    selectStore: "Search Topic"
-                },
-                freehandPolygon: {
-                    title: "By Freehand Polygon",
-                    desc: "Restrict search area based on a freehand polygon."
-
-                }
-            },
-            grid: {
-                "title": "Title",
-                "description": "Description"
-            },
-            hint: "Please specify selection searchstores"
+            selectSpatialRel: "Spatial relationship"
         }
     },
     "de": true

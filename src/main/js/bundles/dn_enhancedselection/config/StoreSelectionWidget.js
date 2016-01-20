@@ -35,7 +35,7 @@ define(["dojo/_base/declare",
             grid: {
                 title: "Title",
                 dataView: {
-                    noDataFound: "No conntent definition found...",
+                    noDataFound: "No content definition found...",
                     pager: {
                         pageSizeLabelText: "Content definition ${pageStartItemNumber}-${pageEndItemNumber} of ${itemCount}"
                     }
@@ -72,9 +72,8 @@ define(["dojo/_base/declare",
         },
 
         _createDataView: function () {
-            var i18n = {}; //|| this.i18n.grid.dataView;
+            var i18n = {};
             var dataView = this._dataView = new DataView({
-                //    i18n: i18n,
                 showFilter: true,
                 filterDuringKeyUp: true,
                 showPager: true,
@@ -111,7 +110,6 @@ define(["dojo/_base/declare",
             return !!config;
         },
         uninitialize: function () {
-            //this._listeners.disconnect();
             this._dataView.destroyRecursive();
             this._dataView = null;
             this._dataModel = null;

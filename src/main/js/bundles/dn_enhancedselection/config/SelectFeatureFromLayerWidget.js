@@ -31,14 +31,13 @@ define(["dojo/_base/declare",
         templateString: template,
         data: null,
         ui: {
-            enable: "Enable component"/*,
-            scale: "Zoom-Scale"*/
+            enable: "Enable component"
         },
         i18n: {
             grid: {
                 title: "Title",
                 dataView: {
-                    noDataFound: "No conntent definition found...",
+                    noDataFound: "No content definition found...",
                     pager: {
                         pageSizeLabelText: "Content definition ${pageStartItemNumber}-${pageEndItemNumber} of ${itemCount}"
                     }
@@ -73,9 +72,8 @@ define(["dojo/_base/declare",
             }
         },
         _createDataView: function () {
-            var i18n = {}; //|| this.i18n.grid.dataView;
+            var i18n = {};
             var dataView = this._dataView = new DataView({
-                //    i18n: i18n,
                 showFilter: true,
                 filterDuringKeyUp: true,
                 showPager: true,
