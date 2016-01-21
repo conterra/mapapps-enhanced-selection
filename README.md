@@ -68,6 +68,12 @@ Define selectable stores
   "widgetEnabled": true
 }
 ```
+#####ExistingGraphicController
+```
+"ExistingGraphicController": {
+  "widgetEnabled": true
+},
+```
 #####SrWidgetFactory:
 Define selectable stores
 ```
