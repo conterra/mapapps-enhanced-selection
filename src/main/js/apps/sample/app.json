@@ -22,7 +22,6 @@
       "basemaptoggler",
       "selection",
       "resultcenter",
-      "agssearch",
       "dn_enhancedselection",
       "agsprinting",
       "wizard",
@@ -37,81 +36,11 @@
     ]
   },
   "bundles": {
+    "agsprinting": {
+      "enabled": true
+    },
     "agssearch": {
-      "AutoStoreRegistration": {
-        "componentEnabled": false
-      },
       "AGSStore": [
-        {
-          "title": "Regions (EU27 Bio Geographical Regions 2011)",
-          "description": "",
-          "omniSearchLabelAttr": "name",
-          "omniSearchSearchAttr": "name",
-          "idProperty": "OBJECTID",
-          "url": "http://bio.discomap.eea.europa.eu/arcgis/rest/services/BioRegions/Biogeographicalregions_Dyna_WM/MapServer/0",
-          "useIn": [
-            "omnisearch",
-            "selection"
-          ],
-          "filterOptions": {
-            "suggestContains": true
-          },
-          "omniSearchTypingDelay": 500,
-          "omniSearchPageSize": 20,
-          "omniSearchDefaultLabel": "Suchbegriff eingeben...",
-          "fetchIdProperty": true,
-          "enablePagination": false,
-          "id": "bio_regions",
-          "pid": "agssearch-AGSStore-1",
-          "type": "Dynamisch"
-        },
-        {
-          "title": "Natura2000 (Query Sites)",
-          "description": "",
-          "omniSearchLabelAttr": "SITENAME",
-          "omniSearchSearchAttr": "SITENAME",
-          "idProperty": "OBJECTID",
-          "url": "http://discomap.eea.europa.eu/arcgis/rest/services/Bio/Natura2000_Dyna_WM/MapServer/0",
-          "useIn": [
-            "omnisearch",
-            "surroundings",
-            "selection"
-          ],
-          "filterOptions": {
-            "suggestContains": true
-          },
-          "omniSearchTypingDelay": 500,
-          "omniSearchPageSize": 20,
-          "omniSearchDefaultLabel": "Suchbegriff eingeben...",
-          "fetchIdProperty": true,
-          "enablePagination": false,
-          "id": "natura2000",
-          "pid": "agssearch-AGSStore-2",
-          "type": "Dynamisch"
-        },
-        {
-          "title": "State of bathing waters (Bathing water quality)",
-          "description": "",
-          "omniSearchLabelAttr": "cc",
-          "omniSearchSearchAttr": "cc",
-          "idProperty": "OBJECTID",
-          "url": "http://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM/MapServer/0",
-          "useIn": [
-            "omnisearch",
-            "selection"
-          ],
-          "filterOptions": {
-            "suggestContains": true
-          },
-          "omniSearchTypingDelay": 500,
-          "omniSearchPageSize": 20,
-          "omniSearchDefaultLabel": "Suchbegriff eingeben...",
-          "fetchIdProperty": true,
-          "enablePagination": false,
-          "id": "bathing_water_0",
-          "pid": "agssearch-AGSStore-3",
-          "type": "Dynamisch"
-        },
         {
           "title": "Badegwaesser Zoom",
           "description": "Pointlayer is based on Bathing water directive (BWD) database(bathing water locations data as reported for 2014 bathing season). All data in the layer are aggregated by bathing water monitoring locations and bathing waters quality categories for inland and coastal bathing waters together. Layer in the map is visible on scales range from 1:5,000,000 and more detalied. In such cases, individual bathing water monitoring sites are visualized and colored according achived quality class. Symbol size depends on the map scale.",
@@ -213,8 +142,58 @@
           "fetchIdProperty": true,
           "enablePagination": false,
           "id": "health_res_berlin"
+        },
+        {
+          "title": "Natura2000 (Query Sites)",
+          "description": "",
+          "omniSearchLabelAttr": "SITENAME",
+          "omniSearchSearchAttr": "SITENAME",
+          "idProperty": "OBJECTID",
+          "url": "http://discomap.eea.europa.eu/arcgis/rest/services/Bio/Natura2000_Dyna_WM/MapServer/0",
+          "useIn": [
+            "selection"
+          ],
+          "filterOptions": {
+            "suggestContains": true
+          },
+          "omniSearchTypingDelay": 500,
+          "omniSearchPageSize": 20,
+          "omniSearchDefaultLabel": "Suchbegriff eingeben...",
+          "fetchIdProperty": true,
+          "enablePagination": false,
+          "id": "_AGS_STORE_1452169981740"
+        },
+        {
+          "title": "Kleingärten (Kleingärten)",
+          "description": "",
+          "omniSearchLabelAttr": "KGANAME",
+          "omniSearchSearchAttr": "KGANAME",
+          "idProperty": "OBJECTID",
+          "url": "http://services.arcgis.com/OLiydejKCZTGhvWg/arcgis/rest/services/Berlin_Kleingartenbestand/FeatureServer/0",
+          "useIn": [
+            "omnisearch",
+            "selection"
+          ],
+          "filterOptions": {
+            "suggestContains": true
+          },
+          "omniSearchTypingDelay": 500,
+          "omniSearchPageSize": 20,
+          "omniSearchDefaultLabel": "Kleingartenname....",
+          "fetchIdProperty": true,
+          "enablePagination": false,
+          "id": "_AGS_STORE_1452860578776",
+          "pid": "agssearch-AGSStore-6",
+          "type": "Feature"
         }
-      ]
+      ],
+      "AutoStoreRegistration": {
+        "componentEnabled": false
+      },
+      "enabled": true
+    },
+    "basemaptoggler": {
+      "enabled": true
     },
     "coordinatetransformer": {
       "CoordinateTransformer": {
@@ -231,6 +210,9 @@
       "enabled": true
     },
     "dn_enhancedselection": {
+      "BaseWidgetController": {
+        "clearGraphics": true
+      },
       "DistanceCircleController": {
         "widgetEnabled": true,
         "distance": {
@@ -250,50 +232,78 @@
           "unit": "KILOMETERS"
         }
       },
-      "SelectFeatureFromLayerController": {
-        "widgetEnabled": true,
-        "scale": 500000,
-        "storeIds": [
-          "plz_gebiete",
-          "kreis_grenzen",
-          "statistische_gebiete_berlin"
-        ]
+      "ExistingGraphicController": {
+        "widgetEnabled": true
       },
       "FreehandPolygonController": {
         "widgetEnabled": true
       },
-      "ExistingGraphicController": {
-        "widgetEnabled": true
+      "SelectFeatureFromLayerController": {
+        "storeIds": [
+          "plz_gebiete",
+          "kreis_grenzen",
+          "_AGS_STORE_1452169981740",
+          "statistische_gebiete_berlin"
+        ]
       },
       "SrWidgetFactory": {
         "storeIds": [
           "natura2000",
+          "_AGS_STORE_1452169981740",
+          "health_res_berlin",
           "bathing_water_6",
-          "health_res_berlin"
+          "_AGS_STORE_1452860578776"
         ]
       },
-      "BaseWidgetController": {
-        "clearGraphics": false
-      }
+      "enabled": true
     },
     "map": {
-      "MapState": {
-        "initialExtent": {
-          "xmax": 1564928.2306908383,
-          "xmin": 1418169.1363834972,
-          "ymax": 6932972.247678364,
-          "ymin": 6852636.9309507515,
-          "spatialReference": {
-            "wkid": 3857
-          }
-        }
-      },
       "MapModelFactory": {
         "_configData": {
           "maps": [
             {
               "id": "default",
               "operationalLayer": [
+                {
+                  "title": "PLZ Gebiete",
+                  "enabled": false,
+                  "service": "service_78042",
+                  "category": {
+                    "title": "PLZ Gebiete",
+                    "description": "Feature Service mit 2 Layern: \nPLZ2: 2-stellige, zusammengefasste PLZ-Gebiete\nPLZ5: 5-stellige PLZ-Gebiete",
+                    "imgUrl": "http://www.postleitzahl-finden.de/mediapool/139/1396211/resources/34303723.png"
+                  },
+                  "id": "service_78042_1441978844876",
+                  "options": {},
+                  "children": [
+                    {
+                      "layer": "0",
+                      "enabled": true
+                    },
+                    {
+                      "layer": "1",
+                      "enabled": true
+                    }
+                  ]
+                },
+                {
+                  "title": "Kleingärten",
+                  "enabled": true,
+                  "service": "service_25029",
+                  "category": {
+                    "title": "Kleingärten",
+                    "description": "Darstellung der in Berlin bestehenden Kleingartenanlagen",
+                    "imgUrl": "http://www.berlin.de/binaries/asset/image_assets/3004117/source/1364462432/418x316/"
+                  },
+                  "id": "service_25029_1452860441665",
+                  "options": {},
+                  "children": [
+                    {
+                      "layer": "0",
+                      "enabled": true
+                    }
+                  ]
+                },
                 {
                   "id": "bathingwater",
                   "title": "Badegewässer",
@@ -379,23 +389,19 @@
                   ]
                 },
                 {
-                  "title": "PLZ Gebiete",
+                  "title": "Statististische Gebiete Berlin",
                   "enabled": false,
-                  "service": "service_78042",
+                  "service": "service_64033",
                   "category": {
-                    "title": "PLZ Gebiete",
-                    "description": "Feature Service mit 2 Layern: \nPLZ2: 2-stellige, zusammengefasste PLZ-Gebiete\nPLZ5: 5-stellige PLZ-Gebiete",
-                    "imgUrl": "http://www.postleitzahl-finden.de/mediapool/139/1396211/resources/34303723.png"
+                    "title": "Statististische Gebiete Berlin",
+                    "description": "Die Grenzen der Statistischen Gebiete des Regionalen Bezugssystems wurden onscreen auf der „Karte 1:5000\nvon Berlin“ (Quelle: Geoportal Berlin / [Karte von Berlin 1:5.000 (K5)]) digitalisiert unter Berücksichtigung\nder Grenzen und Blöcke aus dem RBS.\nhttp://www.stadtentwicklung.berlin.de/geoinf",
+                    "imgUrl": "http://www.statistik-berlin-brandenburg.de/bilder/karte_wahlen_1.gif"
                   },
-                  "id": "service_78042_1441978844876",
+                  "id": "service_64033_1442216248683",
                   "options": {},
                   "children": [
                     {
                       "layer": "0",
-                      "enabled": true
-                    },
-                    {
-                      "layer": "1",
                       "enabled": true
                     }
                   ]
@@ -417,24 +423,6 @@
                   ],
                   "id": "service_93452_1442215709399",
                   "options": {}
-                },
-                {
-                  "title": "Statististische Gebiete Berlin",
-                  "enabled": false,
-                  "service": "service_64033",
-                  "category": {
-                    "title": "Statististische Gebiete Berlin",
-                    "description": "Die Grenzen der Statistischen Gebiete des Regionalen Bezugssystems wurden onscreen auf der „Karte 1:5000\nvon Berlin“ (Quelle: Geoportal Berlin / [Karte von Berlin 1:5.000 (K5)]) digitalisiert unter Berücksichtigung\nder Grenzen und Blöcke aus dem RBS.\nhttp://www.stadtentwicklung.berlin.de/geoinf",
-                    "imgUrl": "http://www.statistik-berlin-brandenburg.de/bilder/karte_wahlen_1.gif"
-                  },
-                  "id": "service_64033_1442216248683",
-                  "options": {},
-                  "children": [
-                    {
-                      "layer": "0",
-                      "enabled": true
-                    }
-                  ]
                 },
                 {
                   "title": "Kreisgrenzen",
@@ -497,24 +485,6 @@
                       "enabled": true
                     }
                   ]
-                },
-                {
-                  "title": "Kleingärten",
-                  "enabled": true,
-                  "service": "service_25029",
-                  "category": {
-                    "title": "Kleingärten",
-                    "description": "Darstellung der in Berlin bestehenden Kleingartenanlagen",
-                    "imgUrl": "http://www.berlin.de/binaries/asset/image_assets/3004117/source/1364462432/418x316/"
-                  },
-                  "id": "service_25029_1452860441665",
-                  "options": {},
-                  "children": [
-                    {
-                      "layer": "0",
-                      "enabled": true
-                    }
-                  ]
                 }
               ],
               "baseLayer": [
@@ -573,6 +543,17 @@
               ]
             }
           ]
+        }
+      },
+      "MapState": {
+        "initialExtent": {
+          "xmax": 1564928.2306908383,
+          "xmin": 1418169.1363834972,
+          "ymax": 6932972.247678364,
+          "ymin": 6852636.9309507515,
+          "spatialReference": {
+            "wkid": 3857
+          }
         }
       },
       "MappingResourceRegistryFactory": {
@@ -874,7 +855,8 @@
             }
           ]
         }
-      }
+      },
+      "enabled": true
     },
     "mapflow": {
       "MapFlow": {
@@ -895,10 +877,40 @@
       },
       "enabled": true
     },
+    "notifier": {
+      "enabled": true
+    },
+    "redlining": {
+      "enabled": true
+    },
+    "resultcenter": {
+      "enabled": true
+    },
+    "selection": {
+      "SelectionTool": [
+        {
+          "geoType": "Extent",
+          "iconClass": "icon-select-extend",
+          "clickTolerance": 0,
+          "id": "selectionTool_1452169981740",
+          "storeId": "_AGS_STORE_1452169981740",
+          "title": "Natura2000 (Query Sites)"
+        },
+        {
+          "id": "selectionTool_1453217943323",
+          "storeId": "_AGS_STORE_1452860578776",
+          "title": "Kleingärten (Kleingärten)"
+        }
+      ],
+      "enabled": true
+    },
+    "splashscreen": {
+      "enabled": true
+    },
+    "templatelayout": {
+      "enabled": true
+    },
     "templates": {
-      "TemplateSelector": {
-        "componentEnabled": false
-      },
       "TemplateModel": {
         "_selectedTemplate": "seasons",
         "_templates": [
@@ -919,25 +931,29 @@
             ]
           }
         ]
-      }
+      },
+      "TemplateSelector": {
+        "componentEnabled": false
+      },
+      "enabled": true
+    },
+    "themes": {
+      "enabled": true
     },
     "toolrules": {
       "ToolActiveStateManager": {
         "activateOnStartToolIds": [
           "dn_enhancedselectionToggleTool"
         ]
-      }
+      },
+      "enabled": true
     },
     "toolset": {
       "ToolsetManager": {
         "toolsets": [
           {
             "id": "position_tools",
-            "title": "",
-            "tools": [
-              "dn_enhancedselectionToggleTool",
-              "drawrectangletool"
-            ],
+            "title": "position_tools",
             "container": "map",
             "cssClass": "noTitleBarAndWindowTools",
             "windowType": "fixed",
@@ -948,10 +964,39 @@
                   "rel_l": 20
                 }
               }
-            }
+            },
+            "window": {
+              "closable": false
+            },
+            "__isDirty": true,
+            "position": {
+              "rel_l": 0,
+              "rel_t": 0
+            },
+            "tools": [
+              "dn_enhancedselectionToggleTool",
+              "drawfreehandpolygontool",
+              "featureInfoTool"
+            ]
           }
         ]
-      }
+      },
+      "enabled": true
+    },
+    "usagelog_restservice": {
+      "enabled": true
+    },
+    "windowmanager": {
+      "enabled": true
+    },
+    "wizard": {
+      "enabled": true
+    },
+    "contentviewer": {
+      "enabled": true
+    },
+    "featureinfo": {
+      "enabled": true
     }
   }
 }
