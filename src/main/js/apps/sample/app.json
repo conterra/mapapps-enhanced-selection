@@ -975,9 +975,18 @@
             },
             "tools": [
               "dn_enhancedselectionToggleTool",
-              "drawfreehandpolygontool",
               "featureInfoTool"
             ]
+          },
+          {
+            "id": "redlining_tools",
+            "title": "${toolsets.redliningTools}",
+            "tools": ["drawpointtool", "drawlinetool", "drawpolylinetool", "drawfreehandpolylinetool", "drawpolygontool", "drawfreehandpolygontool", "drawellipsetool", "drawarrowtool", "drawTextTool", "drawSymbolTool", "*EditTool", "redliningSymbolPropertiesTool"],
+            "container": "map",
+            "position": {
+              "rel_l": 20,
+              "rel_b": 100
+            }
           }
         ]
       },
