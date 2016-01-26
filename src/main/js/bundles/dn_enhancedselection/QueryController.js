@@ -52,13 +52,11 @@ define([
                         message: this.i18n.info.noResultsAreaInfo
                     });
                 }
-                //this._eventService.postEvent("ct/dn_enhancedselection/SEARCH_FINISHED");
             }, function (e) {
                 this._logService.warn({
                     id: e.code,
                     message: e
                 });
-                //this._eventService.postEvent("ct/dn_enhancedselection/SEARCH_FINISHED");
             }, this);
         }
     });
