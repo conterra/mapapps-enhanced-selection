@@ -22,7 +22,6 @@ define([
 ], function (declare, i18n, _Connect, ct_async) {
     return declare([_Connect], {
         componentName: "ExistingGraphicWidget",
-
         activate: function (componentContext) {
             var properties = this._properties;
             if (!properties.widgetEnabled) {
@@ -75,7 +74,7 @@ define([
                     that._logService.warn(that._i18n.get().ui.selectionTools.existingGraphic.error);
                 }
             });
-    },
+        },
         search: function (store, spatialRel) {
             var geometry = this._inputGeometry;
             if (!geometry) {
