@@ -17,6 +17,7 @@
 .dn_enhancedselection hr {
     clear: right;
 }
+
 .dn_enhancedselection .dijitRuleLabelsContainer {
     height: 20px;
 }
@@ -25,25 +26,28 @@
     margin-top: 12px;
 }
 
-.dn_enhancedselection .dijitSelect{
+.dn_enhancedselection .dijitSelect {
     width: 100%;
 }
-.dn_enhancedselection .dijitSelect .dijitArrowButton{
+
+.dn_enhancedselection .dijitSelect .dijitArrowButton {
     width: 21px;
 }
 
-.dn_enhancedselection .alternatingTicks{
+.dn_enhancedselection .alternatingTicks {
     height: 10px;
 }
-.dn_enhancedselection .alternatingTicks .dijitRuleMark{
+
+.dn_enhancedselection .alternatingTicks .dijitRuleMark {
     border-color: #fff;
 }
-.dn_enhancedselection .alternatingTicks .dijitRuleMark:nth-child(2n){
+
+.dn_enhancedselection .alternatingTicks .dijitRuleMark:nth-child(2n) {
     height: 5px;
     margin-top: 5px;
 }
 
-.dn_enhancedselection .alternatingTicks:nth-child(2n){
+.dn_enhancedselection .alternatingTicks:nth-child(2n) {
     height: 10px;
 }
 
@@ -59,6 +63,7 @@
 .dn_enhancedselection .startButton, .dn_enhancedselection .startButton .dijitButtonNode {
     display: block
 }
+
 .dn_enhancedselection .startButton {
     margin-top: 10px;
     margin-left: 0;
@@ -105,4 +110,26 @@
 
 .appbuilder.ctBuilderWindowRoot .enableSelectFeatureFromLayerWidget .row:first-child {
     margin-bottom: 13px;
+}
+
+/* theme specific background-color */
+
+.everlasting .geometryProvider .dojoxRangeSlider .dijitSliderLeftBumper {
+    background-color: #2c2d2e;
+}
+
+.spring .geometryProvider .dojoxRangeSlider .dijitSliderLeftBumper {
+    background-color: #16a085;
+}
+
+.summer .geometryProvider .dojoxRangeSlider .dijitSliderLeftBumper  {
+    background-color: #8C0F1A;
+}
+
+.winter .geometryProvider .dojoxRangeSlider .dijitSliderLeftBumper  {
+    background-color: #3C3C3C;
+}
+
+.autumn .geometryProvider .dojoxRangeSlider .dijitSliderLeftBumper  {
+    background-color: #2980b9;
 }
