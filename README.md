@@ -1,10 +1,11 @@
 # Enhanced Selection
 
-The Enhanced Selection Bundle allows you to select features in enhanced ways. There are these four special types of selection:
+The Enhanced Selection Bundle allows you to select features in enhanced ways. There are these five special types of selection:
 - Area Selection
 - Freehand Polygon
 - Travel Time
 - Distance
+- Existing Graphic
 
 ### Sample App ###
 http://www.mapapps.de/mapapps/resources/apps/downloads_enhancedselection/index.html
