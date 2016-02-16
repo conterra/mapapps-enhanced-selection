@@ -102,9 +102,9 @@ define([
             var distanceWidget = this.distanceCircleWidget;
 
             if (event[0] === 0) {
-                var text = event[1] + " km";
+                var text = event[1] + " " + this.radiusUnitShort;
             } else {
-                var text = event[0] + " - " + event[1] + " km";
+                var text = event[0] + " - " + event[1] + " " + this.radiusUnitShort;
             }
 
             var parent = distanceWidget.getParent();
