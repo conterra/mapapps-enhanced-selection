@@ -103,6 +103,8 @@ define([
 
             if (event[0] === 0) {
                 var text = event[1] + " " + this.radiusUnitShort;
+            } else if (event[0] === event[1]) {
+                var text = event[1] + " " + this.radiusUnitShort;
             } else {
                 var text = event[0] + " - " + event[1] + " " + this.radiusUnitShort;
             }
