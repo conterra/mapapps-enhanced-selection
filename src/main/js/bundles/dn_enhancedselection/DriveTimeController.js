@@ -96,10 +96,14 @@ define([
         geometryDrawn: function (evt) {
             this._inputGeometry = evt.getProperty("geometry");
             var driveTimeWidget = this.driveTimeWidget;
-            if (!driveTimeWidget.getParent().get("selected")) {
-                return;
+            try {
+                if (!driveTimeWidget.getParent().get("selected")) {
+                    return;
+                }
+                this._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
+            } catch (e) {
+                // do nothing
             }
-            this._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
         },
         draw: function (geometryType) {
             this.drawGeometryHandler.allowUserToDrawGeometry(geometryType || this.geometryType);

@@ -88,36 +88,40 @@ define([
         geometryDrawn: function (evt) {
             var geom = evt.getProperty("geometry");
             var selectFeatureFromLayerWidget = this.selectFeatureFromLayerWidget;
-            if (!selectFeatureFromLayerWidget.getParent().get("selected")) {
-                return;
-            }
-            var storeSelectionSelect = selectFeatureFromLayerWidget.storeSelectionSelect;
-            var selectedStoreId = storeSelectionSelect.get("value");
-            var store = this.getStore(selectedStoreId);
+            try {
+                if (!selectFeatureFromLayerWidget.getParent().get("selected")) {
+                    return;
+                }
+                var storeSelectionSelect = selectFeatureFromLayerWidget.storeSelectionSelect;
+                var selectedStoreId = storeSelectionSelect.get("value");
+                var store = this.getStore(selectedStoreId);
 
-            clearTimeout(this._timeout);
-            var that = this;
-            this._timeout = setTimeout(function () {
-                ct_when(store.query({
-                    geometry: {
-                        $intersects: geom
-                    }
-                }, {
-                    fields: {
-                        "geometry": true
-                    }
-                }), function (result) {
-                    if (result.length > 0) {
-                        var geometry = result[0].geometry;
-                        that._mapState.setExtent(geometry.getExtent());
-                        var inputGeom = that._inputGeometry = geometry;
-                        that.drawGeometryHandler.drawGeometry(inputGeom);
-                        that._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
-                    } else {
-                        that._logService.warn(that._i18n.get().warning.noAreaFoundWarning);
-                    }
-                }, this);
-            }, 1000);
+                clearTimeout(this._timeout);
+                var that = this;
+                this._timeout = setTimeout(function () {
+                    ct_when(store.query({
+                        geometry: {
+                            $intersects: geom
+                        }
+                    }, {
+                        fields: {
+                            "geometry": true
+                        }
+                    }), function (result) {
+                        if (result.length > 0) {
+                            var geometry = result[0].geometry;
+                            that._mapState.setExtent(geometry.getExtent());
+                            var inputGeom = that._inputGeometry = geometry;
+                            that.drawGeometryHandler.drawGeometry(inputGeom);
+                            that._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
+                        } else {
+                            that._logService.warn(that._i18n.get().warning.noAreaFoundWarning);
+                        }
+                    }, this);
+                }, 1000);
+            } catch (e) {
+                //do nothing
+            }
         },
         getStore: function (id) {
             return this.serviceResolver.getService("ct.api.Store", "(id=" + id + ")");

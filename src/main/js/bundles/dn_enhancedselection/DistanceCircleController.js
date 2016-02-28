@@ -124,10 +124,14 @@ define([
         geometryDrawn: function (evt) {
             this._inputGeometry = evt.getProperty("geometry");
             var distanceCircleWidget = this.distanceCircleWidget;
-            if (!distanceCircleWidget.getParent().get("selected")) {
-                return;
+            try {
+                if (!distanceCircleWidget.getParent().get("selected")) {
+                    return;
+                }
+                this._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
+            } catch (e) {
+                // do nothing
             }
-            this._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
         },
         onSelected: function () {
             var geometryType = this.geometryType;
