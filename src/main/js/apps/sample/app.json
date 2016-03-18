@@ -25,7 +25,8 @@
       "dn_enhancedselection",
       "agsprinting",
       "wizard",
-      "redlining"
+      "redlining",
+      "banner"
     ],
     "skipBundles": [],
     "require": [
@@ -191,6 +192,13 @@
         "componentEnabled": false
       },
       "enabled": true
+    },
+    "banner": {
+      "BannerWidget": {
+        "image": "https://conterra.de/~/media/conterra/images/site_logos/conterra-logo.ashx",
+        "imagePosition": "above",
+        "link": "http://conterra.de"
+      }
     },
     "basemaptoggler": {
       "enabled": true
@@ -885,6 +893,9 @@
       "enabled": true
     },
     "resultcenter": {
+      /*"MANIFEST": {
+        "Bundle-StartLevel": 1000
+      },*/
       "enabled": true
     },
     "selection": {
