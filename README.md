@@ -93,5 +93,12 @@ Basic Settings
   "clearGraphics": true
 }
 ```
+#####BaseWidget:
+Basic Settings
+```
+"BaseWidget": {
+  "enableContains": true
+}
+```
 
 You can activate or deactivate all widgets by setting "widgetEnabled" to true or false.
