@@ -17,7 +17,7 @@ define([
     "dojo/_base/declare",
     "dojo/i18n!./nls/bundle",
     "./GeometryInputWidget",
-    "dojo/text!./templates/SelectFeatureFromLayerWidget.html",
+    "dojo/text!./templates/SelectFeatureFromLayerWidget.html"
 
 ], function (declare, i18n, _GeometryInputWidget, template) {
     return declare([_GeometryInputWidget], {
