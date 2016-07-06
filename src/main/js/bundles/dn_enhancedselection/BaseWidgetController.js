@@ -64,7 +64,7 @@ define([
         },
         search: function () {
             var srBaseWidget = this.baseWidget;
-            var spatialRel = srBaseWidget.spatialRelation.get("value");
+            var spatialRel = srBaseWidget._spatialRelationSelect.get("value");
             var contentNode = srBaseWidget.contentNode;
             var selectedChild = contentNode.get("selectedChildWidget");
             var store = this.getStore();

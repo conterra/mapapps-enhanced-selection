@@ -524,7 +524,10 @@
       "name": "BaseWidget",
       "provides": [
         "dn_enhancedselection.baseWidget"
-      ]
+      ],
+      "properties": {
+        "enableContains": true
+      }
     },
     {
       "name": "SurroundingsToggleTool",

@@ -38,6 +38,23 @@ define([
         },
         startup: function () {
             this.inherited(arguments);
+            if (this._properties.enableContains) {
+                this._spatialRelationSelect = new Select({
+                    name: "spatialRelation",
+                    options: [
+                        {label: this.ui.relWithin, value: "contains", selected: true},
+                        {label: this.ui.relTouches, value: "intersects"}
+                    ]
+                }, this.spatialRelation);
+            } else {
+                this._spatialRelationSelect = new Select({
+                    name: "spatialRelation",
+                    options: [
+                        {label: this.ui.relTouches, value: "intersects", selected: true}
+                    ]
+                }, this.spatialRelation);
+            }
+
             //ct_async(this.setSize, this, 0);
         },
         // onCancel event

@@ -221,6 +221,9 @@
       "enabled": true
     },
     "dn_enhancedselection": {
+      "BaseWidget": {
+          "enableContains": true
+      },
       "BaseWidgetController": {
         "clearGraphics": true
       },

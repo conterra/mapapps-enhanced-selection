@@ -9,12 +9,14 @@
             </div>
             <div class="spatialRow">
                 <div class="spatialRelDesc">${ui.selectSpatialRel}</div>
-                <select class="spatialRelationSelect" data-dojo-props="disabled:false"
+                <div data-dojo-attach-point="spatialRelation">
+                </div>
+                <!--<select class="spatialRelationSelect" data-dojo-props="disabled:false"
                         data-dojo-attach-point="spatialRelation"
                         data-dojo-type="dijit/form/Select">
                     <option value="contains">${ui.relWithin}</option>
                     <option value="intersects">${ui.relTouches}</option>
-                </select>
+                </select>-->
             </div>
         </div>
         <div data-dojo-type="dijit/layout/ContentPane"
