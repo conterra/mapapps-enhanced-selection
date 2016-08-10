@@ -96,6 +96,10 @@
     text-overflow: ellipsis;
 }
 
+.dn_enhancedselection .dijitSliderH.dojoxRangeSlider .dijitSliderImageHandle {
+    left: -7px;
+}
+
 .appbuilder.ctBuilderWindowRoot .ctMenuContentRect .builderStoreSelection {
     padding: 0px;
 }
