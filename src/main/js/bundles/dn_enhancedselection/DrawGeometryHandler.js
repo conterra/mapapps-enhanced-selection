@@ -19,13 +19,14 @@ define([
     "ct/mapping/edit/GraphicsRenderer",
     "esri/Color",
     "esri/geometry/Circle",
+    "esri/geometry/Polygon",
     "esri/symbols/Font",
     "esri/symbols/TextSymbol",
     "esri/symbols/SimpleFillSymbol",
     "esri/symbols/SimpleLineSymbol",
     "dojo/_base/Color"
 
-], function (declare, _Connect, GraphicsRenderer, Color, Circle, Font, TextSymbol, SimpleFillSymbol, SimpleLineSymbol, d_Color) {
+], function (declare, _Connect, GraphicsRenderer, Color, Circle, Polygon, Font, TextSymbol, SimpleFillSymbol, SimpleLineSymbol, d_Color) {
 
     return declare([_Connect], {
         activate: function () {
@@ -77,22 +78,27 @@ define([
             );
         },
         drawCircle: function (center, minDistance, maxDistance, radiusUnit) {
+            var polygon = new Polygon(center.spatialReference);
             var outerCircle = new Circle(center, {
+                "geodesic": true,
                 "radius": maxDistance,
                 "radiusUnit": radiusUnit
             });
+            polygon.addRing(outerCircle.rings[0]);
 
             if (minDistance !== 0) {
                 var innerCircle = new Circle(center, {
+                    "geodesic": true,
                     "radius": minDistance,
                     "radiusUnit": radiusUnit
                 });
                 var ring = innerCircle.rings[0];
-                outerCircle.addRing(ring.reverse());
+                polygon.addRing(ring.reverse());
             }
+
             var symbol = this._getSymbolForPolygon();
             var feature = {
-                "geometry": outerCircle,
+                "geometry": polygon,
                 "symbol": symbol
             };
 
