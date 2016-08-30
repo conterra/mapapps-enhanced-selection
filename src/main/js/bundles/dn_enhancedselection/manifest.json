@@ -2,7 +2,7 @@
   "Bundle-SymbolicName": "dn_enhancedselection",
   "Bundle-Version": "2.0.6-SNAPSHOT",
   "Bundle-Name": "${bundleName}",
-  "Bundle-Description": "Search stores for surrounding features",
+  "Bundle-Description": "${bundleDescription}",
   "Bundle-Vendor": "con terra GmbH",
   "Product-Name": "con terra Developer Network",
   "Bundle-Localization": [
