@@ -96,10 +96,6 @@
     text-overflow: ellipsis;
 }
 
-.dn_enhancedselection .dijitSliderH.dojoxRangeSlider .dijitSliderImageHandle {
-    left: -7px;
-}
-
 .appbuilder.ctBuilderWindowRoot .ctMenuContentRect .builderStoreSelection {
     padding: 0px;
 }
@@ -136,4 +132,32 @@
 
 .autumn .geometryProvider .dojoxRangeSlider .dijitSliderLeftBumper  {
     background-color: #2980b9;
+}
+
+/* Slider */
+
+.dn_enhancedselection .dojoxRangeSliderBarContainer {
+    position: relative;
+}
+
+.dn_enhancedselection .dojoxRangeSlider .dijitSliderProgressBarV {
+    position: relative !important;
+}
+
+.dn_enhancedselection .dojoxRangeSlider .dijitSliderProgressBar {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.dn_enhancedselection .dojoxRangeSlider .dijitSliderProgressBarV {
+    position: absolute !important;
+    border-width: 0px;
+}
+
+.dn_enhancedselection .dojoxRangeSlider .dijitSliderImageHandleH {
+    left: -50%;
+}
+
+.dn_enhancedselection .dijitSlider .dojoxRangeSliderBarContainer .dijitSliderProgressBarH,.dojoxRangeSlider .dijitSliderMoveableH {
+    right: auto !important;
 }
