@@ -86,27 +86,6 @@
           "id": "plz_gebiete"
         },
         {
-          "title": "Kreisgrenzen (Deutschland Kreisgrenzen 2015)",
-          "description": "",
-          "omniSearchLabelAttr": "GEN",
-          "omniSearchSearchAttr": "GEN",
-          "idProperty": "OBJECTID",
-          "url": "https://services.arcgis.com/OLiydejKCZTGhvWg/arcgis/rest/services/Kreisegrenzen_2015_Statistik/FeatureServer//0",
-          "useIn": [
-            "omnisearch",
-            "selection"
-          ],
-          "filterOptions": {
-            "suggestContains": true
-          },
-          "omniSearchTypingDelay": 500,
-          "omniSearchPageSize": 20,
-          "omniSearchDefaultLabel": "Kreisname...",
-          "fetchIdProperty": true,
-          "enablePagination": false,
-          "id": "kreis_grenzen"
-        },
-        {
           "title": "Statististische Gebiete Berlin (RBS Statistische Gebiete)",
           "description": "",
           "omniSearchLabelAttr": "STGName",
@@ -257,7 +236,6 @@
         "widgetEnabled": true,
         "storeIds": [
           "plz_gebiete",
-          "kreis_grenzen",
           "_AGS_STORE_1452169981740",
           "statistische_gebiete_berlin"
         ]
@@ -441,24 +419,6 @@
                   "options": {}
                 },
                 {
-                  "title": "Kreisgrenzen",
-                  "enabled": false,
-                  "service": "service_86364",
-                  "category": {
-                    "title": "Kreisgrenzen",
-                    "description": "Der Service stellt die generalisierten Georeferenzdaten für Deutschland zur Verfügung.\nGeoreferenzdaten stehen auf Kreisebene zur Verfügung. Die Grenzen wurden generalisiert.",
-                    "imgUrl": "http://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Germany%2C_administrative_divisions_%28%2Bdistricts%29_-_de_-_colored.svg/220px-Germany%2C_administrative_divisions_%28%2Bdistricts%29_-_de_-_colored.svg.png"
-                  },
-                  "children": [
-                    {
-                      "layer": "0",
-                      "enabled": true
-                    }
-                  ],
-                  "id": "service_86364_1442216613397",
-                  "options": {}
-                },
-                {
                   "title": "Gewaesserachsen",
                   "enabled": false,
                   "service": "service_70862",
@@ -538,23 +498,6 @@
                   "children": [],
                   "id": "streets_1441977062099",
                   "opacity": 1
-                },
-                {
-                  "title": "Kreisgrenzen",
-                  "enabled": false,
-                  "service": "service_86364",
-                  "category": {
-                    "title": "Kreisgrenzen",
-                    "description": "Der Service stellt die generalisierten Georeferenzdaten für Deutschland zur Verfügung.\nGeoreferenzdaten stehen auf Kreisebene zur Verfügung. Die Grenzen wurden generalisiert.",
-                    "imgUrl": ""
-                  },
-                  "children": [
-                    {
-                      "layer": "0",
-                      "enabled": true
-                    }
-                  ],
-                  "id": "service_86364_1442331539362"
                 }
               ]
             }
@@ -794,21 +737,6 @@
                 {
                   "id": "0",
                   "title": "Health Resources",
-                  "enabled": true
-                }
-              ],
-              "options": {}
-            },
-            {
-              "id": "service_86364",
-              "url": "http://services.arcgis.com/OLiydejKCZTGhvWg/arcgis/rest/services/KreiseGeoreferenzdatenGeneralisiert/FeatureServer",
-              "type": "AGS_FEATURE",
-              "title": "Kreisgrenzen",
-              "description": "Der Service stellt die generalisierten Georeferenzdaten für Deutschland zur Verfügung.\nGeoreferenzdaten stehen auf Kreisebene zur Verfügung. Die Grenzen wurden generalisiert.",
-              "layers": [
-                {
-                  "id": "0",
-                  "title": "Kreisgrenzen 2011 (generalisiert)",
                   "enabled": true
                 }
               ],
