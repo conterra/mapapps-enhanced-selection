@@ -25,11 +25,10 @@
       "basemaptoggler",
       "selection",
       "resultcenter",
-      "dn_enhancedselection",
-      "agsprinting",
       "wizard",
       "redlining",
-      "banner"
+      "banner",
+      "dn_enhancedselection"
     ],
     "skipBundles": [],
     "require": [
@@ -211,8 +210,8 @@
         "widgetEnabled": true,
         "distance": {
           "minimum": 0,
-          "maximum": 100,
-          "interval": 5,
+          "maximum": 10,
+          "interval": 0.5,
           "unit": "KILOMETERS"
         }
       },
