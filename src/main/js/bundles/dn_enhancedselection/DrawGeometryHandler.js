@@ -25,7 +25,6 @@ define([
     "esri/symbols/SimpleFillSymbol",
     "esri/symbols/SimpleLineSymbol",
     "dojo/_base/Color"
-
 ], function (declare, _Connect, GraphicsRenderer, Color, Circle, Polygon, Font, TextSymbol, SimpleFillSymbol, SimpleLineSymbol, d_Color) {
 
     return declare([_Connect], {
@@ -79,19 +78,35 @@ define([
         },
         drawCircle: function (center, minDistance, maxDistance, radiusUnit) {
             var polygon = new Polygon(center.spatialReference);
-            var outerCircle = new Circle(center, {
-                "geodesic": true,
-                "radius": maxDistance,
-                "radiusUnit": radiusUnit
-            });
+            var outerCircle;
+            if (center.spatialReference.wkid === 3857) {
+                outerCircle = new Circle(center, {
+                    "geodesic": true,
+                    "radius": maxDistance,
+                    "radiusUnit": radiusUnit
+                });
+            } else {
+                outerCircle = new Circle(center, {
+                    "radius": maxDistance,
+                    "radiusUnit": radiusUnit
+                });
+            }
             polygon.addRing(outerCircle.rings[0]);
 
             if (minDistance !== 0) {
-                var innerCircle = new Circle(center, {
-                    "geodesic": true,
-                    "radius": minDistance,
-                    "radiusUnit": radiusUnit
-                });
+                var innerCircle;
+                if (center.spatialReference.wkid === 3857) {
+                    innerCircle = new Circle(center, {
+                        "geodesic": true,
+                        "radius": minDistance,
+                        "radiusUnit": radiusUnit
+                    });
+                } else {
+                    innerCircle = new Circle(center, {
+                        "radius": minDistance,
+                        "radiusUnit": radiusUnit
+                    });
+                }
                 var ring = innerCircle.rings[0];
                 polygon.addRing(ring.reverse());
             }
