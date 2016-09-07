@@ -39,9 +39,6 @@
     ]
   },
   "bundles": {
-    "agsprinting": {
-      "enabled": true
-    },
     "agssearch": {
       "AGSStore": [
         {
@@ -171,8 +168,7 @@
       ],
       "AutoStoreRegistration": {
         "componentEnabled": false
-      },
-      "enabled": true
+      }
     },
     "banner": {
       "BannerWidget": {
@@ -182,12 +178,8 @@
         "link": "http://developernetwork.conterra.de"
       }
     },
-    "basemaptoggler": {
-      "enabled": true
-    },
     "coordinatetransformer": {
       "CoordinateTransformer": {
-        "enabled": true,
         "srsDefinitions": {
           "EPSG:31464": "+title=DHDN / 3-degree Gauss-Kruger zone 4 +proj=tmerc +lat_0=0 +lon_0=12 +k=1 +x_0=4500000 +y_0=0 +ellps=bessel +datum=potsdam +units=m +no_defs"
         },
@@ -196,8 +188,7 @@
           "EPSG:25833",
           "EPSG:31468"
         ]
-      },
-      "enabled": true
+      }
     },
     "dn_enhancedselection": {
       "BaseWidget": {
@@ -247,8 +238,7 @@
           "bathing_water_6",
           "_AGS_STORE_1452860578776"
         ]
-      },
-      "enabled": true
+      }
     },
     "map": {
       "MapModelFactory": {
@@ -798,8 +788,7 @@
             }
           ]
         }
-      },
-      "enabled": true
+      }
     },
     "mapflow": {
       "MapFlow": {
@@ -817,20 +806,7 @@
           "relativeItemPosition": "top center",
           "visibleItems": 4
         }
-      },
-      "enabled": true
-    },
-    "notifier": {
-      "enabled": true
-    },
-    "redlining": {
-      "enabled": true
-    },
-    "resultcenter": {
-      /*"MANIFEST": {
-        "Bundle-StartLevel": 1000
-      },*/
-      "enabled": true
+      }
     },
     "selection": {
       "SelectionTool": [
@@ -847,14 +823,7 @@
           "storeId": "_AGS_STORE_1452860578776",
           "title": "Kleingärten (Kleingärten)"
         }
-      ],
-      "enabled": true
-    },
-    "splashscreen": {
-      "enabled": true
-    },
-    "templatelayout": {
-      "enabled": true
+      ]
     },
     "templates": {
       "TemplateModel": {
@@ -880,19 +849,14 @@
       },
       "TemplateSelector": {
         "componentEnabled": false
-      },
-      "enabled": true
-    },
-    "themes": {
-      "enabled": true
+      }
     },
     "toolrules": {
       "ToolActiveStateManager": {
         "activateOnStartToolIds": [
           "dn_enhancedselectionToggleTool"
         ]
-      },
-      "enabled": true
+      }
     },
     "toolset": {
       "ToolsetManager": {
@@ -948,23 +912,12 @@
             }
           }
         ]
-      },
-      "enabled": true
-    },
-    "usagelog_restservice": {
-      "enabled": true
-    },
-    "windowmanager": {
-      "enabled": true
-    },
-    "wizard": {
-      "enabled": true
-    },
-    "contentviewer": {
-      "enabled": true
+      }
     },
     "featureinfo": {
-      "enabled": true
+      "Identify": {
+        "componentEnabled": false
+      }
     }
   }
 }
