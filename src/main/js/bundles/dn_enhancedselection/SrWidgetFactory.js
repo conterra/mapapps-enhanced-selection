@@ -53,12 +53,14 @@ define([
             var srBaseWidget = this.baseWidget;
             if (!srBaseWidget.storeSelect) {
                 return;
-            }
-            d_array.forEach(this.selectionOptions, function (item) {
-                srBaseWidget.storeSelect.addOption({
-                    label: item.label,
-                    value: item.value
-                });
+            } 
+            d_array.forEach(this.selectionOptions, function (item) {                
+                if(typeof item != 'undefined'){
+                    srBaseWidget.storeSelect.addOption({
+                        label: item.label,
+                        value: item.value
+                    });
+                }
             }, this);
             var contentNode = srBaseWidget.contentNode;
             var geometryInputProvider = this.geometryInputProvider;
@@ -74,19 +76,18 @@ define([
             if (!this._shouldStoreBeDisplayed(storeId)) {
                 return;
             }
-            if (baseWidget && baseWidget.storeSelect) {
-                baseWidget.storeSelect.addOption({
-                    label: storeTitle,
-                    value: storeId
-                });
-            } else {
-                // if widget has not been initialized yet we store all options
-                var option = {
-                    label: storeTitle,
-                    value: storeId
-                };
-                this.selectionOptions.push(option);
-            }
+            var index = 0;
+            d_array.forEach(this.storeIds, function(entry, i) {
+                if(entry === storeId){
+                    index = i;                    
+                }
+            });
+            var option = {
+                label: storeTitle,
+                value: storeId
+            };
+            this.selectionOptions[index] = option;
+            
         },
         removeSurroundingStore: function (store, serviceproperties) {
             var baseWidget = this.baseWidget;
