@@ -140,7 +140,7 @@
           "omniSearchDefaultLabel": "Suchbegriff eingeben...",
           "fetchIdProperty": true,
           "enablePagination": false,
-          "id": "_AGS_STORE_1452169981740"
+          "id": "natura2000_store"
         },
         {
           "title": "Kleingärten (Kleingärten)",
@@ -161,7 +161,7 @@
           "omniSearchDefaultLabel": "Kleingartenname....",
           "fetchIdProperty": true,
           "enablePagination": false,
-          "id": "_AGS_STORE_1452860578776",
+          "id": "kleingaerten",
           "pid": "agssearch-AGSStore-6",
           "type": "Feature"
         }
@@ -226,17 +226,16 @@
         "widgetEnabled": true,
         "storeIds": [
           "plz_gebiete",
-          "_AGS_STORE_1452169981740",
+          "natura2000_store",
           "statistische_gebiete_berlin"
         ]
       },
       "SrWidgetFactory": {
         "storeIds": [
-          "natura2000",
-          "_AGS_STORE_1452169981740",
+          "natura2000_store",
           "health_res_berlin",
           "bathing_water_6",
-          "_AGS_STORE_1452860578776"
+          "kleingaerten"
         ]
       }
     },
@@ -333,7 +332,7 @@
                   "id": "natura2000",
                   "title": "Natura 2000 Schutzgebiete",
                   "enabled": false,
-                  "service": "natura000",
+                  "service": "natura2000_service",
                   "category": {
                     "title": "Natura 2000 Schutzgebiete",
                     "description": "Natura 2000 is the key instrument to protect biodiversity in the European Union. It is an ecological network of protected areas, set up to ensure the survival of Europe's most valuable species and habitats. Natura 2000 is based on the 1979 Birds Directive and the 1992 Habitats Directive. The green infrastructure it provides safeguards numerous ecosystem services and ensures that Europe's natural systems remain healthy and resilient.",
@@ -614,7 +613,7 @@
               ]
             },
             {
-              "id": "natura000",
+              "id": "natura2000_service",
               "url": "http://discomap.eea.europa.eu/arcgis/rest/services/Bio/Natura2000_Dyna_WM/MapServer",
               "type": "AGS_DYNAMIC",
               "title": "Natura2000",
@@ -815,12 +814,12 @@
           "iconClass": "icon-select-extend",
           "clickTolerance": 0,
           "id": "selectionTool_1452169981740",
-          "storeId": "_AGS_STORE_1452169981740",
+          "storeId": "natura2000_store",
           "title": "Natura2000 (Query Sites)"
         },
         {
           "id": "selectionTool_1453217943323",
-          "storeId": "_AGS_STORE_1452860578776",
+          "storeId": "kleingaerten",
           "title": "Kleingärten (Kleingärten)"
         }
       ]
