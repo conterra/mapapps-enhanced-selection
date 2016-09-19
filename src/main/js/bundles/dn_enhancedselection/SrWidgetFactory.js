@@ -62,6 +62,7 @@ define([
                     });
                 }
             }, this);
+            this.selectionOptions.added = true;
             var contentNode = srBaseWidget.contentNode;
             var geometryInputProvider = this.geometryInputProvider;
             d_array.forEach(geometryInputProvider, function (providingWidget) {
@@ -76,18 +77,27 @@ define([
             if (!this._shouldStoreBeDisplayed(storeId)) {
                 return;
             }
-            var index = 0;
-            d_array.forEach(this.storeIds, function(entry, i) {
-                if(entry === storeId){
-                    index = i;                    
+            if(!this.selectionOptions.added){
+                var index = 0;    
+                d_array.forEach(this.storeIds, function(entry, i) {
+                    if(entry === storeId){
+                        index = i;                    
+                    }
+                });            
+                var option = {
+                    label: storeTitle,
+                    value: storeId
+                };
+                this.selectionOptions[index] = option;
+            } else { 
+                //add option directly if selectionOptions already added
+                if (baseWidget && baseWidget.storeSelect){
+                    baseWidget.storeSelect.addOption({
+                        label: storeTitle,
+                        value: storeId
+                    });
                 }
-            });
-            var option = {
-                label: storeTitle,
-                value: storeId
-            };
-            this.selectionOptions[index] = option;
-            
+            }
         },
         removeSurroundingStore: function (store, serviceproperties) {
             var baseWidget = this.baseWidget;
