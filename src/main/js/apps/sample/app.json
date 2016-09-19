@@ -203,7 +203,9 @@
           "minimum": 0,
           "maximum": 10,
           "interval": 0.5,
-          "unit": "KILOMETERS"
+          "unit": "KILOMETERS",
+          "defaultStart": 0,
+          "defaultEnd": 5
         }
       },
       "DriveTimeController": {

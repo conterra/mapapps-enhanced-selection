@@ -65,6 +65,8 @@ define([
             var radiusUnitShort = this.radiusUnitShort = unitLong === "METERS" ? "m" : "km";
             var distanceMinimum = Math.round(distanceSliderProps.minimum);
             var distanceMaximum = Math.round(distanceSliderProps.maximum);
+            var distanceStart = Math.round(distanceSliderProps.defaultStart);
+            var distanceEnd = Math.round(distanceSliderProps.defaultEnd);
             var distanceDifference = distanceMaximum - distanceMinimum;
             var i18n = this._i18n.get().ui.selectionTools.distance;
             distanceWidget.set("tooltip", i18n.tooltip);
@@ -78,12 +80,18 @@ define([
             var discreteValues = (distanceMaximum - distanceMinimum) / distanceSliderProps.interval + 1;
             distanceSlider.set("discreteValues", discreteValues);
             distanceSlider.set("minimum", distanceMinimum);
-            distanceSlider.set("maximum", distanceMaximum);
-
-            distanceSlider.set("value", [
-                distanceMinimum + (distanceDifference * 0.25),
-                distanceMaximum - (distanceDifference * 0.25)
-            ]);
+            distanceSlider.set("maximum", distanceMaximum); 
+            if(isNaN(distanceStart) || isNaN(distanceEnd)){
+                distanceSlider.set("value", [              
+                    distanceMinimum + (distanceDifference * 0.25),
+                    distanceMaximum - (distanceDifference * 0.25)     
+                ]);
+            }
+            else{
+                distanceSlider.set("value", [               
+                    distanceStart, distanceEnd
+                ]);
+            }
             //configure distance rule labels
             var labels = new HorizontalRuleLabels({
                 container: "topDecoration",

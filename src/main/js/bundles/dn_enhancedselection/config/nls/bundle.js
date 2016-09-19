@@ -54,6 +54,14 @@ define({
                 interval: {
                     title: "Interval between fixed values",
                     tooltip: "Interval between fixed values"
+                },
+                defaultStart: {
+                title: "Default start",
+                tooltip: "Default starting point"
+                },
+                defaultEnd: {
+                    title: "Default end",
+                    tooltip: "Default endpoint"
                 }
             },
             drivetime: {

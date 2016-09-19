@@ -69,6 +69,30 @@
         "t" : 5,
         "w" : 100
       }
+    },
+    {
+      "type": "numbertextbox",
+      "field": "distance.defaultStart",
+      "title": "${ui.distance.defaultStart.title}",
+      "tooltip": "${ui.distance.defaultStart.tooltip}",
+      "required": false,
+      "size":{
+        "l" : 5,
+        "t" : 5,
+        "w" : 100
+      }
+    },
+    {
+      "type": "numbertextbox",
+      "field": "distance.defaultEnd",
+      "title": "${ui.distance.defaultEnd.title}",
+      "tooltip": "${ui.distance.defaultEnd.tooltip}",
+      "required": false,
+      "size":{
+        "l" : 5,
+        "t" : 5,
+        "w" : 100
+      }
     }
   ]
 }
