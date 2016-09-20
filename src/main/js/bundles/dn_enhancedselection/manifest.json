@@ -373,6 +373,8 @@
         "distance": {
           "minimum": 0,
           "maximum": 1000,
+          "defaultStart": 0,
+          "defaultEnd": 500,
           "interval": 50,
           "unit": "KILOMETERS"
         },

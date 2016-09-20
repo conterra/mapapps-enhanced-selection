@@ -21,10 +21,11 @@
       "title": "${ui.drivetime.minimum.title}",
       "tooltip": "${ui.drivetime.minimum.tooltip}",
       "required": true,
-      "size":{
-        "l" : 5,
-        "t" : 5,
-        "w" : 100
+      "min": 0,
+      "size": {
+        "l": 5,
+        "t": 5,
+        "w": 100
       }
     },
     {
@@ -33,10 +34,11 @@
       "title": "${ui.drivetime.maximum.title}",
       "tooltip": "${ui.drivetime.maximum.tooltip}",
       "required": true,
-      "size":{
-        "l" : 5,
-        "t" : 5,
-        "w" : 100
+      "min": 0,
+      "size": {
+        "l": 5,
+        "t": 5,
+        "w": 100
       }
     },
     {
@@ -45,10 +47,11 @@
       "title": "${ui.drivetime.interval.title}",
       "tooltip": "${ui.drivetime.interval.tooltip}",
       "required": true,
-      "size":{
-        "l" : 5,
-        "t" : 5,
-        "w" : 100
+      "min": 0,
+      "size": {
+        "l": 5,
+        "t": 5,
+        "w": 100
       }
     },
     {
@@ -57,10 +60,10 @@
       "title": "Geoprocessor URL:",
       "tooltip": "URL of Geoprocessor for computing drivetime-polygons",
       "required": true,
-      "size":{
-        "l" : 5,
-        "t" : 5,
-        "w" : 500
+      "size": {
+        "l": 5,
+        "t": 5,
+        "w": 500
       }
     }
   ]

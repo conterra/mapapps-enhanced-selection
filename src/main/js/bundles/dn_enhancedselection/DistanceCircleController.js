@@ -80,16 +80,23 @@ define([
             var discreteValues = (distanceMaximum - distanceMinimum) / distanceSliderProps.interval + 1;
             distanceSlider.set("discreteValues", discreteValues);
             distanceSlider.set("minimum", distanceMinimum);
-            distanceSlider.set("maximum", distanceMaximum);             
-            if(typeof distanceStart === "number" && typeof distanceEnd === "number"){
-                 distanceSlider.set("value", [               
-                    distanceStart, distanceEnd
-                ]);
-            }
-            else{
-               distanceSlider.set("value", [              
+            distanceSlider.set("maximum", distanceMaximum);
+            if (typeof distanceStart === "number" && typeof distanceEnd === "number") {
+                if (distanceStart >= distanceMinimum && distanceEnd <= distanceMaximum && distanceStart <= distanceEnd) {
+                    distanceSlider.set("value", [
+                        distanceStart, distanceEnd
+                    ]);
+                }
+                else {
+                    distanceSlider.set("value", [
+                        distanceMinimum + (distanceDifference * 0.25),
+                        distanceMaximum - (distanceDifference * 0.25)
+                    ]);
+                }
+            } else {
+                distanceSlider.set("value", [
                     distanceMinimum + (distanceDifference * 0.25),
-                    distanceMaximum - (distanceDifference * 0.25)     
+                    distanceMaximum - (distanceDifference * 0.25)
                 ]);
             }
             //configure distance rule labels
@@ -125,10 +132,12 @@ define([
                     Tooltip.hide(distanceWidget.distanceToolTip);
                 }, 1500, "arg1");
             }
-        },
+        }
+        ,
         draw: function (geometryType) {
             this.drawGeometryHandler.allowUserToDrawGeometry(geometryType || this.geometryType);
-        },
+        }
+        ,
         geometryDrawn: function (evt) {
             this._inputGeometry = evt.getProperty("geometry");
             var distanceCircleWidget = this.distanceCircleWidget;
@@ -140,11 +149,13 @@ define([
             } catch (e) {
                 // do nothing
             }
-        },
+        }
+        ,
         onSelected: function () {
             var geometryType = this.geometryType;
             this.draw(geometryType);
-        },
+        }
+        ,
         search: function (store, spatialRel) {
             var distanceWidget = this.distanceCircleWidget;
             var geometry = this._inputGeometry;
@@ -182,4 +193,5 @@ define([
         }
 
     });
-});
+})
+;
