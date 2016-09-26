@@ -15,9 +15,6 @@
  */
 define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/array", "ct/_lang", "ct/_Connect", "ct/array", "ct/Exception", "ct/_string", "./SelectFeatureFromLayerWidget", "ct/store/ComplexMemory", "ct/_when"],
     function (d_lang, declare, d_array, ct_lang, _Connect, ct_array, Exception, ct_string, SelectFeatureFromLayerWidget, ComplexMemoryStore, ct_when) {
-        /*
-         * COPYRIGHT 2012 con terra GmbH Germany
-         */
         return declare([_Connect],
             {
                 createInstance: function () {
@@ -91,7 +88,8 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/array", "ct/_lang",
                     }
                     return this._configStore;
                 },
-                addSurroundingStore: function (service, properties) {
+                addEnhancedSelectionStore: function (service, properties) {
+                    debugger
                     var configStore = this._getConfigStore();
                     if (!configStore.get(properties.id)) {
                         configStore.add({

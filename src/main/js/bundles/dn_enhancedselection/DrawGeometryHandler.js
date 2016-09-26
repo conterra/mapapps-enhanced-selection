@@ -26,7 +26,6 @@ define([
     "esri/symbols/SimpleLineSymbol",
     "dojo/_base/Color"
 ], function (declare, _Connect, GraphicsRenderer, Color, Circle, Polygon, Font, TextSymbol, SimpleFillSymbol, SimpleLineSymbol, d_Color) {
-
     return declare([_Connect], {
         activate: function () {
             this.graphicsRenderer = GraphicsRenderer.createForGraphicsNode("srInputGeometry", this._mapModel);

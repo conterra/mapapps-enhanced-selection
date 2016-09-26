@@ -23,9 +23,7 @@ define([
     "dojox/form/RangeSlider",
     "ct/util/css",
     "dojo/text!./templates/DriveTimeWidget.html"
-
 ], function (declare, i18n, _GeometryInputWidget, Button, Select, RadioButton, RangeSlider, css, template) {
-
     return declare([_GeometryInputWidget], {
         templateString: template,
         constructor: function (properties) {

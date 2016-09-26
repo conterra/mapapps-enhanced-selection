@@ -68,7 +68,8 @@ define([
             baseWidgetStoreSelect.removeOption(baseWidgetStoreSelect.options);
             baseWidgetStoreSelect.addOption(sortedOptions);
         },
-        addSurroundingStore: function (store, serviceproperties) {
+        addEnhancedSelectionStore: function (store, serviceproperties) {
+            debugger
             var baseWidget = this.baseWidget;
             var storeTitle = serviceproperties.title;
             var storeId = serviceproperties.id;
@@ -81,7 +82,7 @@ define([
             });
             this.sortSelectionOptions();
         },
-        removeSurroundingStore: function (store, serviceproperties) {
+        removeEnhancedSelectionStore: function (store, serviceproperties) {
             var baseWidget = this.baseWidget;
             var storeId = serviceproperties.id;
             // remove store from widget

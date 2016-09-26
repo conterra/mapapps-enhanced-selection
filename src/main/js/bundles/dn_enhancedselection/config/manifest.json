@@ -1,8 +1,8 @@
 {
   "Bundle-SymbolicName": "dn_enhancedselection-config",
   "Bundle-Version": "1.0",
-  "Bundle-Name": "Surroundings config",
-  "Bundle-Description": "Configuration bundle for Surroundings",
+  "Bundle-Name": "Enhanced Selection config",
+  "Bundle-Description": "Configuration bundle for Enhanced Selection",
   "Bundle-Vendor": "con terra GmbH",
   "Require-Bundle": [
     {
@@ -133,7 +133,7 @@
           "providing": "dataform.DataFormService"
         },
         {
-          "name": "surroundingStore",
+          "name": "enhancedSelectionStore",
           "providing": "ct.api.Store",
           "cardinality": "1..n",
           "filter": "(useIn=selection)"
@@ -169,7 +169,7 @@
           "providing": "dataform.DataFormService"
         },
         {
-          "name": "surroundingStore",
+          "name": "enhancedSelectionStore",
           "providing": "ct.api.Store",
           "cardinality": "1..n",
           "filter": "(useIn=selection)"

@@ -27,9 +27,7 @@ define([
     "ct/ui/desktop/util",
     "ct/async",
     "dijit/layout/TabContainer"
-
 ], function (declare, i18n, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, Buttton, Select, RadioButton, d_domGeometry, templateStringContentShort, windowUtil, ct_async, TabContainer) {
-
     return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
         childWidgets: [],
         templateString: templateStringContentShort,

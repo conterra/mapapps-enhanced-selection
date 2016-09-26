@@ -18,7 +18,6 @@ define([
     "dojo/i18n!./nls/bundle",
     "./GeometryInputWidget",
     "dojo/text!./templates/FreehandPolygonWidget.html"
-
 ], function (declare, i18n, _GeometryInputWidget, template) {
 
     return declare([_GeometryInputWidget], {

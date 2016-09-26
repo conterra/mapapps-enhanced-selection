@@ -22,7 +22,6 @@ define([
     "ct/_Connect",
     "esri/geometry/Polygon",
     "esri/geometry/Circle"
-
 ], function (declare, d_array, i18n, ct_when, Filter, _Connect, Circle) {
     return declare([_Connect], {
         activate: function () {

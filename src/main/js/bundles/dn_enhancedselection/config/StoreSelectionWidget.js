@@ -26,8 +26,6 @@ define(["dojo/_base/declare",
     "dijit/layout/ContentPane",
     "dijit/layout/BorderContainer"
 ], function (declare, _Connect, _TemplatedMixin, _WidgetsInTemplateMixin, _CssStateMixin, template, DataViewModel, DataView, Exception, BuilderWidget) {
-
-
     return declare([BuilderWidget, _TemplatedMixin, _WidgetsInTemplateMixin, _CssStateMixin], {
         templateString: template,
         data: null,
@@ -70,7 +68,6 @@ define(["dojo/_base/declare",
                 });
             }
         },
-
         _createDataView: function () {
             var i18n = {};
             var dataView = this._dataView = new DataView({

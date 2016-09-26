@@ -183,15 +183,13 @@ define([
 
             }
             this.queryController.queryStore(featureGeometry, store, spatialRel);
-        }
-        ,
+        },
         deactivate: function (componentContext) {
             //   componentContext.disableComponent(this.componentName);
             this.disconnect();
             this.geometryType = null;
             this.radiusUnitShort = null;
         }
-
     });
 })
 ;

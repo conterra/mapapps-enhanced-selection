@@ -18,7 +18,6 @@ define([
     "dojo/i18n!./nls/bundle",
     "ct/_Connect",
     "ct/async"
-
 ], function (declare, i18n, _Connect, ct_async) {
     return declare([_Connect], {
         geometryType: "Polygon",

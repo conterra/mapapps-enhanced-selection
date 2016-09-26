@@ -4,7 +4,7 @@
   "Bundle-Name": "${bundleName}",
   "Bundle-Description": "${bundleDescription}",
   "Bundle-Vendor": "con terra GmbH",
-  "Product-Name": "con terra Developer Network",
+  "Product-Name": "devnet-enhanced-selection",
   "Bundle-Localization": [
     "bundle"
   ],
@@ -76,7 +76,7 @@
           "cardinality": "0..n"
         },
         {
-          "name": "surroundingStore",
+          "name": "enhancedSelectionStore",
           "providing": "ct.api.Store",
           "cardinality": "1..n",
           "filter": "(useIn=selection)"
@@ -532,11 +532,11 @@
       }
     },
     {
-      "name": "SurroundingsToggleTool",
+      "name": "EnhancedSelectionToggleTool",
       "impl": "ct/tools/Tool",
       "provides": [
         "ct.tools.Tool",
-        "dn_enhancedselection.SurroundingsToggleTool"
+        "dn_enhancedselection.EnhancedSelectionToggleTool"
       ],
       "propertiesConstructor": true,
       "properties": {
