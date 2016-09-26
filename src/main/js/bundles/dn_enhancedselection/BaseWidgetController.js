@@ -28,7 +28,6 @@ define([
             var bundleCtx = cpCtx.getBundleContext();
             this.serviceResolver.setBundleCtx(bundleCtx);
             this._init();
-
         },
         _init: function () {
             var srBaseWidget = this.baseWidget;

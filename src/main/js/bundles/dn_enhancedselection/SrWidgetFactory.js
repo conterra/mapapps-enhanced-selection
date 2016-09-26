@@ -22,10 +22,6 @@ define([
     "apprt/ServiceResolver",
     "dijit/layout/ContentPane"
 ], function (declare, d_array, ct_array, d_domConstruct, _Connect, ServiceResolver, ContentPane) {
-    /*
-     * COPYRIGHT 2013 con terra GmbH Germany
-     */
-
     return declare([_Connect], {
         /**
          * @constructs
@@ -34,13 +30,11 @@ define([
             this.selectionOptions = [];
             this.storeIds = properties.storeIds;
         },
-
         activate: function (cpCtx) {
             var serviceResolver = this.serviceResolver = new ServiceResolver();
             var bundleCtx = cpCtx.getBundleContext();
             serviceResolver.setBundleCtx(bundleCtx);
         },
-
         getStoreProperties: function (idOrStore) {
             var resolver = this.serviceResolver;
             if (typeof (idOrStore) === "string") {
@@ -48,14 +42,18 @@ define([
             }
             return resolver.getServiceProperties(idOrStore);
         },
-
         createInstance: function () {
             var srBaseWidget = this.baseWidget;
+            this.connect(srBaseWidget.storeSelect, "addOption", function () {
+                this.baseWidget.storeSelect.options.sort(function (a, b) {
+                    return a.label.localeCompare(b.label);
+                })
+            });
             if (!srBaseWidget.storeSelect) {
                 return;
-            } 
-            d_array.forEach(this.selectionOptions, function (item) {                
-                if(typeof item != 'undefined'){
+            }
+            d_array.forEach(this.selectionOptions, function (item) {
+                if (typeof item != 'undefined') {
                     srBaseWidget.storeSelect.addOption({
                         label: item.label,
                         value: item.value
@@ -77,21 +75,21 @@ define([
             if (!this._shouldStoreBeDisplayed(storeId)) {
                 return;
             }
-            if(!this.selectionOptions.added){
-                var index = 0;    
-                d_array.forEach(this.storeIds, function(entry, i) {
-                    if(entry === storeId){
-                        index = i;                    
+            if (!this.selectionOptions.added) {
+                var index = 0;
+                d_array.forEach(this.storeIds, function (entry, i) {
+                    if (entry === storeId) {
+                        index = i;
                     }
-                });            
+                });
                 var option = {
                     label: storeTitle,
                     value: storeId
                 };
                 this.selectionOptions[index] = option;
-            } else { 
+            } else {
                 //add option directly if selectionOptions already added
-                if (baseWidget && baseWidget.storeSelect){
+                if (baseWidget && baseWidget.storeSelect) {
                     baseWidget.storeSelect.addOption({
                         label: storeTitle,
                         value: storeId
@@ -112,7 +110,6 @@ define([
                 });
             }
         },
-
         asArray: function (val) {
             if (!val || !val.length) {
                 return [];
@@ -122,30 +119,26 @@ define([
             }
             return val;
         },
-
         _shouldStoreBeDisplayed: function (name) {
             if (d_array.indexOf(this.storeIds, name) > -1) {
                 return true;
             }
             return false;
         },
-
         removeGeometryInputProvider: function (component) {
             var srBaseWidget = this.baseWidget;
             var contentNode = srBaseWidget.contentNode;
             contentNode && contentNode.removeChild(component.getParent());
         },
-
         addGeometryInputProvider: function (component) {
             var srBaseWidget = this.baseWidget;
             var contentNode = srBaseWidget.contentNode;
             var contentPane = new ContentPane({content: component, title: component.get("title")});
-            this.connect(contentPane, "onShow", function() {
+            this.connect(contentPane, "onShow", function () {
                 component.onShow();
             });
             contentNode && contentNode.addChild(contentPane);
         },
-
         modified: function () {
             var baseWidget = this.baseWidget;
             var storeSelect = baseWidget.storeSelect;
