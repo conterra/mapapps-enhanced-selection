@@ -55,17 +55,18 @@ define([
             return srBaseWidget;
         },
         sortSelectionOptions: function(){
-            var result = [];
+            var sortedOptions = [];
             var baseWidgetStoreSelect = this.baseWidget.storeSelect;
             d_array.forEach(this.storeIds, function (entry, i) {
                 d_array.forEach(baseWidgetStoreSelect.options ,function(option, j) {
                     if (entry === option.value) {
-                        result[i] = option;
+                        sortedOptions[i] = option;
                     }
                 });
             });
+            baseWidgetStoreSelect.options[0].selected = true;
             baseWidgetStoreSelect.removeOption(baseWidgetStoreSelect.options);
-            baseWidgetStoreSelect.addOption(result);
+            baseWidgetStoreSelect.addOption(sortedOptions);
         },
         addSurroundingStore: function (store, serviceproperties) {
             var baseWidget = this.baseWidget;
