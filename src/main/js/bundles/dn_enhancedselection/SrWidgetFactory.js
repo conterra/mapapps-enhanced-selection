@@ -69,7 +69,6 @@ define([
             baseWidgetStoreSelect.addOption(sortedOptions);
         },
         addEnhancedSelectionStore: function (store, serviceproperties) {
-            debugger
             var baseWidget = this.baseWidget;
             var storeTitle = serviceproperties.title;
             var storeId = serviceproperties.id;

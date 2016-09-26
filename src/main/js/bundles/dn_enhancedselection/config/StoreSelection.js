@@ -89,7 +89,6 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/array", "ct/_lang",
                     return this._configStore;
                 },
                 addEnhancedSelectionStore: function (service, properties) {
-                    debugger
                     var configStore = this._getConfigStore();
                     configStore.add({
                         "id": properties.id,
