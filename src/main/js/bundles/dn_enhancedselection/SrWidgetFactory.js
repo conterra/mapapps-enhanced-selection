@@ -43,24 +43,10 @@ define([
             return resolver.getServiceProperties(idOrStore);
         },
         createInstance: function () {
-            var srBaseWidget = this.baseWidget;
-            this.connect(srBaseWidget.storeSelect, "addOption", function () {
-                this.baseWidget.storeSelect.options.sort(function (a, b) {
-                    return a.label.localeCompare(b.label);
-                })
-            });
+            var srBaseWidget = this.baseWidget;            
             if (!srBaseWidget.storeSelect) {
                 return;
             }
-            d_array.forEach(this.selectionOptions, function (item) {
-                if (typeof item != 'undefined') {
-                    srBaseWidget.storeSelect.addOption({
-                        label: item.label,
-                        value: item.value
-                    });
-                }
-            }, this);
-            this.selectionOptions.added = true;
             var contentNode = srBaseWidget.contentNode;
             var geometryInputProvider = this.geometryInputProvider;
             d_array.forEach(geometryInputProvider, function (providingWidget) {
@@ -68,34 +54,31 @@ define([
             });
             return srBaseWidget;
         },
+        sortSelectionOptions: function(){
+            var result = [];
+            var baseWidgetStoreSelect = this.baseWidget.storeSelect;
+            d_array.forEach(this.storeIds, function (entry, i) {
+                d_array.forEach(baseWidgetStoreSelect.options ,function(option, j) {
+                    if (entry === option.value) {
+                        result[i] = option;
+                    }
+                });
+            });
+            baseWidgetStoreSelect.removeOption(baseWidgetStoreSelect.options);
+            baseWidgetStoreSelect.addOption(result);
+        },
         addSurroundingStore: function (store, serviceproperties) {
             var baseWidget = this.baseWidget;
             var storeTitle = serviceproperties.title;
             var storeId = serviceproperties.id;
             if (!this._shouldStoreBeDisplayed(storeId)) {
                 return;
-            }
-            if (!this.selectionOptions.added) {
-                var index = 0;
-                d_array.forEach(this.storeIds, function (entry, i) {
-                    if (entry === storeId) {
-                        index = i;
-                    }
-                });
-                var option = {
-                    label: storeTitle,
-                    value: storeId
-                };
-                this.selectionOptions[index] = option;
-            } else {
-                //add option directly if selectionOptions already added
-                if (baseWidget && baseWidget.storeSelect) {
-                    baseWidget.storeSelect.addOption({
-                        label: storeTitle,
-                        value: storeId
-                    });
-                }
-            }
+            }               
+            baseWidget.storeSelect.addOption({
+                label: storeTitle,
+                value: storeId
+            });
+            this.sortSelectionOptions();
         },
         removeSurroundingStore: function (store, serviceproperties) {
             var baseWidget = this.baseWidget;
