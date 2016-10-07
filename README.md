@@ -33,6 +33,8 @@ Installation Guide
   "distance": {
     "minimum": 0,
     "maximum": 1000,
+    "defaultStart": 0,
+    "defaultEnd": 500,
     "interval": 50,
     "unit": "KILOMETERS"
   }
@@ -102,3 +104,23 @@ Basic Settings
 ```
 
 You can activate or deactivate all widgets by setting "widgetEnabled" to true or false.
+
+To change the order of selection types you can change the Service-Ranking:
+
+```
+"SelectFeatureFromLayerWidget": {
+  "Service-Ranking": -1
+},
+"FreehandPolygonWidget": {
+  "Service-Ranking": -2
+},
+"ExistingGraphicWidget": {
+  "Service-Ranking": -3
+},
+"DistanceCircleWidget": {
+  "Service-Ranking": -4
+},
+"DriveTimeWidget": {
+  "Service-Ranking": -5
+}
+```
