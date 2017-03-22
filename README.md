@@ -1,4 +1,4 @@
-# Enhanced Selection
+# Enhanced Selection (Forked)
 
 The Enhanced Selection Bundle allows you to select features in enhanced ways. There are these five special types of selection:
 - Area Selection
