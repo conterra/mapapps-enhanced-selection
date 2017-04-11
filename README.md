@@ -24,9 +24,9 @@ Change the mapapps.remote.base in the build.properties file and run:
 
 Installation Guide
 ------------------
-####Configurable Components:
+#### Configurable Components:
 
-#####DistanceCircleController:
+##### DistanceCircleController:
 ```
 "DistanceCircleController": {
   "widgetEnabled": true,
@@ -40,7 +40,7 @@ Installation Guide
   }
 }
 ```
-#####DriveTimeController
+##### DriveTimeController
 ```
 "DriveTimeController": {
   "widgetEnabled": true,
@@ -52,7 +52,7 @@ Installation Guide
   }
 }
 ```
-#####SelectFeatureFromLayerController:
+##### SelectFeatureFromLayerController:
 Define selectable stores
 ```
 "SelectFeatureFromLayerController": {
@@ -65,19 +65,19 @@ Define selectable stores
   ]
 }
 ```
-#####FreehandPolygonController
+##### FreehandPolygonController
 ```
 "FreehandPolygonController": {
   "widgetEnabled": true
 }
 ```
-#####ExistingGraphicController
+##### ExistingGraphicController
 ```
 "ExistingGraphicController": {
   "widgetEnabled": true
 },
 ```
-#####SrWidgetFactory:
+##### SrWidgetFactory:
 Define selectable stores
 ```
 "SrWidgetFactory": {
@@ -88,14 +88,14 @@ Define selectable stores
   ]
 }
 ```
-#####BaseWidgetController:
+##### BaseWidgetController:
 Basic Settings
 ```
 "BaseWidgetController": {
   "clearGraphics": true
 }
 ```
-#####BaseWidget:
+##### BaseWidget:
 Basic Settings
 ```
 "BaseWidget": {
