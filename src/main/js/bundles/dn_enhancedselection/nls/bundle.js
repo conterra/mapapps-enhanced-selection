@@ -16,7 +16,7 @@
 define({
     root: {
         bundleName: "Enhanced Selection",
-        bundleDescription: "This bunlde provides tools for enhanced selection.",
+        bundleDescription: "This bundle provides tools for enhanced selection.",
         error: {
             failedQuery: "Query failed"
         },
