@@ -19,7 +19,6 @@ define([
     "dijit/_TemplatedMixin",
     "dijit/_WidgetsInTemplateMixin"
 ], function (declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin) {
-
     return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
         reenable: function () {
         },

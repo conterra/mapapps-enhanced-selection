@@ -70,24 +70,16 @@
     margin-right: 0;
 }
 
-.dn_enhancedselection .freeHandPolygonToolDesc {
-    margin-top: 5px;
-}
-
-.dn_enhancedselection .spatialRelDesc {
-    margin-right: 5px;
+.dn_enhancedselection .desc {
+    margin-bottom: 5px;
 }
 
 .dn_enhancedselection .spatialRow {
-    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .dn_enhancedselection .spatialRow > div {
     line-height: 25px;
-}
-
-.dn_enhancedselection .geometryProvider > div {
-    line-height: 33px;
 }
 
 .dn_enhancedselection .storeSelectionSelect {

@@ -11,12 +11,6 @@
                 <div class="spatialRelDesc">${ui.selectSpatialRel}</div>
                 <div data-dojo-attach-point="spatialRelation">
                 </div>
-                <!--<select class="spatialRelationSelect" data-dojo-props="disabled:false"
-                        data-dojo-attach-point="spatialRelation"
-                        data-dojo-type="dijit/form/Select">
-                    <option value="contains">${ui.relWithin}</option>
-                    <option value="intersects">${ui.relTouches}</option>
-                </select>-->
             </div>
         </div>
         <div data-dojo-type="dijit/layout/ContentPane"
@@ -26,7 +20,8 @@
         <div data-dojo-attach-point="header" data-dojo-type="dijit/layout/ContentPane"
              data-dojo-props="region: 'bottom'">
             <div class="controlButtonGroup" data-dojo-attach-point="controlButtonGroup">
-                <button type="button" data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick:onReset"
+                <button type="button" class="ctSecondaryButton" data-dojo-type="dijit/form/Button"
+                        data-dojo-attach-event="onClick:onReset"
                         data-dojo-attach-point="resetButton">${ui.resetButton}
                 </button>
             </div>

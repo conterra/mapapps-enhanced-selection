@@ -1,12 +1,11 @@
 <div>
     <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="pane" class="geometryProvider">
-        <div class="selectFeatureFromStoreDesc">${i18n.ui.selectionTools.selectFeatureFromStore.desc}</div>
+        <div class="desc">${i18n.ui.selectionTools.selectFeatureFromStore.desc}</div>
         <select class="storeSelectionSelect"
                 data-dojo-attach-point="storeSelectionSelect"
                 data-dojo-type="dijit/form/Select">
         </select>
-
-        <div data-dojo-type="dijit/form/Button" type="button" class="startButton"
+        <div data-dojo-type="dijit/form/Button" type="button" class="startButton input-success"
              data-dojo-attach-event="onClick:onReset">
             ${i18n.ui.selectionTools.selectFeatureFromStore.button}
         </div>

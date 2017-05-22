@@ -132,12 +132,10 @@ define([
                     Tooltip.hide(distanceWidget.distanceToolTip);
                 }, 1500, "arg1");
             }
-        }
-        ,
+        },
         draw: function (geometryType) {
             this.drawGeometryHandler.allowUserToDrawGeometry(geometryType || this.geometryType);
-        }
-        ,
+        },
         geometryDrawn: function (evt) {
             this._inputGeometry = evt.getProperty("geometry");
             var distanceCircleWidget = this.distanceCircleWidget;
@@ -149,13 +147,11 @@ define([
             } catch (e) {
                 // do nothing
             }
-        }
-        ,
+        },
         onSelected: function () {
             var geometryType = this.geometryType;
             this.draw(geometryType);
-        }
-        ,
+        },
         search: function (store, spatialRel) {
             var distanceWidget = this.distanceCircleWidget;
             var geometry = this._inputGeometry;
@@ -180,7 +176,6 @@ define([
                     " - " +
                     maxDistance + radiusUnitShort
                 );
-
             }
             this.queryController.queryStore(featureGeometry, store, spatialRel);
         },

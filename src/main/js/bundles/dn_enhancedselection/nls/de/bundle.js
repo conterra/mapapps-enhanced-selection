@@ -38,12 +38,13 @@ define({
         selectionTools: {
             distance: {
                 title: "Entfernung",
+                desc: "Selektionsbereich einschr\u00E4nken auf Basis der Entfernung",
                 button: "Ort ausw\u00E4hlen",
                 tooltip: "Mit diesem Tool kann eine Selektion auf Basis eines Umkreises durchgef\u00FChrt werden"
             },
             travelTime: {
                 title: "Fahrtzeit",
-                desc: "Entfernung nach Fahrzeit (ArcGIS-Online Account ben\u00F6tigt)",
+                desc: "Selektionsbereich einschr\u00E4nken auf Basis der Entfernung nach Fahrzeit (ArcGIS-Online Account ben\u00F6tigt)",
                 button: "Ort ausw\u00E4hlen",
                 tooltip: "Mit diesem Tool kann eine Erreichbarkeitsberechnung durchgef\u00FChrt werden"
             },
@@ -56,7 +57,7 @@ define({
             },
             freehandPolygon: {
                 title: "Freihandgrafik",
-                desc: "Selektionsbereich einschr\u00E4nken auf Basis von Freihandpolygon",
+                desc: "Selektionsbereich einschr\u00E4nken auf Basis eines Freihandpolygons",
                 button: "Grafik zeichnen",
                 tooltip: "Mit diesem Tool kann eine Selektion auf Basis eines Freihandpolygons durchgef\u00FChrt werden"
             },

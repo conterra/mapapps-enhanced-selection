@@ -39,22 +39,23 @@ define({
             selectionTools: {
                 distance: {
                     title: "Distance",
+                    desc: "Restrict selection area based on distance",
                     button: "Select location"
                 },
                 travelTime: {
                     title: "Travel Time",
-                    desc: "Distance by travel time (ArcGIS-Online Account required)",
+                    desc: "Restrict selection area based on distance by travel time (ArcGIS-Online Account required)",
                     button: "Select location"
                 },
                 selectFeatureFromStore: {
                     title: "Area",
-                    desc: "Restrict selection area based on",
+                    desc: "Restrict selection area based on an existing area",
                     button: "Select area",
                     selectStore: "Selection Topic"
                 },
                 freehandPolygon: {
                     title: "Freehand Graphic",
-                    desc: "Restrict selecion area based on a freehand polygon.",
+                    desc: "Restrict selection area based on a freehand polygon.",
                     button: "Draw graphic"
                 },
                 existingGraphic: {

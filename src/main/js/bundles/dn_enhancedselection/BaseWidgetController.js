@@ -19,9 +19,8 @@ define([
     "dojo/i18n!./nls/bundle",
     "ct/_Connect",
     "dijit/registry",
-    "apprt/ServiceResolver",
-    "ct/ui/desktop/util"
-], function (declare, d_array, i18n, _Connect, dijit_registry, ServiceResolver, windowUtil) {
+    "apprt/ServiceResolver"
+], function (declare, d_array, i18n, _Connect, dijit_registry, ServiceResolver) {
     return declare([_Connect], {
         activate: function (cpCtx) {
             this.serviceResolver = new ServiceResolver();
@@ -30,15 +29,15 @@ define([
             this._init();
         },
         _init: function () {
-            var srBaseWidget = this.baseWidget;
+            var baseWidget = this.baseWidget;
             this.disconnect();
-            this.connect(srBaseWidget, "onReset", this.reset);
-            this.connect(srBaseWidget, "onDrawPolygon", this.draw);
-            this.connect(srBaseWidget, "deactivateWidget", this.deactivateWidget);
-            this.connect(srBaseWidget.storeSelect, "onChange", this.reset);
-            var controller = this._drawController;
+            this.connect(baseWidget, "onReset", this.reset);
+            this.connect(baseWidget, "onDrawPolygon", this.draw);
+            this.connect(baseWidget, "deactivateWidget", this.deactivateWidget);
+            this.connect(baseWidget.storeSelect, "onChange", this.reset);
             this.connect(this.tool, "onActivate", this.activateWidget);
             this.connect(this.tool, "onDeactivate", this.deactivateWidget);
+            var controller = this._drawController;
             this._oldSymbols = {
                 previewMarker: controller.get("previewMarker"),
                 markerSymbol: controller.get("markerSymbol"),
@@ -56,15 +55,15 @@ define([
         geometryDrawn: function () {
             this.drawGeometryHandler.deactivateDraw();
             /*var that = this;
-            clearTimeout(this._timeout);
-            this._timeout = setTimeout(function () {
-                that.search();
-            }, 2000);*/
+             clearTimeout(this._timeout);
+             this._timeout = setTimeout(function () {
+             that.search();
+             }, 2000);*/
         },
         search: function () {
-            var srBaseWidget = this.baseWidget;
-            var spatialRel = srBaseWidget._spatialRelationSelect.get("value");
-            var contentNode = srBaseWidget.contentNode;
+            var baseWidget = this.baseWidget;
+            var spatialRel = baseWidget._spatialRelationSelect.get("value");
+            var contentNode = baseWidget.contentNode;
             var selectedChild = contentNode.get("selectedChildWidget");
             var store = this.getStore();
             selectedChild.content.search(store, spatialRel);
@@ -102,9 +101,9 @@ define([
         },
         activateWidget: function () {
             this._init();
-            var srBaseWidget = this.baseWidget;
+            var baseWidget = this.baseWidget;
             //reenable widget
-            srBaseWidget.contentNode && srBaseWidget.contentNode.selectedChildWidget && srBaseWidget.contentNode.selectedChildWidget.onShow();
+            baseWidget.contentNode && baseWidget.contentNode.selectedChildWidget && baseWidget.contentNode.selectedChildWidget.onShow();
         }
     });
 });

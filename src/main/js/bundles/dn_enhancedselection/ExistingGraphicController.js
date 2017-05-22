@@ -38,7 +38,6 @@ define([
             this.connect(existingGraphicWidget, "onShow", this.onSelected);
             this.connect(existingGraphicWidget, "reenable", this.onSelected);
             this.connect(existingGraphicWidget, "search", this.search);
-            var i18n = this._i18n.get().ui.selectionTools.existingGraphic;
         },
         modified: function (componentContext) {
             var properties = this._properties;
@@ -58,7 +57,7 @@ define([
             this.disconnect();
         },
         onSelected: function () {
-            this.drawGeometryHandler.deactivateDraw()
+            this.drawGeometryHandler.deactivateDraw();
             var that = this;
             var existingGraphicWidget = this.existingGraphicWidget;
             var con = this.connect(this._mapState, "onClick", function (evt) {

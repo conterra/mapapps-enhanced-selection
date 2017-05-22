@@ -52,8 +52,6 @@ define([
                     ]
                 }, this.spatialRelation);
             }
-
-            //ct_async(this.setSize, this, 0);
         },
         // onCancel event
         onCancel: function (event) {

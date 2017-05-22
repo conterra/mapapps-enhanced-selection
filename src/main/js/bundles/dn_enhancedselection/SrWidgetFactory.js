@@ -43,16 +43,16 @@ define([
             return resolver.getServiceProperties(idOrStore);
         },
         createInstance: function () {
-            var srBaseWidget = this.baseWidget;            
-            if (!srBaseWidget.storeSelect) {
+            var baseWidget = this.baseWidget;
+            if (!baseWidget.storeSelect) {
                 return;
             }
-            var contentNode = srBaseWidget.contentNode;
+            var contentNode = baseWidget.contentNode;
             var geometryInputProvider = this.geometryInputProvider;
             d_array.forEach(geometryInputProvider, function (providingWidget) {
                 contentNode.addChild(providingWidget);
             });
-            return srBaseWidget;
+            return baseWidget;
         },
         sortSelectionOptions: function(){
             var sortedOptions = [];
@@ -104,19 +104,16 @@ define([
             return val;
         },
         _shouldStoreBeDisplayed: function (name) {
-            if (d_array.indexOf(this.storeIds, name) > -1) {
-                return true;
-            }
-            return false;
+            return d_array.indexOf(this.storeIds, name) > -1;
         },
         removeGeometryInputProvider: function (component) {
-            var srBaseWidget = this.baseWidget;
-            var contentNode = srBaseWidget.contentNode;
+            var baseWidget = this.baseWidget;
+            var contentNode = baseWidget.contentNode;
             contentNode && contentNode.removeChild(component.getParent());
         },
         addGeometryInputProvider: function (component) {
-            var srBaseWidget = this.baseWidget;
-            var contentNode = srBaseWidget.contentNode;
+            var baseWidget = this.baseWidget;
+            var contentNode = baseWidget.contentNode;
             var contentPane = new ContentPane({content: component, title: component.get("title")});
             this.connect(contentPane, "onShow", function () {
                 component.onShow();
