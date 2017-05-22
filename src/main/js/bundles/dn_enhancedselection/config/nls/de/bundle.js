@@ -20,24 +20,45 @@ define({
     description: "Erweiterte Selektion konfigurieren",
     ui: {
         base: {
-            description: "Grundeinstellungen f\u00FCr die erweiterte Selektion",
             menuTitle: "Grundeinstellungen",
+            description: "Grundeinstellungen f\u00FCr die erweiterte Selektion",
             clearGraphics: "Grafik l\u00F6schen"
         },
-        storeselection: {
-            description: "Seletkionsthemen definieren",
+        storeSelection: {
             menuTitle: "Selektionsthemen",
+            description: "Seletkionsthemen definieren",
             grid: {
                 "title": "Titel",
                 "description": "Beschreibung"
             },
             hint: "Bitte w\u00E4hlen Sie die Stores aus, die zur Selektion zur Verf\u00FCgung stehen sollen"
         },
+        selectFeatureFromLayer: {
+            menuTitle: "Selektion durch Gebietsauswahl",
+            description: "Auswahl anhand Gebietsauswahl konfigurieren",
+            grid: {
+                "title": "Titel",
+                "description": "Beschreibung"
+            },
+            hint: "Bitte w\u00E4hlen Sie die Stores aus, die f\u00FCr die Gebietsauswahl zur Verf\u00FCgung stehen sollen"
+        },
+        freehandPolygon: {
+            menuTitle: "Selektion durch Freihandpolygon",
+            description: "Auswahl anhand Freihandpolygon konfigurieren"
+        },
+        polygon: {
+            menuTitle: "Selektion durch Polygon",
+            description: "Auswahl anhand Polygon konfigurieren"
+        },
+        existingGraphic: {
+            menuTitle: "Selektion durch Vorhandene Grafik",
+            description: "Auswahl anhand vorhandener Grafik konfigurieren"
+        },
         distance: {
+            menuTitle: "Selektion durch Entfernung",
             description: "Entfernungsselektion konfigurieren",
             meter: "Meter",
             kilometer: "Kilometer",
-            menuTitle: "Selektion durch Entfernung",
             unit: {
                 title: "Einheit",
                 tooltip: "Einheit zur Distanzberechnung"
@@ -63,9 +84,9 @@ define({
                 tooltip: "Voreingestellter Endwert"
             }
         },
-        drivetime: {
-            description: "Fahrzeiten definieren",
+        driveTime: {
             menuTitle: "Selektion durch Fahrzeit",
+            description: "Fahrzeiten definieren",
             minimum: {
                 title: "Minimum",
                 tooltip: "Minimale Zeit in Minuten"
@@ -78,23 +99,6 @@ define({
                 title: "Intervall zwischen festen Werten",
                 tooltip: "Intervall zwischen festen Werten"
             }
-        },
-        freehandpolygon: {
-            menuTitle: "Selektion durch Freihandgrafik",
-            description: "Auswahl anhand Freihandgrafik konfigurieren"
-        },
-        selectfeaturefromlayer: {
-            menuTitle: "Selektion durch Gebietsauswahl",
-            description: "Auswahl anhand Gebietsauswahl konfigurieren",
-            grid: {
-                "title": "Titel",
-                "description": "Beschreibung"
-            },
-            hint: "Bitte w\u00E4hlen Sie die Stores aus, die f\u00FCr die Gebietsauswahl zur Verf\u00FCgung stehen sollen"
-        },
-        existinggraphic: {
-            menuTitle: "Selektion durch Vorhandene Grafik",
-            description: "Auswahl anhand vorhandener Grafik konfigurieren"
         },
         enable: "Komponente aktivieren",
         enableTooltip: "Komponente aktivieren",

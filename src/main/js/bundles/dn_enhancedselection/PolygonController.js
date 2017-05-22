@@ -20,8 +20,8 @@ define([
     "ct/async"
 ], function (declare, i18n, _Connect, ct_async) {
     return declare([_Connect], {
-        geometryType: "FreehandPolygon",
-        componentName: "FreehandPolygonWidget",
+        geometryType: "Polygon",
+        componentName: "PolygonWidget",
         activate: function (componentContext) {
             var properties = this._properties;
             if (!properties.widgetEnabled) {
@@ -48,17 +48,17 @@ define([
             }
         },
         _initWidget: function () {
-            var freehandPolygonWidget = this.freehandPolygonWidget;
+            var polygonWidget = this.polygonWidget;
             this.disconnect();
-            this.connect(freehandPolygonWidget, "onShow", this.onSelected);
-            this.connect(freehandPolygonWidget, "reenable", this.draw);
-            this.connect(freehandPolygonWidget, "search", this.search);
+            this.connect(polygonWidget, "onShow", this.onSelected);
+            this.connect(polygonWidget, "reenable", this.draw);
+            this.connect(polygonWidget, "search", this.search);
         },
         geometryDrawn: function (evt) {
             this._inputGeometry = evt.getProperty("geometry");
-            var freehandPolygonWidget = this.freehandPolygonWidget;
+            var polygonWidget = this.polygonWidget;
             try{
-                if (!freehandPolygonWidget.getParent().get("selected")) {
+                if (!polygonWidget.getParent().get("selected")) {
                     return;
                 }
                 this._mapState.setExtent(this._inputGeometry.getExtent());
@@ -71,7 +71,7 @@ define([
             this.drawGeometryHandler.allowUserToDrawGeometry(geometryType || this.geometryType);
         },
         setFreehandPolygonWidget: function (widget) {
-            this.freehandPolygonWidget = widget;
+            this.polygonWidget = widget;
             this._initWidget();
         },
         unsetFreehandPolygonWidget: function () {

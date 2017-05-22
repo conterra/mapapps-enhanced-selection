@@ -37,32 +37,37 @@ define({
             storeSelector: "Selection Topic",
             selectSpatialRel: "Spatial relation",
             selectionTools: {
-                distance: {
-                    title: "Distance",
-                    desc: "Restrict selection area based on distance",
-                    button: "Select location"
-                },
-                travelTime: {
-                    title: "Travel Time",
-                    desc: "Restrict selection area based on distance by travel time (ArcGIS-Online Account required)",
-                    button: "Select location"
-                },
-                selectFeatureFromStore: {
+                selectFeatureFromLayer: {
                     title: "Area",
                     desc: "Restrict selection area based on an existing area",
                     button: "Select area",
                     selectStore: "Selection Topic"
                 },
                 freehandPolygon: {
-                    title: "Freehand Graphic",
+                    title: "Freehand Polygon",
                     desc: "Restrict selection area based on a freehand polygon.",
-                    button: "Draw graphic"
+                    button: "Draw freehand polygon"
+                },
+                polygon: {
+                    title: "Polygon",
+                    desc: "Restrict selection area based on a polygon.",
+                    button: "Draw polygon"
                 },
                 existingGraphic: {
                     title: "Existing Graphic",
                     desc: "Restrict selection area based on a graphic.",
                     button: "Get graphic",
                     error: "No graphic found"
+                },
+                distance: {
+                    title: "Distance",
+                    desc: "Restrict selection area based on distance",
+                    button: "Select location"
+                },
+                driveTime: {
+                    title: "Travel Time",
+                    desc: "Restrict selection area based on distance by travel time (ArcGIS-Online Account required)",
+                    button: "Select location"
                 }
             },
             between: "Between",

@@ -21,24 +21,45 @@ define({
         description: "Configure the enhanced selection",
         ui: {
             base: {
-                description: "Basic settings for the enhanced selection bundle",
                 menuTitle: "Basic Settings",
+                description: "Basic settings for the enhanced selection bundle",
                 clearGraphics: "Clear Graphic"
             },
-            storeselection: {
-                description: "Configure selection topics",
+            storeSelection: {
                 menuTitle: "Selection Topics",
+                description: "Configure selection topics",
                 grid: {
                     "title": "Title",
                     "description": "Description"
                 },
                 hint: "Please specify selection searchstores"
             },
+            selectFeatureFromLayer: {
+                menuTitle: "Selection By Area",
+                description: "Configure area selection",
+                grid: {
+                    "title": "Title",
+                    "description": "Description"
+                },
+                hint: "Please specify selection searchstores"
+            },
+            freehandPolygon: {
+                menuTitle: "Selection By Freehand Polygon",
+                description: "Configure freehand polygon"
+            },
+            polygon: {
+                menuTitle: "Selection By Polygon",
+                description: "Configure polygon"
+            },
+            existingGraphic: {
+                menuTitle: "Selection By Existing Graphic",
+                description: "Configure existing graphic selection"
+            },
             distance: {
+                menuTitle: "Selection By Distance",
                 description: "Configure Selection by distance",
                 meter: "Meter",
                 kilometer: "Kilometer",
-                menuTitle: "Selection By Distance",
                 unit: {
                     title: "Unit",
                     tooltip: "Unit for distance calculation"
@@ -56,17 +77,17 @@ define({
                     tooltip: "Interval between fixed values"
                 },
                 defaultStart: {
-                title: "Default start",
-                tooltip: "Default starting point"
+                    title: "Default start",
+                    tooltip: "Default starting point"
                 },
                 defaultEnd: {
                     title: "Default end",
                     tooltip: "Default endpoint"
                 }
             },
-            drivetime: {
-                description: "Define travel time",
+            driveTime: {
                 menuTitle: "Selection By Travel Time",
+                description: "Define travel time",
                 minimum: {
                     title: "Minimum",
                     tooltip: "Minimal time in minutes"
@@ -79,23 +100,6 @@ define({
                     title: "Interval between fixed values",
                     tooltip: "Interval between fixed values"
                 }
-            },
-            freehandpolygon: {
-                menuTitle: "Selection By Freehand Graphic",
-                description: "Configure freehand graphic"
-            },
-            selectfeaturefromlayer: {
-                menuTitle: "Selection By Area",
-                description: "Configure area selection",
-                grid: {
-                    "title": "Title",
-                    "description": "Description"
-                },
-                hint: "Please specify selection searchstores"
-            },
-            existinggraphic: {
-                menuTitle: "Selection By Existing Graphic",
-                description: "Configure existing graphic selection"
             },
             enable: "Enable component",
             enableTooltip: "Enable component",

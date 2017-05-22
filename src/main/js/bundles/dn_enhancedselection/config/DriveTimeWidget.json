@@ -17,9 +17,9 @@
     },
     {
       "type": "numbertextbox",
-      "field": "drivetime.minimum",
-      "title": "${ui.drivetime.minimum.title}",
-      "tooltip": "${ui.drivetime.minimum.tooltip}",
+      "field": "driveTime.minimum",
+      "title": "${ui.driveTime.minimum.title}",
+      "tooltip": "${ui.driveTime.minimum.tooltip}",
       "required": true,
       "min": 0,
       "size": {
@@ -30,9 +30,9 @@
     },
     {
       "type": "numbertextbox",
-      "field": "drivetime.maximum",
-      "title": "${ui.drivetime.maximum.title}",
-      "tooltip": "${ui.drivetime.maximum.tooltip}",
+      "field": "driveTime.maximum",
+      "title": "${ui.driveTime.maximum.title}",
+      "tooltip": "${ui.driveTime.maximum.tooltip}",
       "required": true,
       "min": 0,
       "size": {
@@ -43,9 +43,9 @@
     },
     {
       "type": "numbertextbox",
-      "field": "drivetime.interval",
-      "title": "${ui.drivetime.interval.title}",
-      "tooltip": "${ui.drivetime.interval.tooltip}",
+      "field": "driveTime.interval",
+      "title": "${ui.driveTime.interval.title}",
+      "tooltip": "${ui.driveTime.interval.tooltip}",
       "required": true,
       "min": 0,
       "size": {

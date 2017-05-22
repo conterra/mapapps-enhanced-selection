@@ -12,19 +12,19 @@
   "Require-Bundle": [
     {
       "name": "agssearch",
-	  "version": "^3.3.0"
+      "version": "^3.3.0"
     },
     {
       "name": "map",
-	  "version": "^3.3.0"
+      "version": "^3.3.0"
     },
     {
       "name": "resultcenter",
-	  "version": "^3.3.0"
+      "version": "^3.3.0"
     },
     {
       "name": "selection",
-	  "version": "^3.3.0"
+      "version": "^3.3.0"
     }
   ],
   "CSS-Themes-Extension": [
@@ -145,33 +145,15 @@
       ]
     },
     {
-      "name": "DistanceCircleWidget",
+      "name": "SelectFeatureFromLayerWidget",
       "propertiesConstructor": true,
       "properties": {
-        "Service-Ranking": -4
+        "Service-Ranking": -1
       },
       "provides": [
         "dijit.Widget",
         "dn_enhancedselection.GeometryInputProvider",
-        "dn_enhancedselection.DistanceCircleWidget"
-      ],
-      "references": [
-        {
-          "name": "_eventService",
-          "providing": "ct.framework.api.EventService"
-        }
-      ]
-    },
-    {
-      "name": "DriveTimeWidget",
-      "propertiesConstructor": true,
-      "properties": {
-        "Service-Ranking": -5
-      },
-      "provides": [
-        "dijit.Widget",
-        "dn_enhancedselection.GeometryInputProvider",
-        "dn_enhancedselection.DriveTimeWidget"
+        "dn_enhancedselection.SelectFeatureFromLayerWidget"
       ],
       "references": [
         {
@@ -199,15 +181,15 @@
       ]
     },
     {
-      "name": "SelectFeatureFromLayerWidget",
+      "name": "PolygonWidget",
       "propertiesConstructor": true,
       "properties": {
-        "Service-Ranking": -1
+        "Service-Ranking": -3
       },
       "provides": [
         "dijit.Widget",
         "dn_enhancedselection.GeometryInputProvider",
-        "dn_enhancedselection.SelectFeatureFromLayerWidget"
+        "dn_enhancedselection.PolygonWidget"
       ],
       "references": [
         {
@@ -220,12 +202,48 @@
       "name": "ExistingGraphicWidget",
       "propertiesConstructor": true,
       "properties": {
-        "Service-Ranking": -3
+        "Service-Ranking": -4
       },
       "provides": [
         "dijit.Widget",
         "dn_enhancedselection.GeometryInputProvider",
         "dn_enhancedselection.ExistingGraphicWidget"
+      ],
+      "references": [
+        {
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
+        }
+      ]
+    },
+    {
+      "name": "DistanceCircleWidget",
+      "propertiesConstructor": true,
+      "properties": {
+        "Service-Ranking": -5
+      },
+      "provides": [
+        "dijit.Widget",
+        "dn_enhancedselection.GeometryInputProvider",
+        "dn_enhancedselection.DistanceCircleWidget"
+      ],
+      "references": [
+        {
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
+        }
+      ]
+    },
+    {
+      "name": "DriveTimeWidget",
+      "propertiesConstructor": true,
+      "properties": {
+        "Service-Ranking": -6
+      },
+      "provides": [
+        "dijit.Widget",
+        "dn_enhancedselection.GeometryInputProvider",
+        "dn_enhancedselection.DriveTimeWidget"
       ],
       "references": [
         {
@@ -342,6 +360,52 @@
         {
           "name": "freehandPolygonWidget",
           "providing": "dn_enhancedselection.FreehandPolygonWidget",
+          "cardinality": "0..1"
+        },
+        {
+          "name": "_mapState",
+          "providing": "ct.mapping.map.MapState"
+        },
+        {
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
+        },
+        {
+          "name": "queryController",
+          "providing": "dn_enhancedselection.QueryController"
+        }
+      ]
+    },
+    {
+      "name": "PolygonController",
+      "provides": [
+        "ct.framework.api.EventHandler"
+      ],
+      "properties": {
+        "Event-Topics": [
+          {
+            "topic": "ct/dn_enhancedselection/DRAW_GEOMETRY",
+            "method": "draw"
+          },
+          {
+            "topic": "ct/dn_enhancedselection/GEOMETRY_DRAWN",
+            "method": "geometryDrawn"
+          }
+        ],
+        "widgetEnabled": true
+      },
+      "references": [
+        {
+          "name": "_logService",
+          "providing": "ct.framework.api.LogService"
+        },
+        {
+          "name": "drawGeometryHandler",
+          "providing": "dn_enhancedselection.DrawGeometryHandler"
+        },
+        {
+          "name": "polygonWidget",
+          "providing": "dn_enhancedselection.PolygonWidget",
           "cardinality": "0..1"
         },
         {

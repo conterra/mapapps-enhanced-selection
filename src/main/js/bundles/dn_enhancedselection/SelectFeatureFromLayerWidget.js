@@ -26,7 +26,7 @@ define([
             this.i18n = i18n;
         },
         postCreate: function () {
-            this.set("title", i18n.ui.selectionTools.selectFeatureFromStore.title);
+            this.set("title", i18n.ui.selectionTools.selectFeatureFromLayer.title);
             this.inherited(arguments);
         }
     });

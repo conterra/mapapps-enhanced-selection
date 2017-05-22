@@ -36,33 +36,37 @@ define({
         storeSelector: "Selektionsthema",
         selectSpatialRel: "Geometrische Beziehung",
         selectionTools: {
-            distance: {
-                title: "Entfernung",
-                desc: "Selektionsbereich einschr\u00E4nken auf Basis der Entfernung",
-                button: "Ort ausw\u00E4hlen"
-            },
-            travelTime: {
-                title: "Fahrtzeit",
-                desc: "Selektionsbereich einschr\u00E4nken auf Basis der Entfernung nach Fahrzeit (ArcGIS-Online Account ben\u00F6tigt)",
-                button: "Ort ausw\u00E4hlen"
-            },
-            selectFeatureFromStore: {
+            selectFeatureFromLayer: {
                 title: "Gebiet",
                 desc: "Selektionsbereich einschr\u00E4nken auf Basis eines Gebietes",
                 selectStore: "Selektionsthema",
                 button: "Gebiet ausw\u00E4hlen"
             },
             freehandPolygon: {
-                title: "Freihandgrafik",
+                title: "Freihandpolygon",
                 desc: "Selektionsbereich einschr\u00E4nken auf Basis eines Freihandpolygons",
-                button: "Grafik zeichnen"
+                button: "Freihandpolygon zeichnen"
+            },
+            polygon: {
+                title: "Polygon",
+                desc: "Selektionsbereich einschr\u00E4nken auf Basis eines Polygons",
+                button: "Polygon zeichnen"
             },
             existingGraphic: {
                 title: "Vorhandene Grafik",
                 desc: "Selektionsbereich einschr\u00E4nken auf Basis einer Grafik",
                 button: "Vorhandene Grafik ausw\u00E4hlen",
                 error: "Keine Grafik gefunden"
-
+            },
+            distance: {
+                title: "Entfernung",
+                desc: "Selektionsbereich einschr\u00E4nken auf Basis der Entfernung",
+                button: "Ort ausw\u00E4hlen"
+            },
+            driveTime: {
+                title: "Fahrtzeit",
+                desc: "Selektionsbereich einschr\u00E4nken auf Basis der Entfernung nach Fahrzeit (ArcGIS-Online Account ben\u00F6tigt)",
+                button: "Ort ausw\u00E4hlen"
             }
         },
         between: "Zwischen",

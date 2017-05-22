@@ -17,20 +17,15 @@ define([
     "dojo/_base/declare",
     "dojo/i18n!./nls/bundle",
     "./GeometryInputWidget",
-    "dijit/form/Button",
-    "dijit/form/Select",
-    "dijit/form/RadioButton",
-    "dojox/form/RangeSlider",
-    "ct/util/css",
-    "dojo/text!./templates/DriveTimeWidget.html"
-], function (declare, i18n, _GeometryInputWidget, Button, Select, RadioButton, RangeSlider, css, template) {
+    "dojo/text!./templates/PolygonWidget.html"
+], function (declare, i18n, _GeometryInputWidget, template) {
     return declare([_GeometryInputWidget], {
         templateString: template,
         constructor: function (properties) {
             this.i18n = i18n;
         },
         postCreate: function () {
-            this.set("title", i18n.ui.selectionTools.driveTime.title);
+            this.set("title", i18n.ui.selectionTools.polygon.title);
             this.inherited(arguments);
         }
     });

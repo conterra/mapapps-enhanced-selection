@@ -37,25 +37,31 @@
               "priority": 0
             },
             {
-              "title": "${ui.storeselection.menuTitle}",
+              "title": "${ui.storeSelection.menuTitle}",
               "iconUrl": "resource('icons/baseconfig.png')",
               "widget": "storeSelectionWidget",
               "priority": -1
             },
             {
-              "title": "${ui.selectfeaturefromlayer.menuTitle}",
+              "title": "${ui.selectFeatureFromLayer.menuTitle}",
               "iconUrl": "resource('icons/gebietsauswahl.png')",
               "widget": "selectFeatureFromWidget",
               "priority": -2
             },
             {
-              "title": "${ui.freehandpolygon.menuTitle}",
+              "title": "${ui.freehandPolygon.menuTitle}",
               "iconUrl": "resource('icons/freihand.png')",
               "widget": "freehandPolygonWidget",
               "priority": -3
             },
             {
-              "title": "${ui.existinggraphic.menuTitle}",
+              "title": "${ui.polygon.menuTitle}",
+              "iconUrl": "resource('icons/freihand.png')",
+              "widget": "polygonWidget",
+              "priority": -3
+            },
+            {
+              "title": "${ui.existingGraphic.menuTitle}",
               "iconUrl": "resource('icons/vorgrafik.png')",
               "widget": "existingGraphicWidget",
               "priority": -4
@@ -67,7 +73,7 @@
               "priority": -5
             },
             {
-              "title": "${ui.drivetime.menuTitle}",
+              "title": "${ui.driveTime.menuTitle}",
               "iconUrl": "resource('icons/fahrzeit.png')",
               "widget": "driveTimeWidget",
               "priority": -6
@@ -157,7 +163,7 @@
           "widgetEnabled": true,
           "storeIds": []
         },
-        "description": "${ui.selectfeaturefromlayer.description}"
+        "description": "${ui.selectFeatureFromLayer.description}"
       },
       "references": [
         {
@@ -235,7 +241,7 @@
           },
           "geoprocessorUrl": "http://logistics.arcgis.com/arcgis/rest/services/World/ServiceAreas/GPServer/GenerateServiceAreas"
         },
-        "description": "${ui.drivetime.description}"
+        "description": "${ui.driveTime.description}"
       },
       "references": [
         {
@@ -264,7 +270,36 @@
         "defaultProperties": {
           "widgetEnabled": true
         },
-        "description": "${ui.freehandpolygon.description}"
+        "description": "${ui.freehandPolygon.description}"
+      },
+      "references": [
+        {
+          "name": "_configAdminService",
+          "providing": "ct.framework.api.ConfigurationAdmin"
+        },
+        {
+          "name": "_dataformService",
+          "providing": "dataform.DataFormService"
+        }
+      ]
+    },
+    {
+      "name": "PolygonWidget",
+      "impl": "wizard/DataFormBuilderWidgetFactory",
+      "provides": [
+        "dijit.wizard.Widget"
+      ],
+      "immediate": true,
+      "instanceFactory": true,
+      "properties": {
+        "dataformFile": "resource('./PolygonWidget.json')",
+        "bid": "dn_enhancedselection",
+        "pid": "dn_enhancedselection-PolygonController",
+        "id": "polygonWidget",
+        "defaultProperties": {
+          "widgetEnabled": true
+        },
+        "description": "${ui.polygon.description}"
       },
       "references": [
         {
@@ -293,7 +328,7 @@
         "defaultProperties": {
           "widgetEnabled": true
         },
-        "description": "${ui.existinggraphic.description}"
+        "description": "${ui.existingGraphic.description}"
       },
       "references": [
         {
