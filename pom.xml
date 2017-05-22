@@ -29,12 +29,6 @@
             <name>52n-dependencies</name>
             <url>http://52north.org/maven/repo/releases</url>
         </repository>
-    <repositories>
-        <repository>
-            <id>52n-dependencies</id>
-            <name>52n-dependencies</name>
-            <url>http://52north.org/maven/repo/releases</url>
-        </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
