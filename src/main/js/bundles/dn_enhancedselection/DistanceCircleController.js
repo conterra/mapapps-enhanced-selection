@@ -69,7 +69,6 @@ define([
             var distanceEnd = distanceSliderProps.defaultEnd;
             var distanceDifference = distanceMaximum - distanceMinimum;
             var i18n = this._i18n.get().ui.selectionTools.distance;
-            distanceWidget.set("tooltip", i18n.tooltip);
             this.disconnect();
             this.connect(distanceWidget.distanceSlider, "onChange", this.onDistanceSliderChange);
             this.connect(distanceWidget, "onShow", this.onSelected);

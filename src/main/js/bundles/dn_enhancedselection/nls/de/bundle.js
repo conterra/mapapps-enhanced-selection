@@ -39,33 +39,28 @@ define({
             distance: {
                 title: "Entfernung",
                 desc: "Selektionsbereich einschr\u00E4nken auf Basis der Entfernung",
-                button: "Ort ausw\u00E4hlen",
-                tooltip: "Mit diesem Tool kann eine Selektion auf Basis eines Umkreises durchgef\u00FChrt werden"
+                button: "Ort ausw\u00E4hlen"
             },
             travelTime: {
                 title: "Fahrtzeit",
                 desc: "Selektionsbereich einschr\u00E4nken auf Basis der Entfernung nach Fahrzeit (ArcGIS-Online Account ben\u00F6tigt)",
-                button: "Ort ausw\u00E4hlen",
-                tooltip: "Mit diesem Tool kann eine Erreichbarkeitsberechnung durchgef\u00FChrt werden"
+                button: "Ort ausw\u00E4hlen"
             },
             selectFeatureFromStore: {
                 title: "Gebiet",
                 desc: "Selektionsbereich einschr\u00E4nken auf Basis eines Gebietes",
                 selectStore: "Selektionsthema",
-                button: "Gebiet ausw\u00E4hlen",
-                tooltip: "Mit diesem Tool kann eine Selektion \u00FCber Gebietsauswahl durchgef\u00FChrt werden"
+                button: "Gebiet ausw\u00E4hlen"
             },
             freehandPolygon: {
                 title: "Freihandgrafik",
                 desc: "Selektionsbereich einschr\u00E4nken auf Basis eines Freihandpolygons",
-                button: "Grafik zeichnen",
-                tooltip: "Mit diesem Tool kann eine Selektion auf Basis eines Freihandpolygons durchgef\u00FChrt werden"
+                button: "Grafik zeichnen"
             },
             existingGraphic: {
                 title: "Vorhandene Grafik",
                 desc: "Selektionsbereich einschr\u00E4nken auf Basis einer Grafik",
                 button: "Vorhandene Grafik ausw\u00E4hlen",
-                tooltip: "Mit diesem Tool kann eine Selektion auf Basis einer vorhandenen Grafik durchgef\u00FChrt werden",
                 error: "Keine Grafik gefunden"
 
             }

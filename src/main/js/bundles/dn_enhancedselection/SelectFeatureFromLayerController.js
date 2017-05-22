@@ -56,8 +56,6 @@ define([
         _initWidget: function () {
             var selectFeatureFromLayerWidget = this.selectFeatureFromLayerWidget;
             var storeSelectionSelect = selectFeatureFromLayerWidget.storeSelectionSelect;
-            var i18n = this._i18n.get().ui.selectionTools.selectFeatureFromStore;
-            selectFeatureFromLayerWidget.set("tooltip", i18n.tooltip);
             this.disconnect();
             this.connect(selectFeatureFromLayerWidget, "onShow", this.onSelected);
             this.connect(selectFeatureFromLayerWidget, "reenable", this.draw);

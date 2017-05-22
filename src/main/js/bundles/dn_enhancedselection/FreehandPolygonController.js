@@ -40,8 +40,6 @@ define([
             this.connect(freehandPolygonWidget, "onShow", this.onSelected);
             this.connect(freehandPolygonWidget, "reenable", this.draw);
             this.connect(freehandPolygonWidget, "search", this.search);
-            var i18n = this._i18n.get().ui.selectionTools.freehandPolygon;
-            freehandPolygonWidget.set("tooltip", i18n.tooltip);
         },
         geometryDrawn: function (evt) {
             this._inputGeometry = evt.getProperty("geometry");
