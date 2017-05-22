@@ -35,6 +35,23 @@ define([
             var bundleCtx = cpCtx.getBundleContext();
             serviceResolver.setBundleCtx(bundleCtx);
         },
+        modified: function () {
+            var baseWidget = this.baseWidget;
+            var storeSelect = baseWidget.storeSelect;
+            storeSelect.set("options", []);
+            var storeIds = this.storeIds = this._properties.storeIds;
+            d_array.forEach(storeIds, function (storeId) {
+                var storeProperties = this.getStoreProperties(storeId);
+                if (storeProperties) {
+                    storeSelect.addOption(
+                        {
+                            label: storeProperties.title,
+                            value: storeId
+                        }
+                    );
+                }
+            }, this);
+        },
         getStoreProperties: function (idOrStore) {
             var resolver = this.serviceResolver;
             if (typeof (idOrStore) === "string") {
@@ -119,23 +136,6 @@ define([
                 component.onShow();
             });
             contentNode && contentNode.addChild(contentPane);
-        },
-        modified: function () {
-            var baseWidget = this.baseWidget;
-            var storeSelect = baseWidget.storeSelect;
-            storeSelect.set("options", []);
-            var storeIds = this.storeIds = this._properties.storeIds;
-            d_array.forEach(storeIds, function (storeId) {
-                var storeProperties = this.getStoreProperties(storeId);
-                if (storeProperties) {
-                    storeSelect.addOption(
-                        {
-                            label: storeProperties.title,
-                            value: storeId
-                        }
-                    );
-                }
-            }, this);
         },
         destroyInstance: function (container) {
             // tabs are no ComponentFactories, so we have to preserve the widgets from destruction

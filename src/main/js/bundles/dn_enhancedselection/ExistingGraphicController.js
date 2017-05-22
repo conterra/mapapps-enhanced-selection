@@ -32,12 +32,9 @@ define([
             }
             this._initWidget();
         },
-        _initWidget: function () {
-            var existingGraphicWidget = this.existingGraphicWidget;
+        deactivate: function () {
             this.disconnect();
-            this.connect(existingGraphicWidget, "onShow", this.onSelected);
-            this.connect(existingGraphicWidget, "reenable", this.onSelected);
-            this.connect(existingGraphicWidget, "search", this.search);
+            this._inputGeometry = null;
         },
         modified: function (componentContext) {
             var properties = this._properties;
@@ -49,11 +46,18 @@ define([
                 componentContext.disableComponent(componentName);
             }
         },
-        setFreehandPolygonWidget: function (widget) {
+        _initWidget: function () {
+            var existingGraphicWidget = this.existingGraphicWidget;
+            this.disconnect();
+            this.connect(existingGraphicWidget, "onShow", this.onSelected);
+            this.connect(existingGraphicWidget, "reenable", this.onSelected);
+            this.connect(existingGraphicWidget, "search", this.search);
+        },
+        setExistingGraphicWidget: function (widget) {
             this.existingGraphicWidget = widget;
             this._initWidget();
         },
-        unsetFreehandPolygonWidget: function () {
+        unsetExistingGraphicWidget: function () {
             this.disconnect();
         },
         onSelected: function () {

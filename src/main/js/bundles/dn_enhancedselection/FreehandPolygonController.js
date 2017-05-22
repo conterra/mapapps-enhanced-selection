@@ -22,7 +22,6 @@ define([
     return declare([_Connect], {
         geometryType: "Polygon",
         componentName: "FreehandPolygonWidget",
-
         activate: function (componentContext) {
             var properties = this._properties;
             if (!properties.widgetEnabled) {
@@ -33,6 +32,20 @@ define([
                 return;
             }
             this._initWidget();
+        },
+        deactivate: function () {
+            this.disconnect();
+            this._inputGeometry = null;
+        },
+        modified: function (componentContext) {
+            var properties = this._properties;
+            var componentName = this.componentName;
+            if (properties.widgetEnabled) {
+                componentContext.enableComponent(componentName);
+                this._initWidget();
+            } else {
+                componentContext.disableComponent(componentName);
+            }
         },
         _initWidget: function () {
             var freehandPolygonWidget = this.freehandPolygonWidget;
@@ -56,16 +69,6 @@ define([
         },
         draw: function (geometryType) {
             this.drawGeometryHandler.allowUserToDrawGeometry(geometryType || this.geometryType);
-        },
-        modified: function (componentContext) {
-            var properties = this._properties;
-            var componentName = this.componentName;
-            if (properties.widgetEnabled) {
-                componentContext.enableComponent(componentName);
-                this._initWidget();
-            } else {
-                componentContext.disableComponent(componentName);
-            }
         },
         setFreehandPolygonWidget: function (widget) {
             this.freehandPolygonWidget = widget;

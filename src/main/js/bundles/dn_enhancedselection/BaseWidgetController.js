@@ -28,6 +28,12 @@ define([
             this.serviceResolver.setBundleCtx(bundleCtx);
             this._init();
         },
+        deactivate: function () {
+            this.deactivateWidget();
+            this.disconnect();
+            this.tool.set("active", false);
+            this._oldSymbols = null;
+        },
         _init: function () {
             var baseWidget = this.baseWidget;
             this.disconnect();
@@ -92,12 +98,6 @@ define([
                 var controller = this._drawController;
                 controller.set(oldSymbols);
             }
-        },
-        deactivate: function () {
-            this.deactivateWidget();
-            this.disconnect();
-            this.tool.set("active", false);
-            this._oldSymbols = null;
         },
         activateWidget: function () {
             this._init();

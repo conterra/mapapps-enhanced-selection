@@ -19,11 +19,13 @@ define([
     "dojo/_base/lang",
     "esri/units",
     "ct/async",
+    "dojox/form/HorizontalRangeSlider",
+    "dijit/form/HorizontalRule",
     "dijit/form/HorizontalRuleLabels",
     "dijit/Tooltip",
     "ct/_Connect",
     "dojo/dom-construct"
-], function (declare, d_array, d_lang, esri_units, ct_async, HorizontalRuleLabels, Tooltip, _Connect, d_domConstruct) {
+], function (declare, d_array, d_lang, esri_units, ct_async, HorizontalRangeSlider, HorizontalRule, HorizontalRuleLabels, Tooltip, _Connect, domConstruct) {
     return declare([_Connect], {
         geometryType: "Point",
         componentName: "DistanceCircleWidget",
@@ -38,6 +40,11 @@ define([
             }
             this.distanceCircleWidget && this._initWidget();
 
+        },
+        deactivate: function () {
+            this.disconnect();
+            this.geometryType = null;
+            this.radiusUnitShort = null;
         },
         modified: function (componentContext) {
             var properties = this._properties;
@@ -68,18 +75,21 @@ define([
             var distanceStart = distanceSliderProps.defaultStart;
             var distanceEnd = distanceSliderProps.defaultEnd;
             var distanceDifference = distanceMaximum - distanceMinimum;
-            var i18n = this._i18n.get().ui.selectionTools.distance;
-            this.disconnect();
-            this.connect(distanceWidget.distanceSlider, "onChange", this.onDistanceSliderChange);
-            this.connect(distanceWidget, "onShow", this.onSelected);
-            this.connect(distanceWidget, "search", this.search);
-            this.connect(distanceWidget, "reenable", this.draw);
-            var distanceSlider = distanceWidget.distanceSlider;
-            // configure distance slider
+
             var discreteValues = (distanceMaximum - distanceMinimum) / distanceSliderProps.interval + 1;
-            distanceSlider.set("discreteValues", discreteValues);
-            distanceSlider.set("minimum", distanceMinimum);
-            distanceSlider.set("maximum", distanceMaximum);
+
+            domConstruct.empty(distanceWidget.distanceToolTip);
+
+            // configure distance slider
+            var distanceSlider = this.distanceSlider = new HorizontalRangeSlider({
+                name: "timeSlider",
+                minimum: distanceMinimum,
+                maximum: distanceMaximum,
+                discreteValues: discreteValues,
+                showButtons: false,
+                style: "width:90%; margin: 0 auto;"
+            });
+
             if (typeof distanceStart === "number" && typeof distanceEnd === "number") {
                 if (distanceStart >= distanceMinimum && distanceEnd <= distanceMaximum && distanceStart <= distanceEnd) {
                     distanceSlider.set("value", [
@@ -98,8 +108,16 @@ define([
                     distanceMaximum - (distanceDifference * 0.25)
                 ]);
             }
-            //configure distance rule labels
-            var labels = new HorizontalRuleLabels({
+
+            // create horizontal rule
+            var horizontalRule = new HorizontalRule({
+                container: "topDecoration",
+                count: 11,
+                class: "alternatingTicks"
+            });
+
+            // create horizontal rule labels
+            var horizontalRuleLabels = new HorizontalRuleLabels({
                 container: "topDecoration",
                 labels: [
                     distanceMinimum + (distanceDifference * 0.0),
@@ -109,8 +127,21 @@ define([
                     distanceMinimum + (distanceDifference * 0.8),
                     distanceMinimum + (distanceDifference * 1.0) + radiusUnitShort]
             });
-            d_domConstruct.place(labels.domNode, distanceWidget.distanceRuleLabels, "only");
-            distanceWidget.show();
+
+            // add horizontal rule and horizontal rule labels to timeslider
+            distanceSlider.addChild(horizontalRuleLabels);
+            distanceSlider.addChild(horizontalRule);
+
+            // place timeslider
+            domConstruct.place(distanceSlider.domNode, distanceWidget.distanceToolTip, "last");
+            distanceSlider.startup();
+
+            // connect events
+            this.disconnect();
+            this.connect(distanceSlider, "onChange", this.onDistanceSliderChange);
+            this.connect(distanceWidget, "onShow", this.onSelected);
+            this.connect(distanceWidget, "search", this.search);
+            this.connect(distanceWidget, "reenable", this.draw);
         },
         onDistanceSliderChange: function (event) {
             var distanceWidget = this.distanceCircleWidget;
@@ -152,12 +183,11 @@ define([
             this.draw(geometryType);
         },
         search: function (store, spatialRel) {
-            var distanceWidget = this.distanceCircleWidget;
             var geometry = this._inputGeometry;
             if (!geometry) {
                 return;
             }
-            var distanceSlider = distanceWidget.distanceSlider;
+            var distanceSlider = this.distanceSlider;
             var minDistance = distanceSlider.value[0];
             var maxDistance = distanceSlider.value[1];
             var queryFeature = this.drawGeometryHandler.drawCircle(geometry, minDistance, maxDistance, this.radiusUnit);
@@ -177,12 +207,6 @@ define([
                 );
             }
             this.queryController.queryStore(featureGeometry, store, spatialRel);
-        },
-        deactivate: function (componentContext) {
-            //   componentContext.disableComponent(this.componentName);
-            this.disconnect();
-            this.geometryType = null;
-            this.radiusUnitShort = null;
         }
     });
 })

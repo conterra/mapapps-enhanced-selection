@@ -30,8 +30,6 @@ define([
     return declare([_Connect], {
         geometryType: "Point",
         componentName: "SelectFeatureFromLayerWidget",
-        constructor: function () {
-        },
         activate: function (componentContext) {
             var serviceResolver = this.serviceResolver = new ServiceResolver();
             var bundleCtx = componentContext.getBundleContext();
@@ -45,6 +43,21 @@ define([
                 return;
             }
             this._initWidget();
+        },
+        deactivate: function () {
+            this.disconnect();
+            this._inputGeometry = null;
+        },
+        modified: function (componentContext) {
+            var properties = this._properties;
+            var componentName = this.componentName;
+            if (properties.widgetEnabled) {
+                componentContext.enableComponent(componentName);
+                this.disconnect();
+                this._initWidget();
+            } else {
+                componentContext.disableComponent(componentName);
+            }
         },
         getStoreProperties: function (idOrStore) {
             var resolver = this.serviceResolver;
@@ -130,17 +143,6 @@ define([
         onSelected: function (selected) {
             var geometryType = this.geometryType;
             this.draw(geometryType);
-        },
-        modified: function (componentContext) {
-            var properties = this._properties;
-            var componentName = this.componentName;
-            if (properties.widgetEnabled) {
-                componentContext.enableComponent(componentName);
-                this.disconnect();
-                this._initWidget();
-            } else {
-                componentContext.disableComponent(componentName);
-            }
         },
         search: function (store, spatialRel) {
             var geometry = this._inputGeometry;

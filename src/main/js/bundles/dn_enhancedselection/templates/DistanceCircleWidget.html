@@ -1,16 +1,9 @@
 <div>
     <div data-dojo-attach-point="pane" data-dojo-type="dijit/layout/ContentPane" class="geometryProvider">
         <div class="desc">${i18n.ui.selectionTools.distance.desc}</div>
-        <div data-dojo-attach-point="distanceToolTip">
-            <div data-dojo-attach-point="distanceSlider" data-dojo-type="dojox.form.HorizontalRangeSlider"
-                 data-dojo-props="showButtons:false, disabled:false" style="width:90%; margin: 0 auto;">
-                <div data-dojo-attach-point="distanceRuleLabels"></div>
-                <div data-dojo-type="dijit/form/HorizontalRule" container="topDecoration" class="alternatingTicks"
-                     count=11></div>
-            </div>
-        </div>
-        <div data-dojo-type="dijit/form/Button" type="button" class="startButton input-success"
-             data-dojo-attach-event="onClick:onReset">
+        <div data-dojo-attach-point="distanceToolTip"></div>
+        <div data-dojo-type="dijit/form/Button" class="startButton input-success"
+             data-dojo-attach-event="onClick:onReset" data-dojo-props="iconClass:'icon-selection-circle'">
             ${i18n.ui.selectionTools.distance.button}
         </div>
     </div>
