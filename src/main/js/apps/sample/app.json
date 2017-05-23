@@ -9,11 +9,6 @@
       "bundles"
     ],
     "allowedBundles": [
-      "notifier@^3.3.0",
-      "contentviewer@^3.3.0",
-      "featureinfo@^3.3.0",
-      "agssearch@^3.3.0",
-      "mapflow@^3.3.0",
       "system@^3.3.0",
       "splashscreen@^3.3.0",
       "map@^3.3.0",
@@ -24,11 +19,16 @@
       "toolset@^3.3.0",
       "toolrules@^3.3.0",
       "basemaptoggler@^3.3.0",
+      "contentviewer@^3.3.0",
+      "console@^3.3.0",
+      "featureinfo@^3.3.0",
+      "agssearch@^3.3.0",
+      "mapflow@^3.3.0",
       "selection@^3.3.0",
       "resultcenter@^3.3.0",
-      "wizard@^3.3.0",
       "redlining@^3.3.0",
       "banner@^3.3.0",
+      "notifier@^3.3.0",
       "custominfo@^3.3.0",
       "dn_enhancedselection"
     ],
@@ -41,25 +41,87 @@
     ]
   },
   "bundles": {
+    "dn_enhancedselection": {
+      "BaseWidget": {
+        "enableContains": true
+      },
+      "BaseWidgetController": {
+        "clearGraphics": true
+      },
+      "SrWidgetFactory": {
+        "storeIds": [
+          "natura2000_store",
+          "health_res_berlin",
+          "bathing_water_6",
+          "kleingaerten"
+        ]
+      },
+      "SelectFeatureFromLayerController": {
+        "widgetEnabled": true,
+        "storeIds": [
+          "plz_gebiete",
+          "natura2000_store",
+          "statistische_gebiete_berlin"
+        ]
+      },
+      "FreehandPolygonController": {
+        "widgetEnabled": true
+      },
+      "PolygonController": {
+        "widgetEnabled": true
+      },
+      "ExistingGraphicController": {
+        "widgetEnabled": true
+      },
+      "CurrentExtentController": {
+        "widgetEnabled": true
+      },
+      "DistanceCircleController": {
+        "widgetEnabled": true,
+        "distance": {
+          "minimum": 0,
+          "maximum": 10,
+          "defaultStart": 0,
+          "defaultEnd": 5,
+          "interval": 0.5,
+          "unit": "KILOMETERS"
+        }
+      },
+      "DriveTimeController": {
+        "widgetEnabled": true,
+        "geoprocessorUrl": "http://logistics.arcgis.com/arcgis/rest/services/World/ServiceAreas/GPServer/GenerateServiceAreas",
+        "drivetime": {
+          "minimum": 0,
+          "maximum": 30,
+          "interval": 1,
+          "unit": "KILOMETERS"
+        }
+      }
+    },
+    "basemaptoggler": {
+      "DropDownBasemapToggler": {
+        "showLabel": true
+      }
+    },
     "custominfo": {
       "CustomInfoToggleTool": [
         {
           "id": "customInfoTool",
           "activateOnStartup": true,
-          "title": "Information",
-          "tooltip": "Information",
+          "title": "${custominfo.title}",
+          "tooltip": "${custominfo.tooltip}",
           "iconClass": "icon-custom-info-info",
           "toolClass": "ctInfo",
           "togglable": true,
           "widgetSettings": {
-            "content": "This bundle provides tools for enhanced selection.",
+            "content": "${custominfo.content}",
             "window": {
-              "title": "Information",
+              "title": "${custominfo.title}",
               "marginBox": {
                 "w": 300,
                 "h": 100,
                 "r": 25,
-                "b": 70
+                "b": 58
               },
               "draggable": true,
               "closable": true,
@@ -208,69 +270,6 @@
         "image": "https://www.conterra.de/~/media/conterra/images/site_logos/conterra-logo.ashx",
         "imagePosition": "above",
         "link": "http://developernetwork.conterra.de"
-      }
-    },
-    "coordinatetransformer": {
-      "CoordinateTransformer": {
-        "srsDefinitions": {
-          "EPSG:31464": "+title=DHDN / 3-degree Gauss-Kruger zone 4 +proj=tmerc +lat_0=0 +lon_0=12 +k=1 +x_0=4500000 +y_0=0 +ellps=bessel +datum=potsdam +units=m +no_defs"
-        },
-        "supportedSrs": [
-          "EPSG:3857",
-          "EPSG:25833",
-          "EPSG:31468"
-        ]
-      }
-    },
-    "dn_enhancedselection": {
-      "BaseWidget": {
-        "enableContains": true
-      },
-      "BaseWidgetController": {
-        "clearGraphics": true
-      },
-      "DistanceCircleController": {
-        "widgetEnabled": true,
-        "distance": {
-          "minimum": 0,
-          "maximum": 10,
-          "defaultStart": 0,
-          "defaultEnd": 5,
-          "interval": 0.5,
-          "unit": "KILOMETERS"
-        }
-      },
-      "DriveTimeController": {
-        "widgetEnabled": true,
-        "geoprocessorUrl": "http://logistics.arcgis.com/arcgis/rest/services/World/ServiceAreas/GPServer/GenerateServiceAreas",
-        "drivetime": {
-          "minimum": 0,
-          "maximum": 30,
-          "interval": 1,
-          "unit": "KILOMETERS"
-        }
-      },
-      "ExistingGraphicController": {
-        "widgetEnabled": true
-      },
-      "FreehandPolygonController": {
-        "widgetEnabled": true
-      },
-      "SelectFeatureFromLayerController": {
-        "widgetEnabled": true,
-        "storeIds": [
-          "plz_gebiete",
-          "natura2000_store",
-          "statistische_gebiete_berlin"
-        ]
-      },
-      "SrWidgetFactory": {
-        "storeIds": [
-          "natura2000_store",
-          "health_res_berlin",
-          "bathing_water_6",
-          "kleingaerten"
-        ]
       }
     },
     "map": {
@@ -487,22 +486,22 @@
               ],
               "baseLayer": [
                 {
-                  "enabled": false,
                   "service": "worldimage",
+                  "enabled": false,
                   "category": {
-                    "title": "Luftbild",
-                    "description": "Luftbildaufnahmen der gesamten Welt",
+                    "title": "${map.base.aerial.title}",
+                    "description": "${map.base.aerial.title}",
                     "imgUrl": ""
                   },
                   "children": [],
                   "id": "worldimage_1441977062099"
                 },
                 {
-                  "enabled": true,
                   "service": "worldtopo",
+                  "enabled": true,
                   "category": {
-                    "title": "Topographische Karte",
-                    "description": "Eine topographische Weltkarte",
+                    "title": "${map.base.topo.title}",
+                    "description": "${map.base.topo.title}",
                     "imgUrl": ""
                   },
                   "children": [],
@@ -510,11 +509,11 @@
                   "opacity": 1
                 },
                 {
-                  "enabled": false,
                   "service": "streets",
+                  "enabled": false,
                   "category": {
-                    "title": "Straßen",
-                    "description": "Eine detaillierte Straßenkarte",
+                    "title": "${map.base.streets.title}",
+                    "description": "${map.base.streets.description}",
                     "imgUrl": ""
                   },
                   "children": [],
@@ -840,23 +839,6 @@
           "visibleItems": 4
         }
       }
-    },
-    "selection": {
-      "SelectionTool": [
-        {
-          "geoType": "Extent",
-          "iconClass": "icon-select-extend",
-          "clickTolerance": 0,
-          "id": "selectionTool_1452169981740",
-          "storeId": "natura2000_store",
-          "title": "Natura2000 (Query Sites)"
-        },
-        {
-          "id": "selectionTool_1453217943323",
-          "storeId": "kleingaerten",
-          "title": "Kleingärten (Kleingärten)"
-        }
-      ]
     },
     "templates": {
       "TemplateModel": {
