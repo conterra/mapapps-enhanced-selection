@@ -29,7 +29,7 @@ define([
     return declare([_Connect], {
         activate: function () {
             this.graphicsRenderer = GraphicsRenderer.createForGraphicsNode("srInputGeometry", this._mapModel);
-            this.graphicsRenderer.get("graphicsNode").set("renderPriority", -100);
+            this.graphicsRenderer.get("graphicsNode").set("renderPriority", 100);
             if (this.graphicsRenderer.get("hasNodeCreated")) {
                 this._mapModel.fireModelStructureChanged({
                     source: this

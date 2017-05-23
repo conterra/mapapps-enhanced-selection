@@ -57,6 +57,7 @@ define({
                     title: "Existing Graphic",
                     desc: "Restrict selection area based on a graphic.",
                     button: "Get graphic",
+                    button2: "Get another graphic",
                     error: "No graphic found"
                 },
                 currentExtent: {

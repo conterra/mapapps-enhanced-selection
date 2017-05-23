@@ -477,6 +477,10 @@
         {
           "name": "queryController",
           "providing": "dn_enhancedselection.QueryController"
+        },
+        {
+          "name": "_geometryService",
+          "providing": "geometryservice.GeometryService"
         }
       ]
     },

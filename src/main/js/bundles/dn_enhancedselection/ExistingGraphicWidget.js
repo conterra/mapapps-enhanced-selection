@@ -27,6 +27,8 @@ define([
         postCreate: function () {
             this.set("title", i18n.ui.selectionTools.existingGraphic.title);
             this.inherited(arguments);
+        },
+        onDone: function () {
         }
     });
 });

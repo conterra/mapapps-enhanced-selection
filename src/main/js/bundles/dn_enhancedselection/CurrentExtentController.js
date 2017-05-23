@@ -63,6 +63,7 @@ define([
         },
         onSelected: function () {
             this.drawGeometryHandler.deactivateDraw();
+            this.drawGeometryHandler.clearGraphics();
             this._inputGeometry = null;
         },
         done: function () {

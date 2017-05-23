@@ -79,6 +79,7 @@ define([
         },
         onSelected: function () {
             this._inputGeometry = null;
+            this.drawGeometryHandler.clearGraphics();
             var geometryType = this.geometryType;
             this.draw(geometryType);
         },

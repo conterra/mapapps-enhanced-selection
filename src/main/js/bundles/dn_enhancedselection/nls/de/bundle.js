@@ -56,6 +56,7 @@ define({
                 title: "Vorhandene Grafik",
                 desc: "Selektionsbereich einschr\u00E4nken auf Basis einer Grafik",
                 button: "Vorhandene Grafik ausw\u00E4hlen",
+                button2: "Weitere vorhandene Grafik ausw\u00E4hlen",
                 error: "Keine Grafik gefunden"
             },
             currentExtent: {

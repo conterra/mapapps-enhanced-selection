@@ -52,6 +52,7 @@ define([
             this.connect(existingGraphicWidget, "onShow", this.onSelected);
             this.connect(existingGraphicWidget, "reenable", this.onSelected);
             this.connect(existingGraphicWidget, "search", this.search);
+            this.connect(existingGraphicWidget, "onDone", this.done);
         },
         setExistingGraphicWidget: function (widget) {
             this.existingGraphicWidget = widget;
@@ -63,21 +64,49 @@ define([
         onSelected: function () {
             this._inputGeometry = null;
             this.drawGeometryHandler.deactivateDraw();
+            this.drawGeometryHandler.clearGraphics();
+            this.existingGraphicWidget.startButton.set("label", this._i18n.get().ui.selectionTools.existingGraphic.button);
+            this.selectGraphic();
+        },
+        selectGraphic: function () {
             var that = this;
             var existingGraphicWidget = this.existingGraphicWidget;
-            var con = this.connect(this._mapState, "onClick", function (evt) {
-                that.disconnect(con);
+            if (this.con) {
+                this.disconnect(this.con);
+            }
+            this.con = this.connect(this._mapState, "onClick", function (evt) {
+                that.disconnect(that.con);
                 if (!existingGraphicWidget.getParent().get("selected")) {
                     return;
                 }
-                this.drawGeometryHandler.clearGraphics();
                 if (evt.graphic) {
-                    that._inputGeometry = evt.graphic.geometry;
-                    that._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
+                    this.drawGeometryHandler.clearGraphics();
+                    var inputGeometry = evt.graphic.geometry;
+                    if (!that._inputGeometry) {
+                        that._inputGeometry = inputGeometry;
+                        that.drawGeometryHandler.drawGeometry(inputGeometry);
+                        that._mapState.setExtent(inputGeometry.getExtent());
+                        that._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
+                        that.existingGraphicWidget.startButton.set("label", that._i18n.get().ui.selectionTools.existingGraphic.button2);
+                    } else {
+                        var oldGeometry = that._inputGeometry;
+                        var geometryService = that._geometryService;
+                        geometryService.on("union-complete", function (evt) {
+                            var geometry = evt.geometry;
+                            that._inputGeometry = geometry;
+                            that.drawGeometryHandler.drawGeometry(geometry);
+                            that._mapState.setExtent(geometry.getExtent());
+                            that._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
+                        });
+                        geometryService.union([oldGeometry, inputGeometry]);
+                    }
                 } else {
                     that._logService.warn(that._i18n.get().ui.selectionTools.existingGraphic.error);
                 }
             });
+        },
+        done: function () {
+            this.selectGraphic();
         },
         search: function (store, spatialRel) {
             var geometry = this._inputGeometry;
