@@ -43,13 +43,12 @@
         "name": "mainWindow",
         "title": "${ui.title}",
         "marginBox": {
-          "w": 465,
-          "h": 400,
-          "t": 380,
-          "l": 20
+          "w": 400,
+          "h": 400
         },
         "minSize": {
-          "w": 465
+          "w": 400,
+          "h": 400
         },
         "closable": true,
         "minimizeOnClose": true,

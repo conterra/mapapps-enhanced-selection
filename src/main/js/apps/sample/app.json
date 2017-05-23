@@ -851,8 +851,8 @@
                 "role": "dn_enhancedselection",
                 "window": {
                   "marginBox": {
-                    "w": 290,
-                    "h": 450,
+                    "w": 465,
+                    "h": 400,
                     "t": 110,
                     "l": 20
                   }
