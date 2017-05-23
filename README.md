@@ -3,9 +3,11 @@
 The Enhanced Selection Bundle allows you to select features in enhanced ways. There are these five special types of selection:
 - Area Selection
 - Freehand Polygon
-- Travel Time
-- Distance
+- Polygon
 - Existing Graphic
+- Current Extent
+- Distance
+- Travel Time
 
 Sample App
 ------------------
@@ -15,6 +17,68 @@ Installation Guide
 ------------------
 #### Configurable Components:
 
+##### BaseWidget:
+Basic Settings
+```
+"BaseWidget": {
+  "enableContains": true
+}
+```
+##### BaseWidgetController:
+Basic Settings
+```
+"BaseWidgetController": {
+  "clearGraphics": true
+}
+```
+##### SrWidgetFactory:
+Define selectable stores
+```
+"SrWidgetFactory": {
+  "storeIds": [
+    "%STORE_ID1%",
+    "%STORE_ID2%",
+    ...
+  ]
+}
+```
+##### SelectFeatureFromLayerController:
+Define selectable stores
+```
+"SelectFeatureFromLayerController": {
+  "widgetEnabled": true,
+  "scale": 500000,
+  "storeIds": [
+    "%STORE_ID1%",
+    "%STORE_ID2%",
+    ...
+  ]
+}
+```
+##### FreehandPolygonController
+```
+"FreehandPolygonController": {
+  "widgetEnabled": true
+}
+```
+##### PolygonController
+```
+"PolygonController": {
+  "widgetEnabled": true
+}
+```
+##### ExistingGraphicController
+```
+"ExistingGraphicController": {
+  "widgetEnabled": true
+}
+```
+##### CurrentExtentController
+```
+"CurrentExtentController": {
+  "widgetEnabled": true
+}
+```
 ##### DistanceCircleController:
 ```
 "DistanceCircleController": {
@@ -41,56 +105,6 @@ Installation Guide
   }
 }
 ```
-##### SelectFeatureFromLayerController:
-Define selectable stores
-```
-"SelectFeatureFromLayerController": {
-  "widgetEnabled": true,
-  "scale": 500000,
-  "storeIds": [
-    "%STORE_ID1%",
-    "%STORE_ID2%",
-    ...
-  ]
-}
-```
-##### FreehandPolygonController
-```
-"FreehandPolygonController": {
-  "widgetEnabled": true
-}
-```
-##### ExistingGraphicController
-```
-"ExistingGraphicController": {
-  "widgetEnabled": true
-},
-```
-##### SrWidgetFactory:
-Define selectable stores
-```
-"SrWidgetFactory": {
-  "storeIds": [
-    "%STORE_ID1%",
-    "%STORE_ID2%",
-    ...
-  ]
-}
-```
-##### BaseWidgetController:
-Basic Settings
-```
-"BaseWidgetController": {
-  "clearGraphics": true
-}
-```
-##### BaseWidget:
-Basic Settings
-```
-"BaseWidget": {
-  "enableContains": true
-}
-```
 
 You can activate or deactivate all widgets by setting "widgetEnabled" to true or false.
 
@@ -103,14 +117,20 @@ To change the order of selection types you can change the Service-Ranking:
 "FreehandPolygonWidget": {
   "Service-Ranking": -2
 },
-"ExistingGraphicWidget": {
+"PolygonWidget": {
   "Service-Ranking": -3
 },
-"DistanceCircleWidget": {
+"ExistingGraphicWidget": {
   "Service-Ranking": -4
 },
-"DriveTimeWidget": {
+"CurrentExtentWidget": {
   "Service-Ranking": -5
+},
+"DistanceCircleWidget": {
+  "Service-Ranking": -6
+},
+"DriveTimeWidget": {
+  "Service-Ranking": -7
 }
 ```
 
