@@ -32,55 +32,55 @@
           "children": [
             {
               "title": "${ui.base.menuTitle}",
-              "iconUrl": "resource('icons/baseconfig.png')",
+              "iconUrl": "resource('images/baseconfig.png')",
               "widget": "baseWidget",
               "priority": 0
             },
             {
               "title": "${ui.storeSelection.menuTitle}",
-              "iconUrl": "resource('icons/baseconfig.png')",
+              "iconUrl": "resource('images/bundleicon.png')",
               "widget": "storeSelectionWidget",
               "priority": -1
             },
             {
               "title": "${ui.selectFeatureFromLayer.menuTitle}",
-              "iconUrl": "resource('icons/gebietsauswahl.png')",
+              "iconUrl": "resource('images/selectfeaturefromlayer.png')",
               "widget": "selectFeatureFromWidget",
               "priority": -2
             },
             {
               "title": "${ui.freehandPolygon.menuTitle}",
-              "iconUrl": "resource('icons/freihand.png')",
+              "iconUrl": "resource('images/freehandpolygon.png')",
               "widget": "freehandPolygonWidget",
               "priority": -3
             },
             {
               "title": "${ui.polygon.menuTitle}",
-              "iconUrl": "resource('icons/freihand.png')",
+              "iconUrl": "resource('images/polygon.png')",
               "widget": "polygonWidget",
               "priority": -4
             },
             {
               "title": "${ui.existingGraphic.menuTitle}",
-              "iconUrl": "resource('icons/vorgrafik.png')",
+              "iconUrl": "resource('images/existinggraphic.png')",
               "widget": "existingGraphicWidget",
               "priority": -5
             },
             {
               "title": "${ui.currentExtent.menuTitle}",
-              "iconUrl": "resource('icons/baseconfig.png')",
+              "iconUrl": "resource('images/extent.png')",
               "widget": "currentExtentWidget",
               "priority": -6
             },
             {
               "title": "${ui.distance.menuTitle}",
-              "iconUrl": "resource('icons/distanz.png')",
+              "iconUrl": "resource('images/distance.png')",
               "widget": "distanceWidget",
               "priority": -7
             },
             {
               "title": "${ui.driveTime.menuTitle}",
-              "iconUrl": "resource('icons/fahrzeit.png')",
+              "iconUrl": "resource('images/traveltime.png')",
               "widget": "driveTimeWidget",
               "priority": -8
             }

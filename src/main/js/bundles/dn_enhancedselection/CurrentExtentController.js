@@ -66,6 +66,7 @@ define([
             this._inputGeometry = null;
         },
         done: function () {
+            this.drawGeometryHandler.clearGraphics();
             this._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
         },
         search: function (store, spatialRel) {

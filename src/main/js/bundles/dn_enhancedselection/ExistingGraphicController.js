@@ -70,6 +70,7 @@ define([
                 if (!existingGraphicWidget.getParent().get("selected")) {
                     return;
                 }
+                this.drawGeometryHandler.clearGraphics();
                 if (evt.graphic) {
                     that._inputGeometry = evt.graphic.geometry;
                     that._eventService.postEvent("ct/dn_enhancedselection/SEARCH");

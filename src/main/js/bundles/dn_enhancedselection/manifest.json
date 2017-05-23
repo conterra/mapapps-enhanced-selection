@@ -25,6 +25,10 @@
     {
       "name": "selection",
       "version": "^3.3.0"
+    },
+    {
+      "name": "coordinatetransformer",
+      "version": "^3.3.0"
     }
   ],
   "CSS-Themes-Extension": [

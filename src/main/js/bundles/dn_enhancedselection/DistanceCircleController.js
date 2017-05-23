@@ -51,7 +51,6 @@ define([
             var componentName = this.componentName;
             if (properties.widgetEnabled) {
                 componentContext.enableComponent(componentName);
-                this.disconnect();
                 this._initWidget();
             } else {
                 componentContext.disableComponent(componentName);
