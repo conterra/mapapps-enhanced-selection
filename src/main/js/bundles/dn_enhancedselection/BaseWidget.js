@@ -53,19 +53,10 @@ define([
                 }, this.spatialRelation);
             }
         },
-        // onCancel event
-        onCancel: function (event) {
-        },
-        // setTerm event
-        onSearch: function (event) {
-        },
         // onReset event        
         onReset: function (event) {
         },
         deactivateWidget: function (event) {
-        },
-        _getContentBox: function (dom) {
-            return d_domGeometry.getMarginBox(dom);
         },
         resize: function (dim) {
             if (dim && dim.h > 0) {

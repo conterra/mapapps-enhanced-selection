@@ -59,6 +59,11 @@ define({
                     button: "Get graphic",
                     error: "No graphic found"
                 },
+                currentExtent: {
+                    title: "Current Extent",
+                    desc: "Restrict selection area based on a current extent.",
+                    button: "Search in current extent"
+                },
                 distance: {
                     title: "Distance",
                     desc: "Restrict selection area based on distance",

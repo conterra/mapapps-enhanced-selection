@@ -54,6 +54,10 @@ define({
             menuTitle: "Selektion durch Vorhandene Grafik",
             description: "Auswahl anhand vorhandener Grafik konfigurieren"
         },
+        currentExtent: {
+            menuTitle: "Selektion durch aktuellen Kartenausschnitt",
+            description: "Auswahl anhand des aktuellen Kartenausschnitts konfigurieren"
+        },
         distance: {
             menuTitle: "Selektion durch Entfernung",
             description: "Entfernungsselektion konfigurieren",

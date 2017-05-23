@@ -20,8 +20,7 @@ define([
     "ct/async"
 ], function (declare, i18n, _Connect, ct_async) {
     return declare([_Connect], {
-        geometryType: "FreehandPolygon",
-        componentName: "FreehandPolygonWidget",
+        componentName: "CurrentExtentWidget",
         activate: function (componentContext) {
             var properties = this._properties;
             if (!properties.widgetEnabled) {
@@ -31,7 +30,7 @@ define([
                 }, 0);
                 return;
             }
-            this._initWidget();
+            this.currentExtentWidget && this._initWidget();
         },
         deactivate: function () {
             this.disconnect();
@@ -48,42 +47,29 @@ define([
             }
         },
         _initWidget: function () {
-            var freehandPolygonWidget = this.freehandPolygonWidget;
+            var currentExtentWidget = this.currentExtentWidget;
             this.disconnect();
-            this.connect(freehandPolygonWidget, "onShow", this.onSelected);
-            this.connect(freehandPolygonWidget, "reenable", this.draw);
-            this.connect(freehandPolygonWidget, "search", this.search);
+            this.connect(currentExtentWidget, "onShow", this.onSelected);
+            this.connect(currentExtentWidget, "reenable", this.onSelected);
+            this.connect(currentExtentWidget, "search", this.search);
+            this.connect(currentExtentWidget, "onDone", this.done);
         },
-        geometryDrawn: function (evt) {
-            this._inputGeometry = evt.getProperty("geometry");
-            var freehandPolygonWidget = this.freehandPolygonWidget;
-            try{
-                if (!freehandPolygonWidget.getParent().get("selected")) {
-                    return;
-                }
-                this._mapState.setExtent(this._inputGeometry.getExtent());
-                this._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
-            } catch(e) {
-                // do nothing
-            }
-        },
-        draw: function (geometryType) {
-            this.drawGeometryHandler.allowUserToDrawGeometry(geometryType || this.geometryType);
-        },
-        setFreehandPolygonWidget: function (widget) {
-            this.freehandPolygonWidget = widget;
+        setCurrentExtentWidget: function (widget) {
+            this.currentExtentWidget = widget;
             this._initWidget();
         },
-        unsetFreehandPolygonWidget: function () {
+        unsetCurrentExtentWidget: function () {
             this.disconnect();
         },
         onSelected: function () {
+            this.drawGeometryHandler.deactivateDraw();
             this._inputGeometry = null;
-            var geometryType = this.geometryType;
-            this.draw(geometryType);
+        },
+        done: function () {
+            this._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
         },
         search: function (store, spatialRel) {
-            var geometry = this._inputGeometry;
+            var geometry = this._inputGeometry = this._mapState.getExtent();
             if (!geometry) {
                 return;
             }

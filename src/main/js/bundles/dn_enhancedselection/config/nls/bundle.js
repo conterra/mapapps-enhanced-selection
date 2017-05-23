@@ -55,6 +55,10 @@ define({
                 menuTitle: "Selection By Existing Graphic",
                 description: "Configure existing graphic selection"
             },
+            currentExtent: {
+                menuTitle: "Selection By Current Extent",
+                description: "Configure current extent selection"
+            },
             distance: {
                 menuTitle: "Selection By Distance",
                 description: "Configure Selection by distance",

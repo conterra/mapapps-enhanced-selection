@@ -78,6 +78,7 @@ define([
             this.disconnect();
         },
         onSelected: function () {
+            this._inputGeometry = null;
             var geometryType = this.geometryType;
             this.draw(geometryType);
         },

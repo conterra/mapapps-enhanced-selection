@@ -141,6 +141,7 @@ define([
             this.drawGeometryHandler.allowUserToDrawGeometry(geometryType || this.geometryType);
         },
         onSelected: function (selected) {
+            this._inputGeometry = null;
             var geometryType = this.geometryType;
             this.draw(geometryType);
         },

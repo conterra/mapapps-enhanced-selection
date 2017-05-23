@@ -83,8 +83,8 @@ define([
             this._dataModel.setDatasource();
         },
         deactivateWidget: function () {
-            this.drawGeometryHandler.disconnect(),
-                this.drawGeometryHandler.deactivateDraw();
+            this.drawGeometryHandler.disconnect();
+            this.drawGeometryHandler.deactivateDraw();
             if (this._properties.clearGraphics) {
                 this.drawGeometryHandler.clearGraphics();
                 this._dataModel.setDatasource();

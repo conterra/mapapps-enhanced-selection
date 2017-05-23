@@ -58,25 +58,31 @@
               "title": "${ui.polygon.menuTitle}",
               "iconUrl": "resource('icons/freihand.png')",
               "widget": "polygonWidget",
-              "priority": -3
+              "priority": -4
             },
             {
               "title": "${ui.existingGraphic.menuTitle}",
               "iconUrl": "resource('icons/vorgrafik.png')",
               "widget": "existingGraphicWidget",
-              "priority": -4
+              "priority": -5
+            },
+            {
+              "title": "${ui.currentExtent.menuTitle}",
+              "iconUrl": "resource('icons/baseconfig.png')",
+              "widget": "currentExtentWidget",
+              "priority": -6
             },
             {
               "title": "${ui.distance.menuTitle}",
               "iconUrl": "resource('icons/distanz.png')",
               "widget": "distanceWidget",
-              "priority": -5
+              "priority": -7
             },
             {
               "title": "${ui.driveTime.menuTitle}",
               "iconUrl": "resource('icons/fahrzeit.png')",
               "widget": "driveTimeWidget",
-              "priority": -6
+              "priority": -8
             }
           ]
         }
@@ -183,78 +189,6 @@
       ]
     },
     {
-      "name": "DistanceWidget",
-      "impl": "wizard/DataFormBuilderWidgetFactory",
-      "provides": [
-        "dijit.wizard.Widget"
-      ],
-      "immediate": true,
-      "instanceFactory": true,
-      "properties": {
-        "dataformFile": "resource('./DistanceWidget.json')",
-        "bid": "dn_enhancedselection",
-        "pid": "dn_enhancedselection-DistanceCircleController",
-        "id": "distanceWidget",
-        "defaultProperties": {
-          "widgetEnabled": true,
-          "distance": {
-            "minimum": 0,
-            "maximum": 1000,
-            "defaultStart": 0,
-            "defaultEnd": 500,
-            "interval": 50,
-            "unit": "KILOMETERS"
-          }
-        },
-        "description": "${ui.distance.description}"
-      },
-      "references": [
-        {
-          "name": "_configAdminService",
-          "providing": "ct.framework.api.ConfigurationAdmin"
-        },
-        {
-          "name": "_dataformService",
-          "providing": "dataform.DataFormService"
-        }
-      ]
-    },
-    {
-      "name": "DriveTimeWidget",
-      "impl": "wizard/DataFormBuilderWidgetFactory",
-      "provides": [
-        "dijit.wizard.Widget"
-      ],
-      "immediate": true,
-      "instanceFactory": true,
-      "properties": {
-        "dataformFile": "resource('./DriveTimeWidget.json')",
-        "bid": "dn_enhancedselection",
-        "pid": "dn_enhancedselection-DriveTimeController",
-        "id": "driveTimeWidget",
-        "defaultProperties": {
-          "widgetEnabled": true,
-          "drivetime": {
-            "minimum": 0,
-            "maximum": 30,
-            "interval": 1
-          },
-          "geoprocessorUrl": "http://logistics.arcgis.com/arcgis/rest/services/World/ServiceAreas/GPServer/GenerateServiceAreas"
-        },
-        "description": "${ui.driveTime.description}"
-      },
-      "references": [
-        {
-          "name": "_configAdminService",
-          "providing": "ct.framework.api.ConfigurationAdmin"
-        },
-        {
-          "name": "_dataformService",
-          "providing": "dataform.DataFormService"
-        }
-      ]
-    },
-    {
       "name": "FreehandPolygonWidget",
       "impl": "wizard/DataFormBuilderWidgetFactory",
       "provides": [
@@ -329,6 +263,107 @@
           "widgetEnabled": true
         },
         "description": "${ui.existingGraphic.description}"
+      },
+      "references": [
+        {
+          "name": "_configAdminService",
+          "providing": "ct.framework.api.ConfigurationAdmin"
+        },
+        {
+          "name": "_dataformService",
+          "providing": "dataform.DataFormService"
+        }
+      ]
+    },
+    {
+      "name": "CurrentExtentWidget",
+      "impl": "wizard/DataFormBuilderWidgetFactory",
+      "provides": [
+        "dijit.wizard.Widget"
+      ],
+      "immediate": true,
+      "instanceFactory": true,
+      "properties": {
+        "dataformFile": "resource('./CurrentExtentWidget.json')",
+        "bid": "dn_enhancedselection",
+        "pid": "dn_enhancedselection-CurrentExtentController",
+        "id": "currentExtentWidget",
+        "defaultProperties": {
+          "widgetEnabled": true
+        },
+        "description": "${ui.currentExtent.description}"
+      },
+      "references": [
+        {
+          "name": "_configAdminService",
+          "providing": "ct.framework.api.ConfigurationAdmin"
+        },
+        {
+          "name": "_dataformService",
+          "providing": "dataform.DataFormService"
+        }
+      ]
+    },
+    {
+      "name": "DistanceWidget",
+      "impl": "wizard/DataFormBuilderWidgetFactory",
+      "provides": [
+        "dijit.wizard.Widget"
+      ],
+      "immediate": true,
+      "instanceFactory": true,
+      "properties": {
+        "dataformFile": "resource('./DistanceWidget.json')",
+        "bid": "dn_enhancedselection",
+        "pid": "dn_enhancedselection-DistanceCircleController",
+        "id": "distanceWidget",
+        "defaultProperties": {
+          "widgetEnabled": true,
+          "distance": {
+            "minimum": 0,
+            "maximum": 1000,
+            "defaultStart": 0,
+            "defaultEnd": 500,
+            "interval": 50,
+            "unit": "KILOMETERS"
+          }
+        },
+        "description": "${ui.distance.description}"
+      },
+      "references": [
+        {
+          "name": "_configAdminService",
+          "providing": "ct.framework.api.ConfigurationAdmin"
+        },
+        {
+          "name": "_dataformService",
+          "providing": "dataform.DataFormService"
+        }
+      ]
+    },
+    {
+      "name": "DriveTimeWidget",
+      "impl": "wizard/DataFormBuilderWidgetFactory",
+      "provides": [
+        "dijit.wizard.Widget"
+      ],
+      "immediate": true,
+      "instanceFactory": true,
+      "properties": {
+        "dataformFile": "resource('./DriveTimeWidget.json')",
+        "bid": "dn_enhancedselection",
+        "pid": "dn_enhancedselection-DriveTimeController",
+        "id": "driveTimeWidget",
+        "defaultProperties": {
+          "widgetEnabled": true,
+          "drivetime": {
+            "minimum": 0,
+            "maximum": 30,
+            "interval": 1
+          },
+          "geoprocessorUrl": "http://logistics.arcgis.com/arcgis/rest/services/World/ServiceAreas/GPServer/GenerateServiceAreas"
+        },
+        "description": "${ui.driveTime.description}"
       },
       "references": [
         {

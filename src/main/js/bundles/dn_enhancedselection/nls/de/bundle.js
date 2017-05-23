@@ -58,6 +58,11 @@ define({
                 button: "Vorhandene Grafik ausw\u00E4hlen",
                 error: "Keine Grafik gefunden"
             },
+            currentExtent: {
+                title: "Aktueller Kartenausschnitt",
+                desc: "Selektionsbereich einschr\u00E4nken auf Basis des aktuellen Kartenausschnitts",
+                button: "Im aktuellen Kartenausschnitt suchen"
+            },
             distance: {
                 title: "Entfernung",
                 desc: "Selektionsbereich einschr\u00E4nken auf Basis der Entfernung",
