@@ -33,7 +33,10 @@
   ],
   "CSS-Themes-Extension": [
     {
-      "name": "*"
+      "name": "*",
+      "files": [
+        "./styles/styles.css"
+      ]
     }
   ],
   "layout-widgets": [
