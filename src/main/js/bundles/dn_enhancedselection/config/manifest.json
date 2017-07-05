@@ -28,7 +28,7 @@
         "menuNode": {
           "title": "${title}",
           "description": "${description}",
-          "iconUrl": "resource('icons/complexselection.png')",
+          "iconUrl": "resource('images/complexselection.png')",
           "children": [
             {
               "title": "${ui.base.menuTitle}",
