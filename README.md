@@ -30,6 +30,10 @@ Enable Bundle in `app.json`
 ```
 Then check if you can choose it in Live Configuration / Extended Configuration.
 
+To add the layer to one of the toolbars open Up 
+> Live Configuration / Extended Configuration / Toolset (toolset) / Components / ToolsetManager 
+
+and add `dn_enhancedselectionToggleTool` to any `tools` array (depending on where you want to place the button)
 
 Basic Settings
 ```
