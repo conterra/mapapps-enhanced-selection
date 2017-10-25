@@ -18,6 +18,19 @@ Installation Guide
 #### Configurable Components:
 
 ##### BaseWidget:
+Enable Bundle in `app.json`
+```
+"load" : {
+   // ...
+   "allowedBundles": [
+       "dn_enhancedselection",
+       // ...
+   ]
+}
+```
+Then check if you can choose it in Live Configuration / Extended Configuration.
+
+
 Basic Settings
 ```
 "BaseWidget": {
