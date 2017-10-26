@@ -9,9 +9,9 @@ The Enhanced Selection Bundle allows you to select features in enhanced ways. Th
 - Distance
 - Travel Time
 
-![freehand polygon selection](https://github.com/conterra/mapapps-enhanced-selection/polygonSelection.JPG)
+![freehand polygon selection](https://github.com/conterra/mapapps-enhanced-selection/blob/master/polygonSelection.JPG)
 
-![distance selection](https://github.com/conterra/mapapps-enhanced-selection/distance.JPG)
+![distance selection](https://github.com/conterra/mapapps-enhanced-selection/blob/master/distance.JPG)
 
 
 Sample App
