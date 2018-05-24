@@ -26,7 +26,7 @@ define({
             custominfo: {
                 title: "Information",
                 tooltip: "Information",
-                content: "This bundle provides tools for enhanced selection."
+                content: "This bundle provides tools for enhanced selection. To test it use the window on the left and choose a tool in the tab container to restrict the selection with."
             },
             map: {
                 base: {

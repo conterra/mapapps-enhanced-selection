@@ -26,7 +26,7 @@ define(
         custominfo: {
             title: "Information",
             tooltip: "Information",
-            content: "Dieses Bundle stellt Tools für die erweiterte Selektion von Features bereit."
+            content: "Dieses Bundle stellt Tools für die erweiterte Selektion von Features bereit. Um es auszuprobieren nutzen Sie bitte das Fenster auf der linken Seite. Wählen sie in der Tableiste die gewünschte Funktion um die Suche einzugrenzen"
         },
         map: {
             base: {

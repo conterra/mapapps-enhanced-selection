@@ -122,9 +122,9 @@
               "title": "${custominfo.title}",
               "marginBox": {
                 "w": 300,
-                "h": 100,
+                "h": 120,
                 "r": 25,
-                "b": 58
+                "b": 150
               },
               "draggable": true,
               "closable": true,
