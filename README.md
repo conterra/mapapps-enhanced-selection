@@ -10,9 +10,9 @@ The Enhanced Selection Bundle allows you to select features in enhanced ways. Th
 - Travel Time
 - Search Selection
 
-![freehand polygon selection](<img src="https://github.com/conterra/mapapps-enhanced-selection/polygonSelection.JPG" width="400">)
+![freehand polygon selection](https://github.com/conterra/mapapps-enhanced-selection/blob/master/polygonSelection.JPG)
 
-![distance selection](<img src="https://github.com/conterra/mapapps-enhanced-selection/distance.JPG" width="400">)
+![distance selection](https://github.com/conterra/mapapps-enhanced-selection/blob/master/distance.JPG)
 
 
 Sample App
@@ -24,6 +24,23 @@ Installation Guide
 #### Configurable Components:
 
 ##### BaseWidget:
+Enable Bundle in `app.json`
+```
+"load" : {
+   // ...
+   "allowedBundles": [
+       "dn_enhancedselection",
+       // ...
+   ]
+}
+```
+Then check if you can choose it in Live Configuration / Extended Configuration.
+
+To add the layer to one of the toolbars open Up 
+> Live Configuration / Extended Configuration / Toolset (toolset) / Components / ToolsetManager 
+
+and add `dn_enhancedselectionToggleTool` to any `tools` array (depending on where you want to place the button)
+
 Basic Settings
 ```
 "BaseWidget": {
