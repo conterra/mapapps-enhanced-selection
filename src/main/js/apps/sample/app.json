@@ -87,6 +87,9 @@
           "unit": "KILOMETERS"
         }
       },
+      "SearchSelectionController": {
+        "widgetEnabled": true
+      },
       "DriveTimeController": {
         "widgetEnabled": true,
         "geoprocessorUrl": "http://logistics.arcgis.com/arcgis/rest/services/World/ServiceAreas/GPServer/GenerateServiceAreas",
@@ -163,7 +166,8 @@
           "idProperty": "OBJECTID",
           "url": "https://services.arcgis.com/OLiydejKCZTGhvWg/arcgis/rest/services/Infas_PLZ_Gebiete_D_2012/FeatureServer/1",
           "useIn": [
-            "selection"
+            "selection",
+            "omnisearch"
           ],
           "filterOptions": {
             "suggestContains": true
@@ -853,7 +857,7 @@
                   "marginBox": {
                     "w": 465,
                     "h": 400,
-                    "t": 110,
+                    "t": 140,
                     "l": 20
                   }
                 }
@@ -885,7 +889,7 @@
             "templates": {
               "*": {
                 "position": {
-                  "rel_t": 20,
+                  "rel_t": 60,
                   "rel_l": 20
                 }
               }

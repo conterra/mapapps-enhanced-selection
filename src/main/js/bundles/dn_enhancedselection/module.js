@@ -34,6 +34,8 @@ define([
     "./DistanceCircleController",
     "./DriveTimeWidget",
     "./DriveTimeController",
+    "./SearchSelectionController",
+    "./SearchSelectionWidget",
     "dijit/layout/ContentPane",
     "ct/tools/Tool"
 ], {});

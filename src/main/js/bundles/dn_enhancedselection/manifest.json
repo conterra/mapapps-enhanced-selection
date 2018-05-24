@@ -1,6 +1,6 @@
 {
   "Bundle-SymbolicName": "dn_enhancedselection",
-  "Bundle-Version": "2.1.1-SNAPSHOT",
+  "Bundle-Version": "2.2.0-SNAPSHOT",
   "Bundle-Name": "${bundleName}",
   "Bundle-Description": "${bundleDescription}",
   "Bundle-Vendor": "con terra GmbH",
@@ -29,6 +29,10 @@
     {
       "name": "coordinatetransformer",
       "version": "^3.3.0"
+    },
+    {
+      "name": "omnisearch",
+      "version": "^3.x"
     }
   ],
   "CSS-Themes-Extension": [
@@ -165,6 +169,64 @@
         {
           "name": "_eventService",
           "providing": "ct.framework.api.EventService"
+        }
+      ]
+    },
+    {
+      "name": "SearchSelectionWidget",
+      "propertiesConstructor": true,
+      "properties": {
+        "Service-Ranking": -8
+      },
+      "provides": [
+        "dijit.Widget",
+        "dn_enhancedselection.GeometryInputProvider",
+        "dn_enhancedselection.SearchSelectionWidget"
+      ],
+      "references": [
+        {
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
+        }
+      ]
+    },
+    {
+      "name": "SearchSelectionController",
+      "provides": [
+        "ct.api.omnisearch.ResultHandler",
+        "ct.framework.api.EventHandler"
+      ],
+      "properties": {
+        "id": "SearchSelectionViewerController",
+        "type": [
+          "select"
+        ]
+      },
+      "references": [
+        {
+          "name": "_eventService",
+          "providing": "ct.framework.api.EventService"
+        },
+        {
+          "name": "_logService",
+          "providing": "ct.framework.api.LogService"
+        },
+        {
+          "name": "SearchSelectionWidget",
+          "providing": "dn_enhancedselection.SearchSelectionWidget",
+          "cardinality": "0..1"
+        },
+        {
+          "name": "_mapState",
+          "providing": "ct.mapping.map.MapState"
+        },
+        {
+          "name": "queryController",
+          "providing": "dn_enhancedselection.QueryController"
+        },
+        {
+          "name": "baseWidget",
+          "providing": "dn_enhancedselection.baseWidget"
         }
       ]
     },

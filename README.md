@@ -1,6 +1,6 @@
 # Enhanced Selection
 
-The Enhanced Selection Bundle allows you to select features in enhanced ways. There are these five special types of selection:
+The Enhanced Selection Bundle allows you to select features in enhanced ways. There are these six special types of selection:
 - Area Selection
 - Freehand Polygon
 - Polygon
@@ -8,6 +8,7 @@ The Enhanced Selection Bundle allows you to select features in enhanced ways. Th
 - Current Extent
 - Distance
 - Travel Time
+- Search Selection
 
 ![freehand polygon selection](<img src="https://github.com/conterra/mapapps-enhanced-selection/polygonSelection.JPG" width="400">)
 
@@ -109,6 +110,13 @@ Define selectable stores
     "interval": 1
   }
 }
+```
+
+##### SearchSelection
+```
+"SearchSelectionController": {
+   "widgetEnabled": true
+},
 ```
 
 You can activate or deactivate all widgets by setting "widgetEnabled" to true or false.

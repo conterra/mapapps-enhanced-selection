@@ -73,6 +73,12 @@ define({
                 title: "Fahrtzeit",
                 desc: "Selektionsbereich einschr\u00E4nken auf Basis der Entfernung nach Fahrzeit (ArcGIS-Online Account ben\u00F6tigt)",
                 button: "Ort ausw\u00E4hlen"
+            },
+            searchSelection: {
+                title: "Auswahl per Suche",
+                desc: "Selektionsbereich einschr\u00E4nken auf Basis der Omi-Suche Ergebnisse",
+                button: "Auf Omnisuchergebnis beschränken",
+                error: "Sie müssen zuerst eine Geometrie mithilfe der Omni-Suche auswählen"
             }
         },
         between: "Zwischen",

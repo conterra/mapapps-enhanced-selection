@@ -74,6 +74,12 @@ define({
                     title: "Travel Time",
                     desc: "Restrict selection area based on distance by travel time (ArcGIS-Online Account required)",
                     button: "Select location"
+                },
+                searchSelection: {
+                    title: "Search Selection",
+                    desc: "Selction restriction are based on results from the omnisearch",
+                    button: "Restrict on omnisearch results",
+                    error: "You have to select a geometry via omnisearch first"
                 }
             },
             between: "Between",
