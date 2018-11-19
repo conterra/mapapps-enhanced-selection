@@ -70,7 +70,6 @@ Define selectable stores
 ```
 "SelectFeatureFromLayerController": {
   "widgetEnabled": true,
-  "scale": 500000,
   "storeIds": [
     "%STORE_ID1%",
     "%STORE_ID2%",
