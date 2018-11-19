@@ -120,7 +120,7 @@ define([
                     }), function (result) {
                         if (result.length > 0) {
                             var geometry = result[0].geometry;
-                            that._mapState.setExtent(geometry.getExtent());
+                            that._mapState.centerAndZoomToScale(geometry.getExtent().getCenter(), that._properties.scale);
                             var inputGeom = that._inputGeometry = geometry;
                             that.drawGeometryHandler.drawGeometry(inputGeom);
                             that._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
