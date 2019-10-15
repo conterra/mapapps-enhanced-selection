@@ -55,15 +55,19 @@ define([
             this.connect(freehandPolygonWidget, "search", this.search);
         },
         geometryDrawn: function (evt) {
+            var geom = evt.getProperty("geometry");
+            if (geom === this._inputGeometry){
+                return;
+            }
             this._inputGeometry = evt.getProperty("geometry");
             var freehandPolygonWidget = this.freehandPolygonWidget;
-            try{
+            try {
                 if (!freehandPolygonWidget.getParent().get("selected")) {
                     return;
                 }
                 this._mapState.setExtent(this._inputGeometry.getExtent());
                 this._eventService.postEvent("ct/dn_enhancedselection/SEARCH");
-            } catch(e) {
+            } catch (e) {
                 // do nothing
             }
         },
