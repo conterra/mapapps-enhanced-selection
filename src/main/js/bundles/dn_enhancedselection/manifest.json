@@ -1,6 +1,6 @@
 {
   "Bundle-SymbolicName": "dn_enhancedselection",
-  "Bundle-Version": "2.2.1-SNAPSHOT",
+  "Bundle-Version": "2.2.1",
   "Bundle-Name": "${bundleName}",
   "Bundle-Description": "${bundleDescription}",
   "Bundle-Vendor": "con terra GmbH",
