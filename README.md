@@ -15,10 +15,6 @@ The Enhanced Selection Bundle allows you to select features in enhanced ways. Th
 ![distance selection](https://github.com/conterra/mapapps-enhanced-selection/blob/master/distance.JPG)
 
 
-Sample App
-------------------
-https://demos.conterra.de/mapapps/resources/apps/downloads_enhancedselection/index.html
-
 Installation Guide
 ------------------
 #### Configurable Components:
